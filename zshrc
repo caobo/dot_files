@@ -193,6 +193,6 @@ greet_message="
 "
 echo -e "$greet_message"
 
-if [ $(uname) = "Linux" ]: then
+if [ $(uname) = "Linux" ]; then
     KITTY_ENABLE_WAYLAND=1
 fi

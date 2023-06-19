@@ -1,0 +1,219 @@
+{
+    // ============================
+    // looks and font settings
+    // ============================
+    "workbench.settings.editor": "json",
+    "workbench.settings.useSplitJSON": true,
+    "editor.fontSize": 16,
+    "debug.console.fontSize": 16,
+    "markdown.preview.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "editor.fontFamily": "SFMono-Medium",
+    "editor.fontLigatures": true,
+    "editor.lineHeight": 1.7,
+    "workbench.editor.highlightModifiedTabs": true,
+    "explorer.sortOrder": "type",
+    "editor.cursorBlinking": "expand",
+    "editor.overviewRulerBorder": false,
+    "editor.scrollbar.vertical": "hidden",
+    "workbench.colorCustomizations": {
+        "editorLineNumber.foreground": "#0ABAB5",
+        "editorCursor.foreground": "#d41313",
+        "editor.lineHighlightBackground": "#95d6d060",
+        "statusBar.background": "#007ACC",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.noFolderBackground": "#007ACC",
+        "statusBar.noFolderForeground": "#ffffff",
+        // "editorGroupHeader.tabsBackground":"#007ACC",
+        "editorGroupHeader.tabsBorder":"#ffffff",
+        "tab.border":"#ffffff",
+        "tab.activeBackground":"#ffffff",
+        "tab.activeBorder":"#ffffff",
+        "tab.activeBorderTop":"#ffffff",
+        // "window.activeBorder":"#ffffff",
+        },
+    "editor.tokenColorCustomizations": {
+        "comments": "#0ABAB5"
+    },
+    "terminal.integrated.fontWeight": 15,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": true,
+    "editor.guides.highlightActiveBracketPair": true,
+    
+    // ============================
+    // editor settings
+    // ============================
+    "atomKeymap.promptV3Features": true,
+    "files.trimFinalNewlines": true,
+    "editor.tabSize": 4,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "editor.renderLineHighlight": "all",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.startupEditor": "none",
+    "security.workspace.trust.enabled": false,
+    "editor.renderWhitespace": "all",
+    "editor.showFoldingControls": "always",
+    "files.autoSave": "afterDelay",
+    "editor.linkedEditing": true,
+    "diffEditor.renderSideBySide": false,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.rulers": [
+    80
+    ],
+    "files.eol": "\n",
+    "typescript.suggest.paths": false,
+    
+
+    
+    // ============================
+    // python settings
+    // ============================
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left",
+    },
+
+    // ============================
+    // customizeUI settings
+    // ============================
+    // "customizeUI.titleBar": "inline",
+    // "customizeUI.activityBarHideSettings": false,
+    // "customizeUI.activityBar": "top",
+    // "customizeUI.listRowHeight": 20,
+    // "customizeUI.font.monospace": "Monaco",
+    // "customizeUI.stylesheet": {
+    //     ".search-view .search-widgets-container": "padding-top: 0px !important;",
+    //     ".suggest-input-container": "padding: 3px 4px 3px !important;",
+    //     ".quick-input-widget": "width: 1000px !important; left: calc(50% - 200px);"
+    //     },
+    // "customizeUI.font.regular": "Helvetica Nueve",
+    
+    // ============================
+    // code spell check settings
+    // ============================
+    "cSpell.language": "en,en-GB,en-US",
+    "cSpell.userWords": [
+        "beamsplitter",
+        "beamsplitters",
+        "collinearly",
+        "downconverted",
+        "Excilitas",
+        "FDTD",
+        "FWHM",
+        "longpass",
+        "niobate",
+        "PPSLT",
+        "QOCT",
+        "Quantique",
+        "QWPs",
+        "Sellmeier",
+        "shortpass",
+        "SPCM",
+        "SPDC",
+        "Thorlabs",
+        "upconverted",
+        "waveplate",
+        "waveplates"
+    ],
+    
+    // ============================
+    // Latex settings
+    // ============================
+    "latex-workshop.latex.outDir": "out.nosync",
+    "latex-workshop.view.pdf.viewer": "tab",
+
+    // ============================
+    // clock settings
+    // ============================
+    "clock.datetimeFormat": "HH:mm:ss",
+    
+    // ============================
+    // dictionary suggestion settings
+    // ============================
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+
+    // ============================
+    // Language specific settings
+    // ============================
+    
+    // markdown settings
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        },
+        "editor.tabSize": 2,
+    },
+
+    "[latex]": {
+        "editor.language.brackets": [
+            ["\\(", "\\)"],
+            ["(", ")"],
+            ["[", "]"],
+            ["{", "}"],
+        ],
+        "editor.language.colorizedBracketPairs": [
+            ["\\(", "\\)"],
+            ["(", ")"],
+            ["[", "]"],
+            ["{", "}"],
+        ],
+        "editor.formatOnSave": false,
+    },
+    
+    // ============================
+    // Language specific settings
+    // ============================
+    "fileHeaderComment.parameter": {
+        "*": {
+            "author": "Bo Cao",
+            "commentbegin": "/* ",
+            "commentprefix": " *",
+            "commentend": "*/",
+            "company": "Kyoto Univ.",
+        },
+    },
+    "fileHeaderComment.template": {
+        "*": [
+            "${commentbegin}=========================",
+            "${commentprefix} Author: ${author}",
+            "${commentprefix} File name: ${filename}",
+            "${commentprefix} Created on: ${datetime24h}, ${company}",
+            "${commentend}=========================",
+        ],
+    },
+    "editor.largeFileOptimizations": false,
+    "git.ignoreLegacyWarning": true,
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "GitHub Light",
+    "workbench.layoutControl.enabled": false,
+    "workbench.editor.untitled.hint": "hidden",
+    "files.eol": "\n",
+    "workbench.iconTheme": "macos-modern-big-sur-icon-theme",
+    "window.title": "${activeEditorLong}${separator}${rootName}",
+    "editor.renderControlCharacters": true,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.size": "fill",
+    "breadcrumbs.enabled": false,
+    "workbench.sideBar.location": "right",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "editor.foldingStrategy": "indentation",
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "path-intellisense.ignoreTsConfigBaseUrl": true,
+}

@@ -1,0 +1,14 @@
+# directory: $HOME/.config/git/config
+
+# This is Git's per-user configuration file.
+[user]
+	name = Bo Cao
+	email = caobo.86.mail@gmail.com
+[init]
+	defaultBranch = main
+[core]
+#	excludesfile = /Users/bo/.gitignore
+	# editor = code --wait
+	editor = nvim
+[color]
+    ui = auto

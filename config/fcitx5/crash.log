@@ -1,0 +1,20 @@
+=========================
+Fcitx 5.0.23 -- Get Signal No.: 6
+Date: try "date -d @1687103232" if you are using GNU date ***
+ProcessID: 637
+fcitx5(+0x1006c)[0x55b03070006c]
+/usr/lib/libc.so.6(+0x39ab0)[0x7f22d444fab0]
+/usr/lib/libc.so.6(+0x8926c)[0x7f22d449f26c]
+/usr/lib/libc.so.6(gsignal+0x18)[0x7f22d444fa08]
+/usr/lib/libc.so.6(abort+0xd7)[0x7f22d4438538]
+/usr/lib/libFcitx5Utils.so.2(+0x2b0b9)[0x7f22d49700b9]
+/usr/lib/libsystemd.so.0(+0x83b1c)[0x7f22d43b1b1c]
+/usr/lib/libsystemd.so.0(sd_event_dispatch+0x11e)[0x7f22d43b1e9e]
+/usr/lib/libsystemd.so.0(sd_event_run+0x119)[0x7f22d43b36f9]
+/usr/lib/libsystemd.so.0(sd_event_loop+0x60)[0x7f22d43b38d0]
+/usr/lib/libFcitx5Utils.so.2(_ZN5fcitx9EventLoop4execEv+0x16)[0x7f22d4984016]
+/usr/lib/libFcitx5Core.so.7(_ZN5fcitx8Instance4execEv+0x57)[0x7f22d4a4dfc7]
+fcitx5(+0xe4e9)[0x55b0306fe4e9]
+/usr/lib/libc.so.6(+0x23850)[0x7f22d4439850]
+/usr/lib/libc.so.6(__libc_start_main+0x8a)[0x7f22d443990a]
+fcitx5(+0xf8f5)[0x55b0306ff8f5]

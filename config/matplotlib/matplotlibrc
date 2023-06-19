@@ -1,0 +1,72 @@
+# matplotlibrc file
+# author: Bo Cao
+# date: May 28, 2023
+# --------------------
+
+# Font settings
+font.family         : Helvetica       # Global font family
+font.size           : 20.0            # Global font size
+font.serif          : Helvetica       # Serif font family
+font.sans-serif     : Helvetica       # Sans-serif font family
+font.cursive        : Helvetica       # Cursive font family
+font.fantasy        : Helvetica       # Fantasy font family
+font.monospace      : MonoLisa        # Monospace font family
+font.weight         : 500             # Global font weight
+font.stretch        : condensed       # Global font stretch
+text.color          : black           # Text color
+text.hinting        : no_autohint     # Text hinting mode
+text.hinting_factor : 2               # Text hinting factor
+text.antialiased    : True            # Text anti-aliasing
+
+# Lines settings
+lines.linewidth     : 2.0             # Line width
+lines.antialiased   : True            # Line anti-aliasing
+
+# Frame settings
+axes.linewidth      : 1.0             # Axes border width
+axes.titlepad       : 0.0             # Padding between axes title and content
+axes.xmargin        : 0               # X-axis margin
+axes.ymargin        : 0               # Y-axis margin
+axes.zmargin        : .05             # Z-axis margin
+
+# Plots color cycler setting
+axes.prop_cycle     : cycler('color', ['252A34', 'FF2E63', '08D9D6', '3F72AF', 'FBC687', '645CAA', 'e377c2', '7f7f7f', 'bcbd22', '17becf'])
+                                      # Cycle of colors for multiple plots
+
+# Tick settings
+xtick.major.size    : 10              # Major tick size on x-axis
+xtick.minor.size    : 5               # Minor tick size on x-axis
+xtick.major.width   : 1.00            # Major tick width on x-axis
+xtick.minor.width   : 1.00            # Minor tick width on x-axis
+xtick.major.pad     : 5               # Distance between major tick and label on x-axis
+xtick.color         : black           # Tick color on x-axis
+ytick.major.size    : 10              # Major tick size on y-axis
+ytick.minor.size    : 5               # Minor tick size on y-axis
+ytick.major.width   : 1.00            # Major tick width on y-axis
+ytick.minor.width   : 1.00            # Minor tick width on y-axis
+ytick.major.pad     : 5               # Distance between major tick and label on y-axis
+ytick.color         : black           # Tick color on y-axis
+
+# Legend settings
+legend.framealpha       : 1           # Transparency of legend patch
+legend.facecolor        : inherit     # Background color of legend (inherit or color spec)
+legend.edgecolor        : 0           # Boundary color of legend patch
+legend.fancybox         : False       # Use rounded box for legend
+legend.shadow           : True        # Give background a shadow effect
+legend.numpoints        : 3           # Number of marker points in the legend line
+legend.scatterpoints    : 3           # Number of scatter points in the legend
+legend.markerscale      : 1.0         # Relative size of legend markers vs. original
+
+# Figure settings
+figure.dpi              : 120         # Dots per inch (resolution) of the figure
+figure.figsize          : 8,6         # Figure size in inches (width, height)
+figure.labelweight      : medium      # Weight of figure labels
+figure.constrained_layout.use: True   # Use constrained layout for figures
+figure.constrained_layout.h_pad : 0    # Horizontal padding for constrained layout
+figure.constrained_layout.w_pad : 0    # Vertical padding for constrained layout
+
+# Figure saving settings
+savefig.directory       : '/tmp/'     # Default directory for saving figures
+savefig.transparent     : True        # Save figures with transparent background
+ps.usedistiller         : xpdf        # PDF distiller used for PostScript saving
+pdf.compression         : 0           # Compression level for PDF saving

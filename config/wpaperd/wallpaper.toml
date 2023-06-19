@@ -1,0 +1,7 @@
+[default]
+path = "/home/bo/Pictures/.wallpapers/"
+duration = "10m"
+
+# [eDP-1]
+# path = "/home/danyspin97/Pictures/Wallpapers/github_octupus.png"
+# apply-shadow = true

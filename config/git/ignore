@@ -1,0 +1,30 @@
+# directory: $HOME/.gitignore
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Compiled Python files
+*.pyc
+
+# Compiled C++ files
+*.out
+
+# Compiled LaTex files
+out.nosync
+aux.nosync
+compiled_pdfs*
+*.pdf
+*synctex.gz
+
+# Others
+.gitignore
+.vscode

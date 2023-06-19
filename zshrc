@@ -18,17 +18,17 @@ if [ $(uname) = "Darwin" ]; then
     export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"  # Set CPPFLAGS for OpenBLAS
     export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig"  # Set PKG_CONFIG_PATH for OpenBLAS
 fi
-# if [ $(uname) = "Linux" ]; then
-    # export XDG_SESSION_TYPE=wayland
-    # export MOZ_ENABLE_WAYLAND=1
-    # export QT_QPA_PLATFORM="wayland;xcb"
-    # export XDG_CURRENT_DESKTOP=Hyprland
-    # export XDG_CURRENT_SESSION=Hyprland
-    # export LIBSEAT_BACKEND=logind
-    # export GDK_DPI_SCALE=1
-    # export QT_SCALE_FACTOR=1
-    # export WLR_DRM_NO_MODIFIERS=1
-# fi
+if [ $(uname) = "Linux" ]; then
+    export XDG_SESSION_TYPE=wayland
+    export MOZ_ENABLE_WAYLAND=1
+    export QT_QPA_PLATFORM="wayland;xcb"
+    export XDG_CURRENT_DESKTOP=Hyprland
+    export XDG_CURRENT_SESSION=Hyprland
+    export LIBSEAT_BACKEND=logind
+    export GDK_DPI_SCALE=1
+    export QT_SCALE_FACTOR=1
+    export WLR_DRM_NO_MODIFIERS=1
+fi
 
 # Settings for oh-my-zsh
 # --------------------
@@ -193,4 +193,6 @@ greet_message="
 "
 echo -e "$greet_message"
 
-KITTY_ENABLE_WAYLAND=1
+if [ $(uname) = "Linux" ]: then
+    KITTY_ENABLE_WAYLAND=1
+fi

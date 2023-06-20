@@ -105,7 +105,7 @@ current_folder_edit() {
     # Edit selected file in the current folder
     local FILE=$(fd '.*' $(pwd) -t f -x file --mime-type |
         awk -F ':' '/.*:.*text|empty/ { print $1}' |
-        fzf -d '/' --with-nth='-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
+        fzf -d '/' --with-nth='-2','-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
     [[ -z $FILE ]] && echo 'Please select a file.' || nvim "$FILE"
 }
 
@@ -113,7 +113,7 @@ dot_folder_edit() {
     # Edit selected file in the dot_files folder
     local FILE=$(fd '.*' "$HOME/Documents/Software/dot_files" -t f -x file --mime-type |
         awk -F ':' '/.*:.*text|empty/ { print $1}' |
-        fzf -d '/' --with-nth='-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
+        fzf -d '/' --with-nth='-2','-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
     [[ -z $FILE ]] && echo "Please select a file." || nvim "$FILE"
 }
 

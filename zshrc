@@ -75,7 +75,15 @@ rmgt() {
     # Remove a goto directory
     local LINE=$(< "$GT_LIST" |
         fzf --height=~100% --cycle --info=inline --border=rounded)
-    [[ -z $LINE ]] && echo "Please select a goto directory to delete." || sed -i '' "\|"$LINE"$|d" "$GT_LIST"
+    [[ -z $LINE ]] && echo "Please select a goto directory to delete." || 
+        (
+        if [ "$(uname)" = "Linux" ]; then
+            sed -i "\|"$LINE"$|d" "$GT_LIST"
+        fi
+        if [ "$(uname)" = "Darwin" ]; then
+            sed -i '' "\|"$LINE"$|d" "$GT_LIST"
+        fi
+        )
 }
 
 gt() {
@@ -96,16 +104,16 @@ open_applications() {
 current_folder_edit() {
     # Edit selected file in the current folder
     local FILE=$(fd '.*' $(pwd) -t f -x file --mime-type |
-        awk -F ':' '/.*\:.*text|empty/ { print $1}' |
-        fzf --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
+        awk -F ':' '/.*:.*text|empty/ { print $1}' |
+        fzf -d '/' --with-nth='-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
     [[ -z $FILE ]] && echo 'Please select a file.' || nvim "$FILE"
 }
 
 dot_folder_edit() {
     # Edit selected file in the dot_files folder
     local FILE=$(fd '.*' "$HOME/Documents/Software/dot_files" -t f -x file --mime-type |
-        awk -F ':' '/.*\:.*text|empty/ { print $1}' |
-        fzf --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
+        awk -F ':' '/.*:.*text|empty/ { print $1}' |
+        fzf -d '/' --with-nth='-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
     [[ -z $FILE ]] && echo "Please select a file." || nvim "$FILE"
 }
 

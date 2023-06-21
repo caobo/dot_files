@@ -161,11 +161,23 @@ spell() {
     fi
 }
 
+cheat() {
+    # Cheat sheet of a given command
+    [[ -n "$1" ]] && curl https://cheat.sh/"$1" | less || echo "Give me command to cheat ..."
+}
+
+dict() {
+    # Dictionary
+    [[ -n "$1" ]] && curl dict.org/d:"$1" | less || echo "Give me word to search"
+}
+
 # Aliases
 alias latexmk='latexmk -quiet 1> /dev/null'
 alias {vi,vim}='nvim'
 alias cat='bat'
 alias xr='open_xplr'
+alias wttr='curl https://wttr.in'
+alias sysinfo='curl -sL https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch | bash'
 
 # Key bindings
 bindkey -s '^o' 'open_applications\n'

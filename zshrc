@@ -171,6 +171,12 @@ dict() {
     [[ -n "$1" ]] && curl dict.org/d:"$1" | less || echo "Give me word to search"
 }
 
+upfile() {
+    local full_name="$1"
+    local file_name="$(echo "$full_name" | awk -F '/' '{print $NF}')"
+    curl --upload-file "$full_name" https://transfer.sh/"$file_name"
+}
+
 # Aliases
 alias latexmk='latexmk -quiet 1> /dev/null'
 alias {vi,vim}='nvim'

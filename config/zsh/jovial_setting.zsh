@@ -36,12 +36,11 @@ JOVIAL_AFFIXES=(
     host.prefix            '${JOVIAL_PALETTE[normal]}['
     # hostname/username use `Prompt-Expansion` syntax in default
     # but you can override it with simple constant string
-    # hostname               '${(%):-%m}'
-    # hostname               '${(%):-%m}'
+    hostname               '${(%):-%m}'
     # hostname               'ᕕ( ᐛ )ᕗ'
     # hostname               '≧◡≦'
     host.suffix            '${JOVIAL_PALETTE[normal]}] ${JOVIAL_PALETTE[conj.]}as'
-    hostname               '╹‿╹'
+    # hostname               '╹‿╹'
     host.suffix            '${JOVIAL_PALETTE[normal]}] ${JOVIAL_PALETTE[conj.]}as'
 
     user.prefix            ' '

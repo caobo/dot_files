@@ -189,6 +189,9 @@ alias cat='bat'
 alias xr='open_xplr'
 alias wttr='curl https://wttr.in'
 alias sysinfo='curl -sL https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch | bash'
+if [ "$(uname)" = "Darwin" ]; then
+    alias stat='stat -x'
+fi
 
 # Key bindings
 bindkey -s '^o' 'open_applications\n'

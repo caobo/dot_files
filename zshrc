@@ -45,37 +45,37 @@ plugins=(
     zsh-autosuggestions
 )
 
-export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-${ZSH_VERSION}
-source $ZSH/oh-my-zsh.sh
+export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-${ZSH_VERSION}"
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 # --------------------
 LESS=-RFX  # Set LESS options for displaying man pages
 
 # Enable fzf fuzzy completion
-[ -f $HOME/.config/zsh/fzf.zsh ] && source $HOME/.config/zsh/fzf.zsh
+[ -f "$HOME/.config/zsh/fzf.zsh" ] && source "$HOME/.config/zsh/fzf.zsh"
 
 # Custom functions
 # --------------------
 
 # Create and change to a newly created directory
 mcd() {
-   [[ -n $@ ]] && mkdir -p "$@" && cd "$@" || echo "Please name a directory to create."
+   [ -n "$@" ] && mkdir -p "$@" && cd "$@" || echo "Please name a directory to create."
 }
 
 # Functions for quickly adding and jumping to "goto" directories
 GT_LIST="$HOME/.config/zsh/gt_list"
 adgt() {
     # Create a goto directory
-    [[ -d $HOME/.config/zsh ]] || mkdir "$HOME/.config/zsh"
-    [[ -z $@ ]] && echo "$(pwd)" >> "$GT_LIST" || echo "$@" >> "$GT_LIST"
+    [ -d "$HOME/.config/zsh" ] || mkdir "$HOME/.config/zsh"
+    [ -z "$@" ] && echo "$(pwd)" >> "$GT_LIST" || echo "$@" >> "$GT_LIST"
 }
 
 rmgt() {
     # Remove a goto directory
     local LINE=$(< "$GT_LIST" |
         fzf --height=~100% --cycle --info=inline --border=rounded)
-    [[ -z $LINE ]] && echo "Please select a goto directory to delete." || 
+    [ -z "$LINE" ] && echo "Please select a goto directory to delete." || 
         (
         if [ "$(uname)" = "Linux" ]; then
             sed -i "\|"$LINE"$|d" "$GT_LIST"
@@ -90,7 +90,7 @@ gt() {
     # Jump to a goto directory
     local GT_DIR=$(bat "$GT_LIST" |
         fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)
-    [[ -z $GT_DIR ]] && echo "Please select a goto directory to navigate to." || cd "$GT_DIR"
+    [ -z "$GT_DIR" ] && echo "Please select a goto directory to navigate to." || cd "$GT_DIR"
 }
 
 # More custom functions
@@ -98,7 +98,7 @@ open_applications() {
     # Open selected application from /Applications/
     local SELECTED_APP=$(fd '.*\.app$' /Applications -d 2|
         fzf --height=~100% --cycle --info=inline --border=rounded --preview 'bat {}')
-    [[ -z $SELECTED_APP ]] && echo "Please select an app." || open "$SELECTED_APP"
+    [ -z "$SELECTED_APP" ] && echo "Please select an app." || open "$SELECTED_APP"
 }
 
 current_folder_edit() {
@@ -106,7 +106,7 @@ current_folder_edit() {
     local FILE=$(fd '.*' $(pwd) -t f -x file --mime-type |
         awk -F ':' '/.*:.*text|empty/ { print $1}' |
         fzf -d '/' --with-nth='-2','-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
-    [[ -z $FILE ]] && echo 'Please select a file.' || nvim "$FILE"
+    [ -z "$FILE" ] && echo 'Please select a file.' || nvim "$FILE"
 }
 
 dot_folder_edit() {
@@ -114,27 +114,27 @@ dot_folder_edit() {
     local FILE=$(fd '.*' "$HOME/Documents/Software/dot_files" -t f -x file --mime-type |
         awk -F ':' '/.*:.*text|empty/ { print $1}' |
         fzf -d '/' --with-nth='-2','-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
-    [[ -z $FILE ]] && echo "Please select a file." || nvim "$FILE"
+    [ -z "$FILE" ] && echo "Please select a file." || nvim "$FILE"
 }
 
 open_xplr() {
     # Use xplr to open a file or directory in the default app
     local TARGET=$(xplr $1)
-    [[ -z $TARGET ]] || ( $(file -b $TARGET | rg -q 'text|empty') && nvim $TARGET || open "$TARGET")
+    [ -z "$TARGET" ] || ( $(file -b $TARGET | rg -q 'text|empty') && nvim $TARGET || open "$TARGET")
 }
 
 open_with_xplr() {
     # Open selected item with xplr
     local FOLDER=$(fd '.*' $(pwd) -t d -d 3 |
         fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)
-    [[ -z $FOLDER ]] && echo "Please select a folder." || open_xplr "$FOLDER"
+    [ -z "$FOLDER" ] && echo "Please select a folder." || open_xplr "$FOLDER"
 }
 
 open_in_finder() {
     # Open selected folder in Finder
     local FOLDER=$(fd '.*' $(pwd) -t d -d 3 |
         fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)
-    [[ -z $FOLDER ]] && echo "Please select a folder." || open "$FOLDER"
+    [ -z "$FOLDER" ] && echo "Please select a folder." || open "$FOLDER"
 }
 
 search_command_history() {
@@ -147,28 +147,28 @@ search_command_history() {
 spell() {
     # Spell check function
     if [ "$(uname)" = "Darwin" ]; then
-        [[ -n $1 ]] && local WORD=$1 || local WORD=$(pbpaste|less)
+        [ -n "$1" ] && local WORD="$1" || local WORD=$(pbpaste|less)
     fi
     if [ "$(uname)" = "Linux" ]; then
-        [[ -n $1 ]] && local WORD=$1 || local WORD=$(wl-paste|less)
+        [ -n "$1" ] && local WORD="$1"|| local WORD=$(wl-paste|less)
     fi
     local CSPELL=$(echo "$WORD" | aspell pipe | awk -F ':' '{print $2}' | tr ',' '\n' | fzf --height=~50% --layout reverse-list)
     if [ "$(uname)" = "Darwin" ]; then
-        [[ -n $CSPELL ]] && echo $CSPELL | pbcopy
+        [ -n "$CSPELL" ] && echo "$CSPELL" | pbcopy
     fi
     if [ "$(uname)" = "Linux" ]; then
-        [[ -n $CSPELL ]] && echo "$CSPELL" | wl-copy
+        [ -n "$CSPELL" ] && echo "$CSPELL" | wl-copy
     fi
 }
 
 cheat() {
     # Cheat sheet of a given command
-    [[ -n "$1" ]] && curl https://cheat.sh/"$1" | less || echo "Give me command to cheat ..."
+    [ -n "$1" ] && curl https://cheat.sh/"$1" | less || echo "Give me command to cheat ..."
 }
 
 dict() {
     # Dictionary
-    [[ -n "$1" ]] && curl dict.org/d:"$1" | less || echo "Give me word to search"
+    [ -n "$1" ] && curl dict.org/d:"$1" | less || echo "Give me word to search"
 }
 
 upfile() {

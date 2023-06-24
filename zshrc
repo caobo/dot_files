@@ -85,10 +85,10 @@ fi
 # Key bindings
 if [ "$(uname)" = "Darwin" ]; then
     bindkey -s '^o' 'open_applications\n'
-    bindkey -s '^x' 'open_with_xplr\n'
 fi
 bindkey -s '^k' 'dot_folder_edit\n'
 bindkey -s '^e' 'current_folder_edit\n'
+bindkey -s '^x' 'open_with_xplr\n'
 bindkey -s '^g' 'gt\n'
 bindkey -s '^r' 'search_command_history\n'
 

@@ -63,126 +63,13 @@ mcd() {
    [ -n "$@" ] && mkdir -p "$@" && cd "$@" || echo "Please name a directory to create."
 }
 
+gt() {
+    GT_LIST="$HOME/.config/zsh/gt_list"
+    GT_DIR="$(cat "$GT_LIST" | fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)"
+    [ -n "$GT_DIR" ] && cd "$GT_DIR" || echo "Please select a goto directory to navigate to."
+}
+
 # Functions for quickly adding and jumping to "goto" directories
-GT_LIST="$HOME/.config/zsh/gt_list"
-
-# adgt() {
-#     # Create a goto directory
-#     [ -d "$HOME/.config/zsh" ] || mkdir "$HOME/.config/zsh"
-#     [ -z "$@" ] && echo "$(pwd)" >> "$GT_LIST" || echo "$@" >> "$GT_LIST"
-# }
-#
-
-# rmgt() {
-#     # Remove a goto directory
-#     local LINE=$(< "$GT_LIST" |
-#         fzf --height=~100% --cycle --info=inline --border=rounded)
-#     [ -z "$LINE" ] && echo "Please select a goto directory to delete." || 
-#         (
-#         if [ "$(uname)" = "Linux" ]; then
-#             sed -i "\|"$LINE"$|d" "$GT_LIST"
-#         fi
-#         if [ "$(uname)" = "Darwin" ]; then
-#             sed -i '' "\|"$LINE"$|d" "$GT_LIST"
-#         fi
-#         )
-# }
-
-# gt() {
-#     # Jump to a goto directory
-#     local GT_DIR=$(bat "$GT_LIST" |
-#         fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)
-#     [ -z "$GT_DIR" ] && echo "Please select a goto directory to navigate to." || cd "$GT_DIR"
-# }
-
-# More custom functions
-# open_applications() {
-#     # Open selected application from /Applications/
-#     local SELECTED_APP=$(fd '.*\.app$' /Applications -d 2|
-#         fzf --height=~100% --cycle --info=inline --border=rounded --preview 'bat {}')
-#     [ -z "$SELECTED_APP" ] && echo "Please select an app." || open "$SELECTED_APP"
-# }
-
-# current_folder_edit() {
-#     # Edit selected file in the current folder
-#     local FILE=$(fd '.*' $(pwd) -t f -x file --mime-type |
-#         awk -F ':' '/.*:.*text|empty/ { print $1}' |
-#         fzf -d '/' --with-nth='-2','-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
-#     [ -z "$FILE" ] && echo 'Please select a file.' || nvim "$FILE"
-# }
-
-dot_folder_edit() {
-    # Edit selected file in the dot_files folder
-    local FILE=$(fd '.*' "$HOME/Documents/Software/dot_files" -t f -x file --mime-type |
-        awk -F ':' '/.*:.*text|empty/ { print $1}' |
-        fzf -d '/' --with-nth='-2','-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
-    [ -z "$FILE" ] && echo "Please select a file." || nvim "$FILE"
-}
-
-open_xplr() {
-    # Use xplr to open a file or directory in the default app
-    local TARGET=$(xplr $1)
-    [ -z "$TARGET" ] || ( $(file -b $TARGET | rg -q 'text|empty') && nvim $TARGET || open "$TARGET")
-}
-
-open_with_xplr() {
-    # Open selected item with xplr
-    local FOLDER=$(fd '.*' $(pwd) -t d -d 3 |
-        fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)
-    [ -z "$FOLDER" ] && echo "Please select a folder." || open_xplr "$FOLDER"
-}
-
-open_in_finder() {
-    # Open selected folder in Finder
-    local FOLDER=$(fd '.*' $(pwd) -t d -d 3 |
-        fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)
-    [ -z "$FOLDER" ] && echo "Please select a folder." || open "$FOLDER"
-}
-
-search_command_history() {
-    # Search the command history using fzf
-    local FILE=$HOME/.zsh_history
-    local CMD=$(awk -F ';' '!seen[$2]++ {print $2}' "$FILE" | fzf --height=30% --cycle --info=inline --border=rounded --preview 'echo {}')
-    eval "$CMD"
-}
-
-spell() {
-    # Spell check function
-    if [ "$(uname)" = "Darwin" ]; then
-        [ -n "$1" ] && local WORD="$1" || local WORD=$(pbpaste|less)
-    fi
-    if [ "$(uname)" = "Linux" ]; then
-        [ -n "$1" ] && local WORD="$1"|| local WORD=$(wl-paste|less)
-    fi
-    local CSPELL=$(echo "$WORD" | aspell pipe | awk -F ':' '{print $2}' | tr ',' '\n' | fzf --height=~50% --layout reverse-list)
-    if [ "$(uname)" = "Darwin" ]; then
-        [ -n "$CSPELL" ] && echo "$CSPELL" | pbcopy
-    fi
-    if [ "$(uname)" = "Linux" ]; then
-        [ -n "$CSPELL" ] && echo "$CSPELL" | wl-copy
-    fi
-}
-
-cheat() {
-    # Cheat sheet of a given command
-    [ -n "$1" ] && curl https://cheat.sh/"$1" | less || echo "Give me command to cheat ..."
-}
-
-dict() {
-    # Dictionary
-    [ -n "$1" ] && curl dict.org/d:"$1" | less || echo "Give me word to search"
-}
-
-upfile() {
-    local full_name="$1"
-    local file_name="$(echo "$full_name" | awk -F '/' '{print $NF}')"
-    if [ "$(uname)" = "Linux" ]; then
-        curl --upload-file "$full_name" https://transfer.sh/"$file_name" | wl-copy && echo "Ready to share."
-    fi
-    if [ "$(uname)" = "Darwin" ]; then
-        curl --upload-file "$full_name" https://transfer.sh/"$file_name" | pbcopy && echo "Ready to share."
-    fi
-}
 
 # Aliases
 alias latexmk='latexmk -quiet 1> /dev/null'
@@ -196,11 +83,13 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 # Key bindings
-bindkey -s '^o' 'open_applications\n'
-bindkey -s '^e' 'current_folder_edit\n'
+if [ "$(uname)" = "Darwin" ]; then
+    bindkey -s '^o' 'open_applications\n'
+    bindkey -s '^x' 'open_with_xplr\n'
+fi
 bindkey -s '^k' 'dot_folder_edit\n'
+bindkey -s '^e' 'current_folder_edit\n'
 bindkey -s '^g' 'gt\n'
-bindkey -s '^x' 'open_with_xplr\n'
 bindkey -s '^r' 'search_command_history\n'
 
 # More color and theme related settings

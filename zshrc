@@ -65,49 +65,51 @@ mcd() {
 
 # Functions for quickly adding and jumping to "goto" directories
 GT_LIST="$HOME/.config/zsh/gt_list"
-adgt() {
-    # Create a goto directory
-    [ -d "$HOME/.config/zsh" ] || mkdir "$HOME/.config/zsh"
-    [ -z "$@" ] && echo "$(pwd)" >> "$GT_LIST" || echo "$@" >> "$GT_LIST"
-}
 
-rmgt() {
-    # Remove a goto directory
-    local LINE=$(< "$GT_LIST" |
-        fzf --height=~100% --cycle --info=inline --border=rounded)
-    [ -z "$LINE" ] && echo "Please select a goto directory to delete." || 
-        (
-        if [ "$(uname)" = "Linux" ]; then
-            sed -i "\|"$LINE"$|d" "$GT_LIST"
-        fi
-        if [ "$(uname)" = "Darwin" ]; then
-            sed -i '' "\|"$LINE"$|d" "$GT_LIST"
-        fi
-        )
-}
+# adgt() {
+#     # Create a goto directory
+#     [ -d "$HOME/.config/zsh" ] || mkdir "$HOME/.config/zsh"
+#     [ -z "$@" ] && echo "$(pwd)" >> "$GT_LIST" || echo "$@" >> "$GT_LIST"
+# }
+#
 
-gt() {
-    # Jump to a goto directory
-    local GT_DIR=$(bat "$GT_LIST" |
-        fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)
-    [ -z "$GT_DIR" ] && echo "Please select a goto directory to navigate to." || cd "$GT_DIR"
-}
+# rmgt() {
+#     # Remove a goto directory
+#     local LINE=$(< "$GT_LIST" |
+#         fzf --height=~100% --cycle --info=inline --border=rounded)
+#     [ -z "$LINE" ] && echo "Please select a goto directory to delete." || 
+#         (
+#         if [ "$(uname)" = "Linux" ]; then
+#             sed -i "\|"$LINE"$|d" "$GT_LIST"
+#         fi
+#         if [ "$(uname)" = "Darwin" ]; then
+#             sed -i '' "\|"$LINE"$|d" "$GT_LIST"
+#         fi
+#         )
+# }
+
+# gt() {
+#     # Jump to a goto directory
+#     local GT_DIR=$(bat "$GT_LIST" |
+#         fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)
+#     [ -z "$GT_DIR" ] && echo "Please select a goto directory to navigate to." || cd "$GT_DIR"
+# }
 
 # More custom functions
-open_applications() {
-    # Open selected application from /Applications/
-    local SELECTED_APP=$(fd '.*\.app$' /Applications -d 2|
-        fzf --height=~100% --cycle --info=inline --border=rounded --preview 'bat {}')
-    [ -z "$SELECTED_APP" ] && echo "Please select an app." || open "$SELECTED_APP"
-}
+# open_applications() {
+#     # Open selected application from /Applications/
+#     local SELECTED_APP=$(fd '.*\.app$' /Applications -d 2|
+#         fzf --height=~100% --cycle --info=inline --border=rounded --preview 'bat {}')
+#     [ -z "$SELECTED_APP" ] && echo "Please select an app." || open "$SELECTED_APP"
+# }
 
-current_folder_edit() {
-    # Edit selected file in the current folder
-    local FILE=$(fd '.*' $(pwd) -t f -x file --mime-type |
-        awk -F ':' '/.*:.*text|empty/ { print $1}' |
-        fzf -d '/' --with-nth='-2','-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
-    [ -z "$FILE" ] && echo 'Please select a file.' || nvim "$FILE"
-}
+# current_folder_edit() {
+#     # Edit selected file in the current folder
+#     local FILE=$(fd '.*' $(pwd) -t f -x file --mime-type |
+#         awk -F ':' '/.*:.*text|empty/ { print $1}' |
+#         fzf -d '/' --with-nth='-2','-1' --height=~100% --cycle --preview 'bat --color=always {}' --info=inline --border=rounded)
+#     [ -z "$FILE" ] && echo 'Please select a file.' || nvim "$FILE"
+# }
 
 dot_folder_edit() {
     # Edit selected file in the dot_files folder

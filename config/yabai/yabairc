@@ -1,9 +1,9 @@
+#!/bin/sh
 # yabairc file
 # author: Bo Cao
 # date: May 28, 2023
 # --------------------
 
-#!/bin/sh
 
 # Load yabai scripting additions
 sudo yabai --load-sa

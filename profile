@@ -6,12 +6,14 @@ export MPLCONFIGDIR="$HOME/.config/matplotlib"  # Set Matplotlib configuration d
 export EDITOR=nvim  # Set default editor to nvim
 export LANG=en_US.UTF-8  # Set default language to US English
 export TERM=xterm-256color  # Set terminal type to xterm-256color
+
 if [ "$(uname)" = "Darwin" ]; then
     export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/python/libexec/bin:$PATH"  # Add Homebrew binaries to PATH
     export LDFLAGS="-L/opt/homebrew/opt/openblas/lib"  # Set LDFLAGS for OpenBLAS
     export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"  # Set CPPFLAGS for OpenBLAS
     export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig"  # Set PKG_CONFIG_PATH for OpenBLAS
 fi
+
 if [ "$(uname)" = "Linux" ]; then
     export XDG_SESSION_TYPE=wayland
     export MOZ_ENABLE_WAYLAND=1

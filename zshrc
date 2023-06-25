@@ -82,15 +82,15 @@ export FZF_DEFAULT_OPTS="
 "
 
 # Show a greeting message
-greet_message="
+greet_message="\
   .---------------------------.
   | May the phase be with you |
   '---------------------------'
       ^      (\_(\ \r
       '----- ( -.-) \r
-             o_(\")(\")
+             o_(\")(\") \
 "
-echo -e "$greet_message"
+echo "$greet_message"
 
 if [ "$(uname)" = "Linux" ]; then
     KITTY_ENABLE_WAYLAND=1

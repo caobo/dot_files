@@ -12,9 +12,7 @@ if [ "$(uname)" = "Darwin" ]; then
     export LDFLAGS="-L/opt/homebrew/opt/openblas/lib"  # Set LDFLAGS for OpenBLAS
     export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"  # Set CPPFLAGS for OpenBLAS
     export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig"  # Set PKG_CONFIG_PATH for OpenBLAS
-fi
-
-if [ "$(uname)" = "Linux" ]; then
+elif [ "$(uname)" = "Linux" ]; then
     export XDG_SESSION_TYPE=wayland
     export MOZ_ENABLE_WAYLAND=1
     export QT_QPA_PLATFORM="wayland;xcb"
@@ -25,4 +23,3 @@ if [ "$(uname)" = "Linux" ]; then
     export QT_SCALE_FACTOR=1
     export WLR_DRM_NO_MODIFIERS=1
 fi
-

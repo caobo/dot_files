@@ -4,23 +4,20 @@
 # Date: May 28, 2023
 # --------------------
 
-# Settings for oh-my-zsh
+# zap plugin manager settings
 # --------------------
-# Path to oh-my-zsh installation
-export ZSH="$HOME/.oh-my-zsh"
-# Set the theme to jovial/jovial
-ZSH_THEME="jovial/jovial"
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/supercharge"
+# plug "zap-zsh/zap-prompt"
+plug "zdharma-continuum/fast-syntax-highlighting"
+plug "zthxxx/jovial"
+source "$HOME/.local/share/zap/plugins/jovial/jovial.zsh-theme"
 
-# Custom plugins
-plugins=(
-    z
-    colored-man-pages
-    fast-syntax-highlighting
-    zsh-autosuggestions
-)
-
-export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-${ZSH_VERSION}"
-source "$ZSH/oh-my-zsh.sh"
+# Load and initialise completion system
+autoload -Uz compinit
+compinit
 
 # User configuration
 # --------------------
@@ -52,6 +49,8 @@ alias cat='bat'
 alias xr='open_xplr'
 alias wttr='curl https://wttr.in'
 alias sysinfo='curl -sL https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch | bash'
+alias ll='ls -lh'
+alias la='ls -alh'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'
 fi

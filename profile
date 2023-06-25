@@ -2,6 +2,8 @@
 # --------------------
 export PATH="$HOME/.local/bin:$PATH"  # Add local binaries to PATH
 export XDG_CONFIG_HOME="$HOME/.config"  # Set XDG_CONFIG_HOME to ~/.config
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
 export MPLCONFIGDIR="$HOME/.config/matplotlib"  # Set Matplotlib configuration directory
 export EDITOR=nvim  # Set default editor to nvim
 export LANG=en_US.UTF-8  # Set default language to US English

@@ -83,9 +83,9 @@ export FZF_DEFAULT_OPTS="
 
 # Show a greeting message
 greet_message="\
-  .---------------------------.
-  | May the phase be with you |
-  '---------------------------'
+  .----------------------------.
+  | May the phase be with you. |
+  '----------------------------'
       ^      (\_(\ \r
       '----- ( -.-) \r
              o_(\")(\") \

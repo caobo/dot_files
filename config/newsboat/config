@@ -5,13 +5,14 @@ unbind-key H
 unbind-key L
 unbind-key c
 unbind-key ,
-browser "firefox %u"
+browser "w3m -o auto_image=TRUE %u"
 
 # Feed settings
 prepopulate-query-feeds yes
 refresh-on-startup yes
 
-macro w set browser "mpv %u" ; open-in-browser ; set browser "firefox %u"
+macro w set browser "mpv %u" ; open-in-browser ; set browser "w3m %u"
+macro i set brower "curl %u | nsxiv" ; open-in-browser; set brower "w3m %u"
 
 # bind keys
 bind-key ; macro-prefix

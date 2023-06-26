@@ -66,4 +66,4 @@ ctrl + alt - 5 : yabai -m window --space 5; yabai -m space --focus 5
 ctrl + alt - c : yabai -m window --grid 9:8:1:1:6:7
 
 # Application settings
-cmd - 0x2C : kitty -d $HOME &
+cmd - 0x2C : kitty -d $HOME &> /dev/null

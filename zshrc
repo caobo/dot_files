@@ -51,6 +51,7 @@ alias wttr='curl https://wttr.in'
 alias sysinfo='curl -sL https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch | bash'
 alias ll='ls -lh'
 alias la='ls -alh'
+alias less='less -RFX'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'
 fi

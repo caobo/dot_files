@@ -54,6 +54,7 @@ vim.api.nvim_create_autocmd('FileType',{
     callback = function (event)
         vim.keymap.set("n", "<leader>ll", "<cmd>!latexmk %<cr>", {buffer = event.buf, silent = true})
         vim.keymap.set("n", "<leader>lx", "<cmd>!latexmk -xelatex %<cr>", {buffer = event.buf, silent = true})
+        vim.keymap.set("n", "<leader>lv", "<cmd>!zathura %:r.pdf &<cr>", {buffer = event.buf, silent = true})
     end,
 })
 

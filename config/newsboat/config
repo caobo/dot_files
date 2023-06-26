@@ -5,14 +5,14 @@ unbind-key H
 unbind-key L
 unbind-key c
 unbind-key ,
-browser "w3m -o auto_image=TRUE %u"
+external-url-viewer "urlscan -dc -r 'open_links {}'"
+browser "setsid -f open %u"
 
 # Feed settings
 prepopulate-query-feeds yes
 refresh-on-startup yes
 
-macro w set browser "mpv %u" ; open-in-browser ; set browser "w3m %u"
-macro i set brower "curl %u | nsxiv" ; open-in-browser; set brower "w3m %u"
+macro w set browser "mpv %u" ; open-in-browser ; set browser "open %u"
 
 # bind keys
 bind-key ; macro-prefix

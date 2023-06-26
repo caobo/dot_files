@@ -8,6 +8,7 @@ export MPLCONFIGDIR="$HOME/.config/matplotlib"  # Set Matplotlib configuration d
 export EDITOR=nvim  # Set default editor to nvim
 export LANG=en_US.UTF-8  # Set default language to US English
 export TERM=xterm-256color  # Set terminal type to xterm-256color
+export TERMINAL=kitty
 STARDICT_DATA_DIR="$XDG_DATA_HOME"
 
 if [ "$(uname)" = "Darwin" ]; then

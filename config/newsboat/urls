@@ -1,5 +1,6 @@
 "query:Linux Reddit:tags # \"content\" or title =~ \"\\[OC\\]\"" meta
 "query:Unread:unread = \"yes\"" meta
+"query:Linux lemmy:tags # \"lemmy\"" meta
 "query:Chinese channel:tags # \"Chinese\"" meta
 
 https://www.reddit.com/r/archlinux/new.rss reddit content
@@ -7,7 +8,9 @@ https://www.reddit.com/r/linux/new.rss reddit content
 https://www.reddit.com/r/commandline/new.rss reddit content
 https://www.reddit.com/r/nvim/new.rss reddit content
 https://www.reddit.com/r/unixporn/new.rss reddit
+https://lemmy.world/feeds/c/youshouldknow.xml?sort=Active lemmy
+https://lemmy.world/feeds/c/football.xml?sort=Active lemmy
+https://lemmy.ml/feeds/c/linux.xml?sort=Active lemmy
 https://news.ycombinator.com/rss news
 https://www.zhihu.com/rss Chinese
 https://feeds2.feedburner.com/jandan Chinese
-https://taiwan.chtsai.org/feed/ Taiwan

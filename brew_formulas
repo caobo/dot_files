@@ -1,11 +1,11 @@
 python
 git
 php
+curl
 mactex-no-gui 
 neovim
 visual-studio-code
 kitty-nightly
-iterm2-nightly 
 alfred
 istat-menus 
 appcleaner 
@@ -23,5 +23,9 @@ fzf
 ripgrep
 fd
 tldr
-bottom
 bat
+newsboat
+npm
+sdcv
+wget
+xplr

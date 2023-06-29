@@ -1,6 +1,6 @@
 "query:Linux Reddit:tags # \"content\" or title =~ \"\\[OC\\]\"" meta
 "query:Unread:unread = \"yes\"" meta
-"query:Linux lemmy:tags # \"lemmy\"" meta
+"query:lemmy:tags # \"lemmy\"" meta
 "query:Chinese channel:tags # \"Chinese\"" meta
 
 https://www.reddit.com/r/archlinux/new.rss reddit content

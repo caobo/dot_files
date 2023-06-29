@@ -88,9 +88,9 @@ greet_message="\
   '----------------------------'
       ^      (\_(\ \r
       '----- ( -.-) \r
-             o_(\")(\") \
+             o_(\")(\")
 "
-echo "$greet_message"
+printf "$greet_message"
 
 if [ "$(uname)" = "Linux" ]; then
     KITTY_ENABLE_WAYLAND=1

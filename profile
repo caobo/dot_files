@@ -9,8 +9,6 @@ export EDITOR=nvim  # Set default editor to nvim
 export LANG=en_US.UTF-8  # Set default language to US English
 export TERM=xterm-256color  # Set terminal type to xterm-256color
 export TERMINAL=kitty
-STARDICT_DATA_DIR="$XDG_DATA_HOME"
-
 if [ "$(uname)" = "Darwin" ]; then
     export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/python/libexec/bin:$PATH"  # Add Homebrew binaries to PATH
     export LDFLAGS="-L/opt/homebrew/opt/openblas/lib"  # Set LDFLAGS for OpenBLAS
@@ -32,3 +30,4 @@ elif [ "$(uname)" = "Linux" ]; then
     export QT_SCALE_FACTOR=1
     export WLR_DRM_NO_MODIFIERS=1
 fi
+STARDICT_DATA_DIR="$XDG_DATA_HOME"

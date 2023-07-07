@@ -20,7 +20,6 @@ autoload -Uz compinit
 compinit
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
-# HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
 HISTSIZE=999
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -57,7 +56,6 @@ alias latexmk='latexmk -quiet 1> /dev/null'
 alias {vi,vim}='nvim'
 alias cat='bat'
 alias xr='open_xplr'
-alias wttr='curl https://wttr.in'
 alias sysinfo='curl -sL https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch | bash'
 alias ll='ls -lh'
 alias la='ls -alh'

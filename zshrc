@@ -31,6 +31,7 @@ bindkey '\e[B' history-search-forward
 # User configuration
 # --------------------
 LESS=-RFX  # Set LESS options for displaying man pages
+export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
 
 # Enable fzf fuzzy completion
 [ -f "$HOME/.config/zsh/fzf.zsh" ] && source "$HOME/.config/zsh/fzf.zsh"

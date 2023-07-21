@@ -7,8 +7,8 @@
 [init]
 	defaultBranch = main
 [core]
-#	excludesfile = /Users/bo/.gitignore
-	# editor = code --wait
 	editor = nvim
 [color]
     ui = auto
+[pull]
+	rebase = false

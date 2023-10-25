@@ -1,2 +1,2 @@
 require('custom/themes')
-require('custom/plugins')
+require('custom/plugin_config')

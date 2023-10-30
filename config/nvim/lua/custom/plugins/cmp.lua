@@ -10,8 +10,8 @@ return{
         "hrsh7th/cmp-cmdline", -- CommandLine Completions
     },
     config = function()
-        local cmp = require "cmp"
-        local luasnip = require "luasnip"
+        local cmp = require("cmp")
+        local luasnip = require("luasnip")
         local function border(hl_name)
             return {
                 { "●", hl_name }, -- left top
@@ -52,7 +52,8 @@ return{
             TypeParameter = ' ',
         }
 
-        cmp.setup {
+        cmp.setup({
+
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -107,6 +108,7 @@ return{
                     return vim_item
                 end,
             },
+
             sources = {
                 { name = "nvim_lsp" },
                 { name = "nvim_lua" },
@@ -115,10 +117,12 @@ return{
                 { name = "path" },
                 { name = "texlab" },
             },
+
             confirm_opts = {
                 behavior = cmp.ConfirmBehavior.Replace,
                 select = false,
             },
+
             window = {
                 completion = cmp.config.window.bordered {
                     -- border = "rounded",
@@ -135,32 +139,49 @@ return{
                     side_padding = 1,
                 },
             },
+
             experimental = {
                 ghost_text = true,
             },
-        }
+        })
 
-        cmp.setup.cmdline(":", {
+        -- Set configuration for specific filetype.
+        cmp.setup.filetype('gitcommit', {
+            sources = cmp.config.sources({
+                { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+            }, {
+                    { name = 'buffer' },
+                })
+        })
+
+        -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline({ '/', '?' }, {
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
-                { name = "cmdline" },
-            },
-            window = {
-                completion = cmp.config.window.bordered {
-                    -- border = "rounded",
-                    border = border "CmpBorder",
-                    winhighlight = "Normal:Normal,FloatBorder:CmpCompletionBorder,CursorLine:CmpCursorLine,Search:Search",
-                    col_offset = -3,
-                    side_padding = 1,
-                },
-            },
-            formatting = {
-                -- fields = { 'abbr' },
-                format = function(_, vim_item)
-                    vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-                    return vim_item
-                end,
-            },
+                { name = 'buffer' }
+            }
         })
+
+        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline(':', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
+                    { name = 'cmdline' }
+                })
+        })
+
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+        require('lspconfig')['lua_ls'].setup {
+        capabilities = capabilities
+        }
+        require('lspconfig')['texlab'].setup {
+        capabilities = capabilities
+        }
+        require('lspconfig')['pyright'].setup {
+        capabilities = capabilities
+        }
     end,
 }

@@ -9,7 +9,6 @@ vim.g.maplocalleader = ' '
 
 -- IMPORTS
 require('plugs')
-require('custom')
 require('opts')
 require('keys')
 require('autocmd')

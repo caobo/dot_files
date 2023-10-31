@@ -72,6 +72,4 @@ opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.cursorline = true
 opt.termguicolors = true         -- bool: If term supports ui color then enable
 cmd('colorscheme rose-pine')     -- cmd:  Set the colorscheme
--- cmd('colorscheme github_light')
--- cmd('colorscheme github_dark')
 vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })

@@ -1,19 +1,18 @@
-return{
-    -- Fuzzy Finder (files, lsp, etc)
-    {'nvim-telescope/telescope.nvim',
-    --[[ version = '*', ]]
-    dependencies = {
-        'nvim-lua/plenary.nvim','nvim-telescope/telescope-file-browser.nvim'
-        },
-    },
-    -- Only load if `make` is available. Make sure you have the system
-    -- requirements installed.
-    {'nvim-telescope/telescope-fzf-native.nvim',
-        -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
-        cond = function()
-            return vim.fn.executable 'make' == 1
-        end,
-    }
+local plugin_tele = {"nvim-telescope/telescope.nvim"}
+
+plugin_tele.dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-file-browser.nvim'
 }
+
+local plugin_fzf = {"nvim-telescope/telescope-fzf-native.nvim"}
+
+plugin_fzf.build = 'make'
+
+function plugin_fzf.cond()
+    return vim.fn.executable 'make' == 1
+end
+
+local plugin = {plugin_tele,plugin_fzf}
+
+return plugin

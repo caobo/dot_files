@@ -2,6 +2,7 @@
 local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
+local wo = vim.wo
 
 -- [[ Setting options ]]
 --
@@ -9,11 +10,11 @@ local g = vim.g
 opt.autochdir = true
 opt.mouse = 'a'                   -- enable mouse mode
 opt.clipboard = "unnamedplus"
-vim.wo.number = true
 opt.breakindent = true            -- Enable break indent
 opt.undofile = true               -- save undo historys
-vim.wo.signcolumn = 'yes'         -- Keep signcolumn on by default
-vim.wo.fillchars='eob: '
+wo.number = true
+wo.signcolumn = 'yes'         -- Keep signcolumn on by default
+wo.fillchars='eob: '
 opt.updatetime = 100              -- Decrease update time
 opt.timeout = true
 opt.timeoutlen = 300
@@ -21,7 +22,7 @@ opt.completeopt = 'menuone,noselect'          -- Set completeopt to have a bette
 opt.hidden = true
 opt.spelllang = {'en'}
 opt.cmdheight = 0
--- opt.showbreak = '↲'
+opt.smartindent = true
 
 opt.listchars = { -- see hidden chars and their colors
     tab = '| ',
@@ -68,6 +69,7 @@ opt.splitright = true            -- bool: Place new window to right of current o
 opt.splitbelow = true            -- bool: Place new window below the current one
 
 -- [[ Theme ]]
+-- g.t_co = 256
 opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.cursorline = true
 opt.termguicolors = true         -- bool: If term supports ui color then enable

@@ -1,6 +1,5 @@
-return{
-    -- "gc" to comment visual regions/lines
-    'numToStr/Comment.nvim',
-    event = { 'BufReadPost', 'BufNewFile' },
-    opts = {}
-}
+local plugin = {'numToStr/Comment.nvim'}
+plugin.envet = {'BufReadPost', 'BufNewFile'}
+plugin.opts = {}
+
+return plugin

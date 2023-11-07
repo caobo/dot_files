@@ -1,53 +1,53 @@
-return{
-    "windwp/nvim-autopairs",
-    event ={ 'BufReadPost', 'BufNewFile'},
-    -- event = "InsertEnter",
-    config = function()
-        local autopairs = require("nvim-autopairs")
+local plugin = {"windwp/nvim-autopairs"}
+plugin.event ={ 'BufReadPost', 'BufNewFile'}
 
-        autopairs.setup {
-            check_ts = true, -- treesitter integration
-            disable_filetype = { "TelescopePrompt" },
-        }
+function plugin.config()
+    local autopairs = require("nvim-autopairs")
 
-        local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-        local cmp_status_ok, cmp = pcall(require, "cmp")
-        if not cmp_status_ok then
-            return
-        end
-        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done {})
+    autopairs.setup {
+        check_ts = true, -- treesitter integration
+        disable_filetype = { "TelescopePrompt" },
+    }
 
-        -- load plugins
-        --
-        local status_ok, nvim_autopairs = pcall(require, "nvim-autopairs")
+    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+    local cmp_status_ok, cmp = pcall(require, "cmp")
+    if not cmp_status_ok then
+        return
+    end
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done {})
 
-        if not status_ok then
-            return
-        end
+    -- load plugins
+    --
+    local status_ok, nvim_autopairs = pcall(require, "nvim-autopairs")
 
-        nvim_autopairs.setup({
-            disable_filetype = { "TelescopePrompt" , "vim" },
-        }) -- Add this line
+    if not status_ok then
+        return
+    end
 
-        local Rule = require('nvim-autopairs.rule')
-        local npairs = require('nvim-autopairs')
+    nvim_autopairs.setup({
+        disable_filetype = { "TelescopePrompt" , "vim" },
+    }) -- Add this line
 
-        npairs.add_rule(Rule("$$","$$","tex", "latex"))
+    local Rule = require('nvim-autopairs.rule')
+    local npairs = require('nvim-autopairs')
 
-        -- you can use some built-in conditions
+    npairs.add_rule(Rule("$$","$$","tex", "latex"))
 
-        local cond = require('nvim-autopairs.conds')
+    -- you can use some built-in conditions
 
-        npairs.add_rules({
-            Rule("\\(", "\\)",{"tex", "latex"})
-                -- don't add a pair if the next character is %
-                :with_pair(cond.not_after_regex("%%"))
-        }
-        )
-        npairs.add_rules({
-            Rule("\\[", "\\]",{"tex", "latex"})
-                -- don't add a pair if the next character is %
-                :with_pair(cond.not_after_regex("%%"))
-        })
-    end,
-}
+    local cond = require('nvim-autopairs.conds')
+
+    npairs.add_rules({
+        Rule("\\(", "\\)",{"tex", "latex"})
+            -- don't add a pair if the next character is %
+            :with_pair(cond.not_after_regex("%%"))
+    }
+    )
+    npairs.add_rules({
+        Rule("\\[", "\\]",{"tex", "latex"})
+            -- don't add a pair if the next character is %
+            :with_pair(cond.not_after_regex("%%"))
+    })
+end
+
+return plugin

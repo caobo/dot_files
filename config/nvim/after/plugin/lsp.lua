@@ -1,5 +1,7 @@
 local lsp = require("lsp-zero")
+
 lsp.preset("recommended")
+
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
@@ -26,11 +28,11 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 -- lsp-server config
-lsp.setup_servers({'lua_ls', 'pyright','texlab'})
+-- lsp.setup_servers({'lua_ls', 'pyright','texlab'})
 
--- vim.diagnostic.config({
---     virtual_text = true
--- })
+vim.diagnostic.config({
+    virtual_text = true
+})
 
 require('mason').setup({})
 require('mason-lspconfig').setup({

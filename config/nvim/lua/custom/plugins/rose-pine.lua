@@ -1,9 +1,9 @@
-local plugin = {"rose-pine/neovim"}
+local Plugin = {"rose-pine/neovim"}
 
-plugin.event ={'BufReadPost', 'BufNewFile'}
-plugin.name = 'rose-pine'
+Plugin.event ={'BufReadPost', 'BufNewFile'}
+Plugin.name = 'rose-pine'
 
-function plugin.config()
+function Plugin.config()
     local rose=require("rose-pine")
     rose.setup({
         --- @usage 'auto'|'main'|'moon'|'dawn'
@@ -65,4 +65,4 @@ function plugin.config()
     })
 end
 
-return plugin
+return Plugin

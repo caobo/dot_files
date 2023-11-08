@@ -1,6 +1,7 @@
-local plugin = {"hrsh7th/nvim-cmp"}
-plugin.event = { "InsertEnter", "CmdlineEnter" }
-plugin.dependencies = {
+local Plugin = {"hrsh7th/nvim-cmp"}
+Plugin.event = { "InsertEnter", "CmdlineEnter" }
+
+Plugin.dependencies = {
     "hrsh7th/cmp-buffer", -- Buffer Completions
     "hrsh7th/cmp-path", -- Path Completions
     "saadparwaiz1/cmp_luasnip", -- Snippet Completions
@@ -9,9 +10,10 @@ plugin.dependencies = {
     "hrsh7th/cmp-cmdline", -- CommandLine Completions
 }
 
-function plugin.config()
+function Plugin.config()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+
     local function border(hl_name)
         return {
             { "●", hl_name }, -- left top
@@ -24,6 +26,7 @@ function plugin.config()
             { "│", hl_name },
         }
     end
+
     local kind_icons = {
         Text          = ' ',
         Method        = ' ',
@@ -65,7 +68,7 @@ function plugin.config()
             ["<C-n>"] = cmp.mapping.select_next_item(),
             ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1)),
             ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1)),
-            ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+            -- ["<C-y>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             ["<C-e>"] = cmp.mapping {
                 i = cmp.mapping.abort(),
                 c = cmp.mapping.close(),
@@ -85,64 +88,74 @@ function plugin.config()
                     fallback()
                 end
             end, {
-                    "i",
-                    "s",
-                }),
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                    cmp.select_prev_item()
-                elseif luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
-                else
-                    fallback()
-                end
-            end, {
-                    "i",
-                    "s",
-                }),
-        },
+            "i",
+            "s",
+        }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, {
+        "i",
+        "s",
+    }),
+},
 
-        formatting = {
-            format = function(_, vim_item)
-                vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-                return vim_item
-            end,
-        },
+formatting = {
+    format = function(_, vim_item)
+        vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+        return vim_item
+    end,
+},
 
-        sources = {
-            { name = "nvim_lsp" },
-            { name = "nvim_lua" },
-            { name = "luasnip" },
-            { name = "buffer" },
-            { name = "path" },
-            { name = "texlab" },
-        },
+sources = {
+    {
+        name = "path",
+        option = {
+            trailing_slash = true
+        }
 
-        confirm_opts = {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
-        },
+    },
+    { name = "nvim_lsp", keyword_lengt=3},
+    { name = "buffer", keyword_length = 3},
+    { name = "luasnip", keyword_length = 2},
+},
 
-        window = {
-            completion = cmp.config.window.bordered {
-                -- border = "rounded",
-                border = border "CmpBorder",
-                winhighlight = "Normal:Normal,FloatBorder:CmpCompletionBorder,CursorLine:CmpCursorLine,Search:Search",
-                col_offset = -3,
-                side_padding = 1,
-            },
-            documentation = cmp.config.window.bordered {
-                -- border = "rounded",
-                border = border "CmpBorder",
-                winhighlight = "Normal:Normal,FloatBorder:CmpDocumentationBorder,CursorLine:CmpCursorLine,Search:Search",
-                col_offset = -3,
-                side_padding = 1,
-            },
-        },
+confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+},
 
-        experimental = {
-            ghost_text = true,
-        },
+window = {
+    completion = cmp.config.window.bordered {
+        -- border = "rounded",
+        border = border "CmpBorder",
+        -- winhighlight = "Normal:Normal,FloatBorder:CmpCompletionBorder,CursorLine:CmpCursorLine,Search:Search",
+        max_height = 20,
+        max_width = 100,
+        zindex = 50,
+        col_offset = -3,
+        side_padding = 1,
+    },
+    documentation = cmp.config.window.bordered {
+        -- border = "rounded",
+        border = border "CmpBorder",
+        -- winhighlight = "Normal:Normal,FloatBorder:CmpDocumentationBorder,CursorLine:CmpCursorLine,Search:Search",
+        max_height = 20,
+        max_width = 100,
+        zindex = 50,
+        col_offset = -3,
+        side_padding = 1,
+    },
+},
+
+experimental = {
+    ghost_text = true,
+},
     })
 
     -- Set configuration for specific filetype.
@@ -150,8 +163,8 @@ function plugin.config()
         sources = cmp.config.sources({
             { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
         }, {
-                { name = 'buffer' },
-            })
+            { name = 'buffer' },
+        })
     })
 
     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -168,8 +181,8 @@ function plugin.config()
         sources = cmp.config.sources({
             { name = 'path' }
         }, {
-                { name = 'cmdline' }
-            })
+            { name = 'cmdline' }
+        })
     })
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -186,4 +199,4 @@ function plugin.config()
 
 end
 
-return plugin
+return Plugin

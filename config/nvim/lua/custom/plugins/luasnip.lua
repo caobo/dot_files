@@ -1,8 +1,8 @@
-local plugin = {"L3MON4D3/LuaSnip"}
+local Plugin = {"L3MON4D3/LuaSnip"}
 
-plugin.event ={ 'BufReadPost', 'BufNewFile'}
+Plugin.event ={ 'BufReadPost', 'BufNewFile'}
 
-function plugin.config()
+function Plugin.config()
     local luasnip = require("luasnip")
     luasnip.config.set_config({ -- Setting LuaSnip config
         -- Enable autotriggered snippets
@@ -16,4 +16,4 @@ function plugin.config()
     require("luasnip.loaders.from_snipmate").lazy_load()
 end
 
-return plugin
+return Plugin

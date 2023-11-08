@@ -1,27 +1,104 @@
-local plugin = {"nvim-treesitter/nvim-treesitter"}
+local Plugin = {'nvim-treesitter/nvim-treesitter'}
+Plugin.pin = true
+Plugin.build = ":TSUpdate"
+Plugin.event = {'BufReadPost', 'BufNewFile'}
 
-plugin.build = ":TSUpdate"
-plugin.event = {'BufReadPost', 'BufNewFile'}
-
-plugin.dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    init = function()
-        -- PERF: no need to load the plugin, if we only need its queries for mini.ai
-        local plug = require('lazy.core.config').spec.plugins['nvim-treesitter']
-        local opts = require('lazy.core.plugin').values(plug, 'opts', false)
-        local enabled = false
-        if opts.textobjects then
-            for _, mod in ipairs({ 'move', 'select', 'swap', 'lsp_interop' }) do
-                if opts.textobjects[mod] and opts.textobjects[mod].enable then
-                    enabled = true
-                    break
-                end
-            end
-        end
-        if not enabled then
-            require('lazy.core.loader').disable_rtp_plugin('nvim-treesitter-textobjects')
-        end
-    end
+Plugin.dependencies = {
+    {'nvim-treesitter/nvim-treesitter-textobjects', pin = true},
+    {'JoosepAlviste/nvim-ts-context-commentstring'},
 }
 
-return plugin
+Plugin.opts = {
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = {'html', 'html.twig', 'vimdoc'},
+    },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = 'ga',
+            node_incremental = 'ga',
+            node_decremental = 'gz',
+        },
+    },
+    textobjects = {
+        select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+                ['af'] = '@function.outer',
+                ['if'] = '@function.inner',
+                ['ac'] = '@class.outer',
+                ['ic'] = '@class.inner',
+                ['ia'] = '@parameter.inner',
+            }
+        },
+        swap = {
+            enable = true,
+            swap_previous = {
+                ['{a'] = '@parameter.inner',
+            },
+            swap_next = {
+                ['}a'] = '@parameter.inner',
+            },
+        },
+        move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+                [']f'] = '@function.outer',
+                [']c'] = '@class.outer',
+                [']a'] = '@parameter.inner',
+            },
+            goto_next_end = {
+                [']F'] = '@function.outer',
+                [']C'] = '@class.outer',
+            },
+            goto_previous_start = {
+                ['[f'] = '@function.outer',
+                ['[c'] = '@class.outer',
+                ['[a'] = '@parameter.inner',
+            },
+            goto_previous_end = {
+                ['[F'] = '@function.outer',
+                ['[C'] = '@class.outer',
+            },
+        },
+    },
+    context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
+    },
+    ensure_installed = {
+        'c',
+        'cpp',
+        'lua',
+        'python',
+        'rust',
+        'vim',
+        'bibtex',
+        'latex',
+        'markdown',
+        'markdown_inline',
+        'css',
+        'dot',
+        'gitignore',
+        'javascript',
+        'bash',
+        "luadoc",
+        "regex",
+        "html",
+        "vimdoc",
+        "comment",
+    },
+}
+
+function Plugin.build()
+    pcall(vim.cmd, 'TSUpdate')
+end
+
+function Plugin.config(_, opts)
+    require('nvim-treesitter.configs').setup(opts)
+end
+
+return Plugin

@@ -1,5 +1,5 @@
-local plugin = {'numToStr/Comment.nvim'}
-plugin.envet = {'BufReadPost', 'BufNewFile'}
-plugin.opts = {}
+local Plugin = {'numToStr/Comment.nvim'}
+Plugin.event = {'BufReadPost', 'BufNewFile'}
+Plugin.opts = {}
 
-return plugin
+return Plugin

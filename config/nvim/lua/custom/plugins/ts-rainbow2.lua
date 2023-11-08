@@ -1,7 +1,7 @@
-local plugin = {"HiPhish/nvim-ts-rainbow2"}
+local Plugin = {"HiPhish/nvim-ts-rainbow2"}
 
-plugin.event ={'BufReadPost', 'BufNewFile'}
+Plugin.event ={'BufReadPost', 'BufNewFile'}
 
-return plugin
+return Plugin
 
 

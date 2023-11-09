@@ -1,5 +1,5 @@
 local Plugin = {'yamatsum/nvim-cursorline'}
-Plugin.event ={ 'BufReadPost', 'BufNewFile'}
+-- Plugin.event ={ 'BufReadPost', 'BufNewFile'}
 
 function Plugin.config()
     local cursorline = require("nvim-cursorline")
@@ -18,4 +18,3 @@ function Plugin.config()
 end
 
 return Plugin
-

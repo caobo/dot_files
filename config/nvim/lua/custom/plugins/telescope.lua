@@ -13,28 +13,25 @@ Plugin.dependencies = {
 Plugin.cmd = 'Telescope'
 
 function Plugin.init()
-    local bind = vim.keymap.set
-
+    local keybind = vim.keymap.set
+    local opts = {remap = false}
     -- Search pattern
-    bind('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
-
+    keybind('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
     -- Show key bindings list
-    bind('n', '<leader>?', '<cmd>Telescope keymaps<cr>')
-
+    keybind('n', '<leader>?', '<cmd>Telescope keymaps<cr>', opts)
     -- Find files by name
-    bind('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-
+    keybind('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
     -- Search symbols in buffer
-    bind('n', '<leader>fs', '<cmd>Telescope treesitter<cr>')
-
+    keybind('n', '<leader>fs', '<cmd>Telescope treesitter<cr>', opts)
     -- Search buffer lines
-    bind('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
-
+    keybind('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
     -- Search in files history
-    bind('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>')
-
+    keybind('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', opts)
     -- Search in active buffers list
-    bind('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
+    keybind('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
+    -- Search symbols in document and workplace
+    keybind('n', '<leader>fd', "<cmd>Telescope lsp_document_symbols<cr>", opts)
+    keybind('n', '<leader>fq', "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
 end
 
 function Plugin.config()
@@ -85,7 +82,7 @@ function Plugin.config()
             layout_strategy = 'vertical',
             sorting_strategy = 'ascending',
             layout_config = {
-                preview_cutoff = 25,
+                preview_cutoff = 10,
                 mirror = true,
                 prompt_position = 'top'
             },

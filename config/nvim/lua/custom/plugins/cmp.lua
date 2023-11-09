@@ -27,34 +27,6 @@ function Plugin.config()
         }
     end
 
-    local kind_icons = {
-        Text          = ' ',
-        Method        = ' ',
-        Function      = ' ',
-        Constructor   = ' ',
-        Field         = 'ﰠ ',
-        Variable      = ' ',
-        Class         = ' ',
-        Interface     = ' ',
-        Module        = ' ',
-        Property      = ' ',
-        Unit          = ' ',
-        Value         = ' ',
-        Enum          = ' ',
-        Keyword       = ' ',
-        Snippet       = '﬌ ',
-        Color         = ' ',
-        File          = ' ',
-        Reference     = ' ',
-        Folder        = ' ',
-        EnumMember    = ' ',
-        Constant      = ' ',
-        Struct        = ' ',
-        Event         = ' ',
-        Operator      = 'ﬦ ',
-        TypeParameter = ' ',
-    }
-
     cmp.setup({
 
         snippet = {
@@ -106,10 +78,7 @@ function Plugin.config()
 },
 
 formatting = {
-    format = function(_, vim_item)
-        vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-        return vim_item
-    end,
+    fields = {'menu', 'abbr', 'kind'},
 },
 
 sources = {

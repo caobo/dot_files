@@ -40,16 +40,16 @@ function Plugin.config()
     vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP actions',
         callback = function(event)
-            local keybind = vim.keymap.set
+            local map = vim.keymap.set
             local opts = {buffer = event.buf,remap = false}
-            keybind("n", "gd", function() vim.lsp.buf.definition() end, opts)
-            keybind("n", "K", function() vim.lsp.buf.hover() end, opts)
-            keybind("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-            keybind("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-            keybind("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-            keybind("n", "<leader>rr", function() vim.lsp.buf.references() end, opts)
-            keybind("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-            keybind("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+            map("n", "gd", function() vim.lsp.buf.definition() end, opts)
+            map("n", "K", function() vim.lsp.buf.hover() end, opts)
+            map("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+            map("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+            map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+            map("n", "<leader>rr", function() vim.lsp.buf.references() end, opts)
+            map("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
+            map("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         end
     })
 

@@ -1,3 +1,9 @@
 {
-    "workspace.checkThirdParty": false
+    "workspace.checkThirdParty": false,
+    "workspace.library": [
+        "/Users/bo/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/opt/homebrew/Cellar/neovim/0.9.4/share/nvim/runtime/lua",
+        "/Users/bo/Documents/Software/dot_files/config/wezterm/lua",
+        "${3rd}/luv/library"
+    ]
 }

@@ -9,7 +9,7 @@ wezterm.on('gui-startup', function(cmd)
     window:gui_window():maximize()
 end)
 
-local font = wezterm.font { family = 'MonoLisa' }
+local font = wezterm.font { family = 'MonoLisa Medium' }
 
 local font_rules = {
   {

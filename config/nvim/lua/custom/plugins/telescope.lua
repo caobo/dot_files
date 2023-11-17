@@ -1,13 +1,8 @@
 -- Fuzzy Finder
 local M = {'nvim-telescope/telescope.nvim'}
-local user = {}
 
 M.dependencies = {
     {'nvim-lua/plenary.nvim'},
-    {
-        'nvim-telescope/telescope-fzy-native.nvim',
-        build = function() user.build_fzy() end
-    }
 }
 
 M.cmd = 'Telescope'
@@ -103,37 +98,6 @@ function M.config()
             commands = defaults(),
             help_tags = defaults(),
         },
-        extension = {
-            fzy_native = {
-                override_generic_sorter = true,
-                override_file_sorter = true
-            },
-        }
-    })
-
-    telescope.load_extension('fzy_native')
-end
-
-function user.job_output(cid, data, name)
-    for _, val in pairs(data) do
-        print(val)
-    end
-end
-
-function user.build_fzy()
-    if vim.fn.executable('make') == 0 then
-        return
-    end
-
-    local workdir = vim.api.nvim_get_runtime_file('deps/fzy-lua-native', 1)
-
-    if workdir[1] == nil then
-        return
-    end
-
-    vim.fn.jobstart({'make'}, {
-        cwd = workdir[1],
-        on_stdout = user.job_output,
     })
 end
 

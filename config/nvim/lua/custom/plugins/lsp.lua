@@ -1,7 +1,7 @@
-local Plugin = {'neovim/nvim-lspconfig'}
+local M = {'neovim/nvim-lspconfig'}
 
-Plugin.lazy = "VeryLazy"
-Plugin.dependencies={
+M.lazy = "VeryLazy"
+M.dependencies={
     -- Automatically install LSPs to stdpath for neovim
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
@@ -22,7 +22,7 @@ Plugin.dependencies={
     'folke/neodev.nvim',
 }
 
-function Plugin.config()
+function M.config()
 
     local lspconfig = require('lspconfig')
 
@@ -81,4 +81,4 @@ function Plugin.config()
 
 end
 
-return Plugin
+return M

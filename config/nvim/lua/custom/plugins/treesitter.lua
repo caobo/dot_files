@@ -1,14 +1,14 @@
-local Plugin = {'nvim-treesitter/nvim-treesitter'}
-Plugin.pin = true
-Plugin.build = ":TSUpdate"
-Plugin.event = {'BufReadPost', 'BufNewFile'}
+local M = {'nvim-treesitter/nvim-treesitter'}
+M.pin = true
+M.build = ":TSUpdate"
+M.event = {'BufReadPost', 'BufNewFile'}
 
-Plugin.dependencies = {
+M.dependencies = {
     {'nvim-treesitter/nvim-treesitter-textobjects', pin = true},
     {'JoosepAlviste/nvim-ts-context-commentstring'},
 }
 
-Plugin.opts = {
+M.opts = {
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = {'html', 'html.twig', 'vimdoc'},
@@ -93,12 +93,12 @@ Plugin.opts = {
     },
 }
 
-function Plugin.build()
+function M.build()
     pcall(vim.cmd, 'TSUpdate')
 end
 
-function Plugin.config(_, opts)
+function M.config(_, opts)
     require('nvim-treesitter.configs').setup(opts)
 end
 
-return Plugin
+return M

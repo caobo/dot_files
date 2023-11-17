@@ -1,7 +1,7 @@
-local Plugin = {"goolord/alpha-nvim"}
+local M = {"goolord/alpha-nvim"}
 
-Plugin.event = "VimEnter"
-Plugin.dependencies ={"nvim-tree/nvim-web-devicons", lazy = true}
+M.event = "VimEnter"
+M.dependencies ={"nvim-tree/nvim-web-devicons", lazy = true}
 
 local greeting = [[ 
   .---------------------------.
@@ -12,14 +12,14 @@ local greeting = [[
              o_(")(")
 ]]
 
-function Plugin.opts()
+function M.opts()
     local dashboard = require("alpha.themes.dashboard")
 
     -- local logo = [[May the phase be with you]]
     dashboard.section.header.val = vim.split(greeting, "\n")
     dashboard.section.buttons.val = {
         -- dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-        dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+        dashboard.button("n", " " .. " New file", ":ene <BAR><CR>"),
         dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
         dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
         dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
@@ -38,7 +38,7 @@ function Plugin.opts()
     return dashboard
 end
 
-function Plugin.config(_, dashboard)
+function M.config(_, dashboard)
     -- close Lazy and re-open when the dashboard is ready
     if vim.o.filetype == "lazy" then
         vim.cmd.close()
@@ -63,5 +63,5 @@ function Plugin.config(_, dashboard)
     })
 end
 
-return Plugin
+return M
 

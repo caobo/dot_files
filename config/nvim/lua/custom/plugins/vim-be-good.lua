@@ -1,5 +1,5 @@
-local Plugin = {"ThePrimeagen/vim-be-good"}
+local M = {"ThePrimeagen/vim-be-good"}
 
-Plugin.event ={ 'BufReadPost', 'BufNewFile'}
+M.event ={ 'BufReadPost', 'BufNewFile'}
 
-return Plugin
+return M

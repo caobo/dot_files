@@ -1,7 +1,7 @@
-local Plugin = {"hrsh7th/nvim-cmp"}
-Plugin.event = { "InsertEnter", "CmdlineEnter" }
+local M = {"hrsh7th/nvim-cmp"}
+M.event = { "InsertEnter", "CmdlineEnter" }
 
-Plugin.dependencies = {
+M.dependencies = {
     "hrsh7th/cmp-buffer", -- Buffer Completions
     "hrsh7th/cmp-path", -- Path Completions
     "saadparwaiz1/cmp_luasnip", -- Snippet Completions
@@ -10,7 +10,7 @@ Plugin.dependencies = {
     "hrsh7th/cmp-cmdline", -- CommandLine Completions
 }
 
-function Plugin.config()
+function M.config()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
@@ -40,7 +40,6 @@ function Plugin.config()
             ["<C-n>"] = cmp.mapping.select_next_item(),
             ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1)),
             ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1)),
-            -- ["<C-y>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             ["<C-e>"] = cmp.mapping {
                 i = cmp.mapping.abort(),
                 c = cmp.mapping.close(),
@@ -78,7 +77,7 @@ function Plugin.config()
 },
 
 formatting = {
-    fields = {'menu', 'abbr', 'kind'},
+    fields = {'menu', 'abbr', 'kind'}
 },
 
 sources = {
@@ -168,4 +167,4 @@ experimental = {
 
 end
 
-return Plugin
+return M

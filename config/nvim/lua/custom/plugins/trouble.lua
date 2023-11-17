@@ -1,10 +1,10 @@
-local Plugin = {"folke/trouble.nvim"}
+local M = {"folke/trouble.nvim"}
 
-Plugin.event ={ 'BufReadPost', 'BufNewFile'}
-Plugin.cmd = { 'TroubleToggle', 'Trouble' }
-Plugin.opts = { use_diagnostic_signs = true }
+M.event ={ 'BufReadPost', 'BufNewFile'}
+M.cmd = { 'TroubleToggle', 'Trouble' }
+M.opts = { use_diagnostic_signs = true }
 
-function Plugin.config()
+function M.config()
     require('trouble').setup {
         -- your configuration comes here
         -- or leave it empty to use the default settings
@@ -18,4 +18,4 @@ function Plugin.config()
     }
 end
 
-return Plugin
+return M

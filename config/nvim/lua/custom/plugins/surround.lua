@@ -1,11 +1,11 @@
-local Plugin = {'kylechui/nvim-surround'}
+local M = {'kylechui/nvim-surround'}
 
-Plugin.event ={ 'BufReadPost', 'BufNewFile'}
+M.event ={ 'BufReadPost', 'BufNewFile'}
 
-function Plugin.config()
+function M.config()
     require('nvim-surround').setup({
         -- Configuration here, or leave empty to use defaults
     })
 end
 
-return Plugin
+return M

@@ -1,8 +1,8 @@
-local Plugin = {"lewis6991/gitsigns.nvim"}
+local M = {"lewis6991/gitsigns.nvim"}
 
-Plugin.event = { "BufReadPre", "BufNewFile" }
+M.event = { "BufReadPre", "BufNewFile" }
 
-Plugin.opts = {
+M.opts = {
     -- See `:help gitsigns.txt`
     signs = {
         add = { text = '+' },
@@ -13,4 +13,4 @@ Plugin.opts = {
     }
 }
 
-return Plugin
+return M

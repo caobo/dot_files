@@ -1,8 +1,8 @@
-local Plugin = {'nvim-lualine/lualine.nvim'}
+local M = {'nvim-lualine/lualine.nvim'}
 
-Plugin.event = { 'BufReadPost', 'BufNewFile' }
+M.event = { 'BufReadPost', 'BufNewFile' }
 
-function Plugin.config()
+function M.config()
 
     -- cool function for progress
     local progress = function()
@@ -54,4 +54,4 @@ function Plugin.config()
     })
 end
 
-return Plugin
+return M

@@ -1,9 +1,9 @@
-local Plugin = {"lukas-reineke/indent-blankline.nvim"}
+local M = {"lukas-reineke/indent-blankline.nvim"}
 
-Plugin.main = "ibl"
-Plugin.event = { 'BufReadPost', 'BufNewFile' }
+M.main = "ibl"
+M.event = { 'BufReadPost', 'BufNewFile' }
 
-function Plugin.config()
+function M.config()
     local highlight = {
         "RainbowRed",
         "RainbowYellow",
@@ -30,4 +30,4 @@ function Plugin.config()
     require("ibl").setup { indent = { highlight = highlight } }
 end
 
-return Plugin
+return M

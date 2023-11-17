@@ -1,8 +1,8 @@
 -- Fuzzy Finder
-local Plugin = {'nvim-telescope/telescope.nvim'}
+local M = {'nvim-telescope/telescope.nvim'}
 local user = {}
 
-Plugin.dependencies = {
+M.dependencies = {
     {'nvim-lua/plenary.nvim'},
     {
         'nvim-telescope/telescope-fzy-native.nvim',
@@ -10,9 +10,9 @@ Plugin.dependencies = {
     }
 }
 
-Plugin.cmd = 'Telescope'
+M.cmd = 'Telescope'
 
-function Plugin.init()
+function M.init()
     local map = vim.keymap.set
     local opts = {remap = false}
     -- Search pattern
@@ -34,7 +34,7 @@ function Plugin.init()
     map('n', '<leader>fq', "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
 end
 
-function Plugin.config()
+function M.config()
     local command = vim.api.nvim_create_user_command
 
     local telescope = require('telescope')
@@ -115,7 +115,7 @@ function Plugin.config()
 end
 
 function user.job_output(cid, data, name)
-    for i, val in pairs(data) do
+    for _, val in pairs(data) do
         print(val)
     end
 end
@@ -137,4 +137,4 @@ function user.build_fzy()
     })
 end
 
-return Plugin
+return M

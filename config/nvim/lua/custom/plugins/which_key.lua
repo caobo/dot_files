@@ -1,6 +1,6 @@
-local Plugin = {"folke/which-key.nvim"}
+local M = {"folke/which-key.nvim"}
 
-Plugin.event = "VeryLazy"
-Plugin.opts = {}
+M.event = "VeryLazy"
+M.opts = {}
 
-return Plugin
+return M

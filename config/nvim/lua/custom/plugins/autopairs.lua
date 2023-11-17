@@ -1,7 +1,7 @@
-local Plugin = {"windwp/nvim-autopairs"}
-Plugin.event ={ 'BufReadPost', 'BufNewFile'}
+local M = {"windwp/nvim-autopairs"}
+M.event ={ 'BufReadPost', 'BufNewFile'}
 
-function Plugin.config()
+function M.config()
     local autopairs = require("nvim-autopairs")
 
     autopairs.setup {
@@ -50,4 +50,4 @@ function Plugin.config()
     })
 end
 
-return Plugin
+return M

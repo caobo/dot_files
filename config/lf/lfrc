@@ -1,0 +1,17 @@
+set hidden
+set icons
+set number
+# set preview
+# set drawbox true
+set previewer ~/.config/lf/preview.sh
+set relativenumber
+set shell zsh
+
+set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
+map x $$f
+map X !$f
+map o &mimeopen $f
+map O $mimeopen --ask $f
+
+map gda cd ~/Documents/Data/
+map gtm cd ~/tmp/

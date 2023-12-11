@@ -1,5 +1,5 @@
-"query:Linux Reddit:tags # \"content\" or title =~ \"\\[OC\\]\"" meta
 "query:Unread:unread = \"yes\"" meta
+"query:Linux Reddit:tags # \"content\" or title =~ \"\\[OC\\]\"" meta
 "query:lemmy:tags # \"lemmy\"" meta
 "query:Chinese channel:tags # \"Chinese\"" meta
 

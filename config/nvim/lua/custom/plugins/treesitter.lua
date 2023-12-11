@@ -5,7 +5,6 @@ M.event = {'BufReadPost', 'BufNewFile'}
 
 M.dependencies = {
     {'nvim-treesitter/nvim-treesitter-textobjects', pin = true},
-    {'JoosepAlviste/nvim-ts-context-commentstring'},
 }
 
 M.opts = {
@@ -64,10 +63,6 @@ M.opts = {
                 ['[C'] = '@class.outer',
             },
         },
-    },
-    context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
     },
     ensure_installed = {
         'c',

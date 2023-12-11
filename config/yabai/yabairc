@@ -45,6 +45,7 @@ yabai -m config $ENABLE_OPTS
 # Rules for unmanaged apps
 # Softwares use floating window layout
 UNMANAGED="System Settings
+System
 Software Update
 System Information
 Activity Monitor

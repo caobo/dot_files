@@ -1,17 +1,43 @@
 set hidden
 set icons
 set number
-# set preview
 # set drawbox true
 set previewer ~/.config/lf/preview.sh
+set cleaner ~/.config/lf/clean.sh
 set relativenumber
 set shell zsh
 
-set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
+# ========== Commands ==========
+
+# Override the default open for file opening (binded to 'l' by default)
+
+# cmd open &{{
+#   case $(file --mime-type "$(readlink -f $f)" -b) in
+#     text/*|application/json|inode/x-empty|application/octet-stream) lf -remote "send $id \$$EDITOR \$fx";;
+#     *) for f in $fx; do open $f > /dev/null 2> /dev/null & done;;
+#   esac
+# }}
+
+# cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
+cmd trash !{{
+# while IFS=\n read -r i; do
+while IFD= read -r i; do
+    mv "$i" "$HOME/.Trash"
+    # rm "$i"
+done < $(printf $fx)
+}}
+
 map x $$f
 map X !$f
-map o &mimeopen $f
-map O $mimeopen --ask $f
+map o &open $f
+# map O $open --ask $f
 
 map gda cd ~/Documents/Data/
+map gca cd ~/Documents/Calculation/
+map gen cd ~/Documents/Notes/Experiments_notes/
+map gdn cd ~/Downloads/
 map gtm cd ~/tmp/
+map gta cd ~/.Trash/
+
+map D $mv $f ~/.Trash

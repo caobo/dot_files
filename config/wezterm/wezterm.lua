@@ -74,7 +74,7 @@ return {
     colors = colors,
     window_frame = window_frame, -- needed only if using fancy tab bar
     window_decorations = "RESIZE|MACOS_FORCE_DISABLE_SHADOW",
-    window_background_opacity = 0.7,
+    window_background_opacity = 0.8,
     window_padding = { left = 10, right = 10, top = 0, bottom = 0 },
     use_fancy_tab_bar = false,
     tab_and_split_indices_are_zero_based = true,
@@ -82,5 +82,7 @@ return {
     send_composed_key_when_left_alt_is_pressed=true,
     max_fps = 200,
     hide_tab_bar_if_only_one_tab = true,
+    default_cursor_style = 'BlinkingBar',
+    cursor_thickness = 6.0
 }
 

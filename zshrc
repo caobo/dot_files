@@ -36,6 +36,9 @@ export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
 # Enable fzf fuzzy completion
 [ -f "$HOME/.config/zsh/fzf.zsh" ] && source "$HOME/.config/zsh/fzf.zsh"
 
+# lf file manager icon configuration
+export LF_ICONS=$(cat ~/.config/lf/ICONS)
+
 # Custom functions
 # --------------------
 

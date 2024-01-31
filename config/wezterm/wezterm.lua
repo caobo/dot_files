@@ -1,8 +1,9 @@
 local wezterm = require 'wezterm'
 local mux = wezterm.mux
-local colors = require('lua/theme/rose-pine-moon').colors()
-local window_frame = require('lua/theme/rose-pine-moon').window_frame()
+local colors = require('lua/theme/rose-pine').colors()
+local window_frame = require('lua/theme/rose-pine').window_frame()
 local config_font = {}
+local config ={}
 
 wezterm.on('gui-startup', function(cmd)
     local _, _, window = mux.spawn_window(cmd or {})
@@ -75,6 +76,7 @@ return {
     window_frame = window_frame, -- needed only if using fancy tab bar
     window_decorations = "RESIZE|MACOS_FORCE_DISABLE_SHADOW",
     window_background_opacity = 0.8,
+    text_background_opacity = 0.6,
     window_padding = { left = 10, right = 10, top = 0, bottom = 0 },
     use_fancy_tab_bar = false,
     tab_and_split_indices_are_zero_based = true,
@@ -83,6 +85,8 @@ return {
     max_fps = 200,
     hide_tab_bar_if_only_one_tab = true,
     default_cursor_style = 'BlinkingBar',
-    cursor_thickness = 6.0
+    cursor_thickness = 6.0,
+    force_reverse_video_cursor = true,
+    enable_kitty_graphics = true,
 }
 

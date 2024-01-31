@@ -1,266 +1,73 @@
 #!/bin/sh
+file="$1"
+w="$2"
+h="$3"
+x="$4"
+y="$5"
 
-FILE_PATH="${1}" # Full path of the highlighted file
-WIDTH="${2}"     # Width of the preview pane (number of fitting characters)
-HEIGHT="${3}"    # Height of the preview pane (number of fitting characters)
-X="${4}"         # X coordinate of the preview pane
-Y="${5}"         # Y coordinate of the preview pane
-
-if ! [ -f "$FILE_PATH" ] && ! [ -h "$FILE_PATH" ]; then
-  exit
-fi
-
-FILE_EXTENSION="${FILE_PATH##*.}"
-FILE_EXTENSION_LOWER="$(printf "%s" "${FILE_EXTENSION}" | tr '[:upper:]' '[:lower:]')"
-MIME_TYPE="$(file --dereference --brief --mime-type -- "${FILE_PATH}")"
-
-# [ -n "$WIDTH" ] && [ -n "$HEIGHT" ] && [ -n "$X" ] && [ -n "$Y" ] || PAGE_MODE=$?
-[ $# -gt 1 ] || PAGE_MODE=$?
-
-hash() {
-  printf '%s/.cache/lf/%s.jpg' "$HOME" \
-    "$(gstat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | md5 -q | awk '{print $1}')"
-}
-
-IMAGE_CACHE_PATH="$(hash "$FILE_PATH")" # Full path that should be used to cache image preview
-
-handle_image() {
-  ##**********************************************************************
-  ## adopted from ranger scope.sh
-  ## replace exit with return
-  ##**********************************************************************
-
-  ## Size of the preview if there are multiple options or it has to be
-  ## rendered from vector graphics. If the conversion program allows
-  ## specifying only one dimension while keeping the aspect ratio, the width
-  ## will be used.
-  local DEFAULT_SIZE
-  DEFAULT_SIZE="1024x768"
-  # DEFAULT_SIZE=$(kitty +kitten icat --print-window-size)
-  # if [ -z "$DEFAULT_SIZE" ]; then
-  #   DEFAULT_SIZE="1024x768"
-  # fi
-
-  case "${MIME_TYPE}" in
-  ## SVG
-  image/svg+xml | image/svg)
-    rsvg-convert --keep-aspect-ratio --width "${DEFAULT_SIZE%x*}" "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}.png" &&
-      mv "${IMAGE_CACHE_PATH}.png" "${IMAGE_CACHE_PATH}" &&
-      return 6
-    return 1
-    ;;
-
-  ## DjVu
-  # image/vnd.djvu)
-  #     ddjvu -format=tiff -quality=90 -page=1 -size="${DEFAULT_SIZE}" \
-  #           - "${IMAGE_CACHE_PATH}" < "${FILE_PATH}" \
-  #           && return 6 || return 1;;
-
-  ## Image
-  image/*)
-    local orientation
-    orientation="$(identify -format '%[EXIF:Orientation]\n' -- "${FILE_PATH}")"
-    ## If orientation data is present and the image actually
-    ## needs rotating ("1" means no rotation)...
-    if [[ -n "$orientation" && "$orientation" != 1 ]]; then
-      ## ...auto-rotate the image according to the EXIF data.
-      convert -- "${FILE_PATH}" -auto-orient "${IMAGE_CACHE_PATH}" && return 6
+check_cache() {
+    if [ ! -d "$HOME/.cache/lf" ]; then
+        mkdir -p "$HOME/.cache/lf"
     fi
+}
 
-    ## `w3mimgdisplay` will be called for all images (unless overridden
-    ## as above), but might fail for unsupported types.
-    return 7
-    ;;
+hash_filename() {
+    TMP_FILE="$HOME/.cache/lf/$(echo "${1%.*}" | sed -e 's|/|\!|g').$2"
+}
 
-  ## Video
-  video/*)
-    # Get embedded thumbnail
-    ffmpeg -i "${FILE_PATH}" -map 0:v -map -0:V -c copy "${IMAGE_CACHE_PATH}" && return 6
-    # Get frame 10% into video
-    ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && return 6
-    return 1
-    ;;
+draw_clear() {
+    kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
+}
 
-  ## Audio
-  audio/*)
-    # Get embedded thumbnail
-    ffmpeg -i "${FILE_PATH}" -map 0:v -map -0:V -c copy \
-      "${IMAGE_CACHE_PATH}" && return 6
-    ;;
+draw_image() {
+    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
+}
 
-  ## PDF
-  application/pdf)
-    pdftoppm -f 1 -l 1 \
-      -scale-to-x "${DEFAULT_SIZE%x*}" \
-      -scale-to-y -1 \
-      -singlefile \
-      -jpeg -tiffcompression jpeg \
-      -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" &&
-      return 6 || return 1
-    ;;
-
-  ## ePub, MOBI, FB2 (using Calibre)
-  # application/epub+zip|application/x-mobipocket-ebook|\
-  # application/x-fictionbook+xml)
-  #     # ePub (using https://github.com/marianosimone/epub-thumbnailer)
-  #     epub-thumbnailer "${FILE_PATH}" "${IMAGE_CACHE_PATH}" \
-  #         "${DEFAULT_SIZE%x*}" && return 6
-  #     ebook-meta --get-cover="${IMAGE_CACHE_PATH}" -- "${FILE_PATH}" \
-  #         >/dev/null && return 6
-  #     return 1;;
-
-  ## Font
-  application/font* | application/*opentype)
-    preview_png="/tmp/$(basename "${IMAGE_CACHE_PATH%.*}").png"
-    if fontimage -o "${preview_png}" \
-      --pixelsize "120" \
-      --fontname \
-      --pixelsize "80" \
-      --text "  ABCDEFGHIJKLMNOPQRSTUVWXYZ  " \
-      --text "  abcdefghijklmnopqrstuvwxyz  " \
-      --text "  0123456789.:,;(*!?') ff fl fi ffi ffl  " \
-      --text "  The quick brown fox jumps over the lazy dog.  " \
-      "${FILE_PATH}"; then
-      convert -- "${preview_png}" "${IMAGE_CACHE_PATH}" &&
-        rm "${preview_png}" &&
-        return 6
-    else
-      return 1
+make_video() {
+    if [ "${TMP_FILE}" -ot "$1" ]; then
+        ffmpegthumbnailer -t 0% -q 3 -s 0 -c jpeg -i "$1" -o "${TMP_FILE}"
     fi
-    ;;
-
-    ## Preview archives using the first image inside.
-    ## (Very useful for comic book collections for example.)
-    # application/zip|application/x-rar|application/x-7z-compressed|\
-    #     application/x-xz|application/x-bzip2|application/x-gzip|application/x-tar)
-    #     local fn=""; local fe=""
-    #     local zip=""; local rar=""; local tar=""; local bsd=""
-    #     case "${mimetype}" in
-    #         application/zip) zip=1 ;;
-    #         application/x-rar) rar=1 ;;
-    #         application/x-7z-compressed) ;;
-    #         *) tar=1 ;;
-    #     esac
-    #     { [ "$tar" ] && fn=$(tar --list --file "${FILE_PATH}"); } || \
-    #     { fn=$(bsdtar --list --file "${FILE_PATH}") && bsd=1 && tar=""; } || \
-    #     { [ "$rar" ] && fn=$(unrar lb -p- -- "${FILE_PATH}"); } || \
-    #     { [ "$zip" ] && fn=$(zipinfo -1 -- "${FILE_PATH}"); } || return
-    #
-    #     fn=$(echo "$fn" | python -c "from __future__ import print_function; \
-    #             import sys; import mimetypes as m; \
-    #             [ print(l, end='') for l in sys.stdin if \
-    #               (m.guess_type(l[:-1])[0] or '').startswith('image/') ]" |\
-    #         sort -V | head -n 1)
-    #     [ "$fn" = "" ] && return
-    #     [ "$bsd" ] && fn=$(printf '%b' "$fn")
-    #
-    #     [ "$tar" ] && tar --extract --to-stdout \
-    #         --file "${FILE_PATH}" -- "$fn" > "${IMAGE_CACHE_PATH}" && return 6
-    #     fe=$(echo -n "$fn" | sed 's/[][*?\]/\\\0/g')
-    #     [ "$bsd" ] && bsdtar --extract --to-stdout \
-    #         --file "${FILE_PATH}" -- "$fe" > "${IMAGE_CACHE_PATH}" && return 6
-    #     [ "$bsd" ] || [ "$tar" ] && rm -- "${IMAGE_CACHE_PATH}"
-    #     [ "$rar" ] && unrar p -p- -inul -- "${FILE_PATH}" "$fn" > \
-    #         "${IMAGE_CACHE_PATH}" && return 6
-    #     [ "$zip" ] && unzip -pP "" -- "${FILE_PATH}" "$fe" > \
-    #         "${IMAGE_CACHE_PATH}" && return 6
-    #     [ "$rar" ] || [ "$zip" ] && rm -- "${IMAGE_CACHE_PATH}"
-    #     ;;
-  esac
-
-  # openscad_image() {
-  #     TMPPNG="$(mktemp -t XXXXXX.png)"
-  #     openscad --colorscheme="${OPENSCAD_COLORSCHEME}" \
-  #         --imgsize="${OPENSCAD_IMGSIZE/x/,}" \
-  #         -o "${TMPPNG}" "${1}"
-  #     mv "${TMPPNG}" "${IMAGE_CACHE_PATH}"
-  # }
-
-  case "${FILE_EXTENSION_LOWER}" in
-  ## 3D models
-  ## OpenSCAD only supports png image output, and ${IMAGE_CACHE_PATH}
-  ## is hardcoded as jpeg. So we make a tempfile.png and just
-  ## move/rename it to jpg. This works because image libraries are
-  ## smart enough to handle it.
-  # csg|scad)
-  #     openscad_image "${FILE_PATH}" && return 6
-  #     ;;
-  # 3mf|amf|dxf|off|stl)
-  #     openscad_image <(echo "import(\"${FILE_PATH}\");") && return 6
-  #     ;;
-  drawio)
-    /Applications/draw.io.app/Contents/MacOS/draw.io -x "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" \
-      --width "${DEFAULT_SIZE%x*}" && return 6
-    return 1
-    ;;
-  esac
 }
 
-hold() {
-  tput civis >/dev/tty 2>/dev/null # hide cursor
-  read -n 1 -s -r
-  # stty raw
-  # dd bs=1 count=1 &>/dev/null
-  # stty cooked
-  tput cnorm >/dev/tty 2>/dev/null # show cursor
+make_pdf() {
+    if [ "${TMP_FILE}" -ot "$1" ]; then
+        pdftoppm -png -f 1 -l 1 -jpeg -tiffcompression jpeg -scale-to-x -1 -scale-to-y 1080 -singlefile "$1" "${TMP_FILE%.png}"
+    fi
 }
 
-draw() {
-  if [ "$PAGE_MODE" ]; then
-    WIDTH=${lf_width:=$(tput cols)}
-    HEIGHT=${lf_height:=$(tput lines)}
-    X=0
-    Y=0
-  fi
-  if [ -n "$TMUX" ]; then
-    WIDTH=$((WIDTH - 1))
-    HEIGHT=$((HEIGHT - 1))
-  fi
-  if [ "$PAGE_MODE" ]; then
-    clear
-    kitty +kitten icat --stdin no --transfer-mode memory --place "${WIDTH}x${HEIGHT}@${X}x${Y}" "$1" </dev/null >/dev/tty
-    hold
-    kitty +kitten icat --clear --stdin no --transfer-mode memory </dev/null >/dev/tty
-  else
-    # preview launched in preview mode
-    kitty +kitten icat --stdin no --transfer-mode memory --place "${WIDTH}x${HEIGHT}@${X}x${Y}" "$1" </dev/null >/dev/tty
-    exit 1 # needed for the preview to refresh
-  fi
-}
+check_cache
+draw_clear
 
-fallback() {
-  if [ "$PAGE_MODE" ]; then
-    pistol -c ~/.config/pistol/pistol.conf "$FILE_PATH" | less -R
-  else
-    pistol -c ~/.config/pistol/pistol.conf "$FILE_PATH"
-  fi
-}
-
-# check if cached file exists, if not, create it
-if [ -f "$IMAGE_CACHE_PATH" ]; then
-    image="$IMAGE_CACHE_PATH"
-else
-    handle_image "$FILE_PATH"
-    case $? in
-        0) ;;
-        1) ;;
-        2) ;;
-        3) ;;
-        4) ;;
-        5) ;;
-        6) image="$IMAGE_CACHE_PATH" ;;
-        7) image="$FILE_PATH" ;;
-    esac
-fi
-
-if [ -n "$image" ]; then
-  draw "$image"
-else
-  fallback
-fi
-
-case "$1" in
-*.tar*) tar tf "$1" ;;
-*.zip) unzip -l "$1" ;;
-*) bat --force-colorization --paging=never --style=numbers --terminal-width $(($2 - 5)) -f "$1" ;;
+case $(file -b --mime-type "$1") in
+    text/*)
+        bat --force-colorization --paging=never --style=numbers --terminal-width $(($2 - 5)) -f "$1"
+        ;;
+    image/*)
+        draw_image "$1" "$2" "$3" "$4" "$5"
+        exit 1
+        ;;
+    video/*)
+        hash_filename "$1" "jpg"
+        make_video "$1" "$2" "$3"
+        draw_image "${TMP_FILE}" "$2" "$3" "$4" "$5"
+        exit 1
+        ;;
+    application/pdf)
+        hash_filename "$1" "png"
+        make_pdf "$1" "$2" "$3"
+        draw_image "${TMP_FILE}" "$2" "$3" "$4" "$5"
+        exit 1
+        ;;
+    application/gzip|application/x-xz)
+        tar tf "$1"
+        ;;
+    application/zip)
+        unzip -Z -1 "$1"
+        ;;
+    application/x-sharedlib)
+        readelf -h "$1"
+        ;;
 esac
+
+exit 0
+

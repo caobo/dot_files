@@ -50,17 +50,17 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- [[ create a keymap for build latex files ]]
 vim.api.nvim_create_autocmd('FileType',{
-    pattern = {"*.tex"},
+    pattern = {"tex","latex"},
     callback = function (event)
         vim.keymap.set("n", "<leader>ll", "<cmd>!latexmk %<cr>", {buffer = event.buf, silent = true})
         vim.keymap.set("n", "<leader>lx", "<cmd>!latexmk -xelatex %<cr>", {buffer = event.buf, silent = true})
-        vim.keymap.set("n", "<leader>lv", "<cmd>!zathura %:r.pdf &<cr>", {buffer = event.buf, silent = true})
+        vim.keymap.set("n", "<leader>lv", "<cmd>!open %:r.pdf &<cr>", {buffer = event.buf, silent = true})
     end,
 })
 
 -- [[ create a keymap for build python files ]]
 vim.api.nvim_create_autocmd('FileType',{
-    pattern = {"*.py"},
+    pattern = {"py","python"},
     callback = function (event)
         vim.keymap.set('n', '<leader>bb', '<cmd>!python %<cr>', {buffer = event.buf, silent = true})
     end,
@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "!source ~/.zshrc",
 })
 
--- vim.api.nvim_command "sign define DiagnosticSignError text=● texthl=DiagnosticSignError"
--- vim.api.nvim_command "sign define DiagnosticSignWarn text=● texthl=DiagnosticSignWarn"
--- vim.api.nvim_command "sign define DiagnosticSignInfo text=● texthl=DiagnosticSignInfo"
--- vim.api.nvim_command "sign define DiagnosticSignHint text=● texthl=DiagnosticSignHint"
+vim.api.nvim_command "sign define DiagnosticSignError text=● texthl=DiagnosticSignError"
+vim.api.nvim_command "sign define DiagnosticSignWarn text=● texthl=DiagnosticSignWarn"
+vim.api.nvim_command "sign define DiagnosticSignInfo text=● texthl=DiagnosticSignInfo"
+vim.api.nvim_command "sign define DiagnosticSignHint text=● texthl=DiagnosticSignHint"

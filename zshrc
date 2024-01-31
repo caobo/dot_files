@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+
 # zshrc file
 # Author: Bo Cao
 # Date: May 28, 2023
@@ -67,6 +67,7 @@ alias less='less -RFX'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'
 fi
+alias ya='yazi'
 
 # Key bindings
 if [ "$(uname)" = "Darwin" ]; then

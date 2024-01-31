@@ -1,3 +1,4 @@
+set shell sh
 set hidden
 set icons
 set number
@@ -5,7 +6,6 @@ set number
 set previewer ~/.config/lf/preview.sh
 set cleaner ~/.config/lf/clean.sh
 set relativenumber
-set shell zsh
 
 # ========== Commands ==========
 
@@ -28,10 +28,16 @@ while IFD= read -r i; do
 done < $(printf $fx)
 }}
 
+cmd mkdir %mkdir $1
+cmd mkfile %touch $1
+
 map x $$f
 map X !$f
 map o &open $f
 # map O $open --ask $f
+map m
+map md push :mkdir<space>
+map mf push :mkfile<space>
 
 map gda cd ~/Documents/Data/
 map gca cd ~/Documents/Calculation/

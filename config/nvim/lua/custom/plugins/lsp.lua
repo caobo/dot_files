@@ -9,7 +9,6 @@ M.dependencies={
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
     {
         'j-hui/fidget.nvim',
-        tag = "legacy",
         event = "LspAttach",
         opts = {
             text = {

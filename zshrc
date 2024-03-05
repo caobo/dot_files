@@ -86,6 +86,7 @@ source "$HOME/.config/zsh/jovial_setting.zsh"
 
 export BAT_THEME="ansi"
 
+# fzf color settings
 export FZF_DEFAULT_OPTS="
     --color=fg:#908caa,bg:#232136,hl:#ea9a97
     --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97

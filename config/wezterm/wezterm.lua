@@ -81,11 +81,10 @@ return {
     audible_bell="Disabled",
     send_composed_key_when_left_alt_is_pressed=true,
     max_fps = 200,
+    animation_fps = 120,
     hide_tab_bar_if_only_one_tab = true,
     default_cursor_style = 'BlinkingBar',
     cursor_thickness = 6.0,
     force_reverse_video_cursor = true,
     enable_kitty_graphics = true,
-    animation_fps = 120
 }
-

@@ -56,7 +56,7 @@ mods = "Command"
 [window]
 decorations = "None"
 dynamic_padding = false
-opacity = 0.8
+opacity = 1
 
 [window.padding]
 x = 5

@@ -75,7 +75,8 @@ WeCom
 VooV
 # WeChat
 Quantumult X
-Hand Mirror"
+Hand Mirror
+Notifications"
 
 # Add rules for unmanaged apps
 printf "%s\n" "$UNMANAGED" | while IFS= read -r app; do

@@ -86,5 +86,6 @@ return {
     cursor_thickness = 6.0,
     force_reverse_video_cursor = true,
     enable_kitty_graphics = true,
+    animation_fps = 120
 }
 

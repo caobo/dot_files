@@ -21,11 +21,9 @@ set relativenumber
 # cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
 cmd trash !{{
-# while IFS=\n read -r i; do
-while IFD= read -r i; do
-    mv "$i" "$HOME/.Trash"
-    # rm "$i"
-done < $(printf $fx)
+ for i in $fx; do
+  mv "$i" "$HOME/.Trash/"
+ done
 }}
 
 cmd mkdir %mkdir $1
@@ -46,4 +44,4 @@ map gdn cd ~/Downloads/
 map gtm cd ~/tmp/
 map gta cd ~/.Trash/
 
-map D $mv $f ~/.Trash
+map D trash

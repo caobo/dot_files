@@ -1,4 +1,3 @@
-
 # zshrc file
 # Author: Bo Cao
 # Date: May 28, 2023

@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local mux = wezterm.mux
-local colors = require('lua/theme/rose-pine').colors()
-local window_frame = require('lua/theme/rose-pine').window_frame()
+local colors = require('lua/theme/rose-pine-moon').colors()
+local window_frame = require('lua/theme/rose-pine-moon').window_frame()
 
 wezterm.on('gui-startup', function(cmd)
     local _, _, window = mux.spawn_window(cmd or {})

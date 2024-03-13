@@ -1,13 +1,3 @@
--- [[ terminal settings ]]
--- vim.api.nvim_create_autocmd("TermOpen", {
---   pattern = "*",
---   command = 'startinsert',
--- })
-
--- vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
---   command = "checktime",
--- })
-
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -50,7 +40,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- [[ create a keymap for build latex files ]]
 vim.api.nvim_create_autocmd('FileType',{
-    pattern = {"tex","latex"},
+    pattern = {"tex"},
     callback = function (event)
         vim.keymap.set("n", "<leader>ll", "<cmd>!latexmk %<cr>", {buffer = event.buf, silent = true})
         vim.keymap.set("n", "<leader>lx", "<cmd>!latexmk -xelatex %<cr>", {buffer = event.buf, silent = true})
@@ -60,7 +50,7 @@ vim.api.nvim_create_autocmd('FileType',{
 
 -- [[ create a keymap for build python files ]]
 vim.api.nvim_create_autocmd('FileType',{
-    pattern = {"py","python"},
+    pattern = {"py"},
     callback = function (event)
         vim.keymap.set('n', '<leader>bb', '<cmd>!python %<cr>', {buffer = event.buf, silent = true})
     end,
@@ -78,7 +68,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { ".zshrc" },
+  pattern = { "zshrc" },
   command = "!source ~/.zshrc",
 })
 

@@ -19,11 +19,11 @@ window_placement second_child"
 
 # Layout settings
 LAYOUT="layout bsp
-bottom_padding 5
-left_padding 5
-right_padding 5
-top_padding 5
-window_gap 5"
+bottom_padding 2
+left_padding 2
+right_padding 2
+top_padding 2
+window_gap 2"
 
 # Mouse behavior settings
 MOUSE="focus_follows_mouse off
@@ -60,7 +60,6 @@ Dictionary
 FaceTime
 Microsoft Remote Desktop
 Python
-# Photo Booth
 Screen Sharing
 Screens
 zoom.us
@@ -72,7 +71,6 @@ Input Source Pro
 AdGuard
 WeCom
 VooV
-# WeChat
 Quantumult X
 Hand Mirror
 Notifications
@@ -92,4 +90,6 @@ yabai -m rule --add "app=Mathematica" "title=Welcome to Wolfram Mathematica.*" m
 yabai -m rule --add "title=Preference.*" manage=off
 yabai -m rule --add "title=Setting.*" manage=off
 yabai -m rule --add "title=General.*" manage=off
+yabai -m rule --add "title=^$" manage=off
+yabai -m rule --add "app=WeChat" "title!=WeChat.*" manage=off
 yabai -m rule --add "app=Calender" "title= " manage=off

@@ -20,7 +20,7 @@ opt.timeout = true
 opt.timeoutlen = 300
 opt.completeopt = 'menuone,noselect'          -- Set completeopt to have a better completion experience
 opt.hidden = true
-opt.spelllang = {'en'}
+opt.spelllang = {'en','cjk'}
 opt.cmdheight = 0
 opt.smartindent = true
 

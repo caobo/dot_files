@@ -2,13 +2,15 @@ local wezterm = require('wezterm')
 local colors = require('lua/theme/rose-pine-moon').colors()
 local window_frame = require('lua/theme/rose-pine-moon').window_frame()
 local gpus = wezterm.gui.enumerate_gpus()
-local font = wezterm.font { family = 'MonoLisa Medium' }
+local font = wezterm.font_with_fallback {
+    {family = "MonoLisa", weight = "Medium", assume_emoji_presentation = false},
+    {family = "Maple Mono", weight = "Medium"}
+}
 
 local M = {
     -- environment variable
     set_environment_variables = {
         TERM = "xterm-256color",
-        LC_ALL = "en_US.UTF-8",
     },
     -- fonts
     font = font,
@@ -16,17 +18,17 @@ local M = {
     freetype_load_target = "Normal",
     line_height = 1.2,
     -- window and tab
-    window_frame = window_frame,
     window_decorations = "RESIZE|MACOS_FORCE_DISABLE_SHADOW",
     window_padding = { left = 5, right = 5, top = 5, bottom = 5},
     hide_tab_bar_if_only_one_tab = true,
     use_fancy_tab_bar = false,
     -- appearence
     colors = colors,
+    window_frame = window_frame,
     window_background_opacity = 1,
     text_background_opacity = 1,
     default_cursor_style = 'BlinkingBar',
-    cursor_thickness = 6.0,
+    cursor_thickness = 5.0,
     force_reverse_video_cursor = true,
     -- preformance
     webgpu_preferred_adapter = gpus[1],

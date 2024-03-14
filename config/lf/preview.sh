@@ -21,6 +21,7 @@ draw_clear() {
 
 draw_image() {
     kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
+    command chafa -f sixel --optimize=9 -s "$2x$3" --animate off --polite on "$1"
 }
 
 make_video() {

@@ -3,8 +3,19 @@ local colors = require('lua/theme/rose-pine-moon').colors()
 local window_frame = require('lua/theme/rose-pine-moon').window_frame()
 local gpus = wezterm.gui.enumerate_gpus()
 local font = wezterm.font_with_fallback {
-    {family = "MonoLisa", weight = "Medium", assume_emoji_presentation = false},
+    {
+        family = "MonoLisa",
+        weight = "Medium",
+        assume_emoji_presentation = false,
+        freetype_load_target = "HorizontalLcd",
+        freetype_render_target = "HorizontalLcd"
+    },
     {family = "Maple Mono", weight = "Medium"}
+}
+local foreground_text_hsb = {
+  hue = 1.0,
+  saturation = 1.2,
+  brightness = 1.2,
 }
 
 local M = {
@@ -15,8 +26,8 @@ local M = {
     -- fonts
     font = font,
     font_size = 16,
-    freetype_load_target = "Normal",
     line_height = 1.2,
+    foreground_text_hsb = foreground_text_hsb,
     -- window and tab
     window_decorations = "RESIZE|MACOS_FORCE_DISABLE_SHADOW",
     window_padding = { left = 5, right = 5, top = 5, bottom = 5},

@@ -69,7 +69,6 @@ opt.splitright = true            -- bool: Place new window to right of current o
 opt.splitbelow = true            -- bool: Place new window below the current one
 
 -- [[ Theme ]]
--- g.t_co = 256
 opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.cursorline = true
 opt.termguicolors = true         -- bool: If term supports ui color then enable

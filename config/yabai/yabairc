@@ -73,8 +73,10 @@ WeCom
 VooV
 Quantumult X
 Hand Mirror
-Notifications
-wezterm-gui"
+Notifications"
+
+# Add rule for all window layer
+yabai -m rule --add app=".*" layer=normal
 
 # Add rules for unmanaged apps
 printf "%s\n" "$UNMANAGED" | while IFS= read -r app; do
@@ -93,3 +95,4 @@ yabai -m rule --add "title=General.*" manage=off
 yabai -m rule --add "title=^$" manage=off
 yabai -m rule --add "app=WeChat" "title!=WeChat.*" manage=off
 yabai -m rule --add "app=Calender" "title= " manage=off
+yabai -m rule --add "app=wezterm-gui" manage=off layer=above

@@ -10,12 +10,17 @@ local font = wezterm.font_with_fallback {
         freetype_load_target = "HorizontalLcd",
         freetype_render_target = "HorizontalLcd"
     },
-    {family = "Maple Mono", weight = "Medium"}
+    {family = "LXGW WenKai Mono",
+    weight = "Medium",
+    scale = 1.2,
+    freetype_load_target = "HorizontalLcd",
+    freetype_render_target = "HorizontalLcd"
+}
 }
 local foreground_text_hsb = {
-  hue = 1.0,
-  saturation = 1.2,
-  brightness = 1.2,
+    hue = 1.0,
+    saturation = 1.2,
+    brightness = 1.2,
 }
 
 local M = {

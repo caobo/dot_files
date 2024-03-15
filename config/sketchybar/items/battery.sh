@@ -1,19 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
-battery=(
-  script="$PLUGIN_DIR/battery.sh"
-  icon.font="$FONT:Regular:18.0"
-  label.font="$FONT:Regular:12.0"
-  padding_right=3
-  padding_left=1
-  label.padding_left=0
-  label.y_offset=-1.5
-  y_offset=1
-  label.drawing=on
-  update_freq=120
-  updates=on
-)
-
-sketchybar --add item battery right      \
-           --set battery "${battery[@]}" \
-           --subscribe battery power_source_change system_woke
+sketchybar --add item battery right \
+	--set battery \
+	update_freq=3 \
+	icon.color=$LOVE \
+	icon.font="$FONT:Bold:13.0" \
+	icon.padding_left=10 \
+	label.color=$LOVE \
+	label.padding_right=10 \
+	label.font="$FONT:Bold:13.0" \
+	background.color=$SURFACE \
+	background.height=26 \
+	background.corner_radius=$CORNER_RADIUS \
+	background.padding_right=5 \
+	script="$PLUGIN_DIR/power.sh"

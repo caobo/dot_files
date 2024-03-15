@@ -1,61 +1,43 @@
-source "$HOME/.config/sketchybar/colors.sh"
-source "$HOME/.config/sketchybar/icons.sh"
+#!/bin/sh
 
-# Register custom event - this will be use by sketchy bar's space items as well as app_space.sh
+# SPACE_ICONS=("" "" "" "" "" "" "" "" "" "")
+SPACE_ICONS=("一" "二" "三" "四" "五" "六" "七" "八" "九" "十")
+# SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 
-# Space items
-# COLORS_SPACE=($YELLOW $CYAN $MAGENTA $WHITE $BLUE $RED $GREEN $WHITE $WHITE $WHITE )
-# COLORS_SPACE=($WHITE $LIGHT_BLUE $CYAN $BLUE $DARK_BLUE $MAGENTA $RED $ORANGE $YELLOW $GREEN )
-COLORS_SPACE=($WHITE $LIGHT_BLUE $CYAN $BLUE $MAGENTA $ORANGE $YELLOW $GREEN )
-# COLORS_SPACE=($WHITE $WHITE $WHITE $WHITE $WHITE $WHITE $WHITE $WHITE $WHITE $WHITE )
-LENGTH=${#ICONS_SPACE[@]}
+SPACE_CLICK_SCRIPT='yabai -m space --focus $SID 2>/dev/null'
 
-for i in "${!ICONS_SPACE[@]}"
-do
-  sid=$(($i+1))
-  PAD_LEFT=3
-  PAD_RIGHT=3
-  if [[ $i == 0 ]]; then
-    PAD_LEFT=8
-  elif [[ $i == $(($LENGTH-1)) ]]; then
-    PAD_RIGHT=8
-  fi
-
-
-# Old config
-# icon.color=${COLORS_SPACE[i]}              \
-# label.color=${COLORS_SPACE[i]}             \
-
-  sketchybar --add space space.$sid left                                       \
-             --set       space.$sid script="$PLUGIN_DIR/app_space.sh"          \
-                                    associated_space=$sid                      \
-                                    padding_left=$PAD_LEFT                     \
-                                    padding_right=$PAD_RIGHT                   \
-                                    background.color=${COLORS_SPACE[i]}        \
-                                    background.corner_radius=5                 \
-                                    background.height=20                       \
-                                    icon=${ICONS_SPACE[i]}                     \
-                                    label.font="Hack Nerd Font:Bold:14.0"      \
-                                    icon.color=${COLORS_SPACE[i]}              \
-                                    label="_"                                  \
-                                    label.color=${COLORS_SPACE[i]}             \
-                                    icon.y_offset=1.5                          \
-                                    label.y_offset=0             \
-                                    label.font.size=13             \
-             --subscribe space.$sid front_app_switched window_change
+for i in "${!SPACE_ICONS[@]}"; do
+  (( sid = i + 1 ))
+  sketchybar --add space "space.$sid" left \
+    --set "space.$sid" associated_space="$sid" \
+    icon="${SPACE_ICONS[i]}" \
+    icon.padding_left=22 \
+    icon.padding_right=22 \
+    icon.highlight_color="$LOVE" \
+    icon.font="$FONT:Bold:13.0" \
+    background.padding_left=-11 \
+    background.padding_right=-11 \
+    background.height=26 \
+    background.corner_radius="$CORNER_RADIUS" \
+    background.color="$TRANSPARENT" \
+    background.drawing=on \
+    label.background.drawing=on \
+    label.padding_right=20 \
+    label.drawing=off \
+    label.color="$PINE" \
+    label.font="$FONT:Bold:13.0" \
+    script="$PLUGIN_DIR/space.sh" \
+    click_script="$SPACE_CLICK_SCRIPT"
 done
 
-# Space bracket
-sketchybar --add bracket spaces '/space\..*/'                        \
-           --set         spaces background.color=$BACKGROUND_2      \
-                                  blur_radius=30                    \
-                                  shadow=on                         \
-                                  background.border_color=$WHITE   \
-                                  background.border_width=0        \
-                                  icon.highlight_color=$BACKGROUND_2\
-                                  icon.padding_left=6               \
-                                  icon.padding_right=2              \
-                                  label.color=$YELLOW               \
-                                  label.highlight_color=$BACKGROUND_2 \
-                                  label.padding_left=2              \
-                                  label.padding_right=6             \
+sketchybar --set space.1 background.padding_left=-1
+
+sketchybar --add item separator left \
+	--set separator icon= \
+	icon.font="$FONT:Regular:16.0" \
+	background.padding_left=26 \
+	background.padding_right=15 \
+	label.drawing=off \
+	label.color=$PINE \
+	associated_display=active \
+	icon.color=$YELLOW

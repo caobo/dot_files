@@ -85,8 +85,8 @@ JOVIAL_SYMBOL=(
     corner.bottom ''
     git.dirty ' ✘'
     git.clean ' ✔'
-    arrow '->'
+    arrow '-->'
     # arrow.git-clean '(๑˃̵ᴗ˂̵)و'
-    arrow.git-clean '->'
+    arrow.git-clean '-->'
     arrow.git-dirty '(ﾉ˚Д˚)ﾉ'
 )

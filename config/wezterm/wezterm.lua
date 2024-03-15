@@ -6,16 +6,16 @@ local font = wezterm.font_with_fallback {
     {
         family = "MonoLisa",
         weight = "Medium",
-        assume_emoji_presentation = false,
         freetype_load_target = "HorizontalLcd",
         freetype_render_target = "HorizontalLcd"
     },
-    {family = "LXGW WenKai Mono",
-    weight = "Medium",
-    scale = 1.2,
-    freetype_load_target = "HorizontalLcd",
-    freetype_render_target = "HorizontalLcd"
-}
+    {
+        family = "LXGW WenKai Mono",
+        weight = "Medium",
+        scale = 1.2,
+        freetype_load_target = "HorizontalLcd",
+        freetype_render_target = "HorizontalLcd"
+    }
 }
 local foreground_text_hsb = {
     hue = 1.0,

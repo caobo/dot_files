@@ -73,7 +73,8 @@ WeCom
 VooV
 Quantumult X
 Hand Mirror
-Notifications"
+Notifications
+wezterm-gui"
 
 # Add rule for all window layer
 yabai -m rule --add app=".*" layer=normal
@@ -96,4 +97,3 @@ yabai -m rule --add "title=General.*" manage=off
 yabai -m rule --add "title=^$" manage=off
 yabai -m rule --add "app=WeChat" "title!=WeChat.*" manage=off
 yabai -m rule --add "app=Calender" "title= " manage=off
-yabai -m rule --add "app=wezterm-gui" manage=off layer=above

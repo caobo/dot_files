@@ -16,9 +16,6 @@ map({'n'}, '<C-l>', '<C-w>l', opts)
 map({'n'}, '<C-j>', '<C-w>j', opts)
 map({'n'}, '<C-k>', '<C-w>k', opts)
 
--- other settings
-map('n', '<leader>e', vim.cmd.Lex, opts)
-
 -- Remap for dealing with word wrap
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true})
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })

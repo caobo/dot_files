@@ -10,12 +10,7 @@ M.dependencies={
     {
         'j-hui/fidget.nvim',
         event = "LspAttach",
-        opts = {
-            text = {
-                -- spinner = 'moon'
-                spinner = 'dots_pulse'
-            }
-        },
+        opts = {},
     },
     -- Additional lua configuration, makes nvim stuff amazing!
     'folke/neodev.nvim',

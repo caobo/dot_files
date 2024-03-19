@@ -76,10 +76,6 @@ function M.config()
     }),
 },
 
-formatting = {
-    fields = {'menu', 'abbr', 'kind'}
-},
-
 sources = {
     {
         name = "path",

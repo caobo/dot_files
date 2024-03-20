@@ -5,7 +5,8 @@ local opts = { noremap = true, silent = true }
 map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 map('i', 'jk', '<ESC>', opts)
 map('i', 'jj', '<ESC>:w<ESC>', opts)
-map('n', '<leader>s', ':w<CR>', opts)
+map('n', '<leader>s', '<cmd>w<cr>', opts)
+map('n', '<leader>q', '<cmd>x<cr>', opts)
 
 -- settings for splitting pane
 map('n', '<leader>sv', '<C-w>v', opts)

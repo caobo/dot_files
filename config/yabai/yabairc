@@ -87,7 +87,7 @@ done
 # Exclude problematic apps from being managed
 yabai -m rule --add "label=Finder" "app=^Finder$" "title=(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add "label=Safari" "app=^Safari$" "title=^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-yabai -m rule --add "label=Arc" "app=^SArc.*$" "title=(Bo|General|Profiles|Shortcuts|Links|Advance|Little Arc.*)" manage=off
+yabai -m rule --add "label=Arc" "app=Arc" "title=(Bo|General|Profiles|Shortcuts|Links|Advance)" manage=off
 yabai -m rule --add "label=About This Mac" "app=System Information" "title=About This Mac" manage=off
 yabai -m rule --add "label=Photo booth" "app=^Photo Booth$" manage=off
 yabai -m rule --add "app=Mathematica" "title=Welcome to Wolfram Mathematica.*" manage=off

@@ -1,5 +1,6 @@
 local M = {"windwp/nvim-autopairs"}
-M.event ={ 'BufReadPost', 'BufNewFile'}
+
+M.event ="InsertEnter"
 
 function M.config()
     local autopairs = require("nvim-autopairs")

@@ -38,5 +38,8 @@ map("n", "N", "Nzzzv", opts)
 -- remaps customized paste
 map("x", "<leader>p", [["_dP]], opts)
 
+-- format the entire file
+map("n", "<leader>mm", "gg=G''", opts)
+
 -- reload nvim
 map("n", "<leader>rl", "<cmd>source $HOME/.config/nvim/init.lua<cr>", opts)

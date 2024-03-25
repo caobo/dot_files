@@ -160,6 +160,9 @@ experimental = {
     require('lspconfig').pyright.setup {
         capabilities = capabilities
     }
+    require('lspconfig').tsserver.setup {
+        capabilities = capabilities
+    }
 
 end
 

@@ -1,6 +1,6 @@
 local M = {'neovim/nvim-lspconfig'}
 
-M.lazy = "VeryLazy"
+M.event ={ 'BufReadPost', 'BufNewFile'}
 M.dependencies={
     -- Automatically install LSPs to stdpath for neovim
     'williamboman/mason.nvim',
@@ -52,9 +52,12 @@ function M.config()
     })
 
     require('neodev').setup()
+
     require('mason').setup()
+
+    local ensure_installed = {"lua_ls","pyright","texlab","tsserver"}
     require('mason-lspconfig').setup({
-        ensure_installed = {"lua_ls","pyright","texlab"},
+        ensure_installed = ensure_installed,
         handlers = {
             -- default_setup,
             lspconfig.lua_ls.setup({

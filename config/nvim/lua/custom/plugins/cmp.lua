@@ -1,5 +1,5 @@
 local M = {"hrsh7th/nvim-cmp"}
-M.event = { "InsertEnter", "CmdlineEnter" }
+M.event = {"CmdlineEnter", "BufReadPost",  "BufNewFile"}
 
 M.dependencies = {
     "hrsh7th/cmp-buffer", -- Buffer Completions

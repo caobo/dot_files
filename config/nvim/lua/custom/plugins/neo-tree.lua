@@ -12,7 +12,13 @@ M.keys = {
 }
 
 function M.config ()
-
+    require("neo-tree").setup{
+        window = {
+            mappings = {
+                ["<space>"] = "open"
+            }
+        }
+    }
 end
 
 return M

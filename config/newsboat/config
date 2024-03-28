@@ -6,13 +6,13 @@ unbind-key L
 unbind-key c
 unbind-key ,
 external-url-viewer "urlscan -dc -r 'open_links {}'"
-browser "nohup open -n %u &>/dev/null"
+browser "open %u &>/dev/null"
 
 # Feed settings
 prepopulate-query-feeds yes
 refresh-on-startup yes
 
-macro w set browser "mpv %u" ; open-in-browser ; set browser "nohup open -n %u &>/dev/null"
+macro w set browser "mpv %u" ; open-in-browser ; set browser "open %u &>/dev/null"
 
 # bind keys
 bind-key ; macro-prefix

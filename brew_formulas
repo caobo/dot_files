@@ -2,6 +2,7 @@ alfred
 appcleaner 
 bartender
 bat
+btop
 curl
 fd
 ffmpeg
@@ -10,6 +11,7 @@ font-liga-comic-mono
 font-lxgw-wenkai
 font-sf-mono 
 font-symbols-only-nerd-font
+fontforge
 fzf
 git
 homebrew/cask/sip
@@ -22,10 +24,10 @@ lf
 mactex-no-gui 
 neovim
 newsboat
+node
 npm
 numi
 pdf-expert
-php
 python
 ripgrep
 sdcv

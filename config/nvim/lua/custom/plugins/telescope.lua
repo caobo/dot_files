@@ -16,12 +16,14 @@ function M.init()
     map('n', '<leader>?', '<cmd>Telescope keymaps<cr>', opts)
     -- Find files by name
     map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
+    -- Find files by name in current git repo
+    map('n', '<leader>fp', '<cmd>Telescope git_files<cr>', opts)
     -- Search symbols in buffer
     map('n', '<leader>fs', '<cmd>Telescope treesitter<cr>', opts)
     -- Search buffer lines
     map('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
     -- Search in files history
-    map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', opts)
+    map('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', opts)
     -- Search in active buffers list
     map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
     -- Search symbols in document and workplace

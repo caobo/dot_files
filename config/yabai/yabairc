@@ -13,7 +13,7 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # General settings
 GENERAL="auto_balance off
-split_ratio 0.55
+split_ratio 0.5
 split_type auto
 window_placement second_child"
 
@@ -44,36 +44,36 @@ yabai -m config $ENABLE_OPTS
 # Rules for unmanaged apps
 # Softwares use floating window layout
 UNMANAGED="System Settings
-System
-Software Update
-System Information
 Activity Monitor
-Preview
+AdGuard
 Alfred
 App Store
+AppCleaner
 Archive Utility
-Keychain
-Music
-Messages
 Calculator
 Dictionary
 FaceTime
+Hand Mirror
+Input Source Pro
+Keychain
+Messages
 Microsoft Remote Desktop
+Music
+Notifications
+Numi
+Preview
 Python
+Quantumult X
 Screen Sharing
 Screens
-zoom.us
-iStat Menus
-AppCleaner
 Sip
-Numi
-Input Source Pro
-AdGuard
-WeCom
+Software Update
+System
+System Information
 VooV
-Quantumult X
-Hand Mirror
-Notifications
+WeCom
+iStat Menus
+zoom.us
 wezterm-gui"
 
 # Add rule for all window layer

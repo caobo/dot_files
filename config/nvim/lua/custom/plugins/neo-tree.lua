@@ -17,6 +17,14 @@ function M.config ()
             mappings = {
                 ["<space>"] = "open"
             }
+        },
+        event_handlers = {
+            {
+                event = "neo_tree_buffer_enter",
+                handler = function()
+                    vim.cmd ("setlocal relativenumber")
+                end
+            }
         }
     }
 end

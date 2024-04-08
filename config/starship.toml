@@ -48,18 +48,8 @@ disabled = false
 commit_hash_length = 4
 
 [git_status]
-format = '[\[ $all_status$ahead_behind$stashed\]]($style) '
+format = '[\[$all_status$ahead_behind$stashed\]]($style) '
 style = "cyan"
-conflicted = "[◪◦](italic bright-magenta) "
-ahead = "[▲[${count}](bold white)](italic green) "
-behind = "[▽[${count}](bold white)](italic red) "
-diverged = "[◇▲[${ahead_count}](regular white)▽[${behind_count}](regular white)](italic bright-magenta) "
-untracked = "[◌◦](italic bright-yellow) "
-stashed = "[◦◫◦](italic white) "
-modified = "[●◦](italic yellow) "
-staged = "[■[$count](bold white)](italic bright-cyan) "
-renamed = "[◎◦](italic bright-blue) "
-deleted = "[✕](italic red) "
 disabled = false
 
 [git_metrics]

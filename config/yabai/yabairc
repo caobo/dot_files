@@ -4,9 +4,8 @@
 # date: May 28, 2023
 # --------------------
 
-
 # Load yabai scripting additions
-sudo yabai --load-sa
+# sudo yabai --load-sa
 
 # Restart yabai when dock restarts
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"

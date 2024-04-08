@@ -8,6 +8,7 @@ $git_state\
 $git_metrics\
 $git_status\
 $fill\
+$jobs\
 $time\
 $cmd_duration\
 $lua\
@@ -21,13 +22,13 @@ $character"""
 [username]
 style_user = 'white bold'
 style_root = 'black bold'
-format = '[$user]($style) in '
+format = '[$user]($style) [in](bright-black) '
 disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = '\[[$hostname](bold blue)\] as '
+format = '\[[$hostname](bold blue)\] [as](bright-black) '
 disabled = false
 
 [directory]
@@ -39,7 +40,7 @@ error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
 
 [git_branch]
-format = "at[ $branch ]($style)"
+format = "[at]($style) [$branch](blue) "
 style = "bright-black"
 disabled = false
 
@@ -47,9 +48,18 @@ disabled = false
 commit_hash_length = 4
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+format = '[\[ $all_status$ahead_behind$stashed\]]($style) '
 style = "cyan"
-stashed = "≡"
+conflicted = "[◪◦](italic bright-magenta) "
+ahead = "[▲[${count}](bold white)](italic green) "
+behind = "[▽[${count}](bold white)](italic red) "
+diverged = "[◇▲[${ahead_count}](regular white)▽[${behind_count}](regular white)](italic bright-magenta) "
+untracked = "[◌◦](italic bright-yellow) "
+stashed = "[◦◫◦](italic white) "
+modified = "[●◦](italic yellow) "
+staged = "[■[$count](bold white)](italic bright-cyan) "
+renamed = "[◎◦](italic bright-blue) "
+deleted = "[✕](italic red) "
 disabled = false
 
 [git_metrics]
@@ -66,10 +76,16 @@ disabled = false
 [fill]
 symbol = " "
 
+[jobs]
+symbol = '+'
+format = '[$symbol$number]($style) '
+symbol_threshold = 1
+number_threshold = 2
+
 [time]
 disabled = false
 style = "white"
-format = '[\[ $time \]]($style) '
+format = '[\[$time\]]($style) '
 time_format = '%T'
 
 [cmd_duration]

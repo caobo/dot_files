@@ -48,8 +48,15 @@ disabled = false
 commit_hash_length = 4
 
 [git_status]
-format = '[$all_status$ahead_behind$stashed]($style) '
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)]($style)"
 style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
 disabled = false
 
 [git_metrics]

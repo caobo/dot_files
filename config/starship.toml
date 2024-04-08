@@ -48,7 +48,7 @@ disabled = false
 commit_hash_length = 4
 
 [git_status]
-format = '[\[$all_status$ahead_behind$stashed\]]($style) '
+format = '[$all_status$ahead_behind$stashed]($style) '
 style = "cyan"
 disabled = false
 

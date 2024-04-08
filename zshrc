@@ -9,10 +9,10 @@
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
-# plug "zap-zsh/zap-prompt"
 plug "zdharma-continuum/fast-syntax-highlighting"
-plug "zthxxx/jovial"
-source "$HOME/.local/share/zap/plugins/jovial/jovial.zsh-theme"
+
+# start starship prompt
+eval "$(starship init zsh)"
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -80,8 +80,6 @@ bindkey -s '^r' 'search_command_history\n'
 
 # More color and theme related settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
-
-source "$HOME/.config/zsh/jovial_setting.zsh"
 
 export BAT_THEME="ansi"
 

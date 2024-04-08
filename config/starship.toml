@@ -1,0 +1,83 @@
+format = """
+$hostname\
+$username\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$fill\
+$time\
+$cmd_duration\
+$lua\
+$c\
+$python\
+$rust\
+$nodejs\
+$line_break\
+$character"""
+
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = '[$user]($style) in '
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '\[[$hostname](bold blue)\] as '
+disabled = false
+
+[directory]
+style = "blue"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[git_branch]
+format = "[$branch]($style)"
+style = "bright-black"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[fill]
+symbol = " "
+
+[time]
+disabled = false
+style = "white"
+format = '[\[ $time \]]($style) '
+time_format = '%T'
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
+[python]
+format = "via [py $virtualenv]($style) "
+style = "white"
+disabled = false
+
+[rust]
+format = 'via [⚙️ $version](red bold)'
+disabled = false
+
+[lua]
+format = 'via [🌕 $version](bold blue) '
+disabled = false
+
+[nodejs]
+format = 'via [🤖 $version](bold green) '
+disabled = false
+
+[c]
+format = 'via [$name $version]($style)'

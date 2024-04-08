@@ -11,7 +11,7 @@ plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "zdharma-continuum/fast-syntax-highlighting"
 
-# start starship prompt
+# Start starship prompt
 eval "$(starship init zsh)"
 
 # Load and initialise completion system
@@ -23,7 +23,8 @@ SAVEHIST=1000
 HISTSIZE=999
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
-# autocompletion using arrow keys (based on history)
+
+# Autocompletion using arrow keys (based on history)
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
@@ -46,13 +47,12 @@ mcd() {
    [ -n "$@" ] && mkdir -p "$@" && cd "$@" || echo "Please name a directory to create."
 }
 
+# Functions for quickly adding and jumping to "goto" directories
 gt() {
     GT_LIST="$HOME/.config/zsh/gt_list"
     GT_DIR="$(cat "$GT_LIST" | fzf --height=~100% --cycle --preview 'ls {}' --info=inline --border=rounded)"
     [ -n "$GT_DIR" ] && cd "$GT_DIR" || echo "Please select a goto directory to navigate to."
 }
-
-# Functions for quickly adding and jumping to "goto" directories
 
 # Aliases
 alias latexmk='latexmk -quiet 1> /dev/null'
@@ -65,13 +65,11 @@ alias la='ls -alh'
 alias less='less -RFX'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'
+    bindkey -s '^o' 'open_applications\n'
 fi
 alias ya='yazi'
 
 # Key bindings
-if [ "$(uname)" = "Darwin" ]; then
-    bindkey -s '^o' 'open_applications\n'
-fi
 bindkey -s '^k' 'dot_folder_edit\n'
 bindkey -s '^e' 'current_folder_edit\n'
 bindkey -s '^x' 'open_with_xplr\n'
@@ -92,17 +90,33 @@ export FZF_DEFAULT_OPTS="
     --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
 "
 
-# Show a greeting message
-greet_message="\
-  .----------------------------.
-  | May the phase be with you. |
-  '----------------------------'
-      ^      (\_(\ \r
-      '----- ( -.-) \r
-             o_(\")(\")
-"
-printf "$greet_message"
+# Show a greeting message and cheak if dash is the system shell
+greet_message=$(<$HOME/.config/zsh/greeting.txt)
 
-if [ "$(uname)" = "Linux" ]; then
-    KITTY_ENABLE_WAYLAND=1
-fi
+case "$(uname)" in
+    Darwin)
+        if [ "$(readlink "/var/select/sh")" = "/bin/dash" ]; then
+            printf "%s\n" "$greet_message"
+        else
+            printf "%s\n" "$greet_message"
+            printf "Please change your system shell\n"
+            printf "Run the command:\n"
+            printf "sudo ln -sf /bin/dash /private/var/select/sh\n"
+        fi
+        ;;
+    Linux)
+        # ask kitty to use wayland
+        KITTY_ENABLE_WAYLAND=1
+        if [ "$(readlink "/bin/sh")" = "/bin/dash" ]; then
+            printf "%s\n" "$greet_message"
+        else
+            printf "%s\n" "$greet_message"
+            printf "Please change your system shell\n"
+            printf "Run the command:\n"
+            printf "sudo ln -sf /bin/dash /bin/sh\n"
+        fi
+        ;;
+    *)
+        printf "Unsupported operating system: $(uname)\n"
+        ;;
+esac

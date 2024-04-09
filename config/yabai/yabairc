@@ -8,7 +8,7 @@
 # sudo yabai --load-sa
 
 # Restart yabai when dock restarts
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # General settings
 GENERAL="auto_balance off
@@ -76,7 +76,8 @@ zoom.us
 wezterm-gui"
 
 # Add rule for all window layer
-yabai -m rule --add app=".*" layer=normal
+# yabai -m rule --add app!="wezterm-gui" layer=normal
+# yabai -m rule --add app="wezterm-gui" layer=above
 
 # Add rules for unmanaged apps
 printf "%s\n" "$UNMANAGED" | xargs -P2 -I{} yabai -m rule --add "label=unmanage_{}" "app=^{}.*$" manage=off
@@ -93,5 +94,5 @@ yabai -m rule --add "title=General.*" manage=off
 yabai -m rule --add "title=^$" manage=off
 yabai -m rule --add "app=WeChat" "title!=WeChat.*$" manage=off
 yabai -m rule --add "app=Calender" "title= " manage=off
-yabai -m rule --add "label=Arc" "app=Arc" "title=(Bo|General|Profiles|Shortcuts|Links|Advance)" manage=off
-yabai -m rule --add "label=Arc" "app=Arc" "title=Little.*" manage=off
+yabai -m rule --add "app=Arc.*" "title=(Bo|General|Profiles|Shortcuts|Links|Advance)" manage=off
+yabai -m rule --add "app=Arc.*" "title=Little .*" manage=off

@@ -64,7 +64,7 @@ added_style = 'green'
 deleted_style= 'red'
 format = '[\[+$added\]]($added_style)/[\[-$deleted\]]($deleted_style) '
 only_nonzero_diffs = true
-disabled = false
+disabled = true
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
@@ -81,18 +81,18 @@ symbol_threshold = 1
 number_threshold = 2
 
 [time]
-disabled = false
 style = "white"
 format = '[\[$time\]]($style) '
 time_format = '%T'
+disabled = false
 
 [cmd_duration]
 format = "[$duration]($style) "
 style = "yellow"
 
 [python]
-format = "via [py $virtualenv]($style) "
-style = "white"
+format = "via [python $version]($style) "
+style = "bold green"
 disabled = false
 
 [rust]

@@ -18,11 +18,11 @@ function M.config()
 
     lualine.setup({
         options = {
-            theme = "moonfly",
+            theme = "ayu_dark",
             icons_enabled = true,
             disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
-            component_separators = "",
-            section_separators = { left = '▊', right = '▊' },
+            component_separators = " ",
+            section_separators = { left = ' ', right = ' ' },
         },
         sections = {
             lualine_a = {{"mode", separator = { left = '▊' }, right_padding = 0 }},
@@ -52,7 +52,7 @@ function M.config()
                 },
                 'filetype'},
             lualine_y = { progress,"progress" },
-            lualine_z = { { "location", separator = { right = '▊' }, left_padding = 0 } },
+            lualine_z = { { "location", separator = { right = '▊▊' }, left_padding = 0 } },
         },
         inactive_sections = {
             lualine_a = { "filename" },

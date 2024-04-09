@@ -63,6 +63,7 @@ disabled = false
 added_style = 'green'
 deleted_style= 'red'
 format = '[\[+$added\]]($added_style)/[\[-$deleted\]]($deleted_style) '
+only_nonzero_diffs = true
 disabled = false
 
 [git_state]

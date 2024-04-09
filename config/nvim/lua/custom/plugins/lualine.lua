@@ -18,18 +18,19 @@ function M.config()
 
     lualine.setup({
         options = {
-            theme = "auto",
+            theme = "moonfly",
             icons_enabled = true,
             disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
-            -- section_separators = { left = "|", right = "|" },
-            component_separators = " ",
-            -- component_separators = "|",
+            component_separators = "",
             section_separators = { left = '▊', right = '▊' },
         },
         sections = {
-            lualine_a = { { "mode", separator = { left = "▊" }, right_padding = 3 } },
-            lualine_b = {'filename', "branch", 'diagnostics', { "diff", colored = true } },
-            lualine_c = { "searchcount", "selectioncount",
+            lualine_a = {{"mode", separator = { left = '▊' }, right_padding = 0 }},
+            lualine_b = {'filename',"filesize", "branch", 'diagnostics', { "diff", colored = true } },
+            lualine_c = {
+                '%=',
+                {"searchcount", draw_empty = true},
+                {"selectioncount", draw_empty = true},
                 {'buffers',
                     show_filename_only = true,   -- Shows shortened relative path when set to false.
                     hide_filename_extension = false,   -- Hide filename extension when set to true.
@@ -41,7 +42,6 @@ function M.config()
                     -- 3: Shows buffer number
                     -- 4: Shows buffer name + buffer number
                 },
-                use_mode_colors = false,
             },
             lualine_x = { 'encoding',
                 {'fileformat',
@@ -52,7 +52,7 @@ function M.config()
                 },
                 'filetype'},
             lualine_y = { progress,"progress" },
-            lualine_z = { { "location", separator = { right = "▊" }, left_padding = 3 } },
+            lualine_z = { { "location", separator = { right = '▊' }, left_padding = 0 } },
         },
         inactive_sections = {
             lualine_a = { "filename" },

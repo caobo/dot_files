@@ -12,7 +12,7 @@ local font = wezterm.font_with_fallback {
     {
         family = "LXGW WenKai Mono",
         weight = "Medium",
-        scale = 1.2,
+        scale = 1.1,
         freetype_load_target = "HorizontalLcd",
         freetype_render_target = "HorizontalLcd"
     }

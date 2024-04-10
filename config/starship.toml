@@ -91,7 +91,7 @@ format = "[$duration]($style) "
 style = "yellow"
 
 [python]
-format = "via [python $version]($style) "
+format = "via [  $version]($style) "
 style = "bold green"
 disabled = false
 

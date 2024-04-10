@@ -73,7 +73,8 @@ VooV
 WeCom
 iStat Menus
 zoom.us
-wezterm-gui"
+wezterm-gui
+mpv"
 
 # Add rule for all window layer
 # yabai -m rule --add app!="wezterm-gui" layer=normal

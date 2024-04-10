@@ -25,13 +25,30 @@ function M.config()
             section_separators = { left = ' ', right = ' ' },
         },
         sections = {
-            lualine_a = {{"mode", separator = { left = '▊' }, right_padding = 0 }},
-            lualine_b = {'filename',"filesize", "branch", 'diagnostics', { "diff", colored = true } },
+            lualine_a = {
+                {
+                    "mode", separator = { left = '▊' }, right_padding = 0
+                }
+            },
+            lualine_b = {
+                'filename',
+                "filesize",
+                "branch",
+                'diagnostics',
+                {
+                    "diff", colored = true
+                }
+            },
             lualine_c = {
                 '%=',
-                {"searchcount", draw_empty = true},
-                {"selectioncount", draw_empty = true},
-                {'buffers',
+                {
+                    "searchcount", draw_empty = true
+                },
+                {
+                    "selectioncount", draw_empty = true
+                },
+                {
+                    'buffers',
                     show_filename_only = true,   -- Shows shortened relative path when set to false.
                     hide_filename_extension = false,   -- Hide filename extension when set to true.
                     show_modified_status = true, -- Shows indicator when the buffer is modified.
@@ -43,25 +60,32 @@ function M.config()
                     -- 4: Shows buffer name + buffer number
                 },
             },
-            lualine_x = { 'encoding',
-                {'fileformat',
-                    symbols = { unix = 'Unix', -- e712
-                            dos = 'Dos',  -- e70f
-                            mac = 'Mac',  -- e711
-                    }
+            lualine_x = {
+                'encoding',
+                {
+                    'fileformat', symbols = { unix = 'Unix', dos = 'Dos', mac = 'Mac' }
                 },
                 'filetype'},
-            lualine_y = { progress,"progress" },
-            lualine_z = { { "location", separator = { right = '▊▊' }, left_padding = 0 } },
-        },
+                lualine_y = {
+                    progress,"progress"
+                },
+            lualine_z = {
+                {
+                    "location", separator = { right = '▊▊' },jleft_padding = 0 }
+                }
+            },
         inactive_sections = {
-            lualine_a = { "filename" },
+            lualine_a = {
+                "filename"
+            },
             lualine_b = {},
-            lualine_c = {"tabs"},
+            lualine_c = {
+                "tabs"
+            },
             lualine_x = {},
             lualine_y = {},
-            lualine_z = {},
-        },
+            lualine_z = {}
+        }
     })
 end
 

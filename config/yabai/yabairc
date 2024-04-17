@@ -78,16 +78,16 @@ mpv"
 
 # Add rule for all window layer
 # yabai -m rule --add app!="wezterm-gui" layer=normal
-# yabai -m rule --add app="wezterm-gui" layer=above
+yabai -m rule --add app="wezterm-gui" layer=above
 
 # Add rules for unmanaged apps
-printf "%s\n" "$UNMANAGED" | xargs -P2 -I{} yabai -m rule --add "label=unmanage_{}" "app=^{}.*$" manage=off
+printf "%s\n" "$UNMANAGED" | xargs -P8 -I{} yabai -m rule --add "label=unmanage_{}" "app=^{}.*$" manage=off
 
 # Exclude problematic apps from being managed
 yabai -m rule --add "label=Finder" "app=^Finder$" "title=(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add "label=Safari" "app=^Safari$" "title=^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add "label=About This Mac" "app=System Information" "title=About This Mac" manage=off
-yabai -m rule --add "label=Photo booth" "app=^Photo Booth$" manage=off
+yabai -m rule --add "app=.*Booth$" manage=off
 yabai -m rule --add "app=Mathematica" "title=Welcome to Wolfram Mathematica.*" manage=off
 yabai -m rule --add "title=Preference.*" manage=off
 yabai -m rule --add "title=Setting.*" manage=off
@@ -95,5 +95,5 @@ yabai -m rule --add "title=General.*" manage=off
 yabai -m rule --add "title=^$" manage=off
 yabai -m rule --add "app=WeChat" "title!=WeChat.*$" manage=off
 yabai -m rule --add "app=Calender" "title= " manage=off
-yabai -m rule --add "app=Arc.*" "title=(Bo|General|Profiles|Shortcuts|Links|Advance)" manage=off
-yabai -m rule --add "app=Arc.*" "title=Little .*" manage=off
+yabai -m rule --add "app=^Arc.*" "title=(Bo|General|Profiles|Shortcuts|Links|Advance)" manage=off
+yabai -m rule --add "title=Little Arc.*" manage=off

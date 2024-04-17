@@ -37,6 +37,7 @@ map("n", "N", "Nzzzv", opts)
 
 -- remaps customized paste
 map("x", "<leader>p", [["_dP]], opts)
+map({"n", "v"}, "<leader>d", [["_d]], opts)
 
 -- format the entire file
 map("n", "<leader>mm", "gg=G''", opts)

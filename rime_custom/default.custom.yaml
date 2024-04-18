@@ -43,4 +43,7 @@ patch:
       - { when: always, accept: Control+Shift+3, toggle: ascii_punct }           # 切换中英标点
       - { when: always, accept: Control+Shift+4, toggle: traditionalization }    # 切换简繁
       # - { when: always, accept: Control+Shift+5, toggle: full_shape }          # 切换全半角
-
+      - { when: composing, accept: Control+p, send: Left }
+      - { when: composing, accept: Control+n, send: Right }
+      # - { when: composing, accept: Control+b, send: Left }
+      # - { when: composing, accept: Control+f, send: Right }

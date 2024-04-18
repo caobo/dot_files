@@ -14,6 +14,21 @@ function M.config()
         return chars[index]
     end
 
+    -- show attached lsp server name
+    local lsp_info = function ()
+        local buf_type = vim.api.nvim_buf_get_option(0, 'filetype')
+        local clients = vim.lsp.get_active_clients()
+        if next(clients) == nil then
+            return 'No active LSP server'
+        end
+        for _, client in ipairs(clients) do
+            local lsp_filetype = client.config.filetypes
+            if lsp_filetype and vim.fn.index(lsp_filetype, buf_type) ~= -1 then
+                return  string.format("LSP server: [%s]", client.name)
+            end
+        end
+    end
+
     local lualine = require("lualine")
 
     lualine.setup({
@@ -59,6 +74,7 @@ function M.config()
                     -- 3: Shows buffer number
                     -- 4: Shows buffer name + buffer number
                 },
+                lsp_info
             },
             lualine_x = {
                 'encoding',

@@ -23,11 +23,14 @@ function M.init()
     -- Search buffer lines
     map('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
     -- Search in files history
-    map('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', opts)
+    map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', opts)
     -- Search in active buffers list
     map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
-    -- Search symbols in document and workplace
+    -- Search refernces using lsp
+    map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", opts)
+    -- Search symbols in document
     map('n', '<leader>fd', "<cmd>Telescope lsp_document_symbols<cr>", opts)
+    -- Search symbols in workplace
     map('n', '<leader>fq', "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
 end
 
@@ -65,12 +68,14 @@ function M.config()
                     ["<C-Enter>"] = actions.select_vertical,
                     ['<esc>'] = actions.close,
                     ['<M-b>'] = actions.select_default,
+                    ['<C-q>'] = actions.smart_add_to_qflist
                 },
                 n = {
                     ['<C-u>'] = false,
                     ['<C-d>'] = false,
                     ["<C-Enter>"] = actions.select_vertical,
-                },
+                    ['<C-q>'] = actions.smart_add_to_qflist
+                }
             },
 
             -- Default layout options

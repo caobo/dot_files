@@ -12,10 +12,8 @@ map('n', '<leader>q', '<cmd>x<cr>', opts)
 map('n', '<leader>sv', '<C-w>v', opts)
 map('n', '<leader>sh', '<C-w>h', opts)
 
-map({'n'}, '<C-h>', '<C-w>h', opts)
-map({'n'}, '<C-l>', '<C-w>l', opts)
-map({'n'}, '<C-j>', '<C-w>j', opts)
-map({'n'}, '<C-k>', '<C-w>k', opts)
+map({'n'}, '<C-j>', '<cmd>cnext<cr>zz', opts)
+map({'n'}, '<C-k>', '<cmd>cprev<cr>zz', opts)
 
 -- Remap for dealing with word wrap
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true})

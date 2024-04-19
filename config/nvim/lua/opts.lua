@@ -2,7 +2,6 @@
 local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
-local wo = vim.wo
 
 -- [[ Setting options ]]
 --
@@ -12,9 +11,9 @@ opt.mouse = 'a'                   -- enable mouse mode
 opt.clipboard = "unnamedplus"
 opt.breakindent = true            -- Enable break indent
 opt.undofile = true               -- save undo historys
-wo.number = true
-wo.signcolumn = 'yes'         -- Keep signcolumn on by default
-wo.fillchars='eob: '
+opt.number = true
+opt.signcolumn = 'yes'         -- Keep signcolumn on by default
+opt.fillchars='eob: '
 opt.updatetime = 100              -- Decrease update time
 opt.timeout = true
 opt.timeoutlen = 300

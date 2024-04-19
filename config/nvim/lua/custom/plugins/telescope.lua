@@ -11,7 +11,8 @@ function M.init()
     local map = vim.keymap.set
     local opts = {remap = false}
     -- Search pattern
-    map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
+    map('n', '<leader>fg', '<cmd>Telescope grep_string<cr>', opts)
+    map('n', '<leader>fG', '<cmd>Telescope live_grep<cr>', opts)
     -- Show key bindings list
     map('n', '<leader>?', '<cmd>Telescope keymaps<cr>', opts)
     -- Find files by name
@@ -35,14 +36,9 @@ function M.init()
 end
 
 function M.config()
-    local command = vim.api.nvim_create_user_command
 
     local telescope = require('telescope')
     local actions = require('telescope.actions')
-
-    command('TGrep', function(input)
-        require('telescope.builtin').grep_string({search = input.args})
-    end, {nargs = 1})
 
     local function defaults(title)
         return {

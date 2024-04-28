@@ -34,7 +34,7 @@ function M.config()
 
     lualine.setup({
         options = {
-            theme = "ayu_dark",
+            theme = "nightfly",
             icons_enabled = true,
             disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
             component_separators = " ",

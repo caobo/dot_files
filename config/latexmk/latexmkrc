@@ -11,7 +11,7 @@ $postscript_mode = $dvi_mode = 0;
 $bibtex_use = 1;
 $max_repeat = 5;
 # $pdf_previewer = "open %O %S";
-$pdf_previewer = "zathura %O %S";
+$pdf_previewer = "open %O %S";
 $pdf_update_method = 4;
 $auto_depencency_mode = 1;
 

@@ -2,7 +2,7 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- remap the key used to leave insert mode
-map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+map({ 'n', 'v' }, '<Space>', '<Nop>', opts)
 map('i', 'jk', '<ESC>', opts)
 map('i', 'jj', '<ESC>:w<ESC>', opts)
 map('n', '<leader>s', '<cmd>w<cr>', opts)

@@ -64,13 +64,15 @@ function M.config()
                     ["<C-Enter>"] = actions.select_vertical,
                     ['<esc>'] = actions.close,
                     ['<M-b>'] = actions.select_default,
-                    ['<C-q>'] = actions.smart_add_to_qflist
+                    ['<C-q>'] = actions.smart_send_to_qflist,
+                    ['<C-Q>'] = actions.smart_add_to_qflist
                 },
                 n = {
                     ['<C-u>'] = false,
                     ['<C-d>'] = false,
                     ["<C-Enter>"] = actions.select_vertical,
-                    ['<C-q>'] = actions.smart_add_to_qflist
+                    ['<C-q>'] = actions.smart_send_to_qflist,
+                    ['<C-Q>'] = actions.smart_add_to_qflist
                 }
             },
 

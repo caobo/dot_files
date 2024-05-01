@@ -27,9 +27,10 @@ elif [ "$(uname)" = "Linux" ]; then
     export GDK_DPI_SCALE=1
     export QT_SCALE_FACTOR=1
     export WLR_DRM_NO_MODIFIERS=1
-    export http_proxy="http://127.0.0.1:7890"
+    export WEBKIT_DISABLE_COMPOSITING_MODE=1
+    export http_proxy="http://127.0.0.1:7893"
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
     export rsync_proxy=$http_proxy
-    export all_proxy="socks5://127.0.0.1:7890"
+    export all_proxy="socks5://127.0.0.1:7893"
 fi

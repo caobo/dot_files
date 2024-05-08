@@ -1,12 +1,10 @@
 live_config_reload = true
 import = ["~/.config/alacritty/rose-pine-moon.toml"]
 
-[cursor.style]
-blinking = "on"
-shape = "beam"
-
 [cursor]
 thickness = 0.3
+style = {shape="Beam", blinking="Always"}
+vi_mode_style = {shape="Block", blinking="off"}
 
 [colors]
 transparent_background_colors = true

@@ -66,16 +66,13 @@ alias la='ls -alh'
 alias less='less -RFX'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'
-    bindkey -s '^o' 'open_applications\n'
 fi
 alias ya='yazi'
 
 # Key bindings
 bindkey -s '^k' 'dot_folder_edit\n'
 bindkey -s '^e' 'current_folder_edit\n'
-bindkey -s '^x' 'open_with_xplr\n'
 bindkey -s '^g' 'gt\n'
-bindkey -s '^r' 'search_command_history\n'
 
 # More color and theme related settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"

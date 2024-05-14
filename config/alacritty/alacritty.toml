@@ -17,11 +17,11 @@ TERM = "xterm-256color"
 size = 16.0
 
 [font.bold]
-family = "MonoLisa"
+family = "MonoLisa Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "MonoLisa"
+family = "MonoLisa Nerd Font"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -29,12 +29,12 @@ x = 0
 y = 6
 
 [font.italic]
-family = "MonoLisa"
-style = "Italic"
+family = "MonoLisa Nerd Font"
+style = "Medium Italic"
 
 [font.normal]
-family = "MonoLisa"
-style = "Medium"
+family = "MonoLisa Nerd Font"
+style = "Medium Regular"
 
 [font.offset]
 x = 0

@@ -72,7 +72,7 @@ alias ya='yazi'
 # Key bindings
 bindkey -s '^k' 'dot_folder_edit\n'
 bindkey -s '^e' 'current_folder_edit\n'
-bindkey -s '^g' 'gt\n'
+bindkey -s '^g' 'tim\n'
 
 # More color and theme related settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"

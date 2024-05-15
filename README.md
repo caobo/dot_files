@@ -2,15 +2,18 @@
 My personal configuration files (for macOS and Linux).
 
 Include configurations for:
-- neovim
-- yabai and skhd (macOS)
-- hyprland and waybar (Linux)
-- fcixt5 (Linux)
-- rofi (Linux)
-- wpaperd (Linux)
-- zsh
-- kitty
 - alacrrity
+- fcixt5 (Linux)
+- hyprland and waybar (Linux)
+- kitty
 - latexmk
+- lf
 - matplotlab
+- mpv
+- neovim
+- rofi (Linux)
+- tmux
+- wpaperd (Linux)
+- yabai and skhd (macOS)
 - zed
+- zsh

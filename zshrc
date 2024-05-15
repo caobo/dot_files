@@ -59,15 +59,12 @@ gt() {
 alias latexmk='latexmk -quiet 1> /dev/null'
 alias {vi,vim}='nvim'
 alias cat='bat'
-alias xr='open_xplr'
-alias sysinfo='curl -sL https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch | bash'
 alias ll='ls -lh'
 alias la='ls -alh'
 alias less='less -RFX'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'
 fi
-alias ya='yazi'
 
 # Key bindings
 bindkey -s '^k' 'dot_folder_edit\n'

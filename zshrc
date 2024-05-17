@@ -6,14 +6,14 @@
 # zap plugin manager settings
 # --------------------
 # Created by Zap installer
-ZAP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zap" 
+ZAP_DIR="${XDG_DATA_HOME:-HOME/.local/share}/zap" 
 if [ -f "$ZAP_DIR/zap.zsh" ]; then
-    source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+    source "$ZAP_DIR/zap.zsh"
 else
     echo "zap is not installed, now will install it."
-    mkdir -p "$HOME/.local/share/zap/"
-    git clone --deptch=1 https://github.com/zap-zsh/zap.git "$ZAP_DIR" &> /dev/null
-    source "$HOME/.local/share/zap/zap.zsh"
+    mkdir -p "$ZAP_DIR"
+    git clone --depth 1 https://github.com/zap-zsh/zap.git "$ZAP_DIR" &> /dev/null
+    source "$ZAP_DIR/zap.zsh"
 fi
 
 plug "zsh-users/zsh-autosuggestions"
@@ -104,7 +104,7 @@ greet_message=$(<$HOME/.config/zsh/greeting.txt)
 
 case "$(uname)" in
     Darwin)
-        if [ "$(readlink "/var/select/sh")" = "/bin/dash" ]; then
+        if [ "$(readlink -f "/var/select/sh")" = "/bin/dash" ]; then
             printf "%s\n" "$greet_message"
         else
             printf "%s\n" "$greet_message"
@@ -116,13 +116,13 @@ case "$(uname)" in
     Linux)
         # ask kitty to use wayland
         KITTY_ENABLE_WAYLAND=1
-        if [ "$(readlink "/bin/sh")" = "/bin/dash" ]; then
+        if [ "$(readlink -f "/bin/sh")" = "/usr/bin/dash" ]; then
             printf "%s\n" "$greet_message"
         else
             printf "%s\n" "$greet_message"
             printf "Please change your system shell\n"
             printf "Run the command:\n"
-            printf "sudo ln -sf /bin/dash /bin/sh\n"
+            printf "sudo ln -sf /usr/bin/dash /bin/sh\n"
         fi
         ;;
     *)

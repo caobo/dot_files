@@ -38,9 +38,12 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
 
+# Enable emacs keybinds
+# bindkey -e
+
 # Autocompletion using arrow keys (based on history)
-bindkey '\e[A' history-search-backward
-bindkey '\e[B' history-search-forward
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # User configuration
 # --------------------
@@ -79,6 +82,11 @@ alias less='less -RFX'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'
 fi
+
+# unbind keys
+bindkey -r '^k'
+bindkey -r '^e'
+bindkey -r '^g'
 
 # Key bindings
 bindkey -s '^k' 'dot_folder_edit\n'

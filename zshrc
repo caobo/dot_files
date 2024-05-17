@@ -6,7 +6,16 @@
 # zap plugin manager settings
 # --------------------
 # Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+ZAP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zap" 
+if [ -f "$ZAP_DIR/zap.zsh" ]; then
+    source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+else
+    echo "zap is not installed, now will install it."
+    mkdir -p "$HOME/.local/share/zap/"
+    git clone --deptch=1 https://github.com/zap-zsh/zap.git "$ZAP_DIR" &> /dev/null
+    source "$HOME/.local/share/zap/zap.zsh"
+fi
+
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "zdharma-continuum/fast-syntax-highlighting"
@@ -17,12 +26,17 @@ eval "$(starship init zsh)"
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
+HISTFILE="$HOME/.zsh_history"
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 SAVEHIST=1000
 HISTSIZE=999
+HISTDUP=erase
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
 
 # Autocompletion using arrow keys (based on history)
 bindkey '\e[A' history-search-backward

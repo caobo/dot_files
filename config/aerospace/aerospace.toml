@@ -145,3 +145,26 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'              # Application ID exact match
+if.app-id = 'com.apple.ActivityMonitor'
+if.app-id = 'com.apple.airport.airportutility'
+if.app-id = 'com.apple.AppStore'
+if.app-id = 'com.apple.calculator'
+if.app-id = 'com.apple.ColorSyncUtility'
+if.app-id = 'com.apple.Dictionary'
+if.app-id = 'com.apple.DiskUtility'
+if.app-id = 'com.apple.MobileSMS'
+if.app-id = 'com.apple.Music'
+if.app-id = 'com.apple.PhotoBooth'
+if.app-id = 'com.apple.shortcuts'
+if.app-id = 'com.apple.shortcuts'
+if.app-name-regex-substring = 'settings'               # Case insensetive regex substring
+if.app-name-regex-substring = 'voov|istat menus|wecom|sip|quantumlt x|numi|notifications|preview|python|screen sharing|screens|software update|mpv|hand mirror|appclean|facetime|keychain|input source pro|microsoft remote desktop'               # Case insensetive regex substring
+if.app-name-regex-substring = 'profile'               # Case insensetive regex substring
+if.app-name-regex-substring = 'preforence|color|bo|advanced'               # Case insensetive regex substring
+if.window-title-regex-substring = 'settings'          # Case insensetive regex substring
+if.window-title-regex-substring = 'Little Arc'          # Case insensetive regex substring
+run = ['layout floating']  # The callback itself

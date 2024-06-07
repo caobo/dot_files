@@ -39,16 +39,13 @@ patch:
     # color_scheme_dark: ayaya_dark
 
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
-    text_orientation: horizontal  # horizontal | vertical
+    horizontal: true
+    vertical_text: true
+    vertical_text_left_to_right: true
+    candidate_list_layout: linear
     inline_preedit: true
-    corner_radius: 10
-    hilited_corner_radius: 0
-    border_height: 0
-    border_width: 0
-    line_spacing: 5
-    spacing: 10
+    preedit_type: composition
     candidate_format: '%c. %@'
-    base_offset: 6
     font_face: 'LXGW WenKai'
     font_point: 20
     label_font_point: 18
@@ -59,7 +56,9 @@ patch:
     # https://ssnhd.com/2022/01/11/rime-skin/
     mac_light:
       name: Mac浅色
-      horizontal: true             # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "   # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       corner_radius: 5                             # 窗口圆角
       hilited_corner_radius: 5                     # 高亮圆角
@@ -83,7 +82,9 @@ patch:
 
     mac_dark:
       name: Mac深色
-      horizontal: true             # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "   # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       corner_radius: 5                             # 窗口圆角
       hilited_corner_radius: 5                     # 高亮圆角
@@ -107,7 +108,9 @@ patch:
 
     mac_blue:
       name: Mac浅蓝
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       corner_radius: 5                             # 窗口圆角
       font_face: "PingFangSC"                      # 候选词字体
@@ -128,7 +131,9 @@ patch:
 
     psionics:
       name: 幽能
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       corner_radius: 5                             # 窗口圆角
       font_point: 21                               # 候选文字大小
@@ -148,7 +153,9 @@ patch:
 
     solarized_rock:
       name: 日光石
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       corner_radius: 6                             # 窗口圆角
       font_point: 21                               # 候选文字大小
@@ -168,7 +175,9 @@ patch:
 
     apathy:
       name: 冷漠
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       back_color: 0xFFFFFF           # 候选条背景色，24位色值，16进制，BGR顺序
       border_height: 0               # 窗口上下高度，大于圆角半径才生效
       border_width: 8                # 窗口左右宽度
@@ -187,7 +196,9 @@ patch:
 
     milan:
       name: 米兰
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
@@ -203,7 +214,9 @@ patch:
 
     ink:
       name: 墨池
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
@@ -221,7 +234,9 @@ patch:
 
     purity:
       name: 纯洁
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
@@ -238,7 +253,9 @@ patch:
 
     starcraft:
       name: 星际争霸
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
@@ -257,7 +274,9 @@ patch:
 
     nord_light:
       name: 北方浅色
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
@@ -275,7 +294,9 @@ patch:
 
     nord_dark:
       name: 北方深色
-      horizontal: true              # true横排，false竖排
+      horizontal: true
+      vertical_text: true
+      vertical_text_left_to_right: true
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
@@ -293,9 +314,11 @@ patch:
 
     ayaya:
         name: "文文／Ayaya"
+        horizontal: true
+        vertical_text: true
+        vertical_text_left_to_right: true
         author: "Lufs X <i@isteed.cc>"
         alpha: 0.95
-        horizontal: true
         inline_preedit: true
         candidate_format: "%c\u2005%@"
         corner_radius: 5
@@ -318,6 +341,9 @@ patch:
 
     ayaya_dark:
         name: "文文／Ayaya／深色"
+        horizontal: true
+        vertical_text: true
+        vertical_text_left_to_right: true
         author: "Lufs X <i@isteed.cc>"
         font_face: "LXGW WenKai, PingFangSC"
         font_point: 20

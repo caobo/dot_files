@@ -13,7 +13,11 @@ M.dependencies={
         opts = {},
     },
     -- Additional lua configuration, makes nvim stuff amazing!
-    'folke/neodev.nvim',
+    {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+    }
+
 }
 
 function M.config()
@@ -51,7 +55,7 @@ function M.config()
         end
     })
 
-    require('neodev').setup()
+    require('lazydev').setup()
 
     require('mason').setup()
 

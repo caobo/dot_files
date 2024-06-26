@@ -169,6 +169,9 @@ experimental = {
     require('lspconfig').rust_analyzer.setup {
         capabilities = capabilities
     }
+    require('lspconfig').gopls.setup {
+        capabilities = capabilities
+    }
 end
 
 return M

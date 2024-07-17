@@ -1,6 +1,5 @@
 alfred
 appcleaner 
-bartender
 bat
 btop
 curl
@@ -17,6 +16,7 @@ homebrew/cask/sip
 homebrew/cask/squirrel
 input-source-pro
 istat-menus 
+jordanbaird-ice
 koekeishiya/formulae/skhd
 koekeishiya/formulae/yabai
 lf

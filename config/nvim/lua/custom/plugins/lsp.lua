@@ -13,11 +13,6 @@ M.dependencies={
         opts = {},
     },
     -- Additional lua configuration, makes nvim stuff amazing!
-    {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-    }
-
 }
 
 function M.config()

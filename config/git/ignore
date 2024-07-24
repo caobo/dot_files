@@ -27,4 +27,5 @@ compiled_pdfs*
 
 # Others
 .gitignore
+*.luarc.json
 .vscode

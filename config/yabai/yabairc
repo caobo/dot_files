@@ -75,7 +75,8 @@ iStat Menus
 zoom.us
 wezterm-gui
 mpv
-Mac Mouse Fix"
+Mac Mouse Fix
+NetEaseMusic"
 
 # Add rules for unmanaged apps
 printf "%s\n" "$UNMANAGED" | xargs -P8 -I{} yabai -m rule --add "label=unmanage_{}" "app=^{}.*$" manage=off

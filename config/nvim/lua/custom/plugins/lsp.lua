@@ -54,7 +54,7 @@ function M.config()
 
     require('mason').setup()
 
-    local ensure_installed = {"lua_ls","pyright","texlab","tsserver","gopls","rust_analyzer","clangd"}
+    local ensure_installed = {"lua_ls","pyright"," ts_ls","tsserver","gopls","rust_analyzer","clangd"}
 
     require('mason-lspconfig').setup({
         ensure_installed = ensure_installed,

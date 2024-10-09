@@ -1,0 +1,80 @@
+{
+  "schemes" : [
+    {
+      "pointer" : {
+        "acceleration" : 1.2,
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "modifiers" : {
+          "vertical" : {
+            "shift" : {
+              "type" : "alterOrientation"
+            }
+          }
+        },
+        "speed" : {
+          "vertical" : 0
+        },
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "distance" : {
+          "vertical" : "32.8px"
+        },
+        "reverse" : {
+          "vertical" : true
+        }
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0xc548",
+          "category" : "mouse",
+          "vendorID" : "0x46d",
+          "productName" : "USB Receiver"
+        }
+      },
+      "buttons" : {
+        "mappings" : [
+          {
+            "action" : "smartZoom",
+            "button" : 2,
+            "shift" : false,
+            "option" : false,
+            "command" : false,
+            "control" : false
+          },
+          {
+            "control" : false,
+            "action" : "mouse.button.forward",
+            "option" : false,
+            "command" : false,
+            "button" : 3,
+            "shift" : false
+          },
+          {
+            "button" : 4,
+            "command" : false,
+            "option" : false,
+            "shift" : false,
+            "action" : "mouse.button.forward",
+            "control" : false
+          },
+          {
+            "option" : false,
+            "control" : false,
+            "command" : false,
+            "action" : "mouse.button.middle",
+            "button" : 5,
+            "shift" : false
+          }
+        ],
+        "universalBackForward" : true,
+        "clickDebouncing" : {
+          "timeout" : 0
+        }
+      }
+    }
+  ],
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+}

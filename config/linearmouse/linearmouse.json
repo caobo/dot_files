@@ -1,11 +1,43 @@
 {
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
   "schemes" : [
     {
-      "pointer" : {
-        "acceleration" : 1.2,
-        "disableAcceleration" : true
+      "buttons" : {
+        "universalBackForward" : true,
+        "clickDebouncing" : {
+          "timeout" : 0
+        },
+        "mappings" : [
+          {
+            "action" : "mouse.button.back",
+            "control" : false,
+            "command" : false,
+            "shift" : false,
+            "option" : false,
+            "button" : 3
+          },
+          {
+            "button" : 4,
+            "control" : false,
+            "option" : false,
+            "action" : "mouse.button.forward",
+            "shift" : false,
+            "command" : false
+          },
+          {
+            "action" : "smartZoom",
+            "shift" : false,
+            "command" : false,
+            "button" : 5,
+            "option" : false,
+            "control" : false
+          }
+        ]
       },
       "scrolling" : {
+        "speed" : {
+          "vertical" : 0
+        },
         "modifiers" : {
           "vertical" : {
             "shift" : {
@@ -13,68 +45,28 @@
             }
           }
         },
-        "speed" : {
-          "vertical" : 0
+        "reverse" : {
+          "vertical" : true
         },
         "acceleration" : {
           "vertical" : 1
         },
         "distance" : {
           "vertical" : "32.8px"
-        },
-        "reverse" : {
-          "vertical" : true
         }
       },
       "if" : {
         "device" : {
-          "productID" : "0xc548",
+          "productName" : "USB Receiver",
           "category" : "mouse",
           "vendorID" : "0x46d",
-          "productName" : "USB Receiver"
+          "productID" : "0xc548"
         }
       },
-      "buttons" : {
-        "mappings" : [
-          {
-            "action" : "smartZoom",
-            "button" : 2,
-            "shift" : false,
-            "option" : false,
-            "command" : false,
-            "control" : false
-          },
-          {
-            "control" : false,
-            "action" : "mouse.button.forward",
-            "option" : false,
-            "command" : false,
-            "button" : 3,
-            "shift" : false
-          },
-          {
-            "button" : 4,
-            "command" : false,
-            "option" : false,
-            "shift" : false,
-            "action" : "mouse.button.forward",
-            "control" : false
-          },
-          {
-            "option" : false,
-            "control" : false,
-            "command" : false,
-            "action" : "mouse.button.middle",
-            "button" : 5,
-            "shift" : false
-          }
-        ],
-        "universalBackForward" : true,
-        "clickDebouncing" : {
-          "timeout" : 0
-        }
+      "pointer" : {
+        "acceleration" : 1.2,
+        "disableAcceleration" : true
       }
     }
-  ],
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+  ]
 }

@@ -39,10 +39,13 @@ patch:
     # color_scheme_dark: ayaya_dark
 
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
-    horizontal: true
-    vertical_text: true
-    vertical_text_left_to_right: true
     candidate_list_layout: linear
+    # candidate_list_layout: stacked
+    # text_orientation: vertical
+    text_orientation: horizontal
+    # horizontal: true
+    # vertical_text: true
+    vertical_text_left_to_right: true
     inline_preedit: true
     preedit_type: composition
     candidate_format: '%c. %@'

@@ -75,8 +75,7 @@ iStat Menus
 zoom.us
 wezterm-gui
 mpv
-Mac Mouse Fix
-NetEaseMusic"
+Mac Mouse Fix"
 
 # Add rules for unmanaged apps
 printf "%s\n" "$UNMANAGED" | xargs -P8 -I{} yabai -m rule --add "label=unmanage_{}" "app=^{}.*$" manage=off
@@ -92,7 +91,7 @@ yabai -m rule --add "title=Preference.*" manage=off
 yabai -m rule --add "title=Setting.*" manage=off
 yabai -m rule --add "title=General.*" manage=off
 yabai -m rule --add "title=^$" manage=off
-yabai -m rule --add "app=WeChat" "title!=WeChat.*$" manage=off
+yabai -m rule --add "app=WeChat" "title!=WeChat (Chats)$" manage=off
 yabai -m rule --add "app=Calender" "title= " manage=off
 yabai -m rule --add "app=^Arc.*" "title=(Bo|General|Profiles|Shortcuts|Links|Advance)" manage=off
 yabai -m rule --add "app=^Arc.*" "title=Little Arc.*" manage=off

@@ -73,6 +73,7 @@ gt() {
 }
 
 # Aliases
+alias ls='lsd'
 alias latexmk='latexmk -quiet 1> /dev/null'
 alias {vi,vim}='nvim'
 alias cat='bat'

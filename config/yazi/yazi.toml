@@ -11,6 +11,8 @@ show_symlink   = true
 scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
 title_format   = "Yazi: {cwd}"
+border_symbol = "│"
+border_style  = { fg = "#7f849c" }
 
 [preview]
 wrap            = "no"

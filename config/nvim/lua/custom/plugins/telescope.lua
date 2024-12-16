@@ -26,7 +26,7 @@ function M.init()
     -- Search in files history
     map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', opts)
     -- Search in active buffers list
-    map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
+    map('n', '<leader>bb', '<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>', opts)
     -- Search refernces using lsp
     map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", opts)
     -- Search symbols in document
@@ -72,7 +72,9 @@ function M.config()
                     ['<C-d>'] = false,
                     ["<C-Enter>"] = actions.select_vertical,
                     ['<C-q>'] = actions.smart_send_to_qflist,
-                    ['<C-Q>'] = actions.smart_add_to_qflist
+                    ['<C-Q>'] = actions.smart_add_to_qflist,
+                    ['d'] = actions.delete_buffer,
+                    ['q'] = actions.close
                 }
             },
 
@@ -88,7 +90,7 @@ function M.config()
             },
         },
         pickers = {
-            buffers = dropdown(),
+            buffers = defaults(),
             find_files = dropdown(),
             oldfiles = defaults("Recents"),
             keymaps = dropdown(),

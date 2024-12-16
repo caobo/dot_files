@@ -18,8 +18,7 @@ local function smart_quit()
         vim.cmd('quit')
     else
         -- Otherwise, delete the current buffer and switch to the next one
-        local current_buf = vim.fn.bufnr('%')
-        vim.cmd('bdelete ' .. current_buf)
+        vim.cmd('bd')
     end
 end
 map('n', '<leader>q', smart_quit, opts)

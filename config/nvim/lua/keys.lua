@@ -6,7 +6,20 @@ map({ 'n', 'v' }, '<Space>', '<Nop>', opts)
 map('i', 'jk', '<ESC>', opts)
 map('i', 'jj', '<ESC>:w<ESC>', opts)
 map('n', '<leader>s', '<cmd>w<cr>', opts)
-map('n', '<leader>q', '<cmd>x<cr>', opts)
+
+-- close current buffer and quit nvim if it is the last buffer
+local function smart_quit()
+    local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+    if #buffers == 1 then
+        -- If it is the last buffer, quit Neovim
+        vim.cmd('quit')
+    else
+        -- Otherwise, delete the current buffer and switch to the next one
+        local current_buf = vim.fn.bufnr('%')
+        vim.cmd('bdelete ' .. current_buf)
+    end
+end
+map('n', '<leader>q', smart_quit, opts)
 
 -- settings for splitting pane
 map('n', '<leader>sv', '<C-w>v', opts)

@@ -10,6 +10,9 @@ map('n', '<leader>s', '<cmd>w<cr>', opts)
 -- close current buffer and quit nvim if it is the last buffer
 local function smart_quit()
     local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+    -- save file first
+    vim.cmd('write')
+    -- close current buffer
     if #buffers == 1 then
         -- If it is the last buffer, quit Neovim
         vim.cmd('quit')

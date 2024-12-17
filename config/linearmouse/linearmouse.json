@@ -1,42 +1,57 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.1-beta.1",
   "schemes" : [
     {
       "buttons" : {
-        "universalBackForward" : true,
         "clickDebouncing" : {
           "timeout" : 0
         },
         "mappings" : [
           {
             "action" : "mouse.button.back",
-            "control" : false,
+            "button" : 3,
             "command" : false,
-            "shift" : false,
+            "control" : false,
             "option" : false,
-            "button" : 3
+            "shift" : false
           },
           {
+            "action" : "mouse.button.forward",
             "button" : 4,
+            "command" : false,
             "control" : false,
             "option" : false,
-            "action" : "mouse.button.forward",
-            "shift" : false,
-            "command" : false
+            "shift" : false
           },
           {
             "action" : "smartZoom",
-            "shift" : false,
-            "command" : false,
             "button" : 5,
+            "command" : false,
+            "control" : false,
             "option" : false,
-            "control" : false
+            "shift" : false
           }
-        ]
+        ],
+        "universalBackForward" : true
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc548",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 1.2,
+        "disableAcceleration" : true
       },
       "scrolling" : {
-        "speed" : {
-          "vertical" : 0
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "distance" : {
+          "vertical" : 2
         },
         "modifiers" : {
           "vertical" : {
@@ -48,24 +63,9 @@
         "reverse" : {
           "vertical" : true
         },
-        "acceleration" : {
-          "vertical" : 1
-        },
-        "distance" : {
-          "vertical" : "32.8px"
+        "speed" : {
+          "vertical" : 0
         }
-      },
-      "if" : {
-        "device" : {
-          "productName" : "USB Receiver",
-          "category" : "mouse",
-          "vendorID" : "0x46d",
-          "productID" : "0xc548"
-        }
-      },
-      "pointer" : {
-        "acceleration" : 1.2,
-        "disableAcceleration" : true
       }
     }
   ]

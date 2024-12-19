@@ -8,6 +8,7 @@ Include configurations for:
 - kitty
 - latexmk
 - lf
+- yazi
 - matplotlab
 - mpv
 - neovim

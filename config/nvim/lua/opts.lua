@@ -43,7 +43,7 @@ g.netrw_liststyle= 3
 -- opt.colorcolumn = '120'           -- str:  Show col for max line length
 opt.number = true                -- bool: Show line numbers
 opt.relativenumber = true        -- bool: Show relative line numbers
-opt.scrolloff = 4                -- int:  Min num lines of context
+opt.scrolloff = 8                -- int:  Min num lines of context
 opt.showcmd = true
 
 -- [[ Filetypes ]]
@@ -68,7 +68,8 @@ opt.splitbelow = true            -- bool: Place new window below the current one
 
 -- [[ Theme ]]
 opt.syntax = "ON"                -- str:  Allow syntax highlighting
-opt.cursorline = false
+opt.cursorline = true
+opt.cursorlineopt = "number"
 opt.termguicolors = true         -- bool: If term supports ui color then enable
 cmd('colorscheme rose-pine')     -- cmd:  Set the colorscheme
 vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })

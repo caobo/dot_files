@@ -19,30 +19,15 @@ function M.config()
 
     local lspconfig = require('lspconfig')
 
+    -- installed lsp servers
+    local lsp_servers = {'lua_ls', 'texlab', 'pyright', 'ts_ls', 'clangd', 'rust_analyzer', 'gopls'}
+
+    -- set capabilities for each lsp server
     -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local capabilities = require('blink.cmp').get_lsp_capabilities()
-    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-    require('lspconfig').lua_ls.setup {
-        capabilities = capabilities
-    }
-    require('lspconfig').texlab.setup {
-        capabilities = capabilities
-    }
-    require('lspconfig').pyright.setup {
-        capabilities = capabilities
-    }
-    require('lspconfig'). ts_ls.setup {
-        capabilities = capabilities
-    }
-    require('lspconfig').clangd.setup {
-        capabilities = capabilities
-    }
-    require('lspconfig').rust_analyzer.setup {
-        capabilities = capabilities
-    }
-    require('lspconfig').gopls.setup {
-        capabilities = capabilities
-    }
+    for _, server in ipairs(lsp_servers) do
+        require('lspconfig')[server].setup {capabilities = capabilities}
+    end
 
     local signs={
         -- Error = '✘',
@@ -79,10 +64,8 @@ function M.config()
 
     require('mason').setup()
 
-    local ensure_installed = {"lua_ls","pyright","texlab","ts_ls","gopls","rust_analyzer","clangd"}
-
     require('mason-lspconfig').setup({
-        ensure_installed = ensure_installed,
+        ensure_installed = lsp_servers,
         automatic_installation = true,
         handlers = {
             -- default_setup,

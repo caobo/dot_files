@@ -30,11 +30,8 @@ function M.config()
     end
 
     local signs={
-        -- Error = '✘',
-        -- Warn = '▲',
-        -- Hint = '⚑',
-        -- Info = '»'
-        Error = " ",
+        Error = '✘',
+        -- Error = " ",
         Warn = " ",
         Hint = " ",
         Info = " ",

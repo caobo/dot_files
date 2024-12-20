@@ -22,6 +22,7 @@ opt.hidden = true
 opt.spelllang = {'en','cjk'}
 opt.cmdheight = 0
 opt.smartindent = true
+opt.shortmess:append("F")
 
 opt.listchars = { -- see hidden chars and their colors
     tab = '| ',

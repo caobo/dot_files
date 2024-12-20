@@ -26,7 +26,7 @@ function M.init()
     -- Search in files history
     map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', opts)
     -- Search in active buffers list
-    map('n', '<leader>bb', '<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>', opts)
+    map('n', '<leader>bb', '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>', opts)
     -- Search refernces using lsp
     map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", opts)
     -- Search symbols in document

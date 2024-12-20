@@ -19,6 +19,31 @@ function M.config()
 
     local lspconfig = require('lspconfig')
 
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    -- local capabilities = require('blink.cmp').get_lsp_capabilities()
+    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+    require('lspconfig').lua_ls.setup {
+        capabilities = capabilities
+    }
+    require('lspconfig').texlab.setup {
+        capabilities = capabilities
+    }
+    require('lspconfig').pyright.setup {
+        capabilities = capabilities
+    }
+    require('lspconfig'). ts_ls.setup {
+        capabilities = capabilities
+    }
+    require('lspconfig').clangd.setup {
+        capabilities = capabilities
+    }
+    require('lspconfig').rust_analyzer.setup {
+        capabilities = capabilities
+    }
+    require('lspconfig').gopls.setup {
+        capabilities = capabilities
+    }
+
     local signs={
         -- Error = '✘',
         -- Warn = '▲',
@@ -58,6 +83,7 @@ function M.config()
 
     require('mason-lspconfig').setup({
         ensure_installed = ensure_installed,
+        automatic_installation = true,
         handlers = {
             -- default_setup,
             lspconfig.lua_ls.setup({

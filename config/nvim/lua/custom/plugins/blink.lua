@@ -3,6 +3,8 @@ local M = {'saghen/blink.cmp'}
 M.event = {"CmdlineEnter", "BufReadPost",  "BufNewFile"}
 M.version = 'v0.*'
 
+M.opts_extend = { "sources.default" }
+
 function M.config ()
     local blink = require("blink.cmp")
 
@@ -10,12 +12,7 @@ function M.config ()
     keymap = { preset = 'default' },
 
     appearance = {
-      -- Sets the fallback highlight groups to nvim-cmp's highlight groups
-      -- Useful for when your theme doesn't support blink.cmp
-      -- will be removed in a future release
       use_nvim_cmp_as_default = false,
-      -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-      -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = 'mono'
     },
 
@@ -31,16 +28,38 @@ function M.config ()
     },
 
     sources = {
-      default = { 'lsp', 'path', 'luasnipe', 'snippets', 'buffer' },
-      -- optionally disable cmdline completions
-      -- cmdline = {},
+        default = { 'luasnip', 'lsp', 'path', 'buffer' },
+        -- optionally disable cmdline completions
+        cmdline = {},
+        completion = {
+          enabled_providers = { "lsp", "path", "luasnip", "buffer", "lazydev" },
+        },
+        providers = {
+            lsp = { fallback_for = { "lazydev" } },
+            lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+        }
     },
 
-    signature = { enabled = true }
+    completion = {
+        accept = { auto_brackets = { enabled = true } },
+        menu = {
+            border = vim.g.border_style, scrolloff = 1,
+            scrollbar = false,
+            columns = { { 'item_idx' }, { 'kind_icon' }, { 'label', 'label_description', gap = 1 } },
+        },
+        documentation = {
+          auto_show_delay_ms = 0,
+          auto_show = true,
+          window = {border = vim.g.border_style},
+        },
+      },
+
+    signature = {
+        enabled = true,
+        border = vim.g.border_style,
+    },
 
 })
 end
 
-M.opts_extend = { "sources.default" }
-
-return {}
+return M

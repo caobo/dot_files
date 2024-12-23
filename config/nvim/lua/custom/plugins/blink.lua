@@ -1,18 +1,19 @@
 local M = {'saghen/blink.cmp'}
 
 M.event = {"CmdlineEnter", "BufReadPost",  "BufNewFile"}
-M.version = 'v0.*'
+M.version = '*'
 
-M.opts_extend = { "sources.default" }
 
 function M.config ()
+
     local blink = require("blink.cmp")
 
     blink.setup({
+
     keymap = { preset = 'default' },
 
     appearance = {
-      use_nvim_cmp_as_default = false,
+      use_nvim_cmp_as_default = true,
       nerd_font_variant = 'mono'
     },
 
@@ -28,38 +29,41 @@ function M.config ()
     },
 
     sources = {
-        default = { 'luasnip', 'lsp', 'path', 'buffer' },
-        -- optionally disable cmdline completions
-        cmdline = {},
-        completion = {
-          enabled_providers = { "lsp", "path", "luasnip", "buffer", "lazydev" },
-        },
-        providers = {
-            lsp = { fallback_for = { "lazydev" } },
-            lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-        }
+        default = { 'lsp', 'luasnip', 'path', 'buffer' },
     },
 
     completion = {
         accept = { auto_brackets = { enabled = true } },
         menu = {
-            border = vim.g.border_style, scrolloff = 1,
+            auto_show = true,
+            border = 'rounded',
             scrollbar = false,
-            columns = { { 'item_idx' }, { 'kind_icon' }, { 'label', 'label_description', gap = 1 } },
+            draw = {
+                columns = { { 'item_idx' }, { 'kind_icon' }, {'kind'}, { 'label', 'label_description', gap = 3 } },
+                components = {
+                    item_idx = {
+                        text = function(ctx) return ctx.idx == 10 and '0' or ctx.idx >= 10 and ' ' or tostring(ctx.idx) end,
+                        highlight = 'BlinkCmpItemIdx' -- optional, only if you want to change its color
+                    }
+                },
+            },
         },
         documentation = {
-          auto_show_delay_ms = 0,
-          auto_show = true,
-          window = {border = vim.g.border_style},
+            auto_show_delay_ms = 0,
+            auto_show = true,
+            window = {border = 'rounded'},
         },
-      },
+        ghost_text = { enabled = true }
+    },
 
     signature = {
         enabled = true,
-        border = vim.g.border_style,
+        window = { border = 'rounded' }
     },
 
 })
 end
+
+M.opts_extend = { "sources.default" }
 
 return M

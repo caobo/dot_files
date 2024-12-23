@@ -39,7 +39,7 @@ function M.config ()
             border = 'rounded',
             scrollbar = false,
             draw = {
-                columns = { { 'item_idx' }, { 'kind_icon' }, {'kind'}, { 'label', 'label_description', gap = 3 } },
+                columns = { { 'item_idx' }, { 'kind_icon' }, {'kind', gap = 10}, { 'label', 'label_description', gap = 3 } },
                 components = {
                     item_idx = {
                         text = function(ctx) return ctx.idx == 10 and '0' or ctx.idx >= 10 and ' ' or tostring(ctx.idx) end,

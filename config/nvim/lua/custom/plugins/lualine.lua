@@ -16,25 +16,27 @@ function M.config()
 
     -- show attached lsp server name
     local lsp_info = function()
-        local buf_type = vim.api.nvim_buf_get_option(0, 'filetype')
-        local clients = vim.lsp.get_active_clients()
-        if not next(clients) then
-            return 'No active LSP server'
-        end
+        local msg = 'No Active Lsp'
+        local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+        local clients = vim.lsp.get_clients()
+        -- if next(clients) == nil then
+        --     return msg
+        -- end
         for _, client in ipairs(clients) do
-            local lsp_filetypes = client.config.filetypes
-            if lsp_filetypes and vim.tbl_contains(lsp_filetypes, buf_type) then
+            local filetypes = client.config.filetypes
+            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
                 return string.format("LSP server: [%s]", client.name)
             end
         end
-        return nil
+        return msg
     end
 
     local lualine = require("lualine")
 
     lualine.setup({
         options = {
-            -- theme = "nightfly",
+            theme = "nightfly",
+            -- theme = "horizon",
             icons_enabled = true,
             disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
             component_separators = " ",
@@ -68,7 +70,7 @@ function M.config()
                     show_filename_only = true,   -- Shows shortened relative path when set to false.
                     hide_filename_extension = false,   -- Hide filename extension when set to true.
                     show_modified_status = true, -- Shows indicator when the buffer is modified.
-                    mode = 1,
+                    mode = 0,
                     -- 0: Shows buffer name
                     -- 1: Shows buffer index
                     -- 2: Shows buffer name + buffer index
@@ -104,6 +106,7 @@ function M.config()
             lualine_z = {}
         }
     })
+
 end
 
 return M

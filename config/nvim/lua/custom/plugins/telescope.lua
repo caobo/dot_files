@@ -40,9 +40,10 @@ function M.config()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
 
-    local function defaults(title)
+    local function defaults(title, previewer)
         return {
             prompt_title = title,
+            previewer = previewer or false,
             results_title = false
         }
     end
@@ -61,11 +62,12 @@ function M.config()
                 i = {
                     ['<C-u>'] = false,
                     ['<C-d>'] = false,
-                    ["<C-Enter>"] = actions.select_vertical,
-                    ['<esc>'] = actions.close,
+                    ['<C-Enter>'] = actions.select_vertical,
                     ['<M-b>'] = actions.select_default,
                     ['<C-q>'] = actions.smart_send_to_qflist,
-                    ['<C-Q>'] = actions.smart_add_to_qflist
+                    ['<C-Q>'] = actions.smart_add_to_qflist,
+                    ['<C-x>'] = actions.delete_buffer,
+                    ['<esc>'] = actions.close,
                 },
                 n = {
                     ['<C-u>'] = false,
@@ -81,18 +83,18 @@ function M.config()
             -- Default layout options
             prompt_prefix = ' ',
             selection_caret = '❯ ',
-            layout_strategy = 'vertical',
+            layout_strategy = 'horizontal',
             sorting_strategy = 'ascending',
             layout_config = {
-                preview_cutoff = 10,
-                mirror = true,
-                prompt_position = 'top'
+                preview_cutoff = 20,
+                mirror = false,
+                prompt_position = 'bottom'
             },
         },
         pickers = {
-            buffers = defaults(),
-            find_files = dropdown(),
-            oldfiles = defaults("Recents"),
+            buffers = defaults('Buffers', true),
+            find_files = dropdown('Files in this workspace'),
+            oldfiles = defaults('Recents'),
             keymaps = dropdown(),
             command_history = dropdown(),
             colorscheme = dropdown(),

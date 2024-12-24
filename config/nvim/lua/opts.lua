@@ -1,6 +1,5 @@
 -- [[ opts.lua ]]
 local opt = vim.opt
-local cmd = vim.cmd
 local g = vim.g
 
 -- [[ Setting options ]]
@@ -72,5 +71,4 @@ opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.termguicolors = true         -- bool: If term supports ui color then enable
-cmd('colorscheme rose-pine')     -- cmd:  Set the colorscheme
 vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })

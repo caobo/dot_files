@@ -52,7 +52,10 @@ function M.config()
         return {
             prompt_title = title,
             previewer = previewer or false,
-            theme = 'dropdown'
+            theme = 'dropdown',
+            layout_config = {
+                prompt_position = "top"
+            }
         }
     end
 
@@ -67,7 +70,7 @@ function M.config()
                     ['<C-q>'] = actions.smart_send_to_qflist,
                     ['<C-Q>'] = actions.smart_add_to_qflist,
                     ['<C-x>'] = actions.delete_buffer,
-                    ['<esc>'] = actions.close,
+                    -- ['<esc>'] = actions.close,
                 },
                 n = {
                     ['<C-u>'] = false,
@@ -86,13 +89,13 @@ function M.config()
             layout_strategy = 'horizontal',
             sorting_strategy = 'ascending',
             layout_config = {
-                preview_cutoff = 20,
+                preview_cutoff = 10,
                 mirror = false,
                 prompt_position = 'bottom'
             },
         },
         pickers = {
-            buffers = defaults('Buffers', true),
+            buffers = defaults('Buffers activated', true),
             find_files = dropdown('Files in this workspace'),
             oldfiles = defaults('Recents'),
             keymaps = dropdown(),
@@ -100,7 +103,7 @@ function M.config()
             colorscheme = dropdown(),
 
             grep_string = defaults('Search'),
-            treesitter = defaults('Buffer Symbols'),
+            treesitter = defaults('Buffer Symbols (treesitter)'),
             current_buffer_fuzzy_find = defaults('Lines'),
             live_grep = defaults('Grep'),
 

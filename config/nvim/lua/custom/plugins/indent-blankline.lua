@@ -4,6 +4,7 @@ M.main = "ibl"
 M.event = { 'BufReadPost', 'BufNewFile' }
 
 function M.config()
+
     local highlight = {
         "RainbowRed",
         "RainbowYellow",
@@ -27,11 +28,11 @@ function M.config()
         vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
     end)
 
-    require("ibl").setup { indent = { highlight = highlight } }
     vim.g.rainbow_delimiters = { highlight = highlight }
+    hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+
     require("ibl").setup { scope = { highlight = highlight } }
 
-    hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 end
 
 return M

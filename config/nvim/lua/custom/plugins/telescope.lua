@@ -44,7 +44,8 @@ function M.config()
         return {
             prompt_title = title,
             previewer = previewer or false,
-            results_title = false
+            results_title = false,
+            theme = 'ivy'
         }
     end
 
@@ -65,7 +66,6 @@ function M.config()
                 i = {
                     ['<C-u>'] = false,
                     ['<C-d>'] = false,
-                    ['<C-Enter>'] = actions.select_vertical,
                     ['<M-b>'] = actions.select_default,
                     ['<C-q>'] = actions.smart_send_to_qflist,
                     ['<C-Q>'] = actions.smart_add_to_qflist,
@@ -75,7 +75,6 @@ function M.config()
                 n = {
                     ['<C-u>'] = false,
                     ['<C-d>'] = false,
-                    ["<C-Enter>"] = actions.select_vertical,
                     ['<C-q>'] = actions.smart_send_to_qflist,
                     ['<C-Q>'] = actions.smart_add_to_qflist,
                     ['d'] = actions.delete_buffer,
@@ -95,8 +94,8 @@ function M.config()
             },
         },
         pickers = {
-            buffers = defaults('Buffers activated', true),
-            find_files = dropdown('Files in this workspace'),
+            buffers = dropdown('Buffers activated'),
+            find_files = defaults('Files in this workspace', true),
             oldfiles = defaults('Recents'),
             keymaps = dropdown(),
             command_history = dropdown(),

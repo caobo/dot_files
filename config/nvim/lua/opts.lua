@@ -1,6 +1,6 @@
 -- [[ opts.lua ]]
 local opt = vim.opt
-local g = vim.g
+-- local g = vim.g
 
 -- [[ Setting options ]]
 --
@@ -34,9 +34,9 @@ opt.list = true
 -- opt.statuscolumn = "%s%l %r"
 
 -- [[ netrw settings ]]
-g.netrw_winsize = 25
-g.netrw_banner = 0
-g.netrw_liststyle= 3
+-- g.netrw_winsize = 25
+-- g.netrw_banner = 0
+-- g.netrw_liststyle= 3
 
 
 -- [[ Context ]]

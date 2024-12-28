@@ -1,10 +1,10 @@
 local M ={'stevearc/oil.nvim'}
 
 -- M.keys = {
-    --     {"-", "<cmd>Oil --float<cr>"},
-    -- }
-    --
-    -- M.cmd = "Oil"
+--     {"-", "<cmd>Oil --float<cr>"},
+-- }
+--
+-- M.cmd = "Oil"
 
 function M.config()
     require('oil').setup(

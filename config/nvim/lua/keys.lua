@@ -31,16 +31,16 @@ map({'n'}, '<C-j>', '<cmd>cnext<cr>zz', opts)
 map({'n'}, '<C-k>', '<cmd>cprev<cr>zz', opts)
 
 -- Remap for dealing with word wrap
-map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true})
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
 
 -- Remap line move
-map("n", "<A-Down>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map("n", "<A-Up>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+map("n", "<A-Down>", "<cmd>m .+1<cr>==", { desc = "Move down" },opts)
+map("n", "<A-Up>", "<cmd>m .-2<cr>==", { desc = "Move up" },opts)
+map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" },opts)
+map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" },opts)
+map("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" },opts)
+map("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" },opts)
 
 -- remap page navigation
 map("n", "<C-d>", "<C-d>zz", opts)

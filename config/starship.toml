@@ -19,6 +19,11 @@ $nodejs\
 $line_break\
 $character"""
 
+[character]
+success_symbol = "[❯](#0ABAB5)"
+error_symbol = "[](red)"
+vicmd_symbol = "[⇌](green)"
+
 [username]
 style_user = 'white bold'
 style_root = 'black bold'
@@ -28,19 +33,20 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format = '\[[$hostname](bold blue)\] [as](bright-black) '
+format = '\[[$hostname](bold #0ABAB5)\] [as](bright-black) '
 disabled = false
 
 [directory]
-style = "blue"
+style = "white"
+# format = '⟦[$path]($style)⟧ '
 
-[character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+# [character]
+# success_symbol = "[ᐅ](#0ABAB5)"
+# error_symbol = "[❯](red)"
+# vimcmd_symbol = "[❮](green)"
 
 [git_branch]
-format = "[at]($style) [$branch](blue) "
+format = "[at]($style) [$branch](white) "
 style = "bright-black"
 disabled = false
 

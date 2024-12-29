@@ -4,15 +4,28 @@ font-size = 16
 font-synthetic-style = bold-italic
 font-family = "MonoLisa Nerd Font"
 font-family = "LXGW WenKai Mono"
+
+adjust-cell-width = 2%
+adjust-cell-height = 5%
+
+cursor-invert-fg-bg = true
+adjust-cursor-thickness = 10
+
 theme = rose-pine-moon
+window-colorspace = display-p3
+
 window-decoration = false
 window-padding-x = 16
 window-padding-y = 10
+window-padding-balance = true
 macos-window-shadow = false
-clipboard-read = "allow"
-adjust-cell-width = 2%
-adjust-cell-height = 10%
-cursor-invert-fg-bg = true
+
 mouse-hide-while-typing = true
+clipboard-read = allow
+clipboard-write = allow
+
+quit-after-last-window-closed = true
+shell-integration = zsh
+
 auto-update = download
 auto-update-channel = tip

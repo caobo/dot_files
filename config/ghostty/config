@@ -26,6 +26,7 @@ clipboard-write = allow
 
 quit-after-last-window-closed = true
 shell-integration = zsh
+macos-option-as-alt = left
 
 auto-update = download
 auto-update-channel = tip

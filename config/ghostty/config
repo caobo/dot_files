@@ -1,9 +1,9 @@
-font-style = Regular
+font-family = "MonoLisa"
+font-family = "LXGW WenKai Mono"
+font-style = Medium
 font-thicken = true
 font-size = 16
 font-synthetic-style = bold-italic
-font-family = "MonoLisa Nerd Font"
-font-family = "LXGW WenKai Mono"
 
 adjust-cell-width = 2%
 adjust-cell-height = 5%

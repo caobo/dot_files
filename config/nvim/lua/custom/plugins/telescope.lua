@@ -33,6 +33,8 @@ function M.init()
     map('n', '<leader>fd', "<cmd>Telescope lsp_document_symbols<cr>", opts)
     -- Search symbols in workplace
     map('n', '<leader>fq', "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
+    -- Spell suggestions
+    map('n', '<leader>sp', "<cmd> Telescope spell_suggest<cr>", opts)
 end
 
 function M.config()
@@ -100,12 +102,11 @@ function M.config()
             keymaps = dropdown(),
             command_history = dropdown(),
             colorscheme = dropdown(),
-
+            spell_suggest = dropdown('Spell sugesstions'),
             grep_string = defaults('Search'),
             treesitter = defaults('Buffer Symbols (treesitter)'),
             current_buffer_fuzzy_find = defaults('Lines'),
             live_grep = defaults('Grep'),
-
             commands = defaults(),
             help_tags = defaults(),
         },

@@ -33,7 +33,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format = '\[[$hostname](bold #0ABAB5)\] [as](bright-black) '
+format = '\[[$hostname](bold white)\] [as](bright-black) '
 disabled = false
 
 [directory]

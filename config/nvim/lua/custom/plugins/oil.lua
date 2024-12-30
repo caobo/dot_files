@@ -1,10 +1,11 @@
 local M ={'stevearc/oil.nvim'}
 
+-- M.cmd = { "Oil" }
+
 -- M.keys = {
---     {"-", "<cmd>Oil --float<cr>"},
+--     { "-", "<CMD>Oil --float<CR>", desc = "Open parent directory" },
+--     { "_", function() require("oil.open_float").open(vim.fn.getcwd()) end, desc = "Open cwd" },
 -- }
---
--- M.cmd = "Oil"
 
 function M.config()
     require('oil').setup(
@@ -22,6 +23,7 @@ function M.config()
             delete_to_trash = true,
             skip_confirm_for_simple_edits = true,
             prompt_save_on_select_new_entry = true,
+            watch_for_changes = true,
             cleanup_delay_ms = 2000,
 
             lsp_file_methods = {

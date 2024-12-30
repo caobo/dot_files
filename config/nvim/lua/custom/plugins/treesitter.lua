@@ -89,10 +89,6 @@ M.opts = {
     },
 }
 
-function M.build()
-    pcall(vim.cmd, 'TSUpdate')
-end
-
 function M.config(_, opts)
     require('nvim-treesitter.configs').setup(opts)
 end

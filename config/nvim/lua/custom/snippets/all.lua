@@ -1,20 +1,27 @@
--- return{
---     require("luasnip").snipppet(
---         {trig = 'hi'},
---         {t("hello")}
---     )
--- }
--- return {
---   -- A snippet that expands the trigger "hi" into the string "Hello, world!".
---   require("luasnip").snippet(
---     { trig = "hi" },
---     { t("Hello, world!") }
---   ),
+-- local lnp = require('luasnip')
+-- local s = lnp.snippet
+-- local t = lnp.text_node
+-- local i = lnp.insert_node
 --
---   -- To return multiple snippets, use one `return` statement per snippet file
---   -- and return a table of Lua snippets.
---   require("luasnip").snippet(
---     { trig = "foo" },
---     { t("Another snippet.") }
---   ),
+-- return {
+--     s("header",
+--     {
+--         i(0),
+--         t({"=====================",""}),
+--         i(1,{"interference testing using auto stage and powermeter"}),
+--         t({"","-----------"}),
+--         t({"","Date: "}), i(2),
+--         t({"","Author: Bo Cao"}),
+--         t({"","Modified date: "}), i(3),
+--         t({"","Version: "}),i(4),
+--         t({"","-----------",""}),
+--         i(5,{"This script is for abtain interference signal using Grand unified optics JC-430xS and Thorlabs PM100."}),
+--         t({"","====================="}),
+--     }
+--     ),
+--     s('author',
+--     {
+--         t({'Bo Cao'})
+--     }
+--     ),
 -- }

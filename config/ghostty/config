@@ -29,5 +29,7 @@ quit-after-last-window-closed = true
 shell-integration = zsh
 macos-option-as-alt = left
 
+image-storage-limit = 640000000
+
 auto-update = download
 auto-update-channel = tip

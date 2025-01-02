@@ -1,11 +1,9 @@
-alfred
 appcleaner 
 bat
 btop
 curl
 fd
 ffmpeg
-font-liga-comic-mono
 font-lxgw-wenkai
 font-sf-mono 
 font-symbols-only-nerd-font
@@ -19,7 +17,6 @@ input-source-pro
 jordanbaird-ice
 koekeishiya/formulae/skhd
 koekeishiya/formulae/yabai
-lf
 lsd
 mactex-no-gui 
 neovim
@@ -29,6 +26,7 @@ npm
 numi
 pdf-expert
 python
+raycast
 ripgrep
 sdcv
 spaceid
@@ -37,6 +35,5 @@ stats
 tldr
 tmux
 visual-studio-code
-wezterm
 wget
 yt-dlp

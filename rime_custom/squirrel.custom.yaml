@@ -27,11 +27,11 @@ patch:
     # color_scheme_dark: wechat_dark
     # color_scheme: purity
     # color_scheme_dark: purity
-    color_scheme: apathy
+    # color_scheme: apathy
     # color_scheme_dark: apathy
     # color_scheme: nord_light
     # color_scheme_dark: nord_light
-    # color_scheme: ayaya
+    color_scheme: ayaya
     # color_scheme_dark: ayaya
     # color_scheme: ink
     # color_scheme_dark: ink

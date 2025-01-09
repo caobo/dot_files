@@ -1,26 +1,41 @@
+#! /bin/dash
+
+# font settings
+# ---------------------
 font-family = "MonoLisa"
 font-family = "LXGW WenKai Mono"
 font-thicken = true
 font-size = 16
 font-synthetic-style = bold-italic
 
+# line space settings
+# ---------------------
 adjust-cell-width = 2%
 adjust-cell-height = 5%
 
+# cursor settings
+# ---------------------
 cursor-invert-fg-bg = true
 adjust-cursor-thickness = 5
 
+# color settings
+# ---------------------
 theme = rose-pine-moon
 window-colorspace = display-p3
 
-macos-titlebar-style = hidden
-window-decoration = true
+# window settings
+# ---------------------
+# macos-titlebar-style = hidden
+window-decoration = false
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
-macos-window-shadow = false
+macos-window-shadow = true
 
+# system related settings
+# ---------------------
 mouse-hide-while-typing = true
+
 clipboard-read = allow
 clipboard-write = allow
 
@@ -30,5 +45,7 @@ macos-option-as-alt = left
 
 image-storage-limit = 640000000
 
+# update settings
+# ---------------------
 auto-update = download
 auto-update-channel = tip

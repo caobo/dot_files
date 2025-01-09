@@ -60,24 +60,12 @@ function M.config()
             lualine_c = {
                 '%=',
                 {
-                    "searchcount", draw_empty = true
+                    "searchcount", draw_empty = false
                 },
                 {
-                    "selectioncount", draw_empty = true
+                    "selectioncount", draw_empty = false
                 },
-                {
-                    'buffers',
-                    show_filename_only = true,   -- Shows shortened relative path when set to false.
-                    hide_filename_extension = false,   -- Hide filename extension when set to true.
-                    show_modified_status = true, -- Shows indicator when the buffer is modified.
-                    mode = 0,
-                    -- 0: Shows buffer name
-                    -- 1: Shows buffer index
-                    -- 2: Shows buffer name + buffer index
-                    -- 3: Shows buffer number
-                    -- 4: Shows buffer name + buffer number
-                },
-                lsp_info
+                lsp_info,
             },
             lualine_x = {
                 'encoding',

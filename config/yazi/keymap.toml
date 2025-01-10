@@ -47,3 +47,9 @@ desc = "Move in relative steps"
 on   = "!"
 run  = 'shell "$SHELL" --block'
 desc = "Open shell here"
+
+[[manager.prepend_keymap]]
+on = "y"
+run = ['''
+	shell 'cb cp $@'
+''', "yank"]

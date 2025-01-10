@@ -21,7 +21,7 @@ $character"""
 
 [character]
 success_symbol = "[❯](#0ABAB5)"
-error_symbol = "[](red)"
+error_symbol = "[❯](red)"
 vicmd_symbol = "[⇌](green)"
 
 [username]

@@ -10,6 +10,11 @@ M.cmd = 'Telescope'
 function M.init()
     local map = vim.keymap.set
     local opts = {remap = false}
+
+    -- set background to transparent
+    vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
+
     -- Search pattern
     map('n', '<leader>fg', '<cmd>Telescope grep_string<cr>', opts)
     map('n', '<leader>fG', '<cmd>Telescope live_grep<cr>', opts)
@@ -111,6 +116,7 @@ function M.config()
             help_tags = defaults(),
         },
     })
+
 end
 
 return M

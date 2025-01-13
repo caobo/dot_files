@@ -22,6 +22,7 @@ adjust-cursor-thickness = 5
 # ---------------------
 theme = rose-pine-moon
 window-colorspace = display-p3
+background-opacity = 0.9
 
 # window settings
 # ---------------------

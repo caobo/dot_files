@@ -2,6 +2,53 @@ local M = {'nvim-lualine/lualine.nvim'}
 
 M.event = { 'BufReadPost', 'BufNewFile' }
 
+local colors = {
+    black        = '#232136',
+    violet       = '#c4a7e7',
+    white        = '#e0def4',
+    red          = '#eb6f92',
+    green        = '#9ccfd8',
+    blue         = '#3e8fb0',
+    yellow       = '#f6c177',
+    gray         = '#6e6a86',
+    darkgray     = '#2a283e',
+    lightgray    = '#56526e',
+    inactivegray = '#908caa',
+}
+
+local rose_theme = {
+    normal = {
+        a = {bg = colors.green, fg = colors.black, gui = 'bold'},
+        b = {bg = "none", fg = colors.white},
+        c = {bg = "none", fg = colors.white}
+    },
+    insert = {
+        a = {bg = colors.red, fg = colors.black, gui = 'bold'},
+        b = {bg = "none", fg = colors.white},
+        c = {bg = "none", fg = colors.white}
+    },
+    visual = {
+        a = {bg = colors.violet, fg = colors.black, gui = 'bold'},
+        b = {bg = "none", fg = colors.white},
+        c = {bg = "none", fg = colors.black}
+    },
+    replace = {
+        a = {bg = colors.black, fg = colors.white, gui = 'bold'},
+        b = {bg = "none", fg = colors.white},
+        c = {bg = "none", fg = colors.white}
+    },
+    command = {
+        a = {bg = colors.green, fg = colors.black, gui = 'bold'},
+        b = {bg = "none", fg = colors.white},
+        c = {bg = "none", fg = colors.black}
+    },
+    inactive = {
+        a = {bg = "none", fg = colors.red, gui = 'bold'},
+        b = {bg = "none", fg = colors.red},
+        c = {bg = "none", fg = colors.red}
+    }
+}
+
 function M.config()
 
     -- cool function for progress
@@ -55,33 +102,36 @@ function M.config()
     end
 
     local love = function ()
-        return  "♥"
+        return  [[♥]]
     end
 
-    local flower = function ()
-        return "󰧱"
-    end
+    -- local flower = function ()
+    --     return [[󰧱]]
+    -- end
 
     local lualine = require("lualine")
 
     lualine.setup({
         options = {
-            theme = "rose-pine",
-            -- theme = "horizon",
+            theme = rose_theme,
             icons_enabled = true,
             disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
             component_separators = " ",
             section_separators = { left = ' ', right = ' ' },
+            always_divide_middle = true
         },
         sections = {
             lualine_a = {
+                -- flower,
                 {
-                    "mode", separator = { left = '󰧱 ' }, right_padding = 0
+                    "mode",
+                    separator = { left = '󰧱 ' },
+                    right_padding = 0,
                 },
             },
             lualine_b = {
                 'filename',
-                love,
+                { love, color={ fg=colors.red } },
                 "filesize",
                 "branch",
                 'diagnostics',
@@ -105,7 +155,7 @@ function M.config()
                 },
                 'filetype'},
                 lualine_y = {
-                   love
+                { love, color={ fg=colors.red } },
                 },
             lualine_z = {
                 "progress",

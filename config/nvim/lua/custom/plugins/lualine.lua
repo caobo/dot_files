@@ -76,12 +76,12 @@ function M.config()
         sections = {
             lualine_a = {
                 {
-                    "mode", separator = { left = '▊' }, right_padding = 0
-                }
+                    "mode", separator = { left = '󰧱 ' }, right_padding = 0
+                },
             },
             lualine_b = {
                 'filename',
-                flower,
+                love,
                 "filesize",
                 "branch",
                 'diagnostics',
@@ -111,7 +111,7 @@ function M.config()
                 "progress",
                 {
                     "location",
-                    separator = { right = '▊▊' },jleft_padding = 0 }
+                    separator = { right = ' 󰧱 ' },jleft_padding = 0 }
                 }
             },
         inactive_sections = {
@@ -119,9 +119,7 @@ function M.config()
                 "filename"
             },
             lualine_b = {},
-            lualine_c = {
-                "tabs"
-            },
+            lualine_c = {},
             lualine_x = {},
             lualine_y = {},
             lualine_z = {}

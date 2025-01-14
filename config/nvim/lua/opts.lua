@@ -33,14 +33,8 @@ opt.listchars = { -- see hidden chars and their colors
 opt.list = true
 -- opt.statuscolumn = "%s%l %r"
 
--- [[ netrw settings ]]
--- g.netrw_winsize = 25
--- g.netrw_banner = 0
--- g.netrw_liststyle= 3
-
-
 -- [[ Context ]]
--- opt.colorcolumn = '120'           -- str:  Show col for max line length
+opt.colorcolumn = '120'           -- str:  Show col for max line length
 opt.number = true                -- bool: Show line numbers
 opt.relativenumber = true        -- bool: Show relative line numbers
 opt.scrolloff = 8                -- int:  Min num lines of context
@@ -54,7 +48,7 @@ opt.fileencoding = 'utf8'        -- str:  File encoding to use
 opt.ignorecase = true            -- bool: Ignore case in search patterns
 opt.smartcase = true             -- bool: Override ignorecase if search contains capitals
 opt.incsearch = true             -- bool: Use incremental search
-opt.hlsearch = false             -- bool: Highlight search matches
+opt.hlsearch = true             -- bool: Highlight search matches
 
 -- [[ Whitespace ]]
 opt.expandtab = true             -- bool: Use spaces instead of tabs

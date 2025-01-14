@@ -5,13 +5,36 @@ M.event = { 'BufReadPost', 'BufNewFile' }
 function M.config()
 
     -- cool function for progress
-    local progress = function()
-        local current_line = vim.fn.line(".")
-        local total_lines = vim.fn.line("$")
-        local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
-        local line_ratio = current_line / total_lines
-        local index = math.ceil(line_ratio * #chars)
-        return chars[index]
+    -- local progress = function()
+    --     local current_line = vim.fn.line(".")
+    --     local total_lines = vim.fn.line("$")
+    --     local chars = {
+    --     "╞▰═════════╡",
+    --     "╞═▰════════╡",
+    --     "╞══▰═══════╡",
+    --     "╞═══▰══════╡",
+    --     "╞════▰═════╡",
+    --     "╞═════▰════╡",
+    --     "╞══════▰═══╡",
+    --     "╞═══════▰══╡",
+    --     "╞════════▰═╡",
+    --     "╞═════════▰╡",
+    --     }
+    --     local line_ratio = current_line / total_lines
+    --     local index = math.ceil(line_ratio * #chars)
+    --     return chars[index]
+    -- end
+
+    local search_result = function()
+        if vim.v.hlsearch == 0 then
+            return ''
+        end
+        local last_search = vim.fn.getreg('/')
+        if not last_search or last_search == '' then
+            return ''
+        end
+        local searchcount = vim.fn.searchcount { maxcount = 9999 }
+        return last_search .. '(' .. searchcount.current .. '/' .. searchcount.total .. ')'
     end
 
     -- show attached lsp server name
@@ -31,11 +54,19 @@ function M.config()
         return msg
     end
 
+    local love = function ()
+        return  "♥"
+    end
+
+    local flower = function ()
+        return "󰧱"
+    end
+
     local lualine = require("lualine")
 
     lualine.setup({
         options = {
-            theme = "nightfly",
+            theme = "rose-pine",
             -- theme = "horizon",
             icons_enabled = true,
             disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
@@ -50,6 +81,7 @@ function M.config()
             },
             lualine_b = {
                 'filename',
+                flower,
                 "filesize",
                 "branch",
                 'diagnostics',
@@ -59,26 +91,27 @@ function M.config()
             },
             lualine_c = {
                 '%=',
-                {
-                    "searchcount", draw_empty = false
-                },
+                lsp_info,
+                '%=',
+            },
+            lualine_x = {
                 {
                     "selectioncount", draw_empty = false
                 },
-                lsp_info,
-            },
-            lualine_x = {
+                search_result,
                 'encoding',
                 {
                     'fileformat', symbols = { unix = 'Unix', dos = 'Dos', mac = 'Mac' }
                 },
                 'filetype'},
                 lualine_y = {
-                    progress,"progress"
+                   love
                 },
             lualine_z = {
+                "progress",
                 {
-                    "location", separator = { right = '▊▊' },jleft_padding = 0 }
+                    "location",
+                    separator = { right = '▊▊' },jleft_padding = 0 }
                 }
             },
         inactive_sections = {

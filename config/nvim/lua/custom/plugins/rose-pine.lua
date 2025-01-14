@@ -35,7 +35,7 @@ function M.config()
         styles = {
             bold = true,
             italic = true,
-            transparency = false,
+            transparency = true,
         },
 
         groups = {
@@ -80,6 +80,16 @@ function M.config()
         highlight_groups = {
             -- Comment = { fg = "foam" },
             -- VertSplit = { fg = "muted", bg = "muted" },
+            CurSearch = { fg = "base", bg = "leaf", inherit = false },
+            Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
+            StatusLine = { fg = "love", bg = "love", blend = 10 },
+            StatusLineNC = { fg = "subtle", bg = "surface" },
+            TelescopeBorder = { fg = "highlight_high", bg = "none" },
+            TelescopeNormal = { bg = "none" },
+            TelescopePromptNormal = { bg = "base" },
+            TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+            TelescopeSelection = { fg = "text", bg = "base" },
+            TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
         },
 
         before_highlight = function(group, highlight, palette)
@@ -89,9 +99,9 @@ function M.config()
             -- end
             --
             -- Change palette colour
-            -- if highlight.fg == palette.pine then
-            --     highlight.fg = palette.foam
-            -- end
+            if highlight.fg == palette.pine then
+                highlight.fg = palette.love
+            end
         end,
     })
 

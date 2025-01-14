@@ -77,15 +77,15 @@ function M.config()
                     ['<C-q>'] = actions.smart_send_to_qflist,
                     ['<C-Q>'] = actions.smart_add_to_qflist,
                     ['<C-x>'] = actions.delete_buffer,
-                    -- ['<esc>'] = actions.close,
+                    ['<esc>'] = actions.close,
                 },
                 n = {
                     ['<C-u>'] = false,
                     ['<C-d>'] = false,
                     ['<C-q>'] = actions.smart_send_to_qflist,
                     ['<C-Q>'] = actions.smart_add_to_qflist,
+                    ['C-c'] = actions.close,
                     ['d'] = actions.delete_buffer,
-                    ['q'] = actions.close
                 }
             },
 
@@ -100,6 +100,7 @@ function M.config()
                 prompt_position = 'bottom'
             },
         },
+
         pickers = {
             buffers = dropdown('Buffers activated'),
             find_files = defaults('Files in this workspace', true),

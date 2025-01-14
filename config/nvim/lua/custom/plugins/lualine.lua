@@ -118,7 +118,7 @@ function M.config()
             disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
             component_separators = " ",
             section_separators = { left = ' ', right = ' ' },
-            always_divide_middle = true
+            always_divide_middle = false
         },
         sections = {
             lualine_a = {
@@ -133,16 +133,16 @@ function M.config()
                 'filename',
                 { love, color={ fg=colors.red } },
                 "filesize",
-                "branch",
-                'diagnostics',
+                {"branch", draw_empty=true},
+                {'diagnostics', draw_empty=true},
                 {
-                    "diff", colored = true
+                    "diff", colored = true, draw_empty=true
                 }
             },
             lualine_c = {
                 '%=',
                 lsp_info,
-                '%=',
+                -- '%=',
             },
             lualine_x = {
                 {

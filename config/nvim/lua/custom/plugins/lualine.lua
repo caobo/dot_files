@@ -95,7 +95,7 @@ function M.config()
         for _, client in ipairs(clients) do
             local filetypes = client.config.filetypes
             if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                return string.format("LSP server: [%s]", client.name)
+                return string.format("LSP: [%s]", client.name)
             end
         end
         return msg
@@ -105,9 +105,9 @@ function M.config()
         return  [[♥]]
     end
 
-    -- local flower = function ()
-    --     return [[󰧱]]
-    -- end
+    local flower = function ()
+        return [[󰧱]]
+    end
 
     local lualine = require("lualine")
 
@@ -118,21 +118,21 @@ function M.config()
             disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
             component_separators = " ",
             section_separators = { left = ' ', right = ' ' },
-            always_divide_middle = false
+            always_divide_middle = true
         },
         sections = {
             lualine_a = {
-                -- flower,
+                flower,
                 {
                     "mode",
-                    separator = { left = '󰧱 ' },
+                    -- separator = { left = '󰧱 ' },
                     right_padding = 0,
                 },
             },
             lualine_b = {
-                'filename',
                 { love, color={ fg=colors.red } },
-                "filesize",
+                'filename',
+                -- "filesize",
                 {"branch", draw_empty=true},
                 {'diagnostics', draw_empty=true},
                 {
@@ -140,7 +140,7 @@ function M.config()
                 }
             },
             lualine_c = {
-                '%=',
+                -- '%=',
                 lsp_info,
                 -- '%=',
             },
@@ -161,7 +161,8 @@ function M.config()
                 "progress",
                 {
                     "location",
-                    separator = { right = ' 󰧱 ' },jleft_padding = 0 }
+                    -- separator = { right = ' 󰧱 ' },
+                    jleft_padding = 0 }
                 }
             },
         inactive_sections = {

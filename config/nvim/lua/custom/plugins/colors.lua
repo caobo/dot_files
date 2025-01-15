@@ -1,8 +1,10 @@
 local M_rose = {"rose-pine/neovim"}
-local M_other = {}
+local M_tokyo = {"folke/tokyonight.nvim"}
+local M_mellow = {"mellow-theme/mellow.nvim"}
 
 M_rose.event ={'BufReadPost', 'BufNewFile'}
-M_other.event ={'BufReadPost', 'BufNewFile'}
+M_tokyo.event ={'BufReadPost', 'BufNewFile'}
+M_mellow.event ={'BufReadPost', 'BufNewFile'}
 
 M_rose.name = 'rose-pine'
 
@@ -118,10 +120,16 @@ function M_rose.config()
 
 end
 
-function M_other.config()
-    -- color_setting()
+function M_tokyo.config()
+    color_setting("tokyonight-moon")
 end
 
-_ = M_other
+function M_mellow.config()
+    color_setting("mellow")
+end
+
+_ = M_rose
+_ = M_tokyo
+_ = M_mellow
 
 return M_rose

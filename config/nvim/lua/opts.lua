@@ -1,9 +1,7 @@
 -- [[ opts.lua ]]
 local opt = vim.opt
--- local g = vim.g
 
 -- [[ Setting options ]]
---
 -- [[ Editor ]]
 opt.autochdir = true
 opt.mouse = 'a'                   -- enable mouse mode
@@ -22,7 +20,7 @@ opt.spelllang = {'en','cjk'}
 opt.cmdheight = 0
 opt.smartindent = true
 opt.shortmess:append("F")
-
+opt.swapfile = false
 opt.listchars = { -- see hidden chars and their colors
     tab = '| ',
     eol = '↲',

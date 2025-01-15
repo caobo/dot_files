@@ -1,16 +1,18 @@
-local M = {"rose-pine/neovim"}
+local M_rose = {"rose-pine/neovim"}
+local M_other = {}
 
-M.event ={'BufReadPost', 'BufNewFile'}
-M.name = 'rose-pine'
+M_rose.event ={'BufReadPost', 'BufNewFile'}
+M_other.event ={'BufReadPost', 'BufNewFile'}
 
-local function color_setting()
+M_rose.name = 'rose-pine'
+
+local function color_setting(color_name)
     -- set color variant
-    -- vim.cmd("colorscheme rose-pine")
-    -- vim.cmd("colorscheme rose-pine-main")
-    vim.cmd("colorscheme rose-pine-moon")
-    -- vim.cmd("colorscheme rose-pine-dawn")
+    local setting = string.format("colorscheme %s", color_name)
+    vim.cmd(setting)
 
     -- background transparency
+    vim.api.nvim_set_hl(0, "VertSplit", { bg = "none" })
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
@@ -18,13 +20,13 @@ local function color_setting()
     vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
 end
 
-function M.config()
+function M_rose.config()
     local rose=require("rose-pine")
     rose.setup({
         variant = "auto", -- auto, main, moon, or dawn
         dark_variant = "moon", -- main, moon, or dawn
         dim_inactive_windows = false,
-        extend_background_behind_borders = false,
+        extend_background_behind_borders = true,
 
         enable = {
             terminal = true,
@@ -88,17 +90,18 @@ function M.config()
             TelescopeBorder = { fg = "highlight_high", bg = "none" },
             TelescopeNormal = { bg = "none" },
             TelescopeResultsNormal = { fg = "subtle", bg = "none" },
-            TelescopeSelection = { fg = "text", bg = "highlight_med" },
+            TelescopeSelection = { fg = "text", bg = "none" },
             TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
             TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
             TelescopeTitle = { fg = "base", bg = "love" },
-            TelescopePromptTitle = { fg = "base", bg = "pine" },
+            TelescopePromptTitle = { fg = "base", bg = "foam" },
             TelescopePreviewTitle = { fg = "base", bg = "iris" },
             TelescopePromptNormal = { fg = "text", bg = "surface" },
             TelescopePromptBorder = { fg = "surface", bg = "surface" },
         },
 
         before_highlight = function(group, highlight, palette)
+            -- _ = group
             -- Disable all undercurls
             -- if highlight.undercurl then
             --     highlight.undercurl = false
@@ -111,8 +114,14 @@ function M.config()
         end,
     })
 
-    color_setting()
+    color_setting("rose-pine-moon")
 
 end
 
-return M
+function M_other.config()
+    -- color_setting()
+end
+
+_ = M_other
+
+return M_rose

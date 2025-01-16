@@ -63,4 +63,4 @@ opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.termguicolors = true         -- bool: If term supports ui color then enable
-vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })
+-- vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })

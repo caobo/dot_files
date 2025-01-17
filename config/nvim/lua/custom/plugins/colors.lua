@@ -1,13 +1,3 @@
-local M_rose = {"rose-pine/neovim"}
-local M_tokyo = {"folke/tokyonight.nvim"}
-local M_mellow = {"mellow-theme/mellow.nvim"}
-
-M_rose.event ={'BufReadPost', 'BufNewFile'}
-M_tokyo.event ={'BufReadPost', 'BufNewFile'}
-M_mellow.event ={'BufReadPost', 'BufNewFile'}
-
-M_rose.name = 'rose-pine'
-
 local function color_setting(color_name)
     -- set color variant
     local setting = string.format("colorscheme %s", color_name)
@@ -21,6 +11,18 @@ local function color_setting(color_name)
     vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
     vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
 end
+
+local M_rose = {"rose-pine/neovim"}
+local M_tokyo = {"folke/tokyonight.nvim"}
+local M_mellow = {"mellow-theme/mellow.nvim"}
+local M_oldworld = {"dgox16/oldworld.nvim"}
+
+M_rose.event ={'BufReadPost', 'BufNewFile'}
+M_tokyo.event ={'BufReadPost', 'BufNewFile'}
+M_mellow.event ={'BufReadPost', 'BufNewFile'}
+M_oldworld.event ={'BufReadPost', 'BufNewFile'}
+
+M_rose.name = 'rose-pine'
 
 function M_rose.config()
     local rose=require("rose-pine")
@@ -128,8 +130,13 @@ function M_mellow.config()
     color_setting("mellow")
 end
 
+function M_oldworld.config()
+    color_setting("oldworld")
+end
+
 _ = M_rose
 _ = M_tokyo
 _ = M_mellow
+_ = M_oldworld
 
 return M_rose

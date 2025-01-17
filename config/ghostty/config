@@ -22,14 +22,14 @@ adjust-cursor-thickness = 5
 # ---------------------
 theme = rose-pine-moon
 window-colorspace = display-p3
-background-opacity = 0.9
+background-opacity = 0.85
 
 # window settings
 # ---------------------
 # macos-titlebar-style = hidden
 window-decoration = false
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 5
+window-padding-y = 5
 window-padding-balance = true
 macos-window-shadow = true
 

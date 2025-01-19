@@ -35,12 +35,12 @@ map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
 
 -- Remap line move
-map("n", "<A-Down>", "<cmd>m .+1<cr>==", { desc = "Move down" },opts)
-map("n", "<A-Up>", "<cmd>m .-2<cr>==", { desc = "Move up" },opts)
-map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" },opts)
-map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" },opts)
-map("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" },opts)
-map("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" },opts)
+map("n", "<A-Down>", "<cmd>m .+1<cr>==",opts)
+map("n", "<A-Up>", "<cmd>m .-2<cr>==", opts)
+map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", opts)
+map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", opts)
+map("v", "<A-Down>", ":m '>+1<cr>gv=gv", opts)
+map("v", "<A-Up>", ":m '<-2<cr>gv=gv", opts)
 
 -- remap page navigation
 map("n", "<C-d>", "<C-d>zz", opts)

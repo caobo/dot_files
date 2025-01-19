@@ -22,7 +22,7 @@ adjust-cursor-thickness = 5
 # ---------------------
 theme = rose-pine-moon
 window-colorspace = display-p3
-background-opacity = 0.85
+background-opacity = 0.8
 
 # window settings
 # ---------------------
@@ -45,6 +45,9 @@ shell-integration = zsh
 macos-option-as-alt = left
 
 image-storage-limit = 640000000
+
+# keymaps
+keybind = cmd+s=toggle_quick_terminal
 
 # update settings
 # ---------------------

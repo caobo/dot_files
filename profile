@@ -21,6 +21,8 @@ case "$(uname)" in
         export LDFLAGS="-L/opt/homebrew/opt/openblas/lib"  # Set LDFLAGS for OpenBLAS
         export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"  # Set CPPFLAGS for OpenBLAS
         export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig"  # Set PKG_CONFIG_PATH for OpenBLAS
+        export CPATH=/opt/homebrew/include
+        export LIBRARY_PATH=/opt/homebrew/lib
     ;;
     Linux)
         export XDG_SESSION_TYPE=wayland

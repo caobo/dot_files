@@ -105,6 +105,16 @@ function M.config()
         return  [[♥]]
     end
 
+    local diagno_stat = function ()
+        local bufnr = vim.api.nvim_get_current_buf()
+        if #(vim.diagnostic.get(bufnr)) == 0 then
+            local msg = love()
+            return msg
+        else
+            return  [[]]
+        end
+    end
+
     local flower = function ()
         return [[󰧱]]
     end
@@ -130,7 +140,7 @@ function M.config()
                 },
             },
             lualine_b = {
-                { love, color={ fg=colors.red } },
+                { diagno_stat, color={ fg=colors.red } },
                 'filename',
                 -- "filesize",
                 {"branch", draw_empty=true},

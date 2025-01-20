@@ -87,14 +87,15 @@ function M.config()
     -- show attached lsp server name
     local lsp_info = function()
         local msg = 'No Active Lsp'
-        local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+        local buf_filetype = vim.api.nvim_get_option_value('filetype', { buf = 0 })
         local clients = vim.lsp.get_clients()
-        -- if next(clients) == nil then
-        --     return msg
-        -- end
+        if next(clients) == nil then
+            return msg
+        end
         for _, client in ipairs(clients) do
+            ---@diagnostic disable-next-line: undefined-field
             local filetypes = client.config.filetypes
-            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+            if filetypes and vim.fn.index(filetypes, buf_filetype) ~= -1 then
                 return string.format("LSP: [%s]", client.name)
             end
         end
@@ -105,7 +106,7 @@ function M.config()
         return  [[♥]]
     end
 
-    local diagno_stat = function ()
+    local everything_good = function ()
         local bufnr = vim.api.nvim_get_current_buf()
         if #(vim.diagnostic.get(bufnr)) == 0 then
             local msg = love()
@@ -140,7 +141,7 @@ function M.config()
                 },
             },
             lualine_b = {
-                { diagno_stat, color={ fg=colors.red } },
+                { everything_good, color={ fg=colors.red } },
                 'filename',
                 -- "filesize",
                 {"branch", draw_empty=true},

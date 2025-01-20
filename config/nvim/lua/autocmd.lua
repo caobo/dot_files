@@ -29,6 +29,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- [[use line comment in C and C++]]
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"c", "cpp"},
+    callback = function()
+        vim.opt_local.commentstring = "// %s"  -- Set line comment to // 
+    end,
+})
+
 -- [[ wrap and check for spell in text filetypes ]]
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit", "markdown", "text" ,"latex", "tex", "md", "txt"},

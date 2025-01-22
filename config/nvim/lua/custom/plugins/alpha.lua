@@ -1,14 +1,14 @@
-local M = {"goolord/alpha-nvim"}
+local M = { "goolord/alpha-nvim" }
 
 M.event = "VimEnter"
-M.dependencies ={"nvim-tree/nvim-web-devicons", lazy = true}
+M.dependencies = { "nvim-tree/nvim-web-devicons", lazy = true }
 
-local greeting = [[ 
+local greeting = [[
   .---------------------------.
   | May the phase be with you |
   '---------------------------'
       ^      (\_(\
-      '----- ( -.-) 
+      '----- ( -.-)
              o_(")(")
 ]]
 
@@ -64,4 +64,3 @@ function M.config(_, dashboard)
 end
 
 return M
-

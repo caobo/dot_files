@@ -4,7 +4,7 @@
 -- repository: https://github.com/neapsix/wezterm
 -- license: MIT
 
-local M = {"rose-pine/neovim"}
+local M = { "rose-pine/neovim" }
 
 local palette = {
     base = '#191724',

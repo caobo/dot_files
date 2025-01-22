@@ -1,15 +1,15 @@
 -- Fuzzy Finder
-local M = {'nvim-telescope/telescope.nvim'}
+local M = { 'nvim-telescope/telescope.nvim' }
 
 M.dependencies = {
-    {'nvim-lua/plenary.nvim'},
+    { 'nvim-lua/plenary.nvim' },
 }
 
 M.cmd = 'Telescope'
 
 function M.init()
     local map = vim.keymap.set
-    local opts = {remap = false}
+    local opts = { remap = false }
 
     -- set background to transparent
     vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
@@ -31,7 +31,7 @@ function M.init()
     -- Search in files history
     map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', opts)
     -- Search in active buffers list
-    map('n', '<leader>bb', '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>', opts)
+    map('n', '<leader><space>', '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>', opts)
     -- Search refernces using lsp
     map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", opts)
     -- Search symbols in document
@@ -43,7 +43,6 @@ function M.init()
 end
 
 function M.config()
-
     local telescope = require('telescope')
     local actions = require('telescope.actions')
 
@@ -117,7 +116,6 @@ function M.config()
             help_tags = defaults(),
         },
     })
-
 end
 
 return M

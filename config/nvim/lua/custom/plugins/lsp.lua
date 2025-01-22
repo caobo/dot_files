@@ -1,7 +1,7 @@
-local M = {'neovim/nvim-lspconfig'}
+local M = { 'neovim/nvim-lspconfig' }
 
-M.event ={ 'BufReadPost', 'BufNewFile'}
-M.dependencies={
+M.event = { 'BufReadPost', 'BufNewFile' }
+M.dependencies = {
     -- Automatically install LSPs to stdpath for neovim
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
@@ -16,20 +16,19 @@ M.dependencies={
 }
 
 function M.config()
-
     local lspconfig = require('lspconfig')
 
     -- installed lsp servers
-    local lsp_servers = {'lua_ls', 'texlab', 'pyright', 'ts_ls', 'clangd', 'rust_analyzer', 'gopls'}
+    local lsp_servers = { 'lua_ls', 'texlab', 'pyright', 'ts_ls', 'clangd', 'rust_analyzer', 'gopls' }
 
     -- set capabilities for each lsp server
     -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local capabilities = require('blink.cmp').get_lsp_capabilities()
     for _, server in ipairs(lsp_servers) do
-        require('lspconfig')[server].setup {capabilities = capabilities}
+        require('lspconfig')[server].setup { capabilities = capabilities }
     end
 
-    local signs={
+    local signs = {
         Error = '✘',
         -- Error = " ",
         Warn = " ",
@@ -45,7 +44,7 @@ function M.config()
         desc = 'LSP actions',
         callback = function(event)
             local map = vim.keymap.set
-            local opts = {buffer = event.buf,remap = false}
+            local opts = { buffer = event.buf, remap = false }
             map("n", "gd", function() vim.lsp.buf.definition() end, opts)
             map("n", "K", function() vim.lsp.buf.hover() end, opts)
             map("n", "[d", function() vim.diagnostic.goto_next() end, opts)
@@ -73,7 +72,7 @@ function M.config()
                             version = 'LuaJIT'
                         },
                         diagnostics = {
-                            globals = {'vim'},
+                            globals = { 'vim' },
                         },
                         workspace = {
                             library = {
@@ -85,7 +84,6 @@ function M.config()
             })
         }
     })
-
 end
 
 return M

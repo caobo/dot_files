@@ -1,16 +1,16 @@
-local M = {'nvim-treesitter/nvim-treesitter'}
+local M = { 'nvim-treesitter/nvim-treesitter' }
 M.pin = true
 M.build = ":TSUpdate"
-M.event = {'BufReadPost', 'BufNewFile'}
+M.event = { 'BufReadPost', 'BufNewFile' }
 
 M.dependencies = {
-    {'nvim-treesitter/nvim-treesitter-textobjects', pin = true},
+    { 'nvim-treesitter/nvim-treesitter-textobjects', pin = true },
 }
 
 M.opts = {
     highlight = {
         enable = true,
-        additional_vim_regex_highlighting = {'html', 'html.twig', 'vimdoc'},
+        additional_vim_regex_highlighting = { 'html', 'html.twig', 'vimdoc' },
     },
     incremental_selection = {
         enable = true,

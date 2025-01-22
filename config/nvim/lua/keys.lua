@@ -27,15 +27,15 @@ map('n', '<leader>q', smart_quit, opts)
 map('n', '<leader>sv', '<C-w>v', opts)
 map('n', '<leader>sh', '<C-w>h', opts)
 
-map({'n'}, '<C-j>', '<cmd>cnext<cr>zz', opts)
-map({'n'}, '<C-k>', '<cmd>cprev<cr>zz', opts)
+map({ 'n' }, '<C-j>', '<cmd>cnext<cr>zz', opts)
+map({ 'n' }, '<C-k>', '<cmd>cprev<cr>zz', opts)
 
 -- Remap for dealing with word wrap
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
 
 -- Remap line move
-map("n", "<A-Down>", "<cmd>m .+1<cr>==",opts)
+map("n", "<A-Down>", "<cmd>m .+1<cr>==", opts)
 map("n", "<A-Up>", "<cmd>m .-2<cr>==", opts)
 map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", opts)
 map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", opts)
@@ -47,13 +47,29 @@ map("n", "<C-d>", "<C-d>zz", opts)
 map("n", "<C-u>", "<C-u>zz", opts)
 map("n", "n", "nzzzv", opts)
 map("n", "N", "Nzzzv", opts)
+map("n", "<C-o>", "<C-o>zz", opts)
 
 -- remaps customized paste
 map("x", "<leader>p", [["_dP]], opts)
-map({"n", "v"}, "<leader>d", [["_d]], opts)
+map({ "n", "v" }, "<leader>d", [["_d]], opts)
 
 -- format the entire file
-map("n", "<leader>mm", "gg=G''", opts)
+local function lsp_formatting()
+    local clients = vim.lsp.get_clients()
+    local buf_filetype = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+    if #clients == 0 then
+        return [[gg=G'']]
+    end
+    for _, client in ipairs(clients) do
+        ---@diagnostic disable-next-line: undefined-field
+        local filetype = client.config.filetypes
+        if filetype and vim.fn.index(filetype, buf_filetype) ~= -1 then
+            return vim.lsp.buf.format()
+        end
+        return [[gg=G'']]
+    end
+end
+map("n", "<leader>mm", lsp_formatting, opts)
 
 -- reload nvim
 map("n", "<leader>rl", "<cmd>source $HOME/.config/nvim/init.lua<cr>", opts)

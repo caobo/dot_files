@@ -1,4 +1,4 @@
-local M = {'nvim-lualine/lualine.nvim'}
+local M = { 'nvim-lualine/lualine.nvim' }
 
 M.event = { 'BufReadPost', 'BufNewFile' }
 
@@ -18,39 +18,38 @@ local colors = {
 
 local rose_theme = {
     normal = {
-        a = {bg = colors.green, fg = colors.black, gui = 'bold'},
-        b = {bg = "none", fg = colors.white},
-        c = {bg = "none", fg = colors.white}
+        a = { bg = colors.green, fg = colors.black, gui = 'bold' },
+        b = { bg = "none", fg = colors.white },
+        c = { bg = "none", fg = colors.white }
     },
     insert = {
-        a = {bg = colors.red, fg = colors.black, gui = 'bold'},
-        b = {bg = "none", fg = colors.white},
-        c = {bg = "none", fg = colors.white}
+        a = { bg = colors.red, fg = colors.black, gui = 'bold' },
+        b = { bg = "none", fg = colors.white },
+        c = { bg = "none", fg = colors.white }
     },
     visual = {
-        a = {bg = colors.violet, fg = colors.black, gui = 'bold'},
-        b = {bg = "none", fg = colors.white},
-        c = {bg = "none", fg = colors.black}
+        a = { bg = colors.violet, fg = colors.black, gui = 'bold' },
+        b = { bg = "none", fg = colors.white },
+        c = { bg = "none", fg = colors.black }
     },
     replace = {
-        a = {bg = colors.black, fg = colors.white, gui = 'bold'},
-        b = {bg = "none", fg = colors.white},
-        c = {bg = "none", fg = colors.white}
+        a = { bg = colors.black, fg = colors.white, gui = 'bold' },
+        b = { bg = "none", fg = colors.white },
+        c = { bg = "none", fg = colors.white }
     },
     command = {
-        a = {bg = colors.green, fg = colors.black, gui = 'bold'},
-        b = {bg = "none", fg = colors.white},
-        c = {bg = "none", fg = colors.black}
+        a = { bg = colors.green, fg = colors.black, gui = 'bold' },
+        b = { bg = "none", fg = colors.white },
+        c = { bg = "none", fg = colors.black }
     },
     inactive = {
-        a = {bg = "none", fg = colors.red, gui = 'bold'},
-        b = {bg = "none", fg = colors.red},
-        c = {bg = "none", fg = colors.red}
+        a = { bg = "none", fg = colors.red, gui = 'bold' },
+        b = { bg = "none", fg = colors.red },
+        c = { bg = "none", fg = colors.red }
     }
 }
 
 function M.config()
-
     -- cool function for progress
     -- local progress = function()
     --     local current_line = vim.fn.line(".")
@@ -102,22 +101,28 @@ function M.config()
         return msg
     end
 
-    local love = function ()
-        return  [[♥]]
+    local love = function()
+        return [[♥]]
     end
 
-    local everything_good = function ()
+    local everything_good = function()
         local bufnr = vim.api.nvim_get_current_buf()
         if #(vim.diagnostic.get(bufnr)) == 0 then
             local msg = love()
             return msg
         else
-            return  [[]]
+            return [[]]
         end
     end
 
-    local flower = function ()
+    local flower = function()
         return [[󰧱]]
+    end
+
+    local micro_record = function()
+        local reg = vim.fn.reg_recording()
+        if reg == '' then return '' end -- not recording
+        return "recording to " .. reg
     end
 
     local lualine = require("lualine")
@@ -141,13 +146,13 @@ function M.config()
                 },
             },
             lualine_b = {
-                { everything_good, color={ fg=colors.red } },
+                { everything_good, color = { fg = colors.red } },
                 'filename',
                 -- "filesize",
-                {"branch", draw_empty=true},
-                {'diagnostics', draw_empty=true},
+                { "branch",        draw_empty = true },
+                { 'diagnostics',   draw_empty = true },
                 {
-                    "diff", colored = true, draw_empty=true
+                    "diff", colored = true, draw_empty = true
                 }
             },
             lualine_c = {
@@ -156,6 +161,7 @@ function M.config()
                 -- '%=',
             },
             lualine_x = {
+                { micro_record, color = { fg = colors.yellow } },
                 {
                     "selectioncount", draw_empty = false
                 },
@@ -164,18 +170,19 @@ function M.config()
                 {
                     'fileformat', symbols = { unix = 'Unix', dos = 'Dos', mac = 'Mac' }
                 },
-                'filetype'},
-                lualine_y = {
-                { love, color={ fg=colors.red } },
-                },
+                'filetype' },
+            lualine_y = {
+                { love, color = { fg = colors.red } },
+            },
             lualine_z = {
                 "progress",
                 {
                     "location",
                     -- separator = { right = ' 󰧱 ' },
-                    jleft_padding = 0 }
+                    jleft_padding = 0
                 }
-            },
+            }
+        },
         inactive_sections = {
             lualine_a = {
                 "filename"
@@ -187,7 +194,6 @@ function M.config()
             lualine_z = {}
         }
     })
-
 end
 
 return M

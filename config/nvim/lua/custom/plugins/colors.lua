@@ -12,22 +12,22 @@ local function color_setting(color_name)
     vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
 end
 
-local M_rose = {"rose-pine/neovim"}
-local M_tokyo = {"folke/tokyonight.nvim"}
-local M_mellow = {"mellow-theme/mellow.nvim"}
-local M_oldworld = {"dgox16/oldworld.nvim"}
+local M_rose = { "rose-pine/neovim" }
+local M_tokyo = { "folke/tokyonight.nvim" }
+local M_mellow = { "mellow-theme/mellow.nvim" }
+local M_oldworld = { "dgox16/oldworld.nvim" }
 
-M_rose.event ={'BufReadPost', 'BufNewFile'}
-M_tokyo.event ={'BufReadPost', 'BufNewFile'}
-M_mellow.event ={'BufReadPost', 'BufNewFile'}
-M_oldworld.event ={'BufReadPost', 'BufNewFile'}
+M_rose.event = { 'BufReadPost', 'BufNewFile' }
+M_tokyo.event = { 'BufReadPost', 'BufNewFile' }
+M_mellow.event = { 'BufReadPost', 'BufNewFile' }
+M_oldworld.event = { 'BufReadPost', 'BufNewFile' }
 
 M_rose.name = 'rose-pine'
 
 function M_rose.config()
-    local rose=require("rose-pine")
+    local rose = require("rose-pine")
     rose.setup({
-        variant = "auto", -- auto, main, moon, or dawn
+        variant = "auto",      -- auto, main, moon, or dawn
         dark_variant = "moon", -- main, moon, or dawn
         dim_inactive_windows = false,
         extend_background_behind_borders = true,
@@ -35,7 +35,7 @@ function M_rose.config()
         enable = {
             terminal = true,
             legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-            migrations = true, -- Handle deprecated options automatically
+            migrations = true,        -- Handle deprecated options automatically
         },
 
         styles = {
@@ -119,7 +119,6 @@ function M_rose.config()
     })
 
     color_setting("rose-pine-moon")
-
 end
 
 function M_tokyo.config()

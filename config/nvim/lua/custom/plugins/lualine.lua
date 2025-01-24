@@ -18,17 +18,17 @@ local colors = {
 
 local rose_theme = {
     normal = {
-        a = { bg = colors.green, fg = colors.black, gui = 'bold' },
+        a = { bg = "none", fg = colors.green, gui = 'bold' },
         b = { bg = "none", fg = colors.white },
         c = { bg = "none", fg = colors.white }
     },
     insert = {
-        a = { bg = colors.red, fg = colors.black, gui = 'bold' },
+        a = { bg = "none", fg = colors.red, gui = 'bold' },
         b = { bg = "none", fg = colors.white },
         c = { bg = "none", fg = colors.white }
     },
     visual = {
-        a = { bg = colors.violet, fg = colors.black, gui = 'bold' },
+        a = { bg = "none", fg = colors.violet, gui = 'bold' },
         b = { bg = "none", fg = colors.white },
         c = { bg = "none", fg = colors.black }
     },
@@ -105,9 +105,8 @@ function M.config()
         return [[♥]]
     end
 
-    local everything_good = function()
-        local bufnr = vim.api.nvim_get_current_buf()
-        if #(vim.diagnostic.get(bufnr)) == 0 then
+    local everythis_is_good = function()
+        if #(vim.diagnostic.get(0)) == 0 then
             local msg = love()
             return msg
         else
@@ -146,11 +145,11 @@ function M.config()
                 },
             },
             lualine_b = {
-                { everything_good, color = { fg = colors.red } },
+                { everythis_is_good, color = { fg = colors.red } },
                 'filename',
                 -- "filesize",
-                { "branch",        draw_empty = true },
-                { 'diagnostics',   draw_empty = true },
+                { "branch",          draw_empty = true },
+                { 'diagnostics',     draw_empty = true },
                 {
                     "diff", colored = true, draw_empty = true
                 }
@@ -178,7 +177,6 @@ function M.config()
                 "progress",
                 {
                     "location",
-                    -- separator = { right = ' 󰧱 ' },
                     jleft_padding = 0
                 }
             }

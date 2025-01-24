@@ -41,7 +41,7 @@ clipboard-read = allow
 clipboard-write = allow
 
 quit-after-last-window-closed = true
-shell-integration = zsh
+shell-integration = fish
 macos-option-as-alt = left
 
 image-storage-limit = 640000000

@@ -115,13 +115,10 @@ export FZF_DEFAULT_OPTS="
 
 # Show a greeting message and cheak if dash is the system shell
 greet_message=$(<$HOME/.config/zsh/greeting.txt)
-
+printf "%s\n" "$greet_message"
 case "$(uname)" in
     Darwin)
-        if [ "$(readlink -f "/var/select/sh")" = "/bin/dash" ]; then
-            printf "%s\n" "$greet_message"
-        else
-            printf "%s\n" "$greet_message"
+        if [ ! "$(readlink -f "/var/select/sh")" = "/bin/dash" ]; then
             printf "Please change your system shell\n"
             printf "Run the command:\n"
             printf "sudo ln -sf /bin/dash /private/var/select/sh\n"
@@ -130,10 +127,7 @@ case "$(uname)" in
     Linux)
         # ask kitty to use wayland
         KITTY_ENABLE_WAYLAND=1
-        if [ "$(readlink -f "/bin/sh")" = "/usr/bin/dash" ]; then
-            printf "%s\n" "$greet_message"
-        else
-            printf "%s\n" "$greet_message"
+        if not [ ! "$(readlink -f "/bin/sh")" = "/usr/bin/dash" ]; then
             printf "Please change your system shell\n"
             printf "Run the command:\n"
             printf "sudo ln -sf /usr/bin/dash /bin/sh\n"

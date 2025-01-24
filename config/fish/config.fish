@@ -46,7 +46,7 @@ starship init fish | source
 # Bindkeys
 bind \ce current_folder_edit
 bind \cg tim
-bind \cx\ce edit_command_buffer 
+bind \cx\ce edit_command_buffer
 
 # Aliases
 alias ls='lsd'
@@ -60,7 +60,7 @@ if test (uname) = "Darwin"
     alias stat='stat -x'
 end
 
-
+set -U fish_greeting
 set greet_message (cat $HOME/.config/zsh/greeting.txt)
 printf "%s\n" $greet_message
 switch (uname)

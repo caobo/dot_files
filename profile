@@ -1,6 +1,7 @@
 # Export global environment variables
 # --------------------
 export PATH="$HOME/.local/bin:$PATH"  # Add local binaries to PATH
+export PATH="$HOME/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"  # Set XDG_CONFIG_HOME to ~/.config
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"

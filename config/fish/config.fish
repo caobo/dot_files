@@ -1,5 +1,14 @@
+# =====================
+# Fish shell config file
+# ---------------------
+# Author: Bo Cao
+# Date: Jan 25, 2025
+# =====================
+
 # Export variables
+# -----------
 set -gx PATH "$HOME/.local/bin:$PATH"  # Add local binaries to PATH
+set -gx PATH "$HOME/bin:$PATH"
 set -gx XDG_CONFIG_HOME "$HOME/.config"  # Set XDG_CONFIG_HOME to ~/.config
 set -gx XDG_CACHE_HOME "$HOME/.cache"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
@@ -41,17 +50,22 @@ switch (uname)
         set -gx all_proxy "socks5://127.0.0.1:7893"
 end
 
+# Interaction shell settings
+# -----------
 if status is-interactive
+# Using starship as shell prompt
 starship init fish | source
+
 # Bindkeys
 bind \ce current_folder_edit
-bind \cg tim
+bind \cg smt
 bind \cx\ce edit_command_buffer
 
 # Aliases
 alias ls='lsd'
 alias latexmk='latexmk -quiet 1> /dev/null'
-alias {vi,vim}='nvim'
+alias vi='nvim'
+alias vim='nvim'
 alias cat='bat'
 alias ll='ls -lh'
 alias la='ls -alh'
@@ -60,6 +74,7 @@ if test (uname) = "Darwin"
     alias stat='stat -x'
 end
 
+# Greating message
 set -U fish_greeting
 set greet_message (cat $HOME/.config/zsh/greeting.txt)
 printf "%s\n" $greet_message

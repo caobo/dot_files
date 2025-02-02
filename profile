@@ -15,6 +15,7 @@ export TERM=xterm-256color  # Set terminal type to xterm-256color
 export STARDICT_DATA_DIR="$XDG_DATA_HOME"
 export FZF_TMUX=1
 export FZF_TMUX_OPTS="-p"
+export TERM_PROGRAM=ghostty yazi
 
 case "$(uname)" in
     Darwin)

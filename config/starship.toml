@@ -1,4 +1,10 @@
+# format = '''
+# [┌──](bold white)$hostname$username$directory
+# [│](bold white)$git_branch$git_commit$git_state$git_metrics$git_status$fill$jobs$time$cmd_duration$lua$c$python$rust
+# [└──](bold white)$character'''
+
 format = """
+┌─\
 $hostname\
 $username\
 $directory\
@@ -17,6 +23,7 @@ $python\
 $rust\
 $nodejs\
 $line_break\
+└─\
 $character"""
 
 [character]

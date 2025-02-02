@@ -19,6 +19,7 @@ set -gx LANG en_US.UTF-8  # Set default language to US English
 set -gx LC_COLLATE C
 set -gx LC_CTYPE zh_CN.UTF-8
 set -gx TERM xterm-256color  # Set terminal type to xterm-256color
+set -gx COLORTERM truecolor
 set -gx STARDICT_DATA_DIR "$XDG_DATA_HOME"
 set -gx FZF_TMUX 1
 set -gx FZF_TMUX_OPTS "-p"
@@ -91,5 +92,5 @@ switch (uname)
             printf "sudo ln -sf /bin/dash /private/var/select/sh\n"
 end
 
-#EOCONFIG
 end
+#EOCONFIG

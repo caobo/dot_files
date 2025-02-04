@@ -4,7 +4,6 @@
 # [└──](bold white)$character'''
 
 format = """
-┌─\
 $hostname\
 $username\
 $directory\
@@ -23,7 +22,6 @@ $python\
 $rust\
 $nodejs\
 $line_break\
-└─\
 $character"""
 
 [character]

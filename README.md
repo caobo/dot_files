@@ -1,20 +1,25 @@
 # dot_files
 My personal configuration files (for macOS and Linux).
 
-Include configurations for:
+Includes config files for:
 - alacrrity
 - fcixt5 (Linux)
+- fish shell
+- ghostty
 - hyprland and waybar (Linux)
 - kitty
 - latexmk
 - lf
-- yazi
 - matplotlab
 - mpv
 - neovim
+- newsboat
+- Rime (MacOS)
 - rofi (Linux)
+- starship
 - tmux
 - wpaperd (Linux)
 - yabai and skhd (macOS)
+- yazi
 - zed
-- zsh
+- zsh shell

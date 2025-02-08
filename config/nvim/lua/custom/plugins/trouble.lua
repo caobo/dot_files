@@ -19,4 +19,6 @@ function M.config()
     }
 end
 
-return M
+_ = M
+
+return {}

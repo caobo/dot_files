@@ -43,8 +43,10 @@ function M.config()
                     columns = { { 'item_idx' }, { 'kind_icon' }, { 'kind', gap = 10 }, { 'label', 'label_description', gap = 3 } },
                     components = {
                         item_idx = {
-                            text = function(ctx) return ctx.idx == 10 and '0' or ctx.idx >= 10 and ' ' or
-                                tostring(ctx.idx) end,
+                            text = function(ctx)
+                                return ctx.idx == 10 and '0' or ctx.idx >= 10 and ' ' or
+                                    tostring(ctx.idx)
+                            end,
                             highlight = 'BlinkCmpItemIdx' -- optional, only if you want to change its color
                         }
                     },

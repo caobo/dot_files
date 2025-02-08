@@ -171,7 +171,7 @@ function M.config()
                 },
                 'filetype' },
             lualine_y = {
-                { love, color = { fg = colors.red } },
+                { everythis_is_good, color = { fg = colors.red } },
             },
             lualine_z = {
                 "progress",

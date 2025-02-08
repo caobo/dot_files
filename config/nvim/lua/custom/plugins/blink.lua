@@ -1,7 +1,8 @@
 local M = { 'saghen/blink.cmp' }
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config
-M.event = { "CmdlineEnter", "BufReadPost", "BufNewFile" }
+-- M.event = { "CmdlineEnter", "InsertEnter" }
+M.event = { "InsertEnter" }
 M.version = '*'
 
 function M.config()

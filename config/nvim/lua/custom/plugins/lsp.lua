@@ -1,9 +1,10 @@
 local M = { 'neovim/nvim-lspconfig' }
 
 M.event = { 'BufReadPost', 'BufNewFile' }
+M.cmd = "Mason"
 M.dependencies = {
     -- Automatically install LSPs to stdpath for neovim
-    'williamboman/mason.nvim',
+    { 'williamboman/mason.nvim' },
     'williamboman/mason-lspconfig.nvim',
     -- Useful status updates for LSP
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -30,8 +31,7 @@ function M.config()
 
     local signs = {
         Error = '✘',
-        -- Error = " ",
-        Warn = " ",
+        Warn = "ⓘ",
         Hint = " ",
         Info = " ",
     }
@@ -55,6 +55,29 @@ function M.config()
             map("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         end
     })
+
+    lspconfig.diagnostics = {
+        underline = true,
+        update_in_insert = false,
+        virtual_text = {
+            spacing = 4,
+            source = "if_many",
+            prefix = "icons",
+            -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+            -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+            -- prefix = "icons",
+        },
+        numhl = {
+            [vim.diagnostic.severity.WARN] = "WarningMsg",
+            [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+            [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+            [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+        },
+    }
+
+    lspconfig.inlay_hints = {
+        enabled = true,
+    }
 
     require('lazydev').setup()
 

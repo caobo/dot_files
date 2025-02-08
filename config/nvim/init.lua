@@ -1,13 +1,18 @@
---[[ the mega setting files for nvim ]]
--- init.lua file
+-- =====================
+-- The init configuration file for neovim
+-- ---------------------
 -- author: Bo Cao
--- date: May 28, 2023
--- --------------------
+-- create date: May 5, 2023
+-- ---------------------
+-- version: 0.2
+-- modified date: Feb 8, 2025
+-- =====================
 
+-- Set leader key to <space>
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- IMPORTS
+-- Imports configurations
 require('plugs')
 require('opts')
 require('keys')

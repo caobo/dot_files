@@ -2,6 +2,7 @@ local M = { 'neovim/nvim-lspconfig' }
 
 M.event = { 'BufReadPost', 'BufNewFile' }
 M.cmd = "Mason"
+
 M.dependencies = {
     -- Automatically install LSPs to stdpath for neovim
     { 'williamboman/mason.nvim' },
@@ -31,7 +32,7 @@ function M.config()
 
     local signs = {
         Error = '✘',
-        Warn = "ⓘ",
+        Warn = "ⓘ ",
         Hint = " ",
         Info = " ",
     }

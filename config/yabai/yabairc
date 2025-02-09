@@ -97,4 +97,5 @@ yabai -m rule --add "app=Calender" "title= " manage=off
 yabai -m rule --add "app=^Arc.*" "title=(Bo|General|Profiles|Shortcuts|Links|Advance)" manage=off
 yabai -m rule --add "app=^Arc.*" "title=Little Arc.*" manage=off
 yabai -m rule --add "title=AI Chat" manage=off
+yabai -m rule --add "title=Software Update" manage=off
 yabai -m rule --apply

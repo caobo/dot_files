@@ -46,6 +46,15 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- [[ auto toggle zenmode for markdown files ]]
+vim.api.nvim_create_autocmd({ "BufRead", "BufEnter" }, {
+    pattern = { "*.md" },
+    callback = function()
+        -- vim.defer_fn(function() vim.cmd('ZenMode') end, 100)
+        vim.cmd("ZenMode")
+    end,
+})
+
 -- [[ create a keymap for build latex files ]]
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { "tex" },

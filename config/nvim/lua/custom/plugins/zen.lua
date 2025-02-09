@@ -1,14 +1,10 @@
 local M = { "folke/zen-mode.nvim" }
 
+M.event = { "BufEnter *.md" }
 M.cmd = { "ZenMode" }
 
-M.config = function()
-    require("zen-mode").toggle({
-        window = {
-            width = .85 -- width will be 85% of the editor width
-        }
-    })
-end
+M.opts = {
+}
 
 _ = M
 

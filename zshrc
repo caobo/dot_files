@@ -1,7 +1,11 @@
-# zshrc file
-# Author: Bo Cao
-# Date: May 28, 2023
-# --------------------
+# =====================
+# Zsh shell config file
+# ---------------------
+# author: Bo Cao
+# create date: May 28, 2023
+# ---------------------
+# version: 0.1
+# =====================
 
 # zap plugin manager settings
 # --------------------

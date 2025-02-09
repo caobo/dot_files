@@ -1,10 +1,9 @@
-local M = {"lukas-reineke/indent-blankline.nvim"}
+local M = { "lukas-reineke/indent-blankline.nvim" }
 
 M.main = "ibl"
 M.event = { 'BufReadPost', 'BufNewFile' }
 
 function M.config()
-
     local highlight = {
         "RainbowRed",
         "RainbowYellow",
@@ -32,7 +31,6 @@ function M.config()
     hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
     require("ibl").setup { scope = { highlight = highlight } }
-
 end
 
 return M

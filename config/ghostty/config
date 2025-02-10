@@ -1,4 +1,12 @@
 #! /bin/dash
+# =====================
+# Ghostty config file
+# ---------------------
+# author: Bo Cao
+# create date: Feb 10, 2025
+# ---------------------
+# version: 0.1
+# =====================
 
 # font settings
 # ---------------------

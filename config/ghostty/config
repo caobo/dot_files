@@ -4,7 +4,7 @@
 # ---------------------
 font-family = "MonoLisa"
 font-family = "LXGW WenKai Mono"
-font-thicken = true
+font-thicken = false
 font-size = 16
 font-synthetic-style = bold-italic
 alpha-blending = linear-corrected

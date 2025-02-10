@@ -12,3 +12,5 @@
     ui = auto
 [pull]
 	rebase = false
+[alias]
+	dog = log --all --decorate --graph --oneline

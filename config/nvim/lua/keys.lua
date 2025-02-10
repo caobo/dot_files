@@ -16,10 +16,8 @@ local function smart_quit()
     if #buffers == 1 then
         -- If it is the last buffer, quit Neovim
         vim.cmd('quit')
-    else
-        -- Otherwise, delete the current buffer and switch to the next one
-        vim.cmd('bd')
     end
+    vim.cmd('bd')
 end
 map('n', '<leader>q', smart_quit, opts)
 

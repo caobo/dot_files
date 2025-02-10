@@ -7,7 +7,8 @@ opt.autochdir = true
 opt.mouse = 'a'        -- enable mouse mode
 opt.clipboard = "unnamedplus"
 opt.breakindent = true -- Enable break indent
-opt.undofile = true    -- save undo historys
+opt.wrap = true
+opt.linebreak = true
 opt.number = true
 opt.numberwidth = 3
 opt.signcolumn = 'yes:1' -- Keep signcolumn on by default
@@ -67,5 +68,5 @@ opt.termguicolors = true -- bool: If term supports ui color then enable
 -- vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })
 
 -- [[Undo tree]]
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

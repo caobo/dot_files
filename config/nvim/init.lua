@@ -13,7 +13,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Imports configurations
-require('plugs')
 require('opts')
 require('keys')
 require('autocmd')
+require('plugs')

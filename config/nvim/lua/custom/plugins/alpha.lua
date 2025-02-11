@@ -1,7 +1,7 @@
 local M = { "goolord/alpha-nvim" }
 
 M.event = "VimEnter"
-M.dependencies = { "nvim-tree/nvim-web-devicons", lazy = true }
+M.dependencies = { "nvim-tree/nvim-web-devicons" }
 
 local greeting = [[
   .---------------------------.

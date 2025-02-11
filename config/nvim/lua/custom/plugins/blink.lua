@@ -1,71 +1,58 @@
 local M = { 'saghen/blink.cmp' }
+M.version = '*'
+M.event = { "InsertEnter" }
+
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config
-M.event = { "InsertEnter" }
-M.version = '*'
+M.opts = {
 
-function M.config()
-    local blink = require("blink.cmp")
+    keymap = { preset = 'default' },
 
-    blink.setup({
+    appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = 'mono'
+    },
 
-        keymap = { preset = 'default' },
+    snippets = {
+        preset = "luasnip",
+        expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
+        active = function(filter)
+            if filter and filter.direction then
+                return require('luasnip').jumpable(filter.direction)
+            end
+            return require('luasnip').in_snippet()
+        end,
+        jump = function(direction) require('luasnip').jump(direction) end,
+    },
 
-        appearance = {
-            use_nvim_cmp_as_default = true,
-            nerd_font_variant = 'mono'
-        },
+    sources = {
+        default = { 'lsp', 'snippets', 'path', 'buffer' },
+    },
 
-        snippets = {
-            preset = "luasnip",
-            expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
-            active = function(filter)
-                if filter and filter.direction then
-                    return require('luasnip').jumpable(filter.direction)
-                end
-                return require('luasnip').in_snippet()
-            end,
-            jump = function(direction) require('luasnip').jump(direction) end,
-        },
-
-        sources = {
-            default = { 'lsp', 'snippets', 'path', 'buffer' },
-        },
-
-        completion = {
-            accept = { auto_brackets = { enabled = true } },
-            menu = {
-                auto_show = true,
-                border = 'rounded',
-                scrollbar = false,
-                draw = {
-                    columns = { { 'item_idx' }, { 'kind_icon' }, { 'kind', gap = 10 }, { 'label', 'label_description', gap = 3 } },
-                    components = {
-                        item_idx = {
-                            text = function(ctx)
-                                return ctx.idx == 10 and '0' or ctx.idx >= 10 and ' ' or
-                                    tostring(ctx.idx)
-                            end,
-                            highlight = 'BlinkCmpItemIdx' -- optional, only if you want to change its color
-                        }
-                    },
-                },
+    completion = {
+        accept = { auto_brackets = { enabled = true } },
+        menu = {
+            auto_show = true,
+            border = 'rounded',
+            scrollbar = false,
+            draw = {
+                treesitter = { 'lsp' },
+                columns = { { 'kind_icon' }, { 'kind', gap = 5 }, { 'label', 'label_description' } },
             },
-            documentation = {
-                auto_show_delay_ms = 0,
-                auto_show = true,
-                window = { border = 'rounded' },
-            },
-            ghost_text = { enabled = true }
         },
-
-        signature = {
-            enabled = true,
-            window = { border = 'rounded' }
+        documentation = {
+            auto_show_delay_ms = 0,
+            auto_show = true,
+            window = { border = 'rounded' },
         },
+        ghost_text = { enabled = true }
+    },
 
-    })
-end
+    signature = {
+        enabled = true,
+        window = { border = 'rounded' }
+    },
+}
 
 M.opts_extend = { "sources.default" }
 

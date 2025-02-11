@@ -54,6 +54,8 @@ bindkey '\C-x\C-e' edit-command-line
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
+bindkey '\C-y' autosuggest-accept
+
 # User configuration
 # --------------------
 LESS=-RFX  # Set LESS options for displaying man pages

@@ -15,11 +15,11 @@ export TERM=xterm-256color  # Set terminal type to xterm-256color
 export STARDICT_DATA_DIR="$XDG_DATA_HOME"
 export FZF_TMUX=1
 export FZF_TMUX_OPTS="-p"
-export TERM_PROGRAM=ghostty yazi
+# export TERM_PROGRAM=ghostty yazi
 
 case "$(uname)" in
     Darwin)
-        export PATH="/usr/local/opt/llvm/bin:$PATH"
+        export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
         export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/python/libexec/bin:$PATH"  # Add Homebrew binaries to PATH
         export LDFLAGS="-L/opt/homebrew/opt/openblas/lib"  # Set LDFLAGS for OpenBLAS
         export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"  # Set CPPFLAGS for OpenBLAS

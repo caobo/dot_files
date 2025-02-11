@@ -123,7 +123,7 @@ function M_rose.config()
 end
 
 function M_tokyo.config()
-    color_setting("tokyonight-moon")
+    color_setting("tokyonight")
 end
 
 function M_mellow.config()
@@ -147,4 +147,4 @@ _ = M_tokyo
 _ = M_mellow
 _ = M_catppuccin
 
-return M_rose
+return M_tokyo

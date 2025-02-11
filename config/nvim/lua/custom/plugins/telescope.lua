@@ -47,7 +47,8 @@ function M.config()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
 
-    local function defaults(title, previewer)
+
+    local function default_view(title, previewer)
         return {
             prompt_title = title,
             previewer = previewer or false,
@@ -56,7 +57,7 @@ function M.config()
         }
     end
 
-    local function dropdown(title, previewer)
+    local function dropdown_view(title, previewer)
         return {
             prompt_title = title,
             previewer = previewer or false,
@@ -78,6 +79,8 @@ function M.config()
             }
         },
         defaults = {
+            borderchars = { "─", "│", "─", "│", "●", "●", "●", "●" },
+
             mappings = {
                 i = {
                     ['<C-u>'] = false,
@@ -111,19 +114,20 @@ function M.config()
         },
 
         pickers = {
-            buffers = dropdown('Buffers activated'),
-            find_files = defaults('Files in this workspace', true),
-            oldfiles = defaults('Recents'),
-            keymaps = dropdown(),
-            command_history = dropdown(),
-            colorscheme = dropdown(),
-            spell_suggest = dropdown('Spell sugesstions'),
-            grep_string = defaults('Search'),
-            treesitter = defaults('Buffer Symbols (treesitter)'),
-            current_buffer_fuzzy_find = defaults('Lines'),
-            live_grep = defaults('Grep'),
-            commands = defaults(),
-            help_tags = defaults(),
+            lsp_document_symbols = default_view("Symbols in current file", true),
+            buffers = dropdown_view('Buffers activated'),
+            find_files = default_view('Files in this workspace', true),
+            oldfiles = default_view('Recents'),
+            keymaps = dropdown_view(),
+            command_history = dropdown_view(),
+            colorscheme = dropdown_view(),
+            spell_suggest = dropdown_view('Spell sugesstions'),
+            grep_string = default_view('Search'),
+            treesitter = default_view('Buffer Symbols (treesitter)'),
+            current_buffer_fuzzy_find = default_view('Lines'),
+            live_grep = default_view('Grep'),
+            commands = default_view(),
+            help_tags = default_view(),
         },
     })
 

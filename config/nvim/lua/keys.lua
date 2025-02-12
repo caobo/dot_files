@@ -25,8 +25,21 @@ map('n', '<leader>q', smart_quit, opts)
 map('n', '<leader>sv', '<C-w>v', opts)
 map('n', '<leader>sh', '<C-w>h', opts)
 
-map({ 'n' }, '<C-j>', '<cmd>cnext<cr>zz', opts)
-map({ 'n' }, '<C-k>', '<cmd>cprev<cr>zz', opts)
+-- quick access the quickfix list items
+map({ 'n' }, ']q', function()
+    local ok, _ = pcall(vim.cmd.cnext)
+    if not ok then
+        vim.cmd.cfirst()
+    end
+    vim.cmd('normal! zz')
+end, { desc = "Next quickfix item" }, opts)
+map({ 'n' }, '[q', function()
+    local ok, _ = pcall(vim.cmd.cprev)
+    if not ok then
+        vim.cmd.clast()
+    end
+    vim.cmd('normal! zz')
+end, { desc = "Prev quickfix item" }, opts)
 
 -- Remap for dealing with word wrap
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })

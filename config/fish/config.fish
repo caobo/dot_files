@@ -14,11 +14,10 @@ set -gx XDG_CACHE_HOME "$HOME/.cache"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx MPLCONFIGDIR "$HOME/.config/matplotlib"  # Set Matplotlib configuration directory
 set -gx EDITOR nvim  # Set default editor to nvim
-set -gx TERMINAL ghostty
 set -gx LANG en_US.UTF-8  # Set default language to US English
 set -gx LC_COLLATE C
 set -gx LC_CTYPE zh_CN.UTF-8
-set -gx TERM xterm-256color  # Set terminal type to xterm-256color
+set -gx TERM ghostty  # Set terminal type to xterm-256color
 set -gx COLORTERM truecolor
 set -gx STARDICT_DATA_DIR "$XDG_DATA_HOME"
 set -gx FZF_TMUX 1

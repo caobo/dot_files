@@ -51,7 +51,8 @@ style = "white"
 # vimcmd_symbol = "[❮](green)"
 
 [git_branch]
-format = "[at]($style) [$branch](white) "
+symbol = "\ue725"
+format = "[at]($style) [$symbol $branch](white) "
 style = "bright-black"
 disabled = false
 

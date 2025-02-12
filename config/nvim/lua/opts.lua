@@ -60,13 +60,13 @@ opt.tabstop = 4      -- num:  Number of spaces tabs count for
 opt.splitright = true -- bool: Place new window to right of current one
 opt.splitbelow = true -- bool: Place new window below the current one
 
--- [[ Theme ]]
+-- [[ Appearance ]]
 opt.syntax = "ON" -- str:  Allow syntax highlighting
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.termguicolors = true -- bool: If term supports ui color then enable
 -- vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })
 
--- [[Undo tree]]
+-- [[ Undo tree ]]
 opt.undofile = true
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

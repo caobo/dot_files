@@ -7,15 +7,13 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export MPLCONFIGDIR="$HOME/.config/matplotlib"  # Set Matplotlib configuration directory
 export EDITOR=nvim  # Set default editor to nvim
-export TERMINAL=ghostty
 export LANG=en_US.UTF-8  # Set default language to US English
 export LC_COLLATE=C
 export LC_CTYPE=zh_CN.UTF-8
-export TERM=xterm-256color  # Set terminal type to xterm-256color
+export TERM=ghostty
 export STARDICT_DATA_DIR="$XDG_DATA_HOME"
 export FZF_TMUX=1
 export FZF_TMUX_OPTS="-p"
-# export TERM_PROGRAM=ghostty yazi
 
 case "$(uname)" in
     Darwin)

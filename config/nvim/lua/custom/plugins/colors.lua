@@ -27,14 +27,14 @@ M_catppuccin.name = 'catppuccin'
 function M_rose.config()
     local rose = require("rose-pine")
     rose.setup({
-        variant = "auto",      -- auto, main, moon, or dawn
+        variant = "moon",      -- auto, main, moon, or dawn
         dark_variant = "moon", -- main, moon, or dawn
         dim_inactive_windows = false,
         extend_background_behind_borders = true,
 
         enable = {
             terminal = true,
-            legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+            legacy_highlights = false, -- Improve compatibility for previous versions of Neovim
             migrations = true,        -- Handle deprecated options automatically
         },
 
@@ -85,13 +85,12 @@ function M_rose.config()
 
         highlight_groups = {
             -- Comment = { fg = "foam" },
-            -- VertSplit = { fg = "muted", bg = "muted" },
+            VertSplit = { fg = "muted", bg = "muted" },
             CurSearch = { fg = "base", bg = "leaf", inherit = false },
             Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
             StatusLine = { fg = "love", bg = "love", blend = 10 },
             StatusLineNC = { fg = "subtle", bg = "surface" },
             -- telescope setting
-            TelescopeBorder = { fg = "highlight_high", bg = "none" },
             TelescopeNormal = { bg = "none" },
             TelescopeResultsNormal = { fg = "subtle", bg = "none" },
             TelescopeSelection = { fg = "text", bg = "none" },
@@ -101,11 +100,10 @@ function M_rose.config()
             TelescopePromptTitle = { fg = "base", bg = "foam" },
             TelescopePreviewTitle = { fg = "base", bg = "iris" },
             TelescopePromptNormal = { fg = "text", bg = "surface" },
-            TelescopePromptBorder = { fg = "surface", bg = "surface" },
         },
 
         before_highlight = function(group, highlight, palette)
-            -- _ = group
+            _ = group
             -- Disable all undercurls
             -- if highlight.undercurl then
             --     highlight.undercurl = false
@@ -136,7 +134,7 @@ function M_catppuccin.config()
         flavour = "mocha",             -- latte, frappe, macchiato, mocha
         transparent_background = true, -- disables setting the background color.
         show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
-        -- term_colors = false,        -- sets terminal colors (e.g. `g:terminal_color_0`)
+        -- term_colors = true,        -- sets terminal colors (e.g. `g:terminal_color_0`)
     }
 
     color_setting("catppuccin")
@@ -147,4 +145,4 @@ _ = M_tokyo
 _ = M_mellow
 _ = M_catppuccin
 
-return M_tokyo
+return M_rose

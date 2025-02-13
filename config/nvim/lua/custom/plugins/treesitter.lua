@@ -1,17 +1,21 @@
 local M = { 'nvim-treesitter/nvim-treesitter' }
-M.pin = true
 M.build = ":TSUpdate"
 M.event = { 'BufReadPost', 'BufNewFile' }
+M.cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" }
 
 M.dependencies = {
-    { 'nvim-treesitter/nvim-treesitter-textobjects', pin = true },
+    { 'nvim-treesitter/nvim-treesitter-textobjects' },
 }
 
+M.opts_extend = { "ensure_installed" }
+---@type TSConfig
+---@diagnostic disable-next-line: missing-fields
 M.opts = {
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = { 'html', 'html.twig', 'vimdoc' },
     },
+    indent = { enable = true },
     incremental_selection = {
         enable = true,
         keymaps = {

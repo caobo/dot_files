@@ -1,6 +1,6 @@
 # format = '''
-# [┌──](bold white)$hostname$username$directory
-# [│](bold white)$git_branch$git_commit$git_state$git_metrics$git_status$fill$jobs$time$cmd_duration$lua$c$python$rust
+# [┌──](bold white)$hostname$username$directory$git_branch$git_commit$git_state$git_metrics$git_status
+# [│](bold white)$jobs$cmd_duration$lua$c$python$rust
 # [└──](bold white)$character'''
 
 format = """
@@ -10,11 +10,9 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
-$git_metrics\
 $git_status\
 $fill\
 $jobs\
-$time\
 $cmd_duration\
 $lua\
 $c\
@@ -25,35 +23,36 @@ $line_break\
 $character"""
 
 [character]
-success_symbol = "[❯](#0ABAB5)"
-error_symbol = "[❯](red)"
-vicmd_symbol = "[⇌](green)"
+success_symbol = "[ᐅ](#9ccfd8)"
+error_symbol = "[❯](#eb6f92)"
+vicmd_symbol = "[⇌](#3e8fb0)"
 
 [username]
-style_user = 'white bold'
+style_user = "#c4a7e7 bold"
 style_root = 'black bold'
-format = '[$user]($style) [in](bright-black) '
+format = '[$user]($style) [in](#6e6a86) '
 disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = '\[[$hostname](bold white)\] [as](bright-black) '
+style = "#9ccfd8 bold"
+format = '\[[$hostname]($style)\] [as](#6e6a86) '
 disabled = false
 
 [directory]
-style = "white"
+style = "#e0def4"
 # format = '⟦[$path]($style)⟧ '
 
 # [character]
-# success_symbol = "[ᐅ](#0ABAB5)"
+# success_symbol = "[❯](#0ABAB5)"
 # error_symbol = "[❯](red)"
 # vimcmd_symbol = "[❮](green)"
 
 [git_branch]
 symbol = "\ue725"
-format = "[at]($style) [$symbol $branch](white) "
-style = "bright-black"
+format = "[at]($style) [$symbol $branch](#e0def4) "
+style = "#6e6a86"
 disabled = false
 
 [git_commit]
@@ -61,7 +60,7 @@ commit_hash_length = 4
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)]($style)"
-style = "cyan"
+style = "#ea9a97"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -72,15 +71,15 @@ stashed = "≡"
 disabled = false
 
 [git_metrics]
-added_style = 'green'
-deleted_style= 'red'
+added_style = '#3e8fb0'
+deleted_style= '#eb6f92'
 format = '[\[+$added\]]($added_style)/[\[-$deleted\]]($deleted_style) '
 only_nonzero_diffs = true
-disabled = true
+disabled = false
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "#6e6a86"
 disabled = true
 
 [fill]
@@ -88,19 +87,20 @@ symbol = " "
 
 [jobs]
 symbol = '+'
+style = "#9893a5"
 format = '[$symbol$number]($style) '
 symbol_threshold = 1
 number_threshold = 2
 
 [time]
-style = "white"
+style = "#e0def4"
 format = '[\[$time\]]($style) '
 time_format = '%T'
 disabled = false
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "yellow"
+style = "#f6c177"
 
 [python]
 format = "via [  $version]($style) "
@@ -120,4 +120,4 @@ format = 'via [🤖 $version](bold green) '
 disabled = false
 
 [c]
-format = 'via [$name $version]($style)'
+format = 'via [ $version]($style)'

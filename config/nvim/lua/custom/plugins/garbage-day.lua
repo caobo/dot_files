@@ -1,8 +1,8 @@
-local M = {"zeioth/garbage-day.nvim"}
+local M = { 'zeioth/garbage-day.nvim' }
 
-M.dependencies = "neovim/nvim-lspconfig"
+M.dependencies = { 'neovim/nvim-lspconfig' }
 
-M.event = "LspAttach"
+M.event = 'LspAttach'
 
 M.opts = {}
 

@@ -1,6 +1,5 @@
 local M = {"L3MON4D3/LuaSnip"}
 
--- M.event ={ 'BufReadPost', 'BufNewFile'}
 M.event= {"InsertEnter"}
 
 function M.config()

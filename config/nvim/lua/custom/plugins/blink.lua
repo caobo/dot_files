@@ -1,6 +1,6 @@
 local M = { 'saghen/blink.cmp' }
 M.version = '*'
-M.event = { "InsertEnter" }
+M.event = { 'InsertEnter' }
 
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config

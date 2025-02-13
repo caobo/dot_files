@@ -1,12 +1,5 @@
 local M ={'stevearc/oil.nvim'}
 
--- M.cmd = { "Oil" }
-
--- M.keys = {
---     { "-", "<CMD>Oil --float<CR>", desc = "Open parent directory" },
---     { "_", function() require("oil.open_float").open(vim.fn.getcwd()) end, desc = "Open cwd" },
--- }
-
 function M.config()
     require('oil').setup(
         {

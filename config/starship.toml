@@ -1,15 +1,17 @@
-# format = '''
-# [┌──](bold white)$hostname$username$directory$git_branch$git_commit$git_state$git_metrics$git_status
-# [│](bold white)$jobs$cmd_duration$lua$c$python$rust
-# [└──](bold white)$character'''
+# =====================
+# Starship config file
+# ---------------------
+# author: Bo Cao
+# create date: Feb 13, 2025
+# ---------------------
+# version: 0.1
+# =====================
 
 format = """
 $hostname\
 $username\
 $directory\
 $git_branch\
-$git_commit\
-$git_state\
 $git_status\
 $fill\
 $jobs\
@@ -22,32 +24,22 @@ $nodejs\
 $line_break\
 $character"""
 
-[character]
-success_symbol = "[ᐅ](#9ccfd8)"
-error_symbol = "[❯](#eb6f92)"
-vicmd_symbol = "[⇌](#3e8fb0)"
+[hostname]
+ssh_only = false
+style = "#9ccfd8 bold"
+format = '\[[$hostname]($style)\] '
+disabled = false
 
 [username]
 style_user = "#c4a7e7 bold"
 style_root = 'black bold'
-format = '[$user]($style) [in](#6e6a86) '
+format = '[as](#6e6a86) [$user]($style) '
 disabled = false
 show_always = true
 
-[hostname]
-ssh_only = false
-style = "#9ccfd8 bold"
-format = '\[[$hostname]($style)\] [as](#6e6a86) '
-disabled = false
-
 [directory]
 style = "#e0def4"
-# format = '⟦[$path]($style)⟧ '
-
-# [character]
-# success_symbol = "[❯](#0ABAB5)"
-# error_symbol = "[❯](red)"
-# vimcmd_symbol = "[❮](green)"
+format = '[in](#6e6a86) [$path]($style) '
 
 [git_branch]
 symbol = "\ue725"
@@ -55,32 +47,17 @@ format = "[at]($style) [$symbol $branch](#e0def4) "
 style = "#6e6a86"
 disabled = false
 
-[git_commit]
-commit_hash_length = 4
-
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)]($style)"
+format = '[$all_status$ahead_behind]($style)'
 style = "#ea9a97"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
+modified = '*'
+staged = ' \(+$count\)'
 disabled = false
 
-[git_metrics]
-added_style = '#3e8fb0'
-deleted_style= '#eb6f92'
-format = '[\[+$added\]]($added_style)/[\[-$deleted\]]($deleted_style) '
-only_nonzero_diffs = true
-disabled = false
-
-[git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "#6e6a86"
-disabled = true
+[character]
+success_symbol = "[ᐅ](#9ccfd8)"
+error_symbol = "[❯](#eb6f92)"
+vicmd_symbol = "[⇌](#9ccfd8)"
 
 [fill]
 symbol = " "
@@ -91,12 +68,6 @@ style = "#9893a5"
 format = '[$symbol$number]($style) '
 symbol_threshold = 1
 number_threshold = 2
-
-[time]
-style = "#e0def4"
-format = '[\[$time\]]($style) '
-time_format = '%T'
-disabled = false
 
 [cmd_duration]
 format = "[$duration]($style) "

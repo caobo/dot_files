@@ -92,4 +92,3 @@ switch (uname)
 end
 
 end
-#EOCONFIG

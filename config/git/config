@@ -5,7 +5,7 @@
 	name = Bo Cao
 	email = caobo.86.mail@gmail.com
 [init]
-	defaultBranch = main
+	defaultBranch = master
 [core]
 	editor = nvim
 [color]
@@ -13,4 +13,4 @@
 [pull]
 	rebase = false
 [alias]
-	dog = log --all --decorate --graph --oneline
+	dog = log --decorate --graph --oneline

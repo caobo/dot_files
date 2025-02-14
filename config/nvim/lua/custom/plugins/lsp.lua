@@ -1,6 +1,6 @@
 local M = { 'neovim/nvim-lspconfig' }
 
-M.event = { 'BufReadPost', 'BufNewFile' }
+M.event = { 'BufReadPre', 'BufNewFile' }
 M.cmd = "Mason"
 
 M.dependencies = {
@@ -23,7 +23,6 @@ function M.config()
     local lsp_servers = { 'lua_ls', 'texlab', 'pyright', 'ts_ls', 'clangd', 'rust_analyzer', 'gopls' }
 
     -- set capabilities for each lsp server
-    -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local capabilities = require('blink.cmp').get_lsp_capabilities()
     for _, server in ipairs(lsp_servers) do
         require('lspconfig')[server].setup { capabilities = capabilities }

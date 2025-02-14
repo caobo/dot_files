@@ -25,6 +25,7 @@ case "$(uname)" in
         export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig"  # Set PKG_CONFIG_PATH for OpenBLAS
         export CPATH=/opt/homebrew/include
         export LIBRARY_PATH=/opt/homebrew/lib
+        export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile"
     ;;
     Linux)
         export XDG_SESSION_TYPE=wayland

@@ -32,6 +32,7 @@ switch (uname)
         set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/openblas/lib/pkgconfig"  # Set PKG_CONFIG_PATH for OpenBLAS
         set -gx CPATH /opt/homebrew/include
         set -gx LIBRARY_PATH /opt/homebrew/lib
+        set -gx HOMEBREW_BUNDLE_FILE "$HOME/.config/homebrew/Brewfile"
     case Linux
         set -gx XDG_SESSION_TYPE wayland
         set -gx MOZ_ENABLE_WAYLAND 1

@@ -91,4 +91,5 @@ format = 'via [🤖 $version](bold green) '
 disabled = false
 
 [c]
+commands = [[ 'clang', '--version' ]]
 format = 'via [ $version]($style)'

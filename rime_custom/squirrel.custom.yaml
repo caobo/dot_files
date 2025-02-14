@@ -31,12 +31,12 @@ patch:
     # color_scheme_dark: apathy
     # color_scheme: nord_light
     # color_scheme_dark: nord_light
-    color_scheme: ayaya
+    # color_scheme: ayaya
     # color_scheme_dark: ayaya
     # color_scheme: ink
     # color_scheme_dark: ink
     # color_scheme: ayaya_dark
-    # color_scheme_dark: ayaya_dark
+    color_scheme_dark: ayaya_dark
 
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
     candidate_list_layout: linear

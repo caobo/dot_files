@@ -1,10 +1,12 @@
 local M ={'stevearc/oil.nvim'}
 
+M.event = {"VeryLazy"}
+
 function M.config()
     require('oil').setup(
         {
 
-            default_file_explorer = true,
+            -- default_file_explorer = true,
 
             columns = {
                 "icon",

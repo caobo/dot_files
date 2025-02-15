@@ -11,7 +11,7 @@ export LANG=en_US.UTF-8  # Set default language to US English
 export LC_COLLATE=C
 export LC_CTYPE=zh_CN.UTF-8
 export TERM=ghostty
-export COLORTERM truecolor
+export COLORTERM=truecolor
 export STARDICT_DATA_DIR="$XDG_DATA_HOME"
 export FZF_TMUX=1
 export FZF_TMUX_OPTS="-p"

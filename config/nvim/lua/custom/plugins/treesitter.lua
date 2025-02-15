@@ -1,6 +1,6 @@
 local M = { 'nvim-treesitter/nvim-treesitter' }
 M.build = ":TSUpdate"
-M.event = { 'BufReadPost', 'BufNewFile' }
+M.event = { 'BufReadPre', 'BufNewFile' }
 M.cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" }
 
 M.dependencies = {

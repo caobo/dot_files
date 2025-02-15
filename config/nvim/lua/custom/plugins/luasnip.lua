@@ -13,7 +13,6 @@ function M.config()
     -- Load snippets
     require("luasnip.loaders.from_lua").lazy_load({ paths = {"~/.config/nvim/lua/custom/snippets"} })
     require("luasnip.loaders.from_snipmate").lazy_load({ paths = {"~/.config/nvim/lua/custom/snippets"} })
-    -- require("luasnip.loaders.from_snipmate").lazy_load()
 end
 
 return M

@@ -128,7 +128,6 @@ case "$(uname)" in
             printf "Please change your system shell\n"
             printf "Run the command:\n"
             printf "sudo ln -sf /bin/dash /private/var/select/sh\n"
-            break
         fi
         ;;
     Linux)
@@ -138,7 +137,6 @@ case "$(uname)" in
             printf "Please change your system shell\n"
             printf "Run the command:\n"
             printf "sudo ln -sf /usr/bin/dash /bin/sh\n"
-            break
         fi
         ;;
     *)

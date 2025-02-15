@@ -56,7 +56,7 @@ disabled = false
 
 [character]
 success_symbol = "[ᐅ](#9ccfd8)"
-error_symbol = "[❯](#eb6f92)"
+error_symbol = "[ᐅ](#eb6f92)"
 vicmd_symbol = "[⇌](#9ccfd8)"
 
 [fill]

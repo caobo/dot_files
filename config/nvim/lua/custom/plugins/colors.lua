@@ -14,12 +14,15 @@ end
 local M_rose = { "rose-pine/neovim" }
 local M_tokyo = { "folke/tokyonight.nvim" }
 local M_mellow = { "mellow-theme/mellow.nvim" }
+local M_catppuccin = { "catppuccin/nvim" }
 
 M_rose.event = { 'BufReadPost', 'BufNewFile' }
 M_tokyo.event = { 'BufReadPost', 'BufNewFile' }
 M_mellow.event = { 'BufReadPost', 'BufNewFile' }
+M_catppuccin.event = { 'BufReadPost', 'BufNewFile' }
 
 M_rose.name = 'rose-pine'
+M_catppuccin.name = 'catppuccin'
 
 function M_rose.config()
     local rose = require("rose-pine")
@@ -32,7 +35,7 @@ function M_rose.config()
         enable = {
             terminal = true,
             legacy_highlights = false, -- Improve compatibility for previous versions of Neovim
-            migrations = true,        -- Handle deprecated options automatically
+            migrations = true,         -- Handle deprecated options automatically
         },
 
         styles = {
@@ -125,8 +128,20 @@ function M_mellow.config()
     color_setting("mellow")
 end
 
+function M_catppuccin.config()
+    require('catppuccin').setup {
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        transparent_background = true, -- disables setting the background color.
+        show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+        term_colors = false,        -- sets terminal colors (e.g. `g:terminal_color_0`)
+    }
+
+    color_setting("catppuccin")
+end
+
 _ = M_rose
 _ = M_tokyo
 _ = M_mellow
+_ = M_catppuccin
 
 return M_rose

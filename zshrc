@@ -96,14 +96,14 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 # unbind keys
-bindkey -r '^k'
-bindkey -r '^e'
-bindkey -r '^g'
+bindkey -r '\C-k'
+bindkey -r '\C-e'
+bindkey -r '\C-g'
 
 # Key bindings
-bindkey -s '^k' 'dot_folder_edit\n'
-bindkey -s '^e' 'current_folder_edit\n'
-bindkey -s '^g' 'smt\n'
+bindkey -s '\C-k' 'dot_folder_edit\n'
+bindkey -s '\C-e' 'current_folder_edit\n'
+bindkey -s '\C-g' 'smt\n'
 
 # More color and theme related settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
@@ -112,6 +112,9 @@ export BAT_THEME="ansi"
 
 # fzf color settings
 export FZF_DEFAULT_OPTS="
+    --height=50%
+    --layout=reverse
+    --border=rounded
     --color=fg:#908caa,bg:#232136,hl:#ea9a97
     --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
     --color=border:#44415a,header:#3e8fb0,gutter:#232136

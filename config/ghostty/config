@@ -31,7 +31,7 @@ adjust-cursor-thickness = 5
 # color settings
 # ---------------------
 theme = rose-pine-moon
-# theme = tokyonight
+# theme = catppuccin-mocha
 window-colorspace = display-p3
 background-opacity = 0.95
 

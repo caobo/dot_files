@@ -51,8 +51,8 @@ zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
 # Autocompletion using arrow keys (based on history)
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
+bindkey '\C-p' history-search-backward
+bindkey 'C-n' history-search-forward
 
 bindkey '\C-y' autosuggest-accept
 

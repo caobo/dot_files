@@ -96,14 +96,14 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 # unbind keys
-bindkey -r '^k'
-bindkey -r '^e'
-bindkey -r '^g'
+bindkey -r '\C-k'
+bindkey -r '\C-e'
+bindkey -r '\C-g'
 
 # Key bindings
-bindkey -s '^k' 'dot_folder_edit\n'
-bindkey -s '^e' 'current_folder_edit\n'
-bindkey -s '^g' 'smt\n'
+bindkey -s '\C-k' 'dot_folder_edit\n'
+bindkey -s '\C-e' 'current_folder_edit\n'
+bindkey -s '\C-g' 'smt\n'
 
 # More color and theme related settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"

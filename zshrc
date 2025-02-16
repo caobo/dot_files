@@ -112,6 +112,9 @@ export BAT_THEME="ansi"
 
 # fzf color settings
 export FZF_DEFAULT_OPTS="
+    --height=50%
+    --layout=reverse
+    --border=rounded
     --color=fg:#908caa,bg:#232136,hl:#ea9a97
     --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
     --color=border:#44415a,header:#3e8fb0,gutter:#232136

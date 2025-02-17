@@ -20,6 +20,8 @@ set -gx LC_CTYPE zh_CN.UTF-8
 set -gx TERM ghostty  # Set terminal type to xterm-256color
 set -gx COLORTERM truecolor
 set -gx STARDICT_DATA_DIR "$XDG_DATA_HOME"
+
+#fzf with rose-pine theme
 set -gx FZF_DEFAULT_OPTS "
     --height=50%
     --layout=reverse
@@ -28,8 +30,18 @@ set -gx FZF_DEFAULT_OPTS "
     --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
     --color=border:#44415a,header:#3e8fb0,gutter:#232136
     --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
-    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
-"
+    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+
+#fzf color with catppuccin theme
+set -gx FZF_DEFAULT_OPTS "\
+    --height=50%
+    --layout=reverse
+    --border=rounded
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+    --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+    --color=selected-bg:#45475a \
+    --multi"
 
 set -gx FZF_TMUX 1
 set -gx FZF_TMUX_OPTS "-p"

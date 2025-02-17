@@ -108,19 +108,28 @@ bindkey -s '\C-g' 'smt\n'
 # More color and theme related settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
 
-export BAT_THEME="ansi"
+# fzf color settings with rose-pine theme
+# export FZF_DEFAULT_OPTS="
+#     --height=50%
+#     --layout=reverse
+#     --border=rounded
+#     --color=fg:#908caa,bg:#232136,hl:#ea9a97
+#     --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+#     --color=border:#44415a,header:#3e8fb0,gutter:#232136
+#     --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
+#     --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
+# "
 
-# fzf color settings
-export FZF_DEFAULT_OPTS="
+# fzf color with catppuccin theme
+export FZF_DEFAULT_OPTS=" \
     --height=50%
     --layout=reverse
     --border=rounded
-    --color=fg:#908caa,bg:#232136,hl:#ea9a97
-    --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-    --color=border:#44415a,header:#3e8fb0,gutter:#232136
-    --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
-    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
-"
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+        --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+        --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+        --color=selected-bg:#45475a \
+        --multi"
 
 # Show a greeting message and cheak if dash is the system shell
 greet_message=$(<$HOME/.config/zsh/greeting.txt)

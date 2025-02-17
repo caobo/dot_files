@@ -144,4 +144,4 @@ _ = M_tokyo
 _ = M_mellow
 _ = M_catppuccin
 
-return M_rose
+return M_catppuccin

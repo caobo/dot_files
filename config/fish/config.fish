@@ -22,15 +22,15 @@ set -gx COLORTERM truecolor
 set -gx STARDICT_DATA_DIR "$XDG_DATA_HOME"
 
 #fzf with rose-pine theme
-set -gx FZF_DEFAULT_OPTS "
-    --height=50%
-    --layout=reverse
-    --border=rounded
-    --color=fg:#908caa,bg:#232136,hl:#ea9a97
-    --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-    --color=border:#44415a,header:#3e8fb0,gutter:#232136
-    --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
-    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+#set -gx FZF_DEFAULT_OPTS "
+#    --height=50%
+#    --layout=reverse
+#    --border=rounded
+#    --color=fg:#908caa,bg:#232136,hl:#ea9a97
+#    --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+#    --color=border:#44415a,header:#3e8fb0,gutter:#232136
+#    --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
+#    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 
 #fzf color with catppuccin theme
 set -gx FZF_DEFAULT_OPTS "\

@@ -1,7 +1,7 @@
 # dot_files
 My personal configuration files (for macOS and Linux).
 
-Includes config files for:
+Include configuration files for:
 - alacrrity
 - fcixt5 (Linux)
 - fish shell
@@ -14,7 +14,7 @@ Includes config files for:
 - mpv
 - neovim
 - newsboat
-- Rime (MacOS)
+- rime (MacOS)
 - rofi (Linux)
 - starship
 - tmux

@@ -137,17 +137,50 @@ function M_catppuccin.config()
         no_italic = false,             -- Force no italic
         no_bold = false,               -- Force no bold
         no_underline = false,          -- Force no underline
+        integrations = {
+            blink_cmp = true,
+            native_lsp = {
+                enabled = true,
+                virtual_text = {
+                    errors = { "italic" },
+                    hints = { "italic" },
+                    warnings = { "italic" },
+                    information = { "italic" },
+                    ok = { "italic" },
+                },
+                underlines = {
+                    errors = { "underline" },
+                    hints = { "underline" },
+                    warnings = { "underline" },
+                    information = { "underline" },
+                    ok = { "underline" },
+                },
+                inlay_hints = {
+                    background = true,
+                },
+            },
+            telescope = {
+                enabled = true,
+                style = "nvchad"
+            },
+            which_key = true
+        },
         styles = {
-            comments = { "italic" },   -- Change the style of comments
+            comments = { "italic" }, -- Change the style of comments
             conditionals = { "italic" },
             loops = {},
-            functions = {"altfont"},
-            keywords = {"bold"},
+            functions = { "altfont" },
+            keywords = { "bold" },
             strings = {},
-            variables = {"italic"},
+            variables = { "italic" },
             numbers = {},
-            booleans = {"italic"},
-        }
+            booleans = { "italic" },
+        },
+        custom_highlights =function(colors)
+            return {
+                LineNr = { fg = colors.overlay2 },
+            }
+        end,
     }
 
     color_setting("catppuccin")

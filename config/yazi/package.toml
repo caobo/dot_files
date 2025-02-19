@@ -5,8 +5,8 @@ hash = "ae9e1d0c6bfd68cdebc98cc684c22b45"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "a4e6465"
-hash = "5cebfb3fd4cd7377c6b774dbd6bbafea"
+rev = "acdcf11"
+hash = "55a207063976c9cfbfaf03774ce71e7f"
 
 [flavor]
 deps = []

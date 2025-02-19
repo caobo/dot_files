@@ -63,4 +63,4 @@ keybind = cmd+s=toggle_quick_terminal
 # update settings
 # ---------------------
 auto-update = download
-auto-update-channel = tip
+auto-update-channel = stable

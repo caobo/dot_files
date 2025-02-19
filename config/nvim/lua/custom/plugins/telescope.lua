@@ -10,15 +10,16 @@ M.cmd = 'Telescope'
 
 function M.init()
     local map = vim.keymap.set
-    local opts = { remap = false }
+    local opts = { noremap = true, silent = true }
+
 
     -- set background to transparent
     vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
     vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
 
     -- Search pattern
-    map('n', '<leader>fg', '<cmd>Telescope grep_string<cr>', opts)
-    map('n', '<leader>fG', '<cmd>Telescope live_grep<cr>', opts)
+    map('n', '<leader>g/', '<cmd>Telescope grep_string<cr>', opts)
+    map('n', '<leader>/', '<cmd>Telescope live_grep<cr>', opts)
     -- Show key bindings list
     map('n', '<leader>?', '<cmd>Telescope keymaps<cr>', opts)
     -- Find files by name
@@ -26,8 +27,6 @@ function M.init()
     -- Find files by name in current git repo
     map('n', '<leader>fp', '<cmd>Telescope git_files<cr>', opts)
     -- Search symbols in buffer
-    map('n', '<leader>fs', '<cmd>Telescope treesitter<cr>', opts)
-    -- Search buffer lines
     map('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
     -- Search in files history
     map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', opts)
@@ -38,7 +37,7 @@ function M.init()
     -- Search symbols in document
     map('n', '<leader>fd', "<cmd>Telescope lsp_document_symbols<cr>", opts)
     -- Search symbols in workplace
-    map('n', '<leader>fq', "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
+    map('n', '<leader>fs', "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
     -- Spell suggestions
     map('n', '<leader>sp', "<cmd> Telescope spell_suggest<cr>", opts)
 end
@@ -122,10 +121,10 @@ function M.config()
             command_history = dropdown_view(),
             colorscheme = dropdown_view(),
             spell_suggest = dropdown_view('Spell sugesstions'),
-            grep_string = default_view('Search'),
+            grep_string = default_view('Grap and search for the current word', true),
+            live_grep = default_view('Searching for...', true),
             treesitter = default_view('Buffer Symbols (treesitter)'),
             current_buffer_fuzzy_find = default_view('Lines'),
-            live_grep = default_view('Grep'),
             commands = default_view(),
             help_tags = default_view(),
         },

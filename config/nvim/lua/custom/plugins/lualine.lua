@@ -50,26 +50,13 @@ local rose_theme = {
 }
 
 function M.config()
-    -- cool function for progress
-    -- local progress = function()
-    --     local current_line = vim.fn.line(".")
-    --     local total_lines = vim.fn.line("$")
-    --     local chars = {
-    --     "╞▰═════════╡",
-    --     "╞═▰════════╡",
-    --     "╞══▰═══════╡",
-    --     "╞═══▰══════╡",
-    --     "╞════▰═════╡",
-    --     "╞═════▰════╡",
-    --     "╞══════▰═══╡",
-    --     "╞═══════▰══╡",
-    --     "╞════════▰═╡",
-    --     "╞═════════▰╡",
-    --     }
-    --     local line_ratio = current_line / total_lines
-    --     local index = math.ceil(line_ratio * #chars)
-    --     return chars[index]
-    -- end
+
+    -- print current line number/total line number
+    local line_position = function ()
+        local current_line = vim.fn.line(".")
+        local total_lines = vim.fn.line("$")
+        return string.format("(%s/%s)", current_line, total_lines)
+    end
 
     local search_result = function()
         if vim.v.hlsearch == 0 then
@@ -174,7 +161,8 @@ function M.config()
                 { everythis_is_good, color = { fg = colors.red } },
             },
             lualine_z = {
-                "progress",
+                -- "progress",
+                line_position,
                 {
                     "location",
                     jleft_padding = 0

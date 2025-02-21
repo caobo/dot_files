@@ -51,11 +51,12 @@ local rose_theme = {
 
 function M.config()
 
-    -- print current line number/total line number
-    local line_position = function ()
+    -- print current cursor position number/total line number : column number
+    local cursor_position = function ()
         local current_line = vim.fn.line(".")
         local total_lines = vim.fn.line("$")
-        return string.format("(%s/%s)", current_line, total_lines)
+        local current_colunm = vim.fn.col(".")
+        return string.format("(%s/%s):%s", current_line, total_lines, current_colunm)
     end
 
     local search_result = function()
@@ -161,12 +162,7 @@ function M.config()
                 { everythis_is_good, color = { fg = colors.red } },
             },
             lualine_z = {
-                -- "progress",
-                line_position,
-                {
-                    "location",
-                    jleft_padding = 0
-                }
+                cursor_position,
             }
         },
         inactive_sections = {

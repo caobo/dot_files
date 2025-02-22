@@ -13,6 +13,7 @@ $username\
 $directory\
 $git_branch\
 $git_status\
+$git_state\
 $fill\
 $jobs\
 $cmd_duration\
@@ -53,6 +54,10 @@ style = "#ea9a97"
 modified = '*'
 staged = ' \(+$count\)'
 disabled = false
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
 
 [character]
 success_symbol = "[ᐅ](#9ccfd8)"

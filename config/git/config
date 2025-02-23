@@ -14,3 +14,4 @@
 	rebase = false
 [alias]
     dog = log --graph --pretty='%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cblue(%ar) %Creset'
+    wdiff = diff --word-diff

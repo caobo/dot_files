@@ -80,7 +80,7 @@ NetEaseMusic
 Ice"
 
 # Add rules for unmanaged apps
-printf "%s\n" "$UNMANAGED" | xargs -P8 -I{} yabai -m rule --add "label=unmanage_{}" "app=^{}.*$" manage=off
+printf "%s\n" "$UNMANAGED" | xargs -P10 -I{} yabai -m rule --add "label=unmanage_{}" "app=^{}.*$" manage=off
 
 # Exclude problematic apps from being managed
 yabai -m rule --add app=".*" sub-layer=normal

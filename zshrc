@@ -71,7 +71,7 @@ export LF_ICONS=$(cat ~/.config/lf/ICONS)
 # --------------------
 
 # Create and change to a newly created directory
-mcd() {
+take() {
    [ -n "$@" ] && mkdir -p "$@" && cd "$@" || echo "Please name a directory to create."
 }
 
@@ -94,6 +94,7 @@ alias less='less -RFX'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'
 fi
+alias so='source $ZSHRC'
 
 # unbind keys
 bindkey -r '\C-k'

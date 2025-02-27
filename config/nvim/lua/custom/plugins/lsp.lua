@@ -44,14 +44,14 @@ function M.config()
         callback = function(event)
             local map = vim.keymap.set
             local opts = { buffer = event.buf, remap = false }
-            map("n", "gd", function() vim.lsp.buf.definition() end, opts)
-            map("n", "K", function() vim.lsp.buf.hover() end, opts)
-            map("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
-            map("n", "]d", function() vim.diagnostic.goto_next() end, opts)
-            map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-            map("n", "<leader>rr", function() vim.lsp.buf.references() end, opts)
-            map("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-            map("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+            map("n", "gd", function() vim.lsp.buf.definition() end, {desc="Goto definition (lsp)",unpack(opts)})
+            map("n", "K", function() vim.lsp.buf.hover() end, {desc="Help information (lsp)", unpack(opts)})
+            map("n", "[d", function() vim.diagnostic.goto_prev() end, {desc="Prev diagnostic", unpack(opts)})
+            map("n", "]d", function() vim.diagnostic.goto_next() end, {desc="Next diagnostics", unpack(opts)})
+            map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, {desc="Code action (lsp)", unpack(opts)})
+            map("n", "<leader>rr", function() vim.lsp.buf.references() end, {desc="references open in quickfix list (lsp)", unpack(opts)})
+            map("n", "<leader>rn", function() vim.lsp.buf.rename() end, {desc="rename (lsp)", unpack(opts)})
+            map("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {desc="signature help (lsp)", unpack(opts)})
         end
     })
 

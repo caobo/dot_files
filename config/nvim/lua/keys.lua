@@ -20,6 +20,7 @@ local function smart_quit()
     vim.cmd('bd')
 end
 map('n', '<leader>q', smart_quit, opts)
+map('n', '<leader>Q', '<cmd>xall<cr>', opts)
 
 -- settings for splitting pane
 map('n', '<leader>sv', '<C-w>v', opts)

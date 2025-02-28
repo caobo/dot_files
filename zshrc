@@ -27,12 +27,15 @@ plug "zdharma-continuum/fast-syntax-highlighting"
 # Start starship prompt
 eval "$(starship init zsh)"
 
+# load modules
+zmodload zsh/complist
+autoload -Uz compinit && compinit
+
 # Load and initialise completion system
-autoload -Uz compinit
-compinit
 HISTFILE="$HOME/.zsh_history"
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
 SAVEHIST=1000
 HISTSIZE=999
 HISTDUP=erase
@@ -41,6 +44,9 @@ setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
+setopt auto_menu menu_complete
+setopt auto_param_slash
+unsetopt prompt_sp
 
 # Enable emacs keybinds
 # bindkey -e

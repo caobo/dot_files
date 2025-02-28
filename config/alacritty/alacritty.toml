@@ -1,5 +1,5 @@
-live_config_reload = true
-import = ["~/.config/alacritty/rose-pine-moon.toml"]
+general.live_config_reload = true
+general.import = ["~/.config/alacritty/rose-pine-moon.toml"]
 
 [cursor]
 thickness = 0.3
@@ -18,11 +18,11 @@ COLORTERM = "truecolor"
 size = 16.0
 
 [font.bold]
-family = "MonoLisa Nerd Font"
+family = "Maple Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "MonoLisa Nerd Font"
+family = "Maple Mono"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -30,11 +30,11 @@ x = 0
 y = 6
 
 [font.italic]
-family = "MonoLisa Nerd Font"
+family = "Maple Mono"
 style = "Medium Italic"
 
 [font.normal]
-family = "MonoLisa Nerd Font"
+family = "Maple Mono"
 style = "Medium Regular"
 
 [font.offset]

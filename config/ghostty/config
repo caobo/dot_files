@@ -11,7 +11,7 @@
 # font settings
 # ---------------------
 # font-family = "MonoLisa"
-font-family = "Maple Mono"
+font-family = "Maple Mono NF"
 font-family = "LXGW WenKai Mono"
 font-thicken = false
 font-size = 16

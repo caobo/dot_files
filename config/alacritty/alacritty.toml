@@ -18,24 +18,24 @@ COLORTERM = "truecolor"
 size = 16.0
 
 [font.bold]
-family = "Maple Mono"
+family = "Maple Mono NF"
 style = "Bold"
 
 [font.bold_italic]
-family = "Maple Mono"
+family = "Maple Mono NF"
 style = "Bold Italic"
+
+[font.italic]
+family = "Maple Mono NF"
+style = "Italic"
+
+[font.normal]
+family = "Maple Mono NF"
+style = "Regular"
 
 [font.glyph_offset]
 x = 0
 y = 6
-
-[font.italic]
-family = "Maple Mono"
-style = "Medium Italic"
-
-[font.normal]
-family = "Maple Mono"
-style = "Medium Regular"
 
 [font.offset]
 x = 0

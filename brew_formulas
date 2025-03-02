@@ -5,9 +5,10 @@ curl
 fd
 ffmpeg
 font-lxgw-wenkai
-font-sf-mono 
+font-sf-mono-nf
 font-symbols-only-nerd-font
 fontforge
+freecad
 fzf
 ghostty
 git

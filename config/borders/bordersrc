@@ -1,22 +1,10 @@
 #!/bin/sh
 
-# options=(
-# 	style=round
-# 	width=6.0
-# 	hidpi=on
-# 	# active_color=0xffe2e2e3
-# 	# active_color=0xff69B0AC
-# 	active_color=0xfff3d3e7
-# 	inactive_color=0xff414550
-# )
-#
-# borders "${options[@]}"
-
 options="
 	style=round
 	width=6.0
 	hidpi=on
-	active_color=0xfff3d3e7
+	active_color=#f5e0dc
 	inactive_color=0xff414550
 "
 

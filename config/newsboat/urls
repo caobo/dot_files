@@ -1,10 +1,18 @@
-"query:Unread:unread = \"yes\"" meta
-"query:Linux Reddit:tags # \"content\" or title =~ \"\\[OC\\]\"" meta
-"query:lemmy:tags # \"lemmy\"" meta
-"query:Chinese channel:tags # \"Chinese\"" meta
+"query:-----------------------:tags # \"Tag\""
+"query:Started:flags # \"s\""
+"query:Unread:unread = \"yes\""
+"query:-----------------------:tags # \"Tag\""
 
-https://www.reddit.com/r/linux/new.rss reddit content
-https://www.reddit.com/r/commandline/new.rss reddit content
-https://www.reddit.com/r/nvim/new.rss reddit content
+"query:---Channels---:tags # \"Tag\""
+"query:Linux channel:tags # \"Linux\""
+"query:CLI channel:tags # \"CLI\""
+"query:Chinese channel:tags # \"Chinese\""
+
+"query:---Feeds---:tags # \"Tag\""
+https://www.reddit.com/r/linux/new.rss  Linux
+https://www.reddit.com/r/commandline/new.rss  CLI
+https://www.reddit.com/r/nvim/new.rss  CLI
+https://www.phoronix.com/phoronix-rss.php Linux
 https://www.zhihu.com/rss Chinese
 https://feeds2.feedburner.com/jandan Chinese
+https://feeds.feedburner.com/zhihu-daily Chinese

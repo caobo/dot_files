@@ -5,6 +5,7 @@ unbind-key H
 unbind-key L
 unbind-key c
 unbind-key ,
+
 external-url-viewer "urlscan -dc -r 'open_links {}'"
 browser "open %u &>/dev/null"
 
@@ -37,6 +38,8 @@ color article cyan default
 
 highlight feedlist "---.*---" green default bold
 highlight feedlist ".*0/0.." default default invis
+highlight feedlist "Stared" color3 default bold
+highlight feedlist "Unread" color5 default bold
 highlight article "^Feed:.*" color5 color0
 highlight article "^Title:.*" color3 color0 bold
 highlight article "^Author:.*" color2 color0

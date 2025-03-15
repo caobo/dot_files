@@ -58,7 +58,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- [[ create a keymap for build python files ]]
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = { "py" },
+    pattern = { "py", "python" },
     callback = function(event)
         vim.keymap.set('n', '<leader>bb', '<cmd>!python %<cr>', { buffer = event.buf, silent = true })
     end,

@@ -12,7 +12,7 @@ font.cursive        : Helvetica       # Cursive font family
 font.fantasy        : Helvetica       # Fantasy font family
 font.monospace      : MonoLisa        # Monospace font family
 font.weight         : 500             # Global font weight
-font.stretch        : condensed       # Global font stretch
+font.stretch        : normal          # Global font stretch
 text.color          : black           # Text color
 text.hinting        : no_autohint     # Text hinting mode
 text.hinting_factor : 2               # Text hinting factor

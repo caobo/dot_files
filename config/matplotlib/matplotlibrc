@@ -14,7 +14,7 @@ font.monospace      : MonoLisa        # Monospace font family
 font.weight         : 500             # Global font weight
 font.stretch        : normal          # Global font stretch
 text.color          : black           # Text color
-text.hinting        : no_autohint     # Text hinting mode
+text.hinting        : native          # Text hinting mode
 text.hinting_factor : 2               # Text hinting factor
 text.antialiased    : True            # Text anti-aliasing
 
@@ -58,7 +58,7 @@ legend.scatterpoints    : 3           # Number of scatter points in the legend
 legend.markerscale      : 1.0         # Relative size of legend markers vs. original
 
 # Figure settings
-figure.dpi              : 120         # Dots per inch (resolution) of the figure
+figure.dpi              : 128         # Dots per inch (resolution) of the figure
 figure.figsize          : 8,6         # Figure size in inches (width, height)
 figure.labelweight      : medium      # Weight of figure labels
 figure.constrained_layout.use: True   # Use constrained layout for figures

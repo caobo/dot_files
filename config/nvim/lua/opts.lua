@@ -21,7 +21,8 @@ opt.hidden = true
 opt.spelllang = { 'en', 'cjk' }
 opt.cmdheight = 0
 opt.smartindent = true
-opt.shortmess:append("F")
+vim.opt.shortmess:append({ T = true })
+vim.opt.shortmess:append({ F = true })
 opt.swapfile = false
 opt.listchars = { -- see hidden chars and their colors
     tab = '| ',

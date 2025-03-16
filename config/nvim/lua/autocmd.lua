@@ -50,9 +50,18 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { "tex" },
     callback = function(event)
-        vim.keymap.set("n", "<leader>ll", "<cmd>!latexmk %<cr>", { buffer = event.buf, silent = true })
-        vim.keymap.set("n", "<leader>lx", "<cmd>!latexmk -xelatex %<cr>", { buffer = event.buf, silent = true })
-        vim.keymap.set("n", "<leader>lv", "<cmd>!open %:r.pdf &<cr>", { buffer = event.buf, silent = true })
+        vim.keymap.set(
+            "n", "<leader>ll", "<cmd>!latexmk %<cr>",
+            { desc="build tex with pdflatex", buffer = event.buf, silent = true }
+        )
+        vim.keymap.set(
+            "n", "<leader>lx", "<cmd>!latexmk -xelatex %<cr>",
+            { desc="build tex with xelatex", buffer = event.buf, silent = true }
+        )
+        vim.keymap.set(
+            "n", "<leader>lv", "<cmd>!open %:r.pdf &<cr>",
+            { desc="view pdf file", buffer = event.buf, silent = true }
+        )
     end,
 })
 
@@ -60,7 +69,21 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { "py", "python" },
     callback = function(event)
-        vim.keymap.set('n', '<leader>bb', '<cmd>!python %<cr>', { buffer = event.buf, silent = true })
+        vim.keymap.set(
+            'n', '<leader>rp', '<cmd>!python %<cr>',
+            { desc="[r]un [pjython script", buffer = event.buf, silent = true }
+        )
+    end,
+})
+
+-- [[ create a keymap for compile c and cpp files ]]
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { "c", "cpp" },
+    callback = function(event)
+        vim.keymap.set(
+            'n', '<leader>rp', '<cmd>! clang -o %:r.out % -lm -pthread -O3 -ffast-math -flto -O2 -march=native -Wall -Werror<cr>',
+            { desc="[r]un com[p]iler", buffer = event.buf, silent = true }
+        )
     end,
 })
 

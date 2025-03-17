@@ -5,7 +5,7 @@ local opts = { noremap = true, silent = true }
 map({ 'n', 'v' }, '<Space>', '<Nop>', opts)
 map('i', 'jk', '<ESC>', opts)
 map('i', 'jj', '<ESC>:w<ESC>', opts)
-map('n', '<leader>s', '<cmd>w<cr>', opts)
+map('n', '<leader>s', '<cmd>w<cr>', { desc="[s]ave file", unpack(opts) })
 
 -- close current buffer and quit nvim if it is the last buffer
 local function smart_quit()
@@ -19,12 +19,8 @@ local function smart_quit()
     end
     vim.cmd('bd')
 end
-map('n', '<leader>q', smart_quit, opts)
-map('n', '<leader>Q', '<cmd>xall<cr>', opts)
-
--- settings for splitting pane
-map('n', '<leader>sv', '<C-w>v', opts)
-map('n', '<leader>sh', '<C-w>h', opts)
+map('n', '<leader>q', smart_quit, { desc="smart [q]uit buffer", unpack(opts) })
+map('n', '<leader>Q', '<cmd>xall<cr>', { desc="[Q]uit all buffers", unpack(opts) })
 
 -- quick access the quickfix list items
 map({ 'n' }, ']q', function()

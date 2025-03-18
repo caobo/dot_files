@@ -51,12 +51,12 @@ vim.api.nvim_create_autocmd('FileType', {
     pattern = { "tex" },
     callback = function(event)
         vim.keymap.set(
-            "n", "<leader>ll", "<cmd>!latexmk %<cr>",
-            { desc="build tex with pdflatex", buffer = event.buf, silent = true }
+            "n", "<leader>rp", "<cmd>!latexmk %<cr>",
+            { desc="[r]un tex compiler with [p]dflatex", buffer = event.buf, silent = true }
         )
         vim.keymap.set(
-            "n", "<leader>lx", "<cmd>!latexmk -xelatex %<cr>",
-            { desc="build tex with xelatex", buffer = event.buf, silent = true }
+            "n", "<leader>rx", "<cmd>!latexmk -xelatex %<cr>",
+            { desc="[r]un tex compiler with [x]elatex", buffer = event.buf, silent = true }
         )
         vim.keymap.set(
             "n", "<leader>lv", "<cmd>!open %:r.pdf &<cr>",
@@ -81,7 +81,7 @@ vim.api.nvim_create_autocmd('FileType', {
     pattern = { "c", "cpp" },
     callback = function(event)
         vim.keymap.set(
-            'n', '<leader>rp', '<cmd>! clang -o %:r.out % -lm -pthread -O3 -ffast-math -flto -O2 -march=native -Wall -Werror<cr>',
+            'n', '<leader>rp', '<cmd>! clang -o %:r.out % -lm -pthread -fvectorize -fslp-vectorize -fstrict-aliasing -ffast-math -flto -O2 -march=native -Wall -Werror<cr>',
             { desc="[r]un com[p]iler", buffer = event.buf, silent = true }
         )
     end,

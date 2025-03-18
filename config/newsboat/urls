@@ -1,20 +1,15 @@
 "query:Stared:flags # \"s\""
 "query:Unread:unread = \"yes\""
-"query:-----------------------:tags # \"Tag\""
 
-"query:---Channels---:tags # \"Tag\""
 "query:Linux channel:tags # \"Linux\""
 "query:CLI channel:tags # \"CLI\""
-"query:Blog:tags # \"Blog\""
 "query:Chinese channel:tags # \"Chinese\""
 
-"query:---Feeds---:tags # \"Tag\""
 https://www.reddit.com/r/linux/new.rss "~r/linux"  Linux
 https://www.reddit.com/r/commandline/new.rss "~r/commandline"  CLI
 https://www.reddit.com/r/nvim/new.rss "~r/nvim"  CLI
 https://www.phoronix.com/phoronix-rss.php Linux
 http://leancrew.com/all-this/feed/ Blog
 https://eli.thegreenplace.net/feeds/all.atom.xml Blog
-https://www.zhihu.com/rss Chinese
 http://feedex.net/feed/jandan.net/feed Chinese
 https://feeds.feedburner.com/zhihu-daily Chinese

@@ -15,6 +15,8 @@ reload-threads 100
 # Feed settings
 prepopulate-query-feeds yes
 refresh-on-startup yes
+wrap-scroll yes
+text-width 120
 
 macro w set browser "mpv %u" ; open-in-browser ; set browser "open %u &>/dev/null"
 
@@ -46,6 +48,7 @@ highlight article "^Author:.*" color2 color0
 highlight article "^Date:.*" color223 color0
 highlight article "^Link:.*" color4 color0
 highlight article "^Flags:.*" color9 color0
+highlight article "https?://[^ ]+" color4 color8 protect
 highlight article "\\[[0-9][0-9]*\\]" color66 default bold
 highlight article "\\[image [0-9][0-9]*\\]" color109 default bold
 highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold

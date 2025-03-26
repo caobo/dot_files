@@ -36,9 +36,6 @@ HISTFILE="$HOME/.zsh_history"
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
-SAVEHIST=1000
-HISTSIZE=999
-HISTDUP=erase
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
@@ -47,6 +44,9 @@ setopt HIST_FIND_NO_DUPS
 setopt auto_menu menu_complete
 setopt auto_param_slash
 unsetopt prompt_sp
+SAVEHIST=1000
+HISTSIZE=999
+HISTDUP=erase
 
 # Enable emacs keybinds
 # bindkey -e
@@ -70,9 +70,6 @@ export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
 # Enable fzf fuzzy completion
 [ -f "$HOME/.config/zsh/fzf.zsh" ] && source "$HOME/.config/zsh/fzf.zsh"
 
-# lf file manager icon configuration
-export LF_ICONS=$(cat ~/.config/lf/ICONS)
-
 # Custom functions
 # --------------------
 
@@ -81,21 +78,13 @@ take() {
    [ -n "$@" ] && mkdir -p "$@" && cd "$@" || echo "Please name a directory to create."
 }
 
-# Functions for quickly adding and jumping to "goto" directories
-gt() {
-    GT_LIST="$HOME/.config/zsh/gt_list"
-    GT_DIR="$(cat "$GT_LIST" | fzf-tmux -p80% --height=~100% --cycle --preview 'ls {}' --prompt="Searching >_ "\
-        --header="Goto directory" --header-first --border=rounded)"
-    [ -n "$GT_DIR" ] && cd "$GT_DIR" || echo "Please select a goto directory to navigate to."
-}
-
 # Aliases
 alias ls='lsd'
 alias latexmk='latexmk -quiet 1> /dev/null'
 alias {vi,vim}='nvim'
 alias cat='bat'
-alias ll='ls -lh'
-alias la='ls -alh'
+alias ll='lsd -lh'
+alias la='lsd -alh'
 alias less='less -RFX'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'

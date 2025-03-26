@@ -12,13 +12,9 @@ local function color_setting(color_name)
 end
 
 local M_rose = { "rose-pine/neovim" }
-local M_tokyo = { "folke/tokyonight.nvim" }
-local M_mellow = { "mellow-theme/mellow.nvim" }
 local M_catppuccin = { "catppuccin/nvim" }
 
 M_rose.event = { 'BufReadPost', 'BufNewFile' }
-M_tokyo.event = { 'BufReadPost', 'BufNewFile' }
-M_mellow.event = { 'BufReadPost', 'BufNewFile' }
 M_catppuccin.event = { 'BufReadPost', 'BufNewFile' }
 
 M_rose.name = 'rose-pine'
@@ -119,15 +115,6 @@ function M_rose.config()
     color_setting("rose-pine-moon")
 end
 
-function M_tokyo.config()
-    color_setting("tokyonight")
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = '#FDF2F1' })
-end
-
-function M_mellow.config()
-    color_setting("mellow")
-end
-
 function M_catppuccin.config()
     require('catppuccin').setup {
         flavour = "mocha",             -- latte, frappe, macchiato, mocha
@@ -176,7 +163,7 @@ function M_catppuccin.config()
             numbers = {},
             booleans = { "italic" },
         },
-        custom_highlights =function(colors)
+        custom_highlights = function(colors)
             return {
                 LineNr = { fg = colors.overlay2 },
             }
@@ -187,8 +174,6 @@ function M_catppuccin.config()
 end
 
 _ = M_rose
-_ = M_tokyo
-_ = M_mellow
 _ = M_catppuccin
 
 return M_catppuccin

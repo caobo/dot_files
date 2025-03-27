@@ -89,6 +89,7 @@ alias less='less -RFX'
 if [ "$(uname)" = "Darwin" ]; then
     alias stat='stat -x'
 fi
+alias nom='nom --config-path $XDG_CONFIG_HOME/nom/config.yml'
 alias so='source $ZSHRC'
 
 # unbind keys

@@ -23,8 +23,8 @@ M_catppuccin.name = 'catppuccin'
 function M_rose.config()
     local rose = require("rose-pine")
     rose.setup({
-        variant = "moon",      -- auto, main, moon, or dawn
-        dark_variant = "moon", -- main, moon, or dawn
+        variant = "main",      -- auto, main, moon, or dawn
+        dark_variant = "main", -- main, moon, or dawn
         dim_inactive_windows = false,
         extend_background_behind_borders = true,
 
@@ -112,7 +112,7 @@ function M_rose.config()
         end,
     })
 
-    color_setting("rose-pine-moon")
+    color_setting("rose-pine")
 end
 
 function M_catppuccin.config()
@@ -176,4 +176,4 @@ end
 _ = M_rose
 _ = M_catppuccin
 
-return M_catppuccin
+return M_rose

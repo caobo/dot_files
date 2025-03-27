@@ -10,7 +10,6 @@
 
 # font settings
 # ---------------------
-# font-family = "MonoLisa"
 font-family = "Maple Mono NF"
 font-family = "LXGW WenKai Mono"
 font-thicken = false
@@ -30,14 +29,15 @@ adjust-cursor-thickness = 2
 
 # color settings
 # ---------------------
-# theme = rose-pine-moon
-theme = catppuccin-mocha
+theme = rose-pine
+# theme = catppuccin-mocha
 window-colorspace = display-p3
 background-opacity = 0.95
+palette = 2=#00ffaf
 
 # window settings
 # ---------------------
-# macos-titlebar-style = hidden
+# macos-titlebar-style = tabs
 window-decoration = false
 window-padding-x = 8
 window-padding-y = 2

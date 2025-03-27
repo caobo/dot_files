@@ -1,0 +1,24 @@
+autoread: true
+
+theme: 
+  glamour: dark
+  titleColor: "62"
+  selectedItemColor: "170"
+  filterColor: "#555555"
+
+feeds:
+  - url: https://dropbox.tech/feed
+    # name will be prefixed to all entries in the list
+    name: dropbox 
+  - url: https://www.reddit.com/r/linux/new.rss
+    name: linux
+  - url: https://www.reddit.com/r/commandline/new.rss
+    name: ~r/commandline
+  - url: https://www.reddit.com/r/nvim/new.rss
+    name: ~r/nvim
+  - url: https://www.phoronix.com/phoronix-rss.php
+    name: Linux news
+  - url: http://leancrew.com/all-this/feed/
+  - url: https://eli.thegreenplace.net/feeds/all.atom.xml
+  - url: http://feedex.net/feed/jandan.net/feed
+  - url: https://feeds.feedburner.com/zhihu-daily

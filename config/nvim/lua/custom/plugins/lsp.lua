@@ -44,39 +44,21 @@ function M.config()
         callback = function(event)
             local map = vim.keymap.set
             local opts = { buffer = event.buf, remap = false }
-            map("n", "gd", function() vim.lsp.buf.definition() end, {desc="Goto definition (lsp)",unpack(opts)})
-            map("n", "K", function() vim.lsp.buf.hover() end, {desc="Help information (lsp)", unpack(opts)})
-            map("n", "[d", function() vim.diagnostic.goto_prev() end, {desc="Prev diagnostic", unpack(opts)})
-            map("n", "]d", function() vim.diagnostic.goto_next() end, {desc="Next diagnostics", unpack(opts)})
-            map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, {desc="Code action (lsp)", unpack(opts)})
-            map("n", "<leader>rr", function() vim.lsp.buf.references() end, {desc="references open in quickfix list (lsp)", unpack(opts)})
-            map("n", "<leader>rn", function() vim.lsp.buf.rename() end, {desc="rename (lsp)", unpack(opts)})
-            map("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {desc="signature help (lsp)", unpack(opts)})
+            map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Goto definition (lsp)", unpack(opts) })
+            map("n", "K", function() vim.lsp.buf.hover() end, { desc = "Help information (lsp)", unpack(opts) })
+            map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code action (lsp)", unpack(opts) })
+            map("n", "<leader>rr", function() vim.lsp.buf.references() end,
+                { desc = "references open in quickfix list (lsp)", unpack(opts) })
+            map("n", "<leader>rn", function() vim.lsp.buf.rename() end, { desc = "rename (lsp)", unpack(opts) })
+            map("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
+                { desc = "signature help (lsp)", unpack(opts) })
         end
     })
 
-    lspconfig.diagnostics = {
-        underline = true,
-        update_in_insert = false,
-        virtual_text = {
-            spacing = 4,
-            source = "if_many",
-            prefix = "icons",
-            -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-            -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-            -- prefix = "icons",
-        },
-        numhl = {
-            [vim.diagnostic.severity.WARN] = "WarningMsg",
-            [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-            [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
-            [vim.diagnostic.severity.HINT] = "DiagnosticHint",
-        },
-    }
+    local new_vir_line = not vim.diagnostic.config().virtual_lines
+    vim.diagnostic.config({ virtual_lines = new_vir_line })
 
-    lspconfig.inlay_hints = {
-        enabled = true,
-    }
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 
     require('lazydev').setup()
 

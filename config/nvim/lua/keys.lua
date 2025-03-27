@@ -5,7 +5,7 @@ local opts = { noremap = true, silent = true }
 map({ 'n', 'v' }, '<Space>', '<Nop>', opts)
 map('i', 'jk', '<ESC>', opts)
 map('i', 'jj', '<ESC>:w<ESC>', opts)
-map('n', '<leader>s', '<cmd>w<cr>', { desc="[s]ave file", unpack(opts) })
+map('n', '<leader>s', '<cmd>w<cr>', { desc = "[s]ave file", unpack(opts) })
 
 -- close current buffer and quit nvim if it is the last buffer
 local function smart_quit()
@@ -19,8 +19,8 @@ local function smart_quit()
     end
     vim.cmd('bd')
 end
-map('n', '<leader>q', smart_quit, { desc="smart [q]uit buffer", unpack(opts) })
-map('n', '<leader>Q', '<cmd>xall<cr>', { desc="[Q]uit all buffers", unpack(opts) })
+map('n', '<leader>q', smart_quit, { desc = "smart [q]uit buffer", unpack(opts) })
+map('n', '<leader>Q', '<cmd>xall<cr>', { desc = "[Q]uit all buffers", unpack(opts) })
 
 -- quick access the quickfix list items
 map({ 'n' }, ']q', function()
@@ -33,7 +33,6 @@ map({ 'n' }, ']q', function()
     end
     vim.cmd('normal! zz')
 end, { desc = "Next quickfix item", unpack(opts) })
-
 map({ 'n' }, '[q', function()
     if #vim.fn.getqflist() == 0 then
         return
@@ -44,6 +43,10 @@ map({ 'n' }, '[q', function()
     end
     vim.cmd('normal! zz')
 end, { desc = "Prev quickfix item", unpack(opts) })
+
+-- quick navigat the diagnostics
+map("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Prev diagnostic", unpack(opts) })
+map("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Next diagnostics", unpack(opts) })
 
 -- Remap for dealing with word wrap
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })

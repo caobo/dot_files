@@ -2,6 +2,11 @@ local M = { 'saghen/blink.cmp' }
 M.version = '*'
 M.event = { 'InsertEnter' }
 
+M.opts_extend = {
+    "sources.completion.enabled_providers",
+    "sources.default",
+}
+
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config
 M.opts = {
@@ -26,7 +31,14 @@ M.opts = {
     },
 
     sources = {
-        default = { 'lsp', 'snippets', 'path', 'buffer' },
+        default = { 'lsp', 'snippets', 'path', 'buffer', 'lazydev' },
+        providers = {
+            lazydev = {
+                name = "LazyDev",
+                module = "lazydev.integrations.blink",
+                score_offset = 100, -- show at a higher priority than lsp
+            },
+        },
     },
 
     completion = {
@@ -37,11 +49,11 @@ M.opts = {
             scrollbar = false,
             draw = {
                 treesitter = { 'lsp' },
-                columns = { { 'kind_icon', gap = 2 }, { 'kind'}, { 'label', 'label_description', gap = 2 } },
+                columns = { { 'kind_icon', 'kind', gap = 2 }, { 'label', 'label_description', gap = 2 } },
             },
         },
         documentation = {
-            auto_show_delay_ms = 0,
+            auto_show_delay_ms = 200,
             auto_show = true,
             window = { border = 'rounded' },
         },
@@ -53,7 +65,5 @@ M.opts = {
         window = { border = 'rounded' }
     },
 }
-
-M.opts_extend = { "sources.default" }
 
 return M

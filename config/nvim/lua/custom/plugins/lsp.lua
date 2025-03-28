@@ -85,6 +85,23 @@ function M.config()
                         }
                     }
                 }
+            }),
+            lspconfig.texlab.setup({
+                settings = {
+                    texlab = {
+                        build = {
+                            args = {},
+                            onSave = true,
+                        },
+                        chktex = {
+                            onEdit = true,
+                            onOpenAndSave = true,
+                        },
+                        latexindent = {
+                            args = { '-l' },
+                        },
+                    },
+                }
             })
         }
     })

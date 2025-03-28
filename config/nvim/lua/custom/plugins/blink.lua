@@ -49,7 +49,7 @@ M.opts = {
             scrollbar = false,
             draw = {
                 treesitter = { 'lsp' },
-                columns = { { 'kind_icon', 'kind', gap = 2 }, { 'label', 'label_description', gap = 2 } },
+                columns = { { 'kind_icon', 'kind', gap = 2 }, { 'label', 'label_description', gap = 2 }, { "source_name", gap = 2 } },
             },
         },
         documentation = {

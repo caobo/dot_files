@@ -8,9 +8,9 @@ opt.mouse = 'a'        -- enable mouse mode
 opt.clipboard = "unnamedplus"
 opt.breakindent = true -- Enable break indent
 opt.wrap = true
-opt.linebreak = true
 opt.number = true
 opt.numberwidth = 3
+opt.relativenumber = true -- bool: Show relative line numbers
 opt.signcolumn = 'yes:1' -- Keep signcolumn on by default
 opt.fillchars = 'eob: '
 opt.updatetime = 100   -- Decrease update time
@@ -21,8 +21,6 @@ opt.hidden = true
 opt.spelllang = { 'en', 'cjk' }
 opt.cmdheight = 0
 opt.smartindent = true
-vim.opt.shortmess:append({ T = true })
-vim.opt.shortmess:append({ F = true })
 opt.swapfile = false
 opt.listchars = { -- see hidden chars and their colors
     tab = '| ',
@@ -36,8 +34,6 @@ opt.list = true
 
 -- [[ Context ]]
 opt.colorcolumn = '120'   -- str:  Show col for max line length
-opt.number = true         -- bool: Show line numbers
-opt.relativenumber = true -- bool: Show relative line numbers
 opt.scrolloff = 8         -- int:  Min num lines of context
 opt.showcmd = true
 
@@ -59,14 +55,12 @@ opt.tabstop = 4      -- num:  Number of spaces tabs count for
 
 -- [[ Splits ]]
 opt.splitright = true -- bool: Place new window to right of current one
-opt.splitbelow = true -- bool: Place new window below the current one
 
 -- [[ Appearance ]]
 opt.syntax = "ON" -- str:  Allow syntax highlighting
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.termguicolors = true -- bool: If term supports ui color then enable
--- vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })
 
 -- [[ Undo tree ]]
 opt.undofile = true

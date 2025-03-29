@@ -1,6 +1,10 @@
 local M ={'stevearc/oil.nvim'}
 
-M.event = {"VeryLazy"}
+M.cmd = 'Oil'
+
+M.keys = {
+    {'-', '<cmd>Oil --float<cr>', {desc='Open Oil'}}
+}
 
 function M.config()
     require('oil').setup(
@@ -87,7 +91,7 @@ function M.config()
 
     })
 
-    vim.keymap.set('n', '-', '<cmd>Oil --float<cr>', {noremap = true, silent = true})
+    -- vim.keymap.set('n', '-', '<cmd>Oil --float<cr>', {noremap = true, silent = true})
 
 end
 return M

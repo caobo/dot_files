@@ -23,6 +23,7 @@ map('n', '<leader>q', smart_quit, { desc = "smart [q]uit buffer", unpack(opts) }
 map('n', '<leader>Q', '<cmd>xall<cr>', { desc = "[Q]uit all buffers", unpack(opts) })
 
 -- quick access the quickfix list items
+
 map({ 'n' }, ']q', function()
     if #vim.fn.getqflist() == 0 then
         return
@@ -43,10 +44,6 @@ map({ 'n' }, '[q', function()
     end
     vim.cmd('normal! zz')
 end, { desc = "Prev quickfix item", unpack(opts) })
-
--- quick navigat the diagnostics
-map("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Prev diagnostic", unpack(opts) })
-map("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Next diagnostics", unpack(opts) })
 
 -- Remap for dealing with word wrap
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
@@ -69,7 +66,6 @@ map("n", "<C-o>", "<C-o>zz", opts)
 
 -- remaps customized paste
 map("x", "<leader>p", [["_dP]], opts)
-map({ "n", "v" }, "<leader>d", [["_d]], opts)
 
 -- format the entire file
 local function lsp_formatting()

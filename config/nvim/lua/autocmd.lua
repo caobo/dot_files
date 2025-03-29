@@ -52,15 +52,15 @@ vim.api.nvim_create_autocmd('FileType', {
     callback = function(event)
         vim.keymap.set(
             "n", "<leader>rp", "<cmd>!latexmk %<cr>",
-            { desc="[r]un tex compiler with [p]dflatex", buffer = event.buf, silent = true }
+            { desc = "[r]un tex compiler with [p]dflatex", buffer = event.buf, silent = true }
         )
         vim.keymap.set(
             "n", "<leader>rx", "<cmd>!latexmk -xelatex %<cr>",
-            { desc="[r]un tex compiler with [x]elatex", buffer = event.buf, silent = true }
+            { desc = "[r]un tex compiler with [x]elatex", buffer = event.buf, silent = true }
         )
         vim.keymap.set(
             "n", "<leader>lv", "<cmd>!open %:r.pdf &<cr>",
-            { desc="view pdf file", buffer = event.buf, silent = true }
+            { desc = "view pdf file", buffer = event.buf, silent = true }
         )
     end,
 })
@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd('FileType', {
     callback = function(event)
         vim.keymap.set(
             'n', '<leader>rp', '<cmd>!python %<cr>',
-            { desc="[r]un [pjython script", buffer = event.buf, silent = true }
+            { desc = "[r]un [pjython script", buffer = event.buf, silent = true }
         )
     end,
 })
@@ -81,8 +81,9 @@ vim.api.nvim_create_autocmd('FileType', {
     pattern = { "c", "cpp" },
     callback = function(event)
         vim.keymap.set(
-            'n', '<leader>rp', '<cmd>! clang -o %:r.out % -lm -pthread -fvectorize -fslp-vectorize -fstrict-aliasing -ffast-math -flto -O2 -march=native -Wall -Werror<cr>',
-            { desc="[r]un com[p]iler", buffer = event.buf, silent = true }
+            'n', '<leader>rp',
+            '<cmd>! clang -o %:r.out % -lm -pthread -fvectorize -fslp-vectorize -fstrict-aliasing -ffast-math -flto -O2 -march=native -Wall -Werror<cr>',
+            { desc = "[r]un com[p]iler", buffer = event.buf, silent = true }
         )
     end,
 })
@@ -98,12 +99,24 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     command = "!skhd --restart-service",
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = { "zshrc" },
-    command = "!source ~/.zshrc",
+-- [[ LSP related keymaps and settings ]]
+vim.api.nvim_create_autocmd('LspAttach', {
+    desc = 'LSP actions',
+    callback = function(event)
+        local map = vim.keymap.set
+        local opts = { buffer = event.buf, remap = false }
+        map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Goto definition (lsp)", unpack(opts) })
+        vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        vim.diagnostic.config({
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.HINT]  = " ",
+                    [vim.diagnostic.severity.ERROR] = "✘",
+                    [vim.diagnostic.severity.INFO]  = "◉",
+                    [vim.diagnostic.severity.WARN]  = "ⓘ "
+                }
+            },
+        })
+    end
 })
-
-vim.api.nvim_command "sign define DiagnosticSignError text=● texthl=DiagnosticSignError"
-vim.api.nvim_command "sign define DiagnosticSignWarn text=● texthl=DiagnosticSignWarn"
-vim.api.nvim_command "sign define DiagnosticSignInfo text=● texthl=DiagnosticSignInfo"
-vim.api.nvim_command "sign define DiagnosticSignHint text=● texthl=DiagnosticSignHint"

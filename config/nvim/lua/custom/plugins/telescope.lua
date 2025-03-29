@@ -18,8 +18,7 @@ function M.init()
     vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
 
     -- Search pattern
-    map('n', '<leader>g/', '<cmd>Telescope grep_string<cr>', {desc="Grap current word",unpack(opts)})
-    map('n', '<leader>/', '<cmd>Telescope live_grep<cr>', {desc="Grap a word",unpack(opts)})
+    map('n', '<leader>/', '<cmd>Telescope builtin<cr>', {desc="Buildin pickers",unpack(opts)})
     -- Show key bindings list
     map('n', '<leader>?', '<cmd>Telescope keymaps<cr>', {desc="Keymaps",unpack(opts)})
     -- Find files by name
@@ -28,6 +27,8 @@ function M.init()
     map('n', '<leader>fp', '<cmd>Telescope git_files<cr>', {desc="[f]ind file in whole [p]roject",unpack(opts)})
     -- Search symbols in buffer
     map('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>', {desc="[f]ind [w]ord in current buffer",unpack(opts)})
+    map('n', '<leader>fW', '<cmd>Telescope live_grep<cr>', {desc="[f]ind [w]ord using live grep",unpack(opts)})
+    map('n', '<leader>fg', '<cmd>Telescope grep_string<cr>', {desc="Grap current word",unpack(opts)})
     -- Search in files history
     map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', {desc="[f]ind [h]istory",unpack(opts)})
     -- Search in active buffers list

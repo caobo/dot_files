@@ -106,7 +106,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local map = vim.keymap.set
         local opts = { buffer = event.buf, remap = false }
         map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Goto definition (lsp)", unpack(opts) })
-        vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
+        vim.diagnostic.config({ virtual_lines = { current_line = true } })
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         vim.diagnostic.config({
             signs = {

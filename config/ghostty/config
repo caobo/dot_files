@@ -33,7 +33,7 @@ theme = rose-pine
 # theme = catppuccin-mocha
 window-colorspace = display-p3
 background-opacity = 0.95
-palette = 2=#00C15A
+palette = 2=#31D48f
 
 # window settings
 # ---------------------

@@ -19,7 +19,12 @@ feeds:
   - url: https://www.phoronix.com/phoronix-rss.php
     name: Linux news
   - url: http://leancrew.com/all-this/feed/
+    name: And now it’s all this
   - url: https://eli.thegreenplace.net/feeds/all.atom.xml
+    name: Eli Bendersky's blog
   - url: http://feedex.net/feed/jandan.net/feed
+    name: jandan
   - url: https://feeds.feedburner.com/zhihu-daily
+    name: zhihu
   - url: https://gpanders.com/index.xml
+    name: neovim dev

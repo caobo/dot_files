@@ -106,7 +106,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local map = vim.keymap.set
         local opts = { buffer = event.buf, remap = false }
         map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Goto definition (lsp)", unpack(opts) })
-        vim.diagnostic.config({ virtual_lines = { current_line = true } })
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         vim.diagnostic.config({
             signs = {
@@ -117,6 +116,38 @@ vim.api.nvim_create_autocmd('LspAttach', {
                     [vim.diagnostic.severity.WARN]  = "ⓘ "
                 }
             },
+            virtual_text = true,
+            virtual_lines = { current_line = true },
+            underline = true,
+            update_in_insert = false
         })
+    end
+})
+
+local ol_vir_text
+local ol_vir_line
+vim.api.nvim_create_autocmd({ 'CursorMoved', 'DiagnosticChanged' }, {
+    group = vim.api.nvim_create_augroup('diagnostic_only_virtlines', {}),
+    callback = function()
+        if ol_vir_line == nil then
+            ol_vir_line = vim.diagnostic.config().virtual_lines
+        end
+        -- ignore if virtual_lines.current_line is disabled
+        if not (ol_vir_line and ol_vir_line.current_line) then
+            if ol_vir_text then
+                vim.diagnostic.config({ virtual_text = ol_vir_text })
+                ol_vir_text = nil
+            end
+            return
+        end
+        if ol_vir_text == nil then
+            ol_vir_text = vim.diagnostic.config().virtual_text
+        end
+        local lnum = vim.api.nvim_win_get_cursor(0)[1] - 1
+        if vim.tbl_isempty(vim.diagnostic.get(0, { lnum = lnum })) then
+            vim.diagnostic.config({ virtual_text = ol_vir_text })
+        else
+            vim.diagnostic.config({ virtual_text = false })
+        end
     end
 })

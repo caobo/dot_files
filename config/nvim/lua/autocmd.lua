@@ -111,19 +111,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
             signs = {
                 text = {
                     [vim.diagnostic.severity.HINT]  = " ",
-                    [vim.diagnostic.severity.ERROR] = "✘",
-                    [vim.diagnostic.severity.INFO]  = "◉",
-                    [vim.diagnostic.severity.WARN]  = "ⓘ "
+                    [vim.diagnostic.severity.ERROR] = " ",
+                    [vim.diagnostic.severity.INFO]  = "◉ ",
+                    [vim.diagnostic.severity.WARN]  = " "
                 }
             },
             virtual_text = true,
             virtual_lines = { current_line = true },
             underline = true,
-            update_in_insert = false
+            update_in_insert = false,
+            severity_sort= true,
         })
     end
 })
 
+-- [[ LSP diagnostic virtual_lines and virtual_text settings ]]
 local ol_vir_text
 local ol_vir_line
 vim.api.nvim_create_autocmd({ 'CursorMoved', 'DiagnosticChanged' }, {

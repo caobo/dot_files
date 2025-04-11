@@ -78,6 +78,10 @@ take() {
    [ -n "$@" ] && mkdir -p "$@" && cd "$@" || echo "Please name a directory to create."
 }
 
+sw() {
+    smt $(tmux ls | awk -F : '{print $1}' | fzf)
+}
+
 # Aliases
 alias ls='lsd'
 alias latexmk='latexmk -quiet 1> /dev/null'

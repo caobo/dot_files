@@ -37,7 +37,7 @@ palette = 2=#31D48f
 
 # window settings
 # ---------------------
-# macos-titlebar-style = tabs
+# macos-titlebar-style = hidden
 window-decoration = false
 window-padding-x = 8
 window-padding-y = 2

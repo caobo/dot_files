@@ -45,7 +45,7 @@ format = '[in](#6e6a86) [$path]($style) '
 
 [git_branch]
 symbol = "\ue725"
-format = "[at]($style) [$symbol $branch](#e0def4) "
+format = "[on]($style) [$symbol $branch](#e0def4) "
 style = "#6e6a86"
 disabled = false
 

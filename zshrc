@@ -122,16 +122,19 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
 # "
 
 # fzf color with catppuccin theme
-export FZF_DEFAULT_OPTS=" \
-    --height=60%
-    --layout=reverse
-    --border=rounded
-    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-        --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-        --color=border:#f5e0dc\
-        --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-        --color=selected-bg:#45475a \
-        --multi"
+export FZF_DEFAULT_OPTS="
+--height=60%
+--layout=reverse
+--border=rounded
+--margin=5%,2%,2%,5% 
+--multi
+--preview-window=60%,border-double
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
+--color=border:#f5e0dc
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8
+--color=selected-bg:#45475a
+"
 
 # Show a greeting message and cheak if dash is the system shell
 greet_message=$(<$HOME/.config/zsh/greeting.txt)

@@ -18,29 +18,33 @@ function M.init()
     vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
 
     -- Search pattern
-    map('n', '<leader>/', '<cmd>Telescope builtin<cr>', {desc="Buildin pickers",unpack(opts)})
+    map('n', '<leader>/', '<cmd>Telescope builtin<cr>', { desc = "Buildin pickers", unpack(opts) })
     -- Show key bindings list
-    map('n', '<leader>?', '<cmd>Telescope keymaps<cr>', {desc="Keymaps",unpack(opts)})
+    map('n', '<leader>?', '<cmd>Telescope keymaps<cr>', { desc = "Keymaps", unpack(opts) })
     -- Find files by name
-    map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {desc="[f]ind [f]ile in current directory",unpack(opts)})
+    map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { desc = "[f]ind [f]ile in current directory", unpack(opts) })
     -- Find files by name in current git repo
-    map('n', '<leader>fp', '<cmd>Telescope git_files<cr>', {desc="[f]ind file in whole [p]roject",unpack(opts)})
+    map('n', '<leader>fp', '<cmd>Telescope git_files<cr>', { desc = "[f]ind file in whole [p]roject", unpack(opts) })
     -- Search symbols in buffer
-    map('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>', {desc="[f]ind [w]ord in current buffer",unpack(opts)})
-    map('n', '<leader>fW', '<cmd>Telescope live_grep<cr>', {desc="[f]ind [w]ord using live grep",unpack(opts)})
-    map('n', '<leader>fg', '<cmd>Telescope grep_string<cr>', {desc="Grap current word",unpack(opts)})
+    map('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>',
+        { desc = "[f]ind [w]ord in current buffer", unpack(opts) })
+    map('n', '<leader>fW', '<cmd>Telescope live_grep<cr>', { desc = "[f]ind [w]ord using live grep", unpack(opts) })
+    map('n', '<leader>fg', '<cmd>Telescope grep_string<cr>', { desc = "Grap current word", unpack(opts) })
     -- Search in files history
-    map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', {desc="[f]ind [h]istory",unpack(opts)})
+    map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', { desc = "[f]ind [h]istory", unpack(opts) })
     -- Search in active buffers list
-    map('n', '<leader><space>', '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>', {desc="buffer list",unpack(opts)})
+    map('n', '<leader><space>', '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>',
+        { desc = "buffer list", unpack(opts) })
     -- Search refernces using lsp
-    map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", {desc="[f]ind [r]eference (lsp)",unpack(opts)})
+    map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { desc = "[f]ind [r]eference (lsp)", unpack(opts) })
     -- Search symbols in document
-    map('n', '<leader>fd', "<cmd>Telescope lsp_document_symbols<cr>", {desc="[f]ind symbol in current [d]ocument (lsp)",unpack(opts)})
+    map('n', '<leader>fd', "<cmd>Telescope lsp_document_symbols<cr>",
+        { desc = "[f]ind symbol in current [d]ocument (lsp)", unpack(opts) })
     -- Search symbols in workplace
-    map('n', '<leader>fs', "<cmd>Telescope lsp_workspace_symbols<cr>", {desc="[f]ind symbol in work[s]pace (lsp)",unpack(opts)})
+    map('n', '<leader>fs', "<cmd>Telescope lsp_workspace_symbols<cr>",
+        { desc = "[f]ind symbol in work[s]pace (lsp)", unpack(opts) })
     -- Spell suggestions
-    map('n', '<leader>sp', "<cmd> Telescope spell_suggest<cr>", {desc="[s][p]ell check",unpack(opts)})
+    map('n', '<leader>sp', "<cmd> Telescope spell_suggest<cr>", { desc = "[s][p]ell check", unpack(opts) })
 end
 
 function M.config()
@@ -63,7 +67,11 @@ function M.config()
             previewer = previewer or false,
             theme = 'dropdown',
             layout_config = {
-                prompt_position = "top"
+                horizontal = {
+                    prompt_position = "top",
+                    width = { padding = 0 },
+                    height = { padding = 0 },
+                },
             }
         }
     end
@@ -109,7 +117,8 @@ function M.config()
             layout_config = {
                 preview_cutoff = 10,
                 mirror = false,
-                prompt_position = 'bottom'
+                prompt_position = 'bottom',
+                preview_width = 0.6,
             },
         },
 

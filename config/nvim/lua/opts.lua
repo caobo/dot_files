@@ -61,7 +61,7 @@ opt.syntax = "ON" -- str:  Allow syntax highlighting
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.termguicolors = true -- bool: If term supports ui color then enable
--- opt.winborder = 'rounded'
+opt.winborder = 'rounded'
 
 -- [[ Undo tree ]]
 opt.undofile = true

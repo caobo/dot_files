@@ -18,10 +18,10 @@ function M.opts()
     -- local logo = [[May the phase be with you]]
     dashboard.section.header.val = vim.split(greeting, "\n")
     dashboard.section.buttons.val = {
-        -- dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+        -- dashboard.button("f", " " .. " Find file", [[:lua require("fzf-lua").load() files<cr>]]),
         dashboard.button("n", " " .. " New file", ":ene <BAR><CR>"),
-        dashboard.button("r", " " .. " Recent files", ":FzfLua oldfiles<CR>"),
-        dashboard.button("g", " " .. " Find text", ":Fzflua live_grep<CR>"),
+        -- dashboard.button("r", " " .. " Recent files", ":FzfLua oldfiles<CR>"),
+        -- dashboard.button("g", " " .. " Find text", ":Fzflua live_grep<CR>"),
         dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
         dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
         dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),

@@ -31,6 +31,7 @@ function M.config()
 
     require('mason').setup()
 
+    -- ask mason to install linters and formatters
     vim.list_extend(lsp_servers,
         {
             -- 'tex-fmt',

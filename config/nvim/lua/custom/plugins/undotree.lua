@@ -1,17 +1,19 @@
-local M ={"jiaoshijie/undotree"}
+local M = { "y3owk1n/time-machine.nvim" }
 
-M.dependencies = "nvim-lua/plenary.nvim"
+M.version = "*"
 
 M.keys = {
-    { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+    {
+        "<leader>u",
+        function()
+            require("time-machine").actions.toggle()
+        end,
+        mode = "n",
+        desc = "[Time Machine] Toggle Tree",
+    },
 }
 
-function M.config()
-    local undotree = require("undotree")
-    undotree.setup( {
-        config = true,
-        float_diff = true,
-    })
-end
+---@type TimeMachine.Config
+M.opts = {}
 
 return M

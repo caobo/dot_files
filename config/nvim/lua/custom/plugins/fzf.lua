@@ -21,19 +21,24 @@ M.keys = {
 
 function M.config()
     local fzf = require("fzf-lua")
-    local config = fzf.config
 
-    config.defaults.keymap.fzf["ctrl-q"] = "accept"
-    -- config.defaults.keymap.fzf["ctrl-Q"] = "select-all+accept"
-    config.defaults.keymap.fzf["ctrl-u"] = "half-page-up"
-    config.defaults.keymap.fzf["ctrl-d"] = "half-page-down"
-    config.defaults.keymap.fzf["ctrl-x"] = "jump"
-    config.defaults.keymap.fzf["ctrl-f"] = "preview-page-down"
-    config.defaults.keymap.fzf["ctrl-b"] = "preview-page-up"
-    config.defaults.keymap.builtin["<c-f>"] = "preview-page-down"
-    config.defaults.keymap.builtin["<c-b>"] = "preview-page-up"
-    config.fzf_colors = true
-    config.defaults.formatter = "path.dirname_first"
+    fzf.config.defaults.keymap = {
+        fzf = {
+            ["ctrl-q"] = "accept",
+            ["ctrl-Q"] = "select-all+accept",
+            ["ctrl-u"] = "half-page-up",
+            ["ctrl-d"] = "half-page-down",
+            ["ctrl-x"] = "jump",
+            ["ctrl-f"] = "preview-page-down",
+            ["ctrl-b"] = "preview-page-up",
+        },
+        builtin = {
+            ["<c-f>"] = "preview-page-down",
+            ["<c-b>"] = "preview-page-up",
+        }
+    }
+    fzf.config.defaults.formatter = "path.dirname_first"
+    fzf.config.fzf_colors = true
 
     local function default_view(title, preview)
         return {

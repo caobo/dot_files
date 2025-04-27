@@ -67,6 +67,9 @@ map("n", "<C-o>", "<C-o>zz", opts)
 -- remaps customized paste
 map("x", "<leader>p", [["_dP]], opts)
 
+-- duplicate and comment current line
+map('n', 'ycc', 'yygccp', { remap = true })
+
 -- format the entire file
 local function lsp_formatting()
     local clients = vim.lsp.get_clients()

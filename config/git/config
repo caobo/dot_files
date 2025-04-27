@@ -7,6 +7,8 @@
 [init]
 	defaultBranch = master
 [core]
+    compression = 9
+    preloadindex = true
 	editor = nvim
 [color]
     ui = auto

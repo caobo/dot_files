@@ -9,13 +9,13 @@ font.size           : 20.0            # Global font size
 font.serif          : Helvetica       # Serif font family
 font.sans-serif     : Helvetica       # Sans-serif font family
 font.cursive        : Helvetica       # Cursive font family
-font.fantasy        : Helvetica       # Fantasy font family
-font.monospace      : MonoLisa        # Monospace font family
+font.fantasy        : Maple Mono NF   # Fantasy font family
+font.monospace      : Maple Mono      # Monospace font family
 font.weight         : 500             # Global font weight
 font.stretch        : normal          # Global font stretch
 text.color          : black           # Text color
 text.hinting        : native          # Text hinting mode
-text.hinting_factor : 2               # Text hinting factor
+text.hinting_factor : 1               # Text hinting factor
 text.antialiased    : True            # Text anti-aliasing
 
 # Lines settings
@@ -34,17 +34,21 @@ axes.prop_cycle     : cycler('color', ['252A34', 'FF2E63', '08D9D6', '3F72AF', '
                                       # Cycle of colors for multiple plots
 
 # Tick settings
+xtick.direction: inout
 xtick.major.size    : 10              # Major tick size on x-axis
-xtick.minor.size    : 5               # Minor tick size on x-axis
+xtick.minor.size    : 8               # Minor tick size on x-axis
 xtick.major.width   : 1.00            # Major tick width on x-axis
 xtick.minor.width   : 1.00            # Minor tick width on x-axis
 xtick.major.pad     : 5               # Distance between major tick and label on x-axis
+xtick.minor.visible : True
 xtick.color         : black           # Tick color on x-axis
+ytick.direction: inout
 ytick.major.size    : 10              # Major tick size on y-axis
-ytick.minor.size    : 5               # Minor tick size on y-axis
+ytick.minor.size    : 8               # Minor tick size on y-axis
 ytick.major.width   : 1.00            # Major tick width on y-axis
 ytick.minor.width   : 1.00            # Minor tick width on y-axis
 ytick.major.pad     : 5               # Distance between major tick and label on y-axis
+ytick.minor.visible : True
 ytick.color         : black           # Tick color on y-axis
 
 # Legend settings

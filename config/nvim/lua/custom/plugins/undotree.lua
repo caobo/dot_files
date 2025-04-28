@@ -1,5 +1,6 @@
 local M = { "y3owk1n/time-machine.nvim" }
 
+-- M.branch = "main"
 M.version = "*"
 
 M.keys = {

@@ -31,6 +31,7 @@ opt.listchars = { -- see hidden chars and their colors
 }
 opt.list = true
 -- opt.statuscolumn = "%s%l %r"
+opt.inccommand = 'split'
 
 -- [[ Context ]]
 opt.colorcolumn = '120'   -- str:  Show col for max line length

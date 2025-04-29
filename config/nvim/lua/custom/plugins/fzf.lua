@@ -13,8 +13,9 @@ M.keys = {
     { "<leader>fh",      "<cmd>FzfLua oldfiles<cr>",                                 desc = "Recent" },
     -- search
     { "<leader>fw",      "<cmd>FzfLua grep_curbuf<cr>",                              desc = "Buffer" },
+    { "<leader>fg",      "<cmd>FzfLua grep_cword<cr>",                               desc = "Search Word under cursor" },
     { "<leader>sh",      "<cmd>FzfLua help_tags<cr>",                                desc = "Help Pages" },
-    { "<leader>fW",      "<cmd>FzfLua live_grep<cr>",                                desc = "Find Word using live grep" },
+    { "<leader>fW",      "<cmd>FzfLua live_grep_native<cr>",                         desc = "Find Word using live grep" },
     { "<leader>fd",      "<cmd>FzfLua lsp_document_symbols<cr>",                     desc = "Document symbols" },
     { "<leader>sp",      "<cmd>FzfLua spell_suggest<cr>",                            desc = "Spell Check" }
 }
@@ -76,7 +77,8 @@ function M.config()
         oldfiles = default_view("Recent files", true),
         buffers = item_view("Open buffers"),
         grep_curbuf = default_view("Grep Word in current buffer", false),
-        live_grep = default_view("Grep in Project", true),
+        live_grep_native = default_view("Grep in Project", true),
+        grep_cword = default_view("Search", true),
         help_tags = default_view("Help pages", true),
         lsp_document_symbols = default_view("LSP symbols", true),
         spell_suggest = item_view("Spell suggestions"),

@@ -14,4 +14,9 @@ require('lazy').setup({
         { import = 'custom/plugins' },
     },
     rocks = { enabled = false },
+    performance = {
+        cache = {
+            enabled = true,
+        },
+    }
 })

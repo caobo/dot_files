@@ -86,26 +86,10 @@ function M_rose.config()
             Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
             StatusLine = { fg = "love", bg = "love", blend = 10 },
             StatusLineNC = { fg = "subtle", bg = "surface" },
-            -- telescope setting
-            -- TelescopeNormal = { bg = "none" },
-            -- TelescopeResultsNormal = { fg = "subtle", bg = "none" },
-            -- TelescopeSelection = { fg = "text", bg = "none" },
-            -- TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
-            -- TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
-            -- TelescopeTitle = { fg = "base", bg = "love" },
-            -- TelescopePromptTitle = { fg = "base", bg = "foam" },
-            -- TelescopePreviewTitle = { fg = "base", bg = "iris" },
-            -- TelescopePromptNormal = { fg = "text", bg = "surface" },
         },
 
         before_highlight = function(group, highlight, palette)
             _ = group
-            -- Disable all undercurls
-            -- if highlight.undercurl then
-            --     highlight.undercurl = false
-            -- end
-            --
-            -- Change palette colour
             if highlight.fg == palette.pine then
                 highlight.fg = palette.love
             end
@@ -146,10 +130,6 @@ function M_catppuccin.config()
                     background = true,
                 },
             },
-            telescope = {
-                enabled = true,
-                style = "nvchad"
-            },
             which_key = true
         },
         styles = {
@@ -157,10 +137,10 @@ function M_catppuccin.config()
             conditionals = { "italic" },
             loops = {},
             functions = { "altfont" },
-            keywords = { "bold" },
+            keywords = { "bold", "italic" },
             strings = {},
             variables = { "italic" },
-            numbers = {},
+            numbers = { "bold" },
             booleans = { "italic" },
         },
         custom_highlights = function(colors)
@@ -177,3 +157,4 @@ _ = M_rose
 _ = M_catppuccin
 
 return M_rose
+

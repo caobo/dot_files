@@ -41,6 +41,7 @@ function M.config()
     require('mason-lspconfig').setup({
         ensure_installed = lsp_servers,
         automatic_installation = true,
+        automatic_enable = false,
         handlers = {
             -- default_setup,
             lspconfig.lua_ls.setup({

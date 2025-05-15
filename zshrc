@@ -47,7 +47,7 @@ unsetopt prompt_sp
 SAVEHIST=1000
 HISTSIZE=999
 HISTDUP=erase
-
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion history)
 # Enable emacs keybinds
 # bindkey -e
 

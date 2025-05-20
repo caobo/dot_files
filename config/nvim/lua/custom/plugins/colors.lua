@@ -1,14 +1,14 @@
 local function color_setting(color_name)
     -- set color variant
     local setting = string.format("colorscheme %s", color_name)
-    vim.cmd(setting)
-
     -- background transparency
     vim.api.nvim_set_hl(0, "VertSplit", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
     vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
+
+    vim.cmd(setting)
 end
 
 local M_rose = { "rose-pine/neovim" }
@@ -73,8 +73,8 @@ function M_rose.config()
 
         palette = {
             -- Override the builtin palette per variant
-            -- moon = {
-            --     base = '#18191a',
+            -- main = {
+                -- base = '#000000',
             --     overlay = '#363738',
             -- },
         },

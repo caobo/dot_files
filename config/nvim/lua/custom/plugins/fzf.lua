@@ -1,6 +1,6 @@
 local M = { "ibhagwan/fzf-lua" }
 
-M.dependencies = { "nvim-tree/nvim-web-devicons" }
+M.dependencies = { "echasnovski/mini.icons" }
 
 M.cmd = 'Fzflua'
 

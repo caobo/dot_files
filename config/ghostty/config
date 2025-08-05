@@ -33,12 +33,10 @@ adjust-cursor-thickness = 2
 # theme = catppuccin-mocha
 window-colorspace = display-p3
 background-opacity = 0.95
-palette = 2=#31d48c
 
 # window settings
 # ---------------------
 macos-titlebar-style = hidden
-# window-decoration = false
 window-padding-x = 8
 window-padding-y = 2
 window-padding-balance = true
@@ -63,7 +61,7 @@ keybind = cmd+s=toggle_quick_terminal
 # update settings
 # ---------------------
 auto-update = download
-auto-update-channel = tip
+auto-update-channel = stable
 
 # theme
 background = #1e1e1f

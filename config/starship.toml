@@ -7,6 +7,9 @@
 # version: 0.1
 # =====================
 
+scan_timeout = 10
+command_timeout = 50
+
 format = """
 $hostname\
 $username\

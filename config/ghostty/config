@@ -33,7 +33,7 @@ adjust-cursor-thickness = 2
 # theme = catppuccin-mocha
 window-colorspace = display-p3
 background-opacity = 0.95
-palette = 2=#31d48c
+# palette = 2=#31d48c
 
 # window settings
 # ---------------------
@@ -63,7 +63,7 @@ keybind = cmd+s=toggle_quick_terminal
 # update settings
 # ---------------------
 auto-update = download
-auto-update-channel = tip
+auto-update-channel = stable
 
 # theme
 background = #1e1e1f

@@ -74,7 +74,7 @@ function M_rose.config()
         palette = {
             -- Override the builtin palette per variant
             -- main = {
-                -- base = '#000000',
+            -- base = '#000000',
             --     overlay = '#363738',
             -- },
         },
@@ -104,12 +104,18 @@ function M_catppuccin.config()
         flavour = "mocha",             -- latte, frappe, macchiato, mocha
         transparent_background = true, -- disables setting the background color.
         show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
-        term_colors = false,           -- sets terminal colors (e.g. `g:terminal_color_0`)
+        term_colors = true,           -- sets terminal colors (e.g. `g:terminal_color_0`)
         no_italic = false,             -- Force no italic
         no_bold = false,               -- Force no bold
         no_underline = false,          -- Force no underline
+
         integrations = {
             blink_cmp = true,
+            fzf = true,
+            gitsigns = true,
+            indent_blankline = { enabled = true },
+            treesitter = true,
+            treesitter_context = true,
             native_lsp = {
                 enabled = true,
                 virtual_text = {
@@ -148,6 +154,36 @@ function M_catppuccin.config()
                 LineNr = { fg = colors.overlay2 },
             }
         end,
+        color_overrides = {
+            all = {
+                rosewater = '#f65151',
+                flamingo = '#d2ccff',
+                pink = '#ffc4c4',
+                mauve = '#ffabca',
+                red = '#edabab',
+                maroon = '#f66181',
+                peach = '#ffd3ac',
+                yellow = '#eecfa0',
+                green = '#a0ffaf',
+                teal = '#a1e8e5',
+                sky = '#8fc7ff',
+                sapphire = '#8fc7ff',
+                blue = '#8fc7ff',
+                lavender = '#ebe5ff',
+                text = '#ffffff',
+                subtext1 = '#deddda',
+                subtext0 = '#c0bfbc',
+                overlay2 = '#858585',
+                overlay1 = '#737373',
+                overlay0 = '#616161',
+                surface2 = '#4f4f4f',
+                surface1 = '#3e3e3e',
+                surface0 = '#2e2e2e',
+                base = '#1E1E1E',
+                mantle = '#1A1A1A',
+                crust = '#101010'
+            }
+        }
     }
 
     color_setting("catppuccin")
@@ -156,5 +192,4 @@ end
 _ = M_rose
 _ = M_catppuccin
 
-return M_rose
-
+return M_catppuccin

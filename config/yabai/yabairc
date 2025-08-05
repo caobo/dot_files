@@ -94,7 +94,7 @@ yabai -m rule --add "app=Mathematica" "title=Welcome to Wolfram Mathematica.*" m
 yabai -m rule --add "title=Preference.*" manage=off
 yabai -m rule --add "title=Setting.*" manage=off
 yabai -m rule --add "title=General.*" manage=off
-yabai -m rule --add "title=^$" manage=off
+# yabai -m rule --add "title=^$" manage=off
 yabai -m rule --add "app=WeChat" "title!=WeChat (Chats)$" manage=off
 yabai -m rule --add "app=Calender" "title= " manage=off
 yabai -m rule --add "app=^Arc.*" "title=(Bo|General|Profiles|Shortcuts|Links|Advance)" manage=off

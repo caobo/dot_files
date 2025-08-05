@@ -30,6 +30,9 @@ patch:
     - schema: rime_ice
 
   key_binder:
+    select_first_character: "comma"
+    select_last_character: "period"
+
     bindings:
       # 翻页 [ ]
       - { when: paging, accept: bracketleft, send: Page_Up }

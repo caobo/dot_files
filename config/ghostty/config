@@ -32,7 +32,7 @@ adjust-cursor-thickness = 2
 # theme = rose-pine
 # theme = catppuccin-mocha
 window-colorspace = display-p3
-background-opacity = 0.95
+background-opacity = 1
 
 # window settings
 # ---------------------

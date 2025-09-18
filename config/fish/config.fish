@@ -82,7 +82,7 @@ starship init fish | source
 
 # Bindkeys
 bind \ce current_folder_edit
-bind \cg smt
+bind \cg tim
 bind \cx\ce edit_command_buffer
 
 # Aliases

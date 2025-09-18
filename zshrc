@@ -79,7 +79,7 @@ take() {
 }
 
 sw() {
-    smt $(tmux ls | awk -F : '{print $1}' | fzf)
+    tim $(tmux ls | awk -F : '{print $1}' | fzf)
 }
 
 # Aliases
@@ -104,7 +104,7 @@ bindkey -r '\C-g'
 # Key bindings
 bindkey -s '\C-k' 'dot_folder_edit\n'
 bindkey -s '\C-e' 'current_folder_edit\n'
-bindkey -s '\C-g' 'smt\n'
+bindkey -s '\C-g' 'tim\n'
 
 # More color and theme related settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"

@@ -17,15 +17,54 @@ M.dependencies = {
 }
 
 function M.config()
-    local lspconfig = require('lspconfig')
 
     -- installed lsp servers
     local lsp_servers = { 'lua_ls', 'texlab', 'pyright', 'bashls', 'clangd', 'rust_analyzer', 'gopls' }
 
+    vim.lsp.config('lua_sl',
+        {
+            settings = {
+                Lua = {
+                    runtime = {
+                        version = 'LuaJIT'
+                    },
+                    diagnostics = {
+                        globals = { 'vim' },
+                    },
+                    workspace = {
+                        library = {
+                            vim.env.VIMRUNTIME,
+                        }
+                    }
+                }
+            }
+        }
+    )
+
+    vim.lsp.config('texlab',
+        {
+            settings = {
+                texlab = {
+                    build = {
+                        args = {},
+                        onSave = true,
+                    },
+                    chktex = {
+                        onEdit = true,
+                        onOpenAndSave = true,
+                    },
+                    latexindent = {
+                        args = { '-l' },
+                    },
+                },
+            }
+        }
+    )
+
     for _, server in ipairs(lsp_servers) do
-        require('lspconfig')[server].setup {}
-        -- vim.lsp.enable(server)
+        vim.lsp.enable(server)
     end
+
 
     require('lazydev').setup()
 
@@ -42,43 +81,6 @@ function M.config()
         ensure_installed = lsp_servers,
         automatic_installation = true,
         automatic_enable = false,
-        handlers = {
-            -- default_setup,
-            lspconfig.lua_ls.setup({
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = 'LuaJIT'
-                        },
-                        diagnostics = {
-                            globals = { 'vim' },
-                        },
-                        workspace = {
-                            library = {
-                                vim.env.VIMRUNTIME,
-                            }
-                        }
-                    }
-                }
-            }),
-            lspconfig.texlab.setup({
-                settings = {
-                    texlab = {
-                        build = {
-                            args = {},
-                            onSave = true,
-                        },
-                        chktex = {
-                            onEdit = true,
-                            onOpenAndSave = true,
-                        },
-                        latexindent = {
-                            args = { '-l' },
-                        },
-                    },
-                }
-            })
-        }
     })
 end
 

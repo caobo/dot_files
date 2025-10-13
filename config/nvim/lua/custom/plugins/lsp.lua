@@ -17,7 +17,6 @@ M.dependencies = {
 }
 
 function M.config()
-
     -- installed lsp servers
     local lsp_servers = { 'lua_ls', 'texlab', 'pyright', 'bashls', 'clangd', 'rust_analyzer', 'gopls' }
 

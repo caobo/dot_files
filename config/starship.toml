@@ -19,11 +19,6 @@ $git_status\
 $git_state\
 $fill\
 $cmd_duration\
-$lua\
-$c\
-$python\
-$rust\
-$nodejs\
 $line_break\
 $character\
 $jobs\

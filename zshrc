@@ -161,3 +161,7 @@ case "$(uname)" in
         printf "Unsupported operating system: $(uname)\n"
         ;;
 esac
+
+if [ -z "$TMUX" ]; then
+    tim "$(pwd)"
+fi

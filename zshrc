@@ -162,6 +162,6 @@ case "$(uname)" in
         ;;
 esac
 
-if [ -z "$TMUX" ]; then
-    tim "$(pwd)"
+if [ -z "$TMUX" ] && [ "$PWD" != "/" ]; then
+    tim "$PWD"
 fi

@@ -20,7 +20,7 @@ alpha-blending = linear-corrected
 # line space settings
 # ---------------------
 adjust-cell-width = 2%
-adjust-cell-height = 8%
+adjust-cell-height = 16%
 
 # cursor settings
 # ---------------------

@@ -64,7 +64,6 @@ function M.config()
         vim.lsp.enable(server)
     end
 
-
     require('lazydev').setup()
 
     require('mason').setup()
@@ -79,7 +78,6 @@ function M.config()
     require('mason-lspconfig').setup({
         ensure_installed = lsp_servers,
         automatic_installation = true,
-        automatic_enable = false,
     })
 end
 

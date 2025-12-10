@@ -85,3 +85,8 @@ palette = 3=#eecfa0
 cursor-color = #cbd5e1
 selection-background = #cbd5e1
 selection-foreground = #1e1e1f
+
+background-image-opacity = 0.2
+background-image-fit = none
+background-image-repeat = true
+background-image = "~/Downloads/grid.png"

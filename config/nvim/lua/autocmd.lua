@@ -108,6 +108,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Goto definition (lsp)", unpack(opts) })
         -- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         vim.diagnostic.config({
+            severity_sort = true,
+            float = { border = 'rounded', source = 'if_many' },
             signs = {
                 text = {
                     [vim.diagnostic.severity.HINT]  = " ",
@@ -116,11 +118,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
                     [vim.diagnostic.severity.WARN]  = " "
                 }
             },
-            virtual_text = true,
+            virtual_text = {
+                source = 'if_many',
+                spacing = 2,
+                format = function(diagnostic)
+                    local diagnostic_message = {
+                        [vim.diagnostic.severity.ERROR] = diagnostic.message,
+                        [vim.diagnostic.severity.WARN] = diagnostic.message,
+                        [vim.diagnostic.severity.INFO] = diagnostic.message,
+                        [vim.diagnostic.severity.HINT] = diagnostic.message,
+                    }
+                    return diagnostic_message[diagnostic.severity]
+                end,
+            },
             virtual_lines = { current_line = true },
-            underline = true,
+            -- underline = true,
+            underline = { severity = vim.diagnostic.severity.ERROR },
             update_in_insert = false,
-            severity_sort= true,
         })
     end
 })

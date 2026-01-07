@@ -122,7 +122,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
 # "
 
 # fzf color with catppuccin theme
-export FZF_DEFAULT_OPTS="
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 --height=60%
 --layout=reverse
 --border=rounded

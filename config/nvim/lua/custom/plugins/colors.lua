@@ -11,16 +11,18 @@ local function color_setting(color_name)
     vim.cmd(setting)
 end
 
-local M_rose = { "rose-pine/neovim" }
-local M_catppuccin = { "catppuccin/nvim" }
+local function color_select(color_table)
+    local repo, opts, name = color_table[1], color_table[2], color_table[3]
+    local setting = { string.format("%s", repo) }
+    setting.event = { 'BufReadPost', 'BufNewFile' }
+    setting.name = name
+    setting.config = function ()
+        opts()
+    end
+    return setting
+end
 
-M_rose.event = { 'BufReadPost', 'BufNewFile' }
-M_catppuccin.event = { 'BufReadPost', 'BufNewFile' }
-
-M_rose.name = 'rose-pine'
-M_catppuccin.name = 'catppuccin'
-
-function M_rose.config()
+local rose_opts = function ()
     local rose = require("rose-pine")
     rose.setup({
         variant = "main",      -- auto, main, moon, or dawn
@@ -99,12 +101,12 @@ function M_rose.config()
     color_setting("rose-pine")
 end
 
-function M_catppuccin.config()
+local catppuccin_opts = function ()
     require('catppuccin').setup {
         flavour = "mocha",             -- latte, frappe, macchiato, mocha
         transparent_background = true, -- disables setting the background color.
         show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
-        term_colors = true,           -- sets terminal colors (e.g. `g:terminal_color_0`)
+        term_colors = true,            -- sets terminal colors (e.g. `g:terminal_color_0`)
         no_italic = false,             -- Force no italic
         no_bold = false,               -- Force no bold
         no_underline = false,          -- Force no underline
@@ -185,11 +187,14 @@ function M_catppuccin.config()
             }
         }
     }
-
     color_setting("catppuccin")
 end
 
-_ = M_rose
-_ = M_catppuccin
+local rose_theme = { "rose-pine/neovim", rose_opts, "rose" }
+local catppuccin_theme = { "catppuccin/nvim", catppuccin_opts, "catppuccin"}
 
-return M_catppuccin
+_ = rose_theme
+_ = catppuccin_theme
+
+local M = color_select(catppuccin_theme)
+return M

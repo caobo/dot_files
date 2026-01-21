@@ -91,6 +91,7 @@ M.config = function()
         'fidget',
         'blink-cmp-menu',
         'blink-cmp-documentation',
+        'conf',
     }
 
     -- Auto-install parsers and enable highlighting on FileType

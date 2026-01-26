@@ -82,16 +82,18 @@ M.config = function()
     local group = vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
 
     local ignore_filetypes = {
+        'blink-cmp-documentation',
+        'blink-cmp-menu',
         'checkhealth',
+        'conf',
+        'fidget',
+        'fyler',
+        'fzf',
         'lazy',
         'lazy_backdrop',
         'mason',
-        'fzf',
         'undotree',
-        'fidget',
-        'blink-cmp-menu',
-        'blink-cmp-documentation',
-        'conf',
+        'UndotreeDiff',
     }
 
     -- Auto-install parsers and enable highlighting on FileType

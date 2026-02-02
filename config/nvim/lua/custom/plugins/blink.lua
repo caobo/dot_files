@@ -33,6 +33,10 @@ M.opts = {
 
     sources = {
         default = { 'lsp', 'snippets', 'path', 'buffer', 'lazydev' },
+        per_filetype = {
+            -- optionally inherit from the `default` sources
+            lua = { inherit_defaults = true, 'lazydev' }
+        },
         providers = {
             lazydev = {
                 name = "LazyDev",
@@ -68,6 +72,15 @@ M.opts = {
             border = 'rounded',
             treesitter_highlighting = true,
         },
+    },
+
+    fuzzy = {
+        implementation = "prefer_rust_with_warning",
+        sorts = {
+            'score',     -- Primary sort: by fuzzy matching score
+            'sort_text', -- Secondary sort: by sortText field if scores are equal
+            'label',     -- Tertiary sort: by label if still tied
+        }
     },
 }
 

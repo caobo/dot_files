@@ -1,0 +1,102 @@
+schemaVersion = 1
+
+[hotkeys.app.activate]
+carbonKeyCode = 49
+carbonModifiers = 256
+
+[hotkeys.app.leaderMode]
+carbonKeyCode = 0
+carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '42E94D8C-7564-4750-8FBE-53858194BB9D'
+presentation = 'show'
+
+    [hotkeys.custom.command]
+    actionIdentifier = "TunaSmartLinks.SmartLinksActionsCatalog.Send to Smart Link\u2026"
+    subjectIdentifier = 'Tuna.CurrentSelectionCatalog.Current Text Selection'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 17
+    carbonModifiers = 4096
+
+[[leaderMode.bindings]]
+key = 's'
+url = 'tuna://run/path.%252FApplications%252FSafari.app/Open'
+
+[[leaderMode.bindings]]
+key = 't'
+url = 'tuna://run/path.%252FSystem%252FApplications%252FUtilities%252FTerminal.app/Open'
+
+[[leaderMode.bindings]]
+key = 'f'
+url = 'tuna://run/path.%252FSystem%252FLibrary%252FCoreServices%252FFinder.app/Open'
+
+[[leaderMode.bindings]]
+key = 'm'
+url = 'tuna://run/path.%252FSystem%252FApplications%252FMessages.app/Open'
+
+[[leaderMode.bindings]]
+key = 'n'
+url = 'tuna://run/path.%252FSystem%252FApplications%252FNotes.app/Open'
+
+[[leaderMode.bindings]]
+key = 'd'
+url = 'tuna://run/path.%252FUsers%252Fbo%252FDownloads/Open'
+
+[[leaderMode.bindings]]
+key = 'h'
+url = 'tuna://run/path.%252FUsers%252Fbo/Open'
+
+[settings]
+leaderModeKeyboardLayoutBehavior = 'forceUS'
+shelfAutoCloseWhenTasksComplete = true
+spacebarBehavior = 'switchToTextMode'
+switchToTextModeWhenNoResults = true
+themeIdentifier = 'com.brnbw.tuna.themes.default'
+
+[[smartLinks.entries]]
+enabled = false
+name = ''
+template = 'https://www.bing.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = false
+name = 'DuckDuckGo'
+template = 'https://duckduckgo.com/?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'gg'
+template = 'https://www.google.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'git'
+template = 'https://github.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'sch'
+template = 'https://scholar.google.com/scholar?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'st'
+template = 'https://stackoverflow.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'wiki'
+template = 'https://en.wikipedia.org/wiki/Special:Search?search={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'yt'
+template = 'https://www.youtube.com/results?search_query={{input}}'
+
+[[catalogSettings]]
+catalogIdentifier = 'com.brnbw.tuna.themes.default'
+
+    [catalogSettings.values]
+    ThemeTint = 'system'

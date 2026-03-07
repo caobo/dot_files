@@ -1,0 +1,44 @@
+[[snippets]]
+trigger = ":date"
+replace = "{{date}}"
+description = "Current date"
+
+[[snippets]]
+trigger = ":time"
+replace = "{{time}}"
+description = "Current time"
+
+[[snippets]]
+trigger = ":clip"
+replace = "{{clipboard}}"
+description = "Paste current clipboard text"
+
+[[snippets]]
+trigger = ":sig"
+replace = "Best regards,\nYour Name{{cursor}}"
+description = "Signature snippet with cursor placement"
+
+[[snippets]]
+trigger = ":id"
+replace = "630105198607082016"
+description = "id number"
+
+[[snippets]]
+trigger = ":ph"
+replace = "15165134250"
+description = "photon number"
+
+[[snippets]]
+trigger = ":jm"
+replace = "caobo@jiqt.org"
+description = "jiqt mail address"
+
+[[snippets]]
+trigger = ":gm"
+replace = "caobo.86.mail@gmail.com"
+description = "gmail address"
+
+[[snippets]]
+trigger = ":1m"
+replace = "caobo_86_mail@163.com"
+description = "163 mail address"

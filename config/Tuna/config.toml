@@ -20,6 +20,18 @@ presentation = 'show'
     carbonKeyCode = 17
     carbonModifiers = 4096
 
+[[hotkeys.custom]]
+id = 'B1F85ECC-FDAF-4B29-B970-A843B1127B7A'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Search'
+    subjectIdentifier = 'TunaSystem.MenuItemsCatalog.Menu items'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 12
+    carbonModifiers = 4096
+
 [[leaderMode.bindings]]
 key = 's'
 url = 'tuna://run/path.%252FApplications%252FSafari.app/Open'
@@ -50,9 +62,13 @@ url = 'tuna://run/path.%252FUsers%252Fbo/Open'
 
 [settings]
 leaderModeKeyboardLayoutBehavior = 'forceUS'
+leaderModeModifierTrigger = 'rightCommand'
+leaderModeTriggerType = 'disabled'
+resultListNavigationBindings = 'macOSStandard'
 shelfAutoCloseWhenTasksComplete = true
 spacebarBehavior = 'switchToTextMode'
 switchToTextModeWhenNoResults = true
+talkModeTriggerType = 'disabled'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
 
 [[smartLinks.entries]]
@@ -99,4 +115,4 @@ template = 'https://www.youtube.com/results?search_query={{input}}'
 catalogIdentifier = 'com.brnbw.tuna.themes.default'
 
     [catalogSettings.values]
-    ThemeTint = 'system'
+    ThemeTint = 'graphite'

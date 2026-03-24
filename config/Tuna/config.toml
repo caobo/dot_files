@@ -9,6 +9,18 @@ carbonKeyCode = 0
 carbonModifiers = 6912
 
 [[hotkeys.custom]]
+id = '104EF273-3466-4B05-97AC-7BCB2148D40A'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Browse'
+    subjectIdentifier = 'TunaSystem.MenuItemsCatalog.Menu Items'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 12
+    carbonModifiers = 4096
+
+[[hotkeys.custom]]
 id = '8AC78AA4-C6B5-4D02-B59A-95FC00DE6759'
 presentation = 'auto'
 
@@ -18,18 +30,6 @@ presentation = 'auto'
 
     [hotkeys.custom.shortcut]
     carbonKeyCode = 17
-    carbonModifiers = 4096
-
-[[hotkeys.custom]]
-id = 'A2AAFDE5-6262-4E98-88C2-0254450C22C2'
-presentation = 'auto'
-
-    [hotkeys.custom.command]
-    actionIdentifier = 'Tuna.BasicActionsCatalog.Browse'
-    subjectIdentifier = 'TunaSystem.MenuItemsCatalog.Menu items'
-
-    [hotkeys.custom.shortcut]
-    carbonKeyCode = 12
     carbonModifiers = 4096
 
 [[leaderMode.bindings]]

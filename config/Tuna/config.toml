@@ -1,5 +1,17 @@
 schemaVersion = 1
 
+[catalogConfiguration]
+customFolders = []
+folderDepthOverrides = []
+
+    [[catalogConfiguration.scriptsDirectories]]
+    id = 'BF38E40F-186D-433A-AF90-37C5CC46F129'
+    path = '~/Documents/Software/scripts'
+
+[[catalogs.sortOrders]]
+catalogIdentifier = 'Tuna.Internal.ClipboardProxyCatalog'
+sortOrder = 'name.asc'
+
 [hotkeys.app.activate]
 carbonKeyCode = 49
 carbonModifiers = 256
@@ -18,6 +30,18 @@ presentation = 'auto'
 
     [hotkeys.custom.shortcut]
     carbonKeyCode = 12
+    carbonModifiers = 4096
+
+[[hotkeys.custom]]
+id = '5E59F765-DD55-4967-8D37-7BE6EFBDC7F3'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Browse'
+    subjectIdentifier = 'Tuna.Internal.ClipboardProxyCatalog.Clipboard History'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 41
     carbonModifiers = 4096
 
 [[hotkeys.custom]]
@@ -67,9 +91,10 @@ leaderModeModifierTrigger = 'rightCommand'
 leaderModeTriggerType = 'disabled'
 resultListNavigationBindings = 'macOSStandard'
 shelfAutoCloseWhenTasksComplete = true
+showResultsImmediatelyOnActivation = true
 spacebarBehavior = 'switchToTextMode'
 talkModeTriggerType = 'disabled'
-themeIdentifier = 'com.brnbw.tuna.themes.default'
+themeIdentifier = 'com.brnbw.tuna.themes.NormieBar'
 typingTimeoutDuration = 2.5000000000000004
 
 [[smartLinks.entries]]
@@ -84,6 +109,11 @@ template = 'https://www.bing.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
+name = 'bk'
+template = 'https://baike.baidu.com/item/{{input}}'
+
+[[smartLinks.entries]]
+enabled = true
 name = 'gg'
 template = 'https://www.google.com/search?q={{input}}'
 
@@ -94,8 +124,13 @@ template = 'https://github.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
-name = 'sch'
+name = 'gs'
 template = 'https://scholar.google.com/scholar?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'sci'
+template = 'https://www.scienceing.com/en/result?k={{input}}&s=1&searchType=en'
 
 [[smartLinks.entries]]
 enabled = true

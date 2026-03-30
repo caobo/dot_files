@@ -35,8 +35,7 @@ patch:
     # color_scheme_dark: ayaya
     # color_scheme: ink
     # color_scheme_dark: ink
-    # color_scheme: ayaya_dark
-    color_scheme_dark: ayaya_dark
+    color_scheme: ayaya_dark
 
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
     candidate_list_layout: linear
@@ -356,12 +355,13 @@ patch:
         candidate_list_layout: linear
         text_orientation: horizontal
         inline_preedit: true
-        corner_radius: 5
-        hilited_corner_radius: 0
+        corner_radius: 10
+        hilited_corner_radius: 10
         border_height: 0
         border_width: 0
         alpha: 0.95
-        shadow_size: 0
+        shadow_size: 8
+        shadow_color: 0xE7AFCA66
         color_space: display_p3
         back_color: 0x000000
         border_color: 0xECE4FC
@@ -373,4 +373,4 @@ patch:
         hilited_comment_text_color: 0x8E8E8E
         hilited_candidate_label_color: 0x7036E2
         text_color: 0x8100EB
-        hilited_text_color: 0xD8000000
+        hilited_text_color: 0xD80000

@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/usr/bin/env dash
 # skhdrc file
 # author: Bo Cao
 # date: May 28, 2023

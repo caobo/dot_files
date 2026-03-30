@@ -22,16 +22,6 @@ description = "Signature snippet with cursor placement"
 description = "Signature snippet with cursor placement"
 
 [[snippets]]
-trigger = ":id"
-replace = "630105198607082016"
-description = "id number"
-
-[[snippets]]
-trigger = ":ph"
-replace = "15165134250"
-description = "photon number"
-
-[[snippets]]
 trigger = ":jm"
 replace = "caobo@jiqt.org"
 description = "jiqt mail address"

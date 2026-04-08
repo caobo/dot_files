@@ -5,8 +5,8 @@ customFolders = []
 folderDepthOverrides = []
 
     [[catalogConfiguration.scriptsDirectories]]
-    id = 'BF38E40F-186D-433A-AF90-37C5CC46F129'
-    path = '~/Documents/Software/scripts'
+    id = 'BB4DAEBE-57CA-479C-BB8B-39344A2C903C'
+    path = '~/Documents/Software/dot_files/config/tuna/script'
 
 [[catalogs.sortOrders]]
 catalogIdentifier = 'Tuna.Internal.ClipboardProxyCatalog'
@@ -100,51 +100,61 @@ typingTimeoutDuration = 2.5000000000000004
 [[smartLinks.entries]]
 enabled = true
 name = 'bi'
+requiresInput = true
 template = 'https://search.bilibili.com/all?keyword={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'bing'
+requiresInput = true
 template = 'https://www.bing.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'bk'
+requiresInput = true
 template = 'https://baike.baidu.com/item/{{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'gg'
+requiresInput = true
 template = 'https://www.google.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'git'
+requiresInput = true
 template = 'https://github.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'gs'
+requiresInput = true
 template = 'https://scholar.google.com/scholar?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'sci'
+requiresInput = true
 template = 'https://www.scienceing.com/en/result?k={{input}}&s=1&searchType=en'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'st'
+requiresInput = true
 template = 'https://stackoverflow.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'wiki'
+requiresInput = true
 template = 'https://en.wikipedia.org/wiki/Special:Search?search={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'yt'
+requiresInput = true
 template = 'https://www.youtube.com/results?search_query={{input}}'
 
 [[catalogSettings]]

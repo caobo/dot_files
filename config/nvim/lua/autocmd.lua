@@ -89,10 +89,10 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- [[ auto restart yabai sand skhd after saving yabairc and skhdrc ]]
-vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = { "yabairc" },
-    command = "!yabai --restart-service",
-})
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--     pattern = { "yabairc" },
+--     command = "!yabai --restart-service",
+-- })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
     pattern = { "skhdrc" },

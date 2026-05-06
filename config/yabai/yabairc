@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env  dash
 # yabairc file
 # author: Bo Cao
 # date: May 28, 2023
@@ -42,8 +42,7 @@ yabai -m config $ENABLE_OPTS
 
 # Rules for unmanaged apps
 # Softwares use floating window layout
-UNMANAGED="System Settings
-Activity Monitor
+UNMANAGED="Activity Monitor
 AdGuard
 Alfred
 App Store
@@ -54,6 +53,7 @@ Cardinal
 Dictionary
 FaceTime
 Hand Mirror
+Ice
 Input Source Pro
 Keka
 Keychain
@@ -69,10 +69,12 @@ Quantumult X
 Raycast
 Screen Sharing
 Screens
+Shortcuts
 Sip
 Software Update
 System
 System Information
+System Settings
 Tuna
 VooV
 WeCom
@@ -80,8 +82,7 @@ Windows App
 iStat Menus
 mpv
 wezterm-gui
-zoom.us
-Ice"
+zoom.us"
 
 # Add rules for unmanaged apps
 printf "%s\n" "$UNMANAGED" | xargs -P10 -I{} yabai -m rule --add "label=unmanage_{}" "app=^{}.*$" manage=off

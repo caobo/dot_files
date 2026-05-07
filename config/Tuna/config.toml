@@ -94,7 +94,7 @@ shelfAutoCloseWhenTasksComplete = true
 showResultsImmediatelyOnActivation = true
 spacebarBehavior = 'switchToTextMode'
 talkModeTriggerType = 'disabled'
-themeIdentifier = 'com.brnbw.tuna.themes.NormieBar'
+themeIdentifier = 'com.brnbw.tuna.themes.default'
 typingTimeoutDuration = 2.5000000000000004
 
 [[smartLinks.entries]]
@@ -117,6 +117,24 @@ template = 'https://baike.baidu.com/item/{{input}}'
 
 [[smartLinks.entries]]
 enabled = true
+name = 'con'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FConference/TunaCore.CommonActionsCatalog.Open'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'do'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments/TunaCore.CommonActionsCatalog.Open'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'dw'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDownloads/TunaCore.CommonActionsCatalog.Open/'
+
+[[smartLinks.entries]]
+enabled = true
 name = 'gg'
 requiresInput = true
 template = 'https://www.google.com/search?q={{input}}'
@@ -135,6 +153,36 @@ template = 'https://scholar.google.com/scholar?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
+name = 'ji'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FLab_activities%252Fjiqt/TunaCore.CommonActionsCatalog.Open'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'lab'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FLab_activities%252Fjiqt/TunaCore.CommonActionsCatalog.Open'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'nt'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FNotes/TunaCore.CommonActionsCatalog.Open'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'pa'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FPapers/TunaCore.CommonActionsCatalog.Open'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'pu'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FPublications/TunaCore.CommonActionsCatalog.Open'
+
+[[smartLinks.entries]]
+enabled = true
 name = 'sci'
 requiresInput = true
 template = 'https://www.scienceing.com/en/result?k={{input}}&s=1&searchType=en'
@@ -144,6 +192,12 @@ enabled = true
 name = 'st'
 requiresInput = true
 template = 'https://stackoverflow.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'tmp'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252Ftmp/TunaCore.CommonActionsCatalog.Open'
 
 [[smartLinks.entries]]
 enabled = true

@@ -49,6 +49,18 @@ carbonKeyCode = 0
 carbonModifiers = 6912
 
 [[hotkeys.custom]]
+id = '08D2022A-D0F2-4DE4-8533-A9B9F0AEA140'
+presentation = 'hidden'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Toggle Shelf'
+    subjectIdentifier = 'Tuna.Internal.ShelfCatalog.Shelf'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 1
+    carbonModifiers = 4096
+
+[[hotkeys.custom]]
 id = '104EF273-3466-4B05-97AC-7BCB2148D40A'
 presentation = 'auto'
 
@@ -120,6 +132,12 @@ enabled = true
 name = 'con'
 requiresInput = false
 template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FConference/TunaCore.CommonActionsCatalog.Open'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'db'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FApplications%252F%25E8%25B1%2586%25E5%258C%2585.app/TunaCore.CommonActionsCatalog.Open'
 
 [[smartLinks.entries]]
 enabled = true

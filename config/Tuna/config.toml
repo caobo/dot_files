@@ -1,5 +1,47 @@
 schemaVersion = 1
 
+[actionPreferences]
+objectOverrides = []
+version = 2
+
+    [[actionPreferences.typeRankings]]
+    typeID = 'com.tuna.type.smart-folder'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Browse'
+        catalogIdentifier = 'Tuna.BasicActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = "Search for \u2026"
+        catalogIdentifier = 'Tuna.BasicActionsCatalog'
+
+    [[actionPreferences.typeRankings]]
+    typeID = 'com.tuna.type.text-snippet'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Paste'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Paste as Plain Text'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Copy to Clipboard'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Type Text'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Define'
+        catalogIdentifier = 'Tuna.BasicActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Speak Text (Say)'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
 [catalogConfiguration]
 customFolders = []
 folderDepthOverrides = []
@@ -10,35 +52,43 @@ folderDepthOverrides = []
 
 [[catalogs.sortOrders]]
 catalogIdentifier = 'Tuna.Internal.ClipboardProxyCatalog'
-sortOrder = 'name.asc'
+sortOrder = 'capturedAt.desc'
 
 [[comboMode.bindings]]
+iconPath = 'link.badge.plus'
 key = 's'
-url = 'tuna://run/path.%252FApplications%252FSafari.app/Open'
+
+    [[comboMode.bindings.children]]
+    key = 's'
+    url = 'tuna://run/TunaSystem.MenuItemsCatalog.Menu%20Items/Tuna.BasicActionsCatalog.Browse'
+
+    [[comboMode.bindings.children]]
+    key = 'w'
+    url = 'tuna://run/Tuna.CurrentSelectionCatalog.Current%20Clipboard/TunaCore.CommonActionsCatalog.Send%20to%20Script%E2%80%A6/TunaAutomation.ScriptsCatalog.Open%20links%20in%20Helium%20Work%20profile'
 
 [[comboMode.bindings]]
-key = 't'
-url = 'tuna://run/path.%252FSystem%252FApplications%252FUtilities%252FTerminal.app/Open'
+iconPath = 'apple.terminal'
+key = 'a'
 
-[[comboMode.bindings]]
-key = 'f'
-url = 'tuna://run/path.%252FSystem%252FLibrary%252FCoreServices%252FFinder.app/Open'
+    [[comboMode.bindings.children]]
+    key = 'b'
+    url = 'tuna://run/TunaCore.AllApplicationsCatalog.Helium/Open'
 
-[[comboMode.bindings]]
-key = 'm'
-url = 'tuna://run/path.%252FSystem%252FApplications%252FMessages.app/Open'
+    [[comboMode.bindings.children]]
+    key = 'm'
+    url = 'tuna://run/path.%252FSystem%252FApplications%252FMessages.app/Open'
 
-[[comboMode.bindings]]
-key = 'n'
-url = 'tuna://run/path.%252FSystem%252FApplications%252FNotes.app/Open'
+    [[comboMode.bindings.children]]
+    key = 'f'
+    url = 'tuna://run/path.%252FUsers%252Fbo/Open'
 
-[[comboMode.bindings]]
-key = 'd'
-url = 'tuna://run/path.%252FUsers%252Fbo%252FDownloads/Open'
+    [[comboMode.bindings.children]]
+    key = 't'
+    url = 'tuna://run/TunaCore.AllApplicationsCatalog.Ghostty/Open'
 
-[[comboMode.bindings]]
-key = 'h'
-url = 'tuna://run/path.%252FUsers%252Fbo/Open'
+    [[comboMode.bindings.children]]
+    key = 'n'
+    url = 'tuna://run/path.%252FSystem%252FApplications%252FNotes.app/Open'
 
 [hotkeys.app.activate]
 carbonKeyCode = 49
@@ -85,6 +135,18 @@ presentation = 'auto'
     carbonModifiers = 4096
 
 [[hotkeys.custom]]
+id = '760BB011-9707-4416-A7B0-755A591140EC'
+presentation = 'hidden'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Add to Shelf'
+    subjectIdentifier = 'Tuna.CurrentSelectionCatalog.Current Selection'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 8
+    carbonModifiers = 2304
+
+[[hotkeys.custom]]
 id = '8AC78AA4-C6B5-4D02-B59A-95FC00DE6759'
 presentation = 'auto'
 
@@ -100,11 +162,11 @@ presentation = 'auto'
 backspaceBehavior = 'deleteCharacters'
 comboModeKeyboardLayoutBehavior = 'forceUS'
 comboModeModifierTrigger = 'rightCommand'
-comboModeTriggerType = 'disabled'
+comboModeTriggerType = 'modifier'
+mainWindowAnimationsEnabled = false
 resultListNavigationBindings = 'macOSStandard'
 shelfAutoCloseWhenTasksComplete = true
 showResultsImmediatelyOnActivation = true
-spacebarBehavior = 'switchToTextMode'
 talkModeTriggerType = 'disabled'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
 typingTimeoutDuration = 2.5000000000000004
@@ -228,6 +290,12 @@ enabled = true
 name = 'yt'
 requiresInput = true
 template = 'https://www.youtube.com/results?search_query={{input}}'
+
+[[catalogSettings]]
+catalogIdentifier = 'com.brnbw.tuna.plugins.emoji'
+
+    [catalogSettings.values]
+    EmojiSkinTone = 'medium-light'
 
 [[catalogSettings]]
 catalogIdentifier = 'com.brnbw.tuna.themes.default'

@@ -9,11 +9,11 @@ version = 2
 
         [[actionPreferences.typeRankings.actions]]
         actionKey = 'Browse'
-        catalogIdentifier = 'Tuna.BasicActionsCatalog'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
 
         [[actionPreferences.typeRankings.actions]]
         actionKey = "Search for \u2026"
-        catalogIdentifier = 'Tuna.BasicActionsCatalog'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
 
     [[actionPreferences.typeRankings]]
     typeID = 'com.tuna.type.text-snippet'
@@ -36,7 +36,7 @@ version = 2
 
         [[actionPreferences.typeRankings.actions]]
         actionKey = 'Define'
-        catalogIdentifier = 'Tuna.BasicActionsCatalog'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
 
         [[actionPreferences.typeRankings.actions]]
         actionKey = 'Speak Text (Say)'
@@ -49,6 +49,26 @@ folderDepthOverrides = []
     [[catalogConfiguration.scriptsDirectories]]
     id = 'BB4DAEBE-57CA-479C-BB8B-39344A2C903C'
     path = '~/Documents/Software/dot_files/config/tuna/script'
+
+[[catalogs.globalScopes]]
+catalogIdentifier = 'Tuna.EffectsCatalog'
+mode = 'some'
+selectedItemKeys = [ 'Confetti', 'Math' ]
+
+[[catalogs.globalScopes]]
+catalogIdentifier = 'Tuna.ModesCatalog'
+mode = 'some'
+selectedItemKeys = [ 'Combo Mode', 'Fuzzy Mode', 'Text Mode' ]
+
+[[catalogs.globalScopes]]
+catalogIdentifier = 'TunaAutomation.ShortcutsCatalog'
+mode = 'some'
+selectedItemKeys = [ 'New Shortcut', 'Quit all apps' ]
+
+[[catalogs.globalScopes]]
+catalogIdentifier = 'TunaEmoji.EmojiCatalog'
+mode = 'none'
+selectedItemKeys = []
 
 [[catalogs.sortOrders]]
 catalogIdentifier = 'Tuna.Internal.ClipboardProxyCatalog'
@@ -144,7 +164,7 @@ presentation = 'hidden'
 
     [hotkeys.custom.shortcut]
     carbonKeyCode = 8
-    carbonModifiers = 2304
+    carbonModifiers = 768
 
 [[hotkeys.custom]]
 id = '8AC78AA4-C6B5-4D02-B59A-95FC00DE6759'
@@ -188,6 +208,12 @@ enabled = true
 name = 'bk'
 requiresInput = true
 template = 'https://baike.baidu.com/item/{{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'ca'
+requiresInput = false
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FCalculation/TunaCore.CommonActionsCatalog.Open'
 
 [[smartLinks.entries]]
 enabled = true
@@ -242,6 +268,12 @@ enabled = true
 name = 'lab'
 requiresInput = false
 template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FLab_activities%252Fjiqt/TunaCore.CommonActionsCatalog.Open'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'mn'
+requiresInput = true
+template = 'https://zh.moegirl.org.cn/index.php?search={{input}}'
 
 [[smartLinks.entries]]
 enabled = true

@@ -44,6 +44,7 @@ version = 2
 
 [catalogConfiguration]
 customFolders = []
+customItems = []
 folderDepthOverrides = []
 
     [[catalogConfiguration.scriptsDirectories]]
@@ -67,8 +68,23 @@ selectedItemKeys = [ 'New Shortcut', 'Quit all apps' ]
 
 [[catalogs.globalScopes]]
 catalogIdentifier = 'TunaEmoji.EmojiCatalog'
-mode = 'none'
+mode = 'all'
 selectedItemKeys = []
+
+[[catalogs.globalScopes]]
+catalogIdentifier = 'TunaPrompts.AIPromptCatalog'
+mode = 'all'
+selectedItemKeys = [
+    'AI Prompts',
+    'Run Prompt',
+    "Run with Input on Shelf\u2026",
+    "Run with Input\u2026",
+    "Send to Custom Prompt on Shelf\u2026",
+    "Send to Custom Prompt\u2026",
+    "Send to Prompt on Shelf\u2026",
+    "Send to Prompt\u2026",
+    'Summarize'
+]
 
 [[catalogs.sortOrders]]
 catalogIdentifier = 'Tuna.Internal.ClipboardProxyCatalog'
@@ -183,7 +199,6 @@ backspaceBehavior = 'deleteCharacters'
 comboModeKeyboardLayoutBehavior = 'forceUS'
 comboModeModifierTrigger = 'rightCommand'
 comboModeTriggerType = 'modifier'
-mainWindowAnimationsEnabled = false
 resultListNavigationBindings = 'macOSStandard'
 shelfAutoCloseWhenTasksComplete = true
 showResultsImmediatelyOnActivation = true
@@ -322,6 +337,12 @@ enabled = true
 name = 'yt'
 requiresInput = true
 template = 'https://www.youtube.com/results?search_query={{input}}'
+
+[[catalogSettings]]
+catalogIdentifier = 'TunaPrompts.AIPromptCatalog'
+
+    [catalogSettings.values]
+    Provider = 'apple'
 
 [[catalogSettings]]
 catalogIdentifier = 'com.brnbw.tuna.plugins.emoji'

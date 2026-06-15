@@ -196,6 +196,7 @@ presentation = 'auto'
 
 [settings]
 backspaceBehavior = 'deleteCharacters'
+comboModeCheatsheetBehavior = 'never'
 comboModeKeyboardLayoutBehavior = 'forceUS'
 comboModeModifierTrigger = 'rightCommand'
 comboModeTriggerType = 'modifier'
@@ -228,31 +229,31 @@ template = 'https://baike.baidu.com/item/{{input}}'
 enabled = true
 name = 'ca'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FCalculation/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FCalculation/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'con'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FConference/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FConference/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'db'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FApplications%252F%25E8%25B1%2586%25E5%258C%2585.app/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FApplications%252F%25E8%25B1%2586%25E5%258C%2585.app/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'do'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'dw'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FDownloads/TunaCore.CommonActionsCatalog.Open/'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDownloads/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
@@ -276,13 +277,13 @@ template = 'https://scholar.google.com/scholar?q={{input}}'
 enabled = true
 name = 'ji'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FLab_activities%252Fjiqt/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FLab_activities%252Fjiqt/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'lab'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FLab_activities%252Fjiqt/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FLab_activities/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
@@ -292,21 +293,27 @@ template = 'https://zh.moegirl.org.cn/index.php?search={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
+name = 'mp'
+requiresInput = false
+template = 'tuna://run/path.%252FApplications%252F%25E9%25AB%2598%25E5%25BE%25B7%25E5%259C%25B0%25E5%259B%25BE.app/Open?show=false'
+
+[[smartLinks.entries]]
+enabled = true
 name = 'nt'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FNotes/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FNotes/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'pa'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FPapers/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FPapers/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'pu'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FPublications/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252FDocuments%252FPublications/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
@@ -324,13 +331,19 @@ template = 'https://stackoverflow.com/search?q={{input}}'
 enabled = true
 name = 'tmp'
 requiresInput = false
-template = 'tuna://run/path.%252FUsers%252Fbo%252Ftmp/TunaCore.CommonActionsCatalog.Open'
+template = 'tuna://run/path.%252FUsers%252Fbo%252Ftmp/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'wiki'
 requiresInput = true
 template = 'https://en.wikipedia.org/wiki/Special:Search?search={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'yd'
+requiresInput = false
+template = 'tuna://run/path.%252FApplications%252F%25E7%25BD%2591%25E6%2598%2593%25E6%259C%2589%25E9%2581%2593%25E7%25BF%25BB%25E8%25AF%2591.app/Open?show=false'
 
 [[smartLinks.entries]]
 enabled = true

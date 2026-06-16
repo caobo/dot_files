@@ -1,42 +1,55 @@
-local M = { "lukas-reineke/indent-blankline.nvim" }
+local M = { "saghen/blink.indent" }
 
-M.main = "ibl"
 M.event = { 'BufReadPost', 'BufNewFile' }
 
 function M.config()
-    local highlight = {
-        "RainbowRed",
-        "RainbowYellow",
-        "RainbowBlue",
-        "RainbowOrange",
-        "RainbowGreen",
-        "RainbowViolet",
-        "RainbowCyan",
-    }
 
-    local hooks = require "ibl.hooks"
-    -- create the highlight groups in the highlight setup hook, so they are reset
-    -- every time the colorscheme changes
-    hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-        vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-        vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-        vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-        vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-        vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-        vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
-    end)
-
-    vim.g.rainbow_delimiters = { highlight = highlight }
-    hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-
-    require("ibl").setup {
+    --- @module 'blink.indent'
+    --- @type blink.indent.Config
+    require('blink.indent').setup({
+        blocked = {
+            -- default: 'terminal', 'quickfix', 'nofile', 'prompt'
+            buftypes = { include_defaults = true },
+            -- default: 'lspinfo', 'packer', 'checkhealth', 'help', 'man', 'gitcommit', 'dashboard', ''
+            filetypes = { include_defaults = true },
+        },
+        mappings = {
+            -- which lines around the scope are included for 'ai': 'top', 'bottom', 'both', or 'none'
+            border = 'both',
+            -- set to '' to disable
+            -- textobjects (e.g. `y2ii` to yank current and outer scope)
+            object_scope = 'ii',
+            object_scope_with_border = 'ai',
+            -- motions
+            goto_top = '[i',
+            goto_bottom = ']i',
+        },
+        static = {
+            enabled = true,
+            char = '▎',
+            whitespace_char = nil, -- inherits from `vim.opt.listchars:get().space` when `nil` (see `:h listchars`)
+            priority = 1,
+            -- specify multiple highlights here for rainbow-style indent guides
+            -- highlights = { 'BlinkIndentRed', 'BlinkIndentOrange', 'BlinkIndentYellow', 'BlinkIndentGreen', 'BlinkIndentViolet', 'BlinkIndentCyan' },
+            highlights = { 'BlinkIndent' },
+        },
         scope = {
-            highlight = highlight,
-            show_start = true,
-            show_end = true,
-        }
-    }
+            enabled = true,   -- highlight highest level of indentation on the current line
+            indent_at_cursor = false, -- clamp to indent level of cursor
+            char = '▎',
+            priority = 1000,
+            -- set this to a single highlight, such as 'BlinkIndent' to disable rainbow-style indent guides
+            -- highlights = { 'BlinkIndentScope' },
+            -- optionally add: 'BlinkIndentRed', 'BlinkIndentCyan', 'BlinkIndentYellow', 'BlinkIndentGreen'
+            highlights = { 'BlinkIndentOrange', 'BlinkIndentViolet', 'BlinkIndentBlue' },
+            -- enable to show underlines on the line above the current scope
+            underline = {
+                enabled = true,
+                -- optionally add: 'BlinkIndentRedUnderline', 'BlinkIndentCyanUnderline', 'BlinkIndentYellowUnderline', 'BlinkIndentGreenUnderline'
+                highlights = { 'BlinkIndentOrangeUnderline', 'BlinkIndentVioletUnderline', 'BlinkIndentBlueUnderline' },
+            },
+        },
+    })
 end
 
 return M

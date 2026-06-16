@@ -16,13 +16,13 @@ local function color_select(color_table)
     local setting = { string.format("%s", repo) }
     setting.event = { 'BufReadPost', 'BufNewFile' }
     setting.name = name
-    setting.config = function ()
+    setting.config = function()
         opts()
     end
     return setting
 end
 
-local rose_opts = function ()
+local rose_opts = function()
     local rose = require("rose-pine")
     rose.setup({
         variant = "main",      -- auto, main, moon, or dawn
@@ -101,7 +101,7 @@ local rose_opts = function ()
     color_setting("rose-pine")
 end
 
-local catppuccin_opts = function ()
+local catppuccin_opts = function()
     require('catppuccin').setup {
         flavour = "mocha",             -- latte, frappe, macchiato, mocha
         transparent_background = true, -- disables setting the background color.
@@ -115,30 +115,12 @@ local catppuccin_opts = function ()
             blink_cmp = true,
             fzf = true,
             gitsigns = true,
-            indent_blankline = { enabled = true },
             treesitter = true,
             treesitter_context = true,
-            native_lsp = {
-                enabled = true,
-                virtual_text = {
-                    errors = { "italic" },
-                    hints = { "italic" },
-                    warnings = { "italic" },
-                    information = { "italic" },
-                    ok = { "italic" },
-                },
-                underlines = {
-                    errors = { "underline" },
-                    hints = { "underline" },
-                    warnings = { "underline" },
-                    information = { "underline" },
-                    ok = { "underline" },
-                },
-                inlay_hints = {
-                    background = true,
-                },
-            },
-            which_key = true
+            which_key = true,
+            blink_indent = true,
+            nvim_surround = true,
+            ts_rainbow2 = true,
         },
         styles = {
             comments = { "italic" }, -- Change the style of comments
@@ -151,9 +133,29 @@ local catppuccin_opts = function ()
             numbers = { "bold" },
             booleans = { "italic" },
         },
+        lsp_styles = { -- Handles the style of specific lsp hl groups (see `:h lsp-highlight`).
+            virtual_text = {
+                errors = { "italic", "bold" },
+                hints = { "italic" },
+                warnings = { "italic" },
+                information = { "italic" },
+                ok = { "italic" },
+            },
+            underlines = {
+                errors = { "underline" },
+                hints = { "underline" },
+                warnings = { "underline" },
+                information = { "underline" },
+                ok = { "underline" },
+            },
+            inlay_hints = {
+                background = true,
+            },
+        },
         custom_highlights = function(colors)
             return {
                 LineNr = { fg = colors.overlay2 },
+                Comment = { fg = '#DDC9B1' },
             }
         end,
         color_overrides = {
@@ -172,7 +174,7 @@ local catppuccin_opts = function ()
                 sapphire = '#8fc7ff',
                 blue = '#8fc7ff',
                 lavender = '#ebe5ff',
-                text = '#ffffff',
+                text = '#E9F1F6',
                 subtext1 = '#deddda',
                 subtext0 = '#c0bfbc',
                 overlay2 = '#858585',
@@ -191,7 +193,7 @@ local catppuccin_opts = function ()
 end
 
 local rose_theme = { "rose-pine/neovim", rose_opts, "rose" }
-local catppuccin_theme = { "catppuccin/nvim", catppuccin_opts, "catppuccin"}
+local catppuccin_theme = { "catppuccin/nvim", catppuccin_opts, "catppuccin" }
 
 _ = rose_theme
 _ = catppuccin_theme

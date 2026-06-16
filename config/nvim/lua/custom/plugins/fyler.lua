@@ -32,7 +32,7 @@ function M.config()
         kind_presets = {
             floating = {
                 -- Border style (see: :h winborder)
-                border = 'single',
+                border = 'bold',
                 -- Size of buffer:
                 -- - string with '%' for relative (e.g. '70%')
                 -- - number for absolute
